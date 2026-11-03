@@ -216,6 +216,48 @@
       "artifact_refs": [
         "SUITE_ARCHITECTURE.md"
       ]
+    },
+    {
+      "change_id": "REGIE-20261103-003",
+      "record_type": "SUITE_GOVERNANCE_DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Module-originated findings can be flagged for central suite-impact review through relay",
+      "status": "APPROVED",
+      "source_reference": "TETOOLS__REGIE user instructions and clarification 2026-11-03; exact thread ID unavailable",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "002",
+      "supersedes": null,
+      "artifact_refs": [
+        "RELAY_CONTRACT.md",
+        "SUITE_ARCHITECTURE.md"
+      ],
+      "note": "No automatic notifications; module submits signal and central regie reads relay."
+    },
+    {
+      "change_id": "REGIE-20261103-004",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "origin_module": "ADMIN_OBJECTS",
+      "subject": "PM-001 SEARCH_CONDITION_VC possible cross-module implications",
+      "status": "PROPOSED",
+      "source_reference": "TETOOLS__REGIE clarification 2026-11-03; ADMIN_OBJECTS PM-001 issue; exact message URL UNVERIFIED",
+      "origin_session": "ADMIN_OBJECTS__REGIE; exact origin message UNVERIFIED",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_at": "2026-11-03",
+      "revision": "001",
+      "supersedes": null,
+      "observed_facts": "Issue under discussion in ADMIN_OBJECTS__REGIE; no verified cross-module defect supplied.",
+      "potential_cross_module_impact": "Possible common Oracle 19c dictionary metadata and datatype extraction concern; hypothesis only.",
+      "affected_modules": "UNKNOWN",
+      "artifact_refs": [
+        "SUITE_ARCHITECTURE.md"
+      ],
+      "disposition": "INVESTIGATE"
     }
   ]
 }

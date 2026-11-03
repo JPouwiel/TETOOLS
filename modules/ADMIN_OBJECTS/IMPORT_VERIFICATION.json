@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-03",
+  "repository": "JPouwiel/TETOOLS",
+  "base_commit": "c188ce782c0334299afe2d959a0533c56f222f53",
+  "import_commit": "ca093760e46f1478340144974ca7d664855518ae",
+  "merge_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039",
+  "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/6",
+  "main_readback_verified": true,
+  "uploaded_files_verified": 28,
+  "frozen_release_files_verified": 71,
+  "frozen_release_tree_sha": "649a5889749126523fd379e8034fe48f86a31a67",
+  "unrelated_original_blobs_preserved": 117,
+  "source_files_verified": 10,
+  "source_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+  "oracle_runtime": "NOT_EXECUTED",
+  "history_complete": false,
+  "verification": "Published main tree matches every imported Git blob and frozen release tree; unrelated original blobs preserved. Git blob identity binds exact uploaded bytes."
+}

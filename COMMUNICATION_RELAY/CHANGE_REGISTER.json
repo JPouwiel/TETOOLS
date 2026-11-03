@@ -103,6 +103,28 @@
         "../modules/ADMIN_OBJECTS/SOURCE_MANIFEST.json"
       ],
       "note": "No new code or policy acceptance; implementation verification appended after merge/readback."
+    },
+    {
+      "change_id": "OBJECTS-20261103-002",
+      "record_type": "MODULE_IMPORT_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Confirm canonical ADMIN_OBJECTS import after merge and main readback",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/6",
+      "origin_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "recorded_by_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "approved_by": "user: explicit import request in this conversation, 2026-11-03",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "PM-001-004",
+      "supersedes": "OBJECTS-20261103-001",
+      "merge_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/IMPORT_VERIFICATION.json",
+        "../modules/ADMIN_OBJECTS/CURRENT_STATUS.md"
+      ],
+      "verification": "28 imported files and unchanged 71-file release tree read back on main; 117 unrelated original blobs preserved. Oracle NOT_EXECUTED."
     }
   ]
 }

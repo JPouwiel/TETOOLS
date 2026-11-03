@@ -45,15 +45,15 @@
     },
     {
       "path": "CHANGE_REGISTER.json",
-      "bytes": 4723,
-      "sha256": "10c3ea4f6840ce85fed0a9068e6eed4896453c8e33e35e35ad81239483b05898",
-      "git_blob_sha": "a7069e5fa1153d2b3791bed8176cf6ce3e64019e"
+      "bytes": 5953,
+      "sha256": "09a410ee466f716d4c4c57703a412886a0ca4f590f76b986b05b04fd3dee38d2",
+      "git_blob_sha": "c89eeedb4f5904bd34fe5748ea6a3688d1fdef8d"
     },
     {
       "path": "CURRENT_STATUS.md",
-      "bytes": 1975,
-      "sha256": "dd95e2cec4cdf4b9aea66de7ef7a1e7a6692887c1ec85cd347d17ca81af3af85",
-      "git_blob_sha": "34a6d215551a8c9e0545e48fed8430b2f012fb8b"
+      "bytes": 2185,
+      "sha256": "3479c1da433094a4dbc46c70b97c0751af5d803345578bca0b1a2298944494b1",
+      "git_blob_sha": "7a3e8a0bfcb1a02b3c04b909079bb4f82ced48ac"
     },
     {
       "path": "DECISIONS.md",
@@ -555,9 +555,9 @@
     },
     {
       "path": "SESSION_REGISTRY.json",
-      "bytes": 3598,
-      "sha256": "4178975cd45becfca94fd0b43facd0570d191b978881b410b2f14c0b3cd6369b",
-      "git_blob_sha": "82516049fc997903e5f3e5df555008392ffaaeb9"
+      "bytes": 4899,
+      "sha256": "5bc074050160212bd7d10edfaa275929659a412a8eda084d1921a131b13828f8",
+      "git_blob_sha": "c68671573d157882d6f400d8eec1ffe5ab1589fe"
     },
     {
       "path": "tools/validate_relay.py",
@@ -572,5 +572,13 @@
   },
   "inventory_updated_at": "2026-11-03",
   "inventory_base_commit": "c188ce782c0334299afe2d959a0533c56f222f53",
-  "inventory_excludes_self": true
+  "inventory_excludes_self": true,
+  "canonical_module_imports": {
+    "ADMIN_OBJECTS": {
+      "path": "modules/ADMIN_OBJECTS",
+      "verified_merge_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039",
+      "proof": "../modules/ADMIN_OBJECTS/IMPORT_VERIFICATION.json",
+      "oracle_runtime": "NOT_EXECUTED"
+    }
+  }
 }

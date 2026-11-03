@@ -79,7 +79,7 @@
       "module": "ADMIN_OBJECTS",
       "subject": "Canonical module import and REGIE context preservation",
       "revision": "PM-001-004 / original BODY20261012_001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
       "last_confirmed_at": "2026-11-03",
@@ -95,7 +95,34 @@
         "VAL-01"
       ],
       "recorded_by": "01a138d4-ee43-7930-aea2-4ec084041013",
-      "note": "Import in progress; no claim of Oracle validation or permission to delete source chats."
+      "note": "Import merged through PR #6 and main readback verified. Oracle and historical gaps remain open. This is not chat closure/deletion approval.",
+      "merge_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/6"
+    },
+    {
+      "session_id": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "role": "REGIE",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Design direction and project communication relay",
+      "revision": "PM-001-004 / relay v1",
+      "status": "REGISTERED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "../modules/ADMIN_OBJECTS/context/ADMIN_OBJECTS_REGIE_recent_20261103.json",
+      "deliverables": [
+        "RELAY_CONTRACT.md",
+        "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md"
+      ],
+      "open_dependencies": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "VAL-01"
+      ],
+      "recorded_by": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation."
     }
   ]
 }

@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Exact full 003 CAN-001 reference vector, executed on Oracle by 03_tests.sql.
 declare m clob;b blob;expected_ blob;h raw(32);r raw(32767);begin
  m:=q'~

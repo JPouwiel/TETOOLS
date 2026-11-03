@@ -45,9 +45,9 @@
     },
     {
       "path": "CHANGE_REGISTER.json",
-      "bytes": 7915,
-      "sha256": "e2280521ce4af4fbabff4975e9947c6efa71fc1ee4a78b117f123a7175e09395",
-      "git_blob_sha": "51bc8cd28dea8deda8dd3c76509043201e2d1fec"
+      "bytes": 8087,
+      "sha256": "ef5855e830c4bd6f3a6620fe49acb061e78b67e4a59a9082b5448491fbdf06bc",
+      "git_blob_sha": "9f8d31fb425f08b845061dc809920052255aa50b"
     },
     {
       "path": "CURRENT_STATUS.md",
@@ -573,9 +573,9 @@
     },
     {
       "path": "SESSION_REGISTRY.json",
-      "bytes": 6856,
-      "sha256": "e842bfb39564c801ad10230d1e1427a97dcb9ecdb947e2c0355db01907c2d160",
-      "git_blob_sha": "1cd76da4fe22b47019bcbc28a60f8467b9b6f67f"
+      "bytes": 6922,
+      "sha256": "d6373f25878a49044551db13292f455989de205fc2b8ef948baaf843f316c1c6",
+      "git_blob_sha": "7b6c0bffe201a0d2c5357d242c9b06e7a9948fa5"
     },
     {
       "path": "tools/validate_relay.py",

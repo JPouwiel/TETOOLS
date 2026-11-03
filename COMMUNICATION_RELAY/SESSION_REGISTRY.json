@@ -181,7 +181,8 @@
         "AS-OPEN-10"
       ],
       "recorded_by": "01a138df-aece-73c1-a082-32fa2d835303",
-      "note": "Package preparation completed; publication branch awaits PR review. Not merged or technically approved. Oracle NOT_EXECUTED; session retained, not closed."
+      "note": "Published through open PR #10; readback of initial payload passed. Not merged or technically approved. Oracle NOT_EXECUTED; retention KEEP, not CLOSED.",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/10"
     }
   ]
 }

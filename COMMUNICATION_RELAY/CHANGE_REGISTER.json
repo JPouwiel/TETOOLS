@@ -167,9 +167,10 @@
         "../modules/ADMIN_SESSIONS/manifest.json",
         "MODULES/ADMIN_SESSIONS/README.md"
       ],
-      "pull_request": "PENDING_CREATION; associated branch PR supplies identity",
-      "note": "No technical approval or merge. Preserve prior entries and frozen releases.",
-      "approved_by": "user: explicit publication request on 2026-11-03; publication scope only"
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/10",
+      "note": "Published branch PR #10 remains open; 44 initial payload Git identities and both manifests read back. No merge or technical approval. Final head verification is reported in the PR.",
+      "approved_by": "user: explicit publication request on 2026-11-03; publication scope only",
+      "publication_payload_commit": "f6d150c80625e8e16249e0f391c4dd8a56433f38"
     }
   ]
 }

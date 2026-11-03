@@ -72,6 +72,30 @@
       "note": "Import completed via PR #4 and main readback; exact ChatGPT thread ID not exposed. Local registration key only. Oracle review/runtime and LOG-OPEN-01 through LOG-OPEN-05 remain open; retain chat context.",
       "merge_commit": "e741ae9e2b8d82d25acf778690ff60b9476c6bc1",
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/4"
+    },
+    {
+      "session_id": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "role": "WORK_IMPORT",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Canonical module import and REGIE context preservation",
+      "revision": "PM-001-004 / original BODY20261012_001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+      "deliverables": [
+        "../modules/ADMIN_OBJECTS/"
+      ],
+      "open_dependencies": [
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "VAL-01"
+      ],
+      "recorded_by": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "note": "Import in progress; no claim of Oracle validation or permission to delete source chats."
     }
   ]
 }

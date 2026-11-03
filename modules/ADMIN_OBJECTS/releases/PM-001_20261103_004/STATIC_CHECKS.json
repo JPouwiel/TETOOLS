@@ -1,0 +1,58 @@
+{
+  "status": "PASS_LIMITED_STATIC_CHECKS",
+  "not_an_oracle_compiler": true,
+  "sql_files": [
+    {
+      "file": "00_install.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 79
+    },
+    {
+      "file": "00_privileges.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 89
+    },
+    {
+      "file": "01_setup.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 117
+    },
+    {
+      "file": "02_package.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 254
+    },
+    {
+      "file": "03_reference_vector.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 2473
+    },
+    {
+      "file": "03_tests.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 157
+    },
+    {
+      "file": "04_verify_persistence.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 134
+    },
+    {
+      "file": "05_cleanup.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 123
+    },
+    {
+      "file": "06_privilege_error.sql",
+      "quotes_comments_parentheses": "PASS",
+      "maximum_line_characters": 117
+    }
+  ],
+  "pure_stage_query_dml_scan": "PASS",
+  "package_no_commit_scan": "PASS",
+  "catalog_53_exact": "PASS",
+  "reference_37_hashes": "PASS",
+  "root_registers_byte_equal": "PASS",
+  "cleanup_all_created_tables": "PASS",
+  "python_tools_parse": "PASS"
+}

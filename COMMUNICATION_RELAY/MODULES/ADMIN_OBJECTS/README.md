@@ -1,15 +1,7 @@
-# ADMIN_OBJECTS / PM-001
+# ADMIN_OBJECTS — relay-verwijzing
 
-Opgeleverd: PM-001 revisie 004, afgerond in de bestaande implementatiesessie.
-De bevroren release staat in RELEASES/PM-001_20261103_004 en is bytegelijk
-aan de afgeronde oplevering in de gedeelde output-map. Revisie 003 is behouden.
+Canonieke modulelocatie: [modules/ADMIN_OBJECTS](../../../modules/ADMIN_OBJECTS/README.md), op expliciete gebruikersopdracht van 3 november 2026.
 
-De release bevat zelf DESIGN, sql, tools, reference, DECISIONS, REQUIREMENTS,
-OPEN_POINTS, SOURCE_INDEX, TRACEABILITY en TEST_RESULTS. Die registers niet
-nogmaals handmatig kopiëren naar concurrerende actuele bestanden.
+De [bestaande bevroren release](RELEASES/PM-001_20261103_004/README.md) blijft ongewijzigd behouden. De [canonieke release](../../../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/README.md) gebruikt dezelfde Git-tree. Originele modulebron en aanvullende analyse-/ontwerpcontext staan op het canonieke pad. Dit is geen nieuwe inhoudelijke release of Oracle-validatie.
 
-De complete release heeft een herleidbare verwijzing en SHA-256.
-Aanvullende regiereviews en verschillen
-staan onder REVIEW; werkelijk Oracle-testbewijs onder TESTS/<revisie>/<run-id>.
-Bewaar bij tests databaseversie/RU, PDB, schema, tijd en uitvoerder, zonder
-wachtwoorden. Teststatus blijft NOT_EXECUTED totdat echte uitvoer beschikbaar is.
+[Regiereview](REVIEW/REGIE_004.md) en bestaande [testbewijsafspraken](TESTS/README.md) blijven geldig. Oracle-runtime: NOT_EXECUTED. Releasegebonden besluiten, eisen en open punten worden niet dubbel handmatig bijgehouden.

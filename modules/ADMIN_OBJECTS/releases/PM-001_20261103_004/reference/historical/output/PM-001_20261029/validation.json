@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-29",
+  "html": "20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+  "checks": {
+    "unique_ids": 59,
+    "internal_links": 133,
+    "chapters": 26,
+    "search": true,
+    "status_filter": true,
+    "subject_filter": true,
+    "no_results": true,
+    "clear_filters": true,
+    "expand_collapse": true,
+    "anchor_reveals_collapsed_chapter": true,
+    "offline_file_load": true,
+    "external_asset_requests": 0,
+    "javascript_errors": [],
+    "viewport_390_no_page_overflow": true,
+    "print_expands_all_chapters_and_appendices": true,
+    "print_restores_screen_state": true,
+    "print_styles_checked": true,
+    "browser_print_pdf_generated": true,
+    "print_pages": 49,
+    "print_a4_landscape": true,
+    "print_text_outside_page": 0,
+    "all_chapter_ids_in_print": true,
+    "print_visual_review": "Rendered print sample reviewed; full-page overview inspected during layout correction."
+  },
+  "not_executed": [
+    "Oracle compilation",
+    "Oracle SQL/PLSQL runtime",
+    "Performance benchmark",
+    "Complete external-link HTTP validation; Oracle reference pages were opened separately"
+  ],
+  "limitations": [
+    "Early PDF-only conversation attachments not inspected.",
+    "Exact byte protocol remains a proposal/open decision."
+  ]
+}

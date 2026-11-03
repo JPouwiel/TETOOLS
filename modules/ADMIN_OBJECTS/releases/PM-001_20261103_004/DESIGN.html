@@ -1,0 +1,1811 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PM-001 revisie 004 - TETOOLS ADMIN_OBJECTS</title><style>
+body{font:16px/1.55 system-ui,sans-serif;color:#182a35;background:#f4f6f8;margin:0}main{max-width:1180px;margin:auto;padding:32px;background:white}nav{position:sticky;top:0;padding:12px;background:#182a35;color:white;display:flex;gap:14px;flex-wrap:wrap}nav a{color:white;font-size:13px}h1,h2{color:#16485d;line-height:1.25}h1{margin-top:40px}h2{margin-top:30px}section{border-bottom:2px solid #d4dfe5;padding-bottom:28px;scroll-margin-top:95px}pre{font:11pt/1.45 'Courier New',monospace;background:#f2f5f7;padding:18px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:'Courier New',monospace}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0}td{border:1px solid #cbd5df;vertical-align:top;padding:9px}tr:first-child{font-weight:bold;background:#eaf0f4}a{color:#155e89}details{margin:15px 0}summary{cursor:pointer;font-weight:bold}.status{border-left:5px solid #b56a00;padding:18px;background:#fff3dc}button{padding:8px 14px;font:inherit}@media print{nav,button{display:none}body,main{background:white;padding:0}pre{font-size:11pt}table{font-size:10pt}h1,h2,summary{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><nav><a href="#DESIGN">DESIGN</a> <a href="#REFERENCE_CHECK">REFERENCE_CHECK</a> <a href="#DECISIONS">DECISIONS</a> <a href="#REQUIREMENTS">REQUIREMENTS</a> <a href="#OPEN_POINTS">OPEN_POINTS</a> <a href="#SOURCE_INDEX">SOURCE_INDEX</a> <a href="#DEVIATIONS">DEVIATIONS</a> <a href="#RUNBOOK">RUNBOOK</a></nav><main><p class="status"><strong>PM-001 revisie 004</strong> - code en testpakket voorbereid. Oracle 19c-compilatie en runtime: NOT_EXECUTED. Historische volledigheid begrensd. Geen productie-uitrol.</p><p><button onclick="window.print()">Afdrukken</button> <a href="PM001_004.pdf">PDF leesdocument</a> | <a href="reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_003.html">Volledig ongewijzigd cumulatief ontwerp 003</a> | <a href="TRACEABILITY.csv">Traceability</a> | <a href="TEST_RESULTS.csv">Teststatus</a></p><section id="DESIGN"><h1>PM-001 revisie 004 - actueel ontwerp</h1>
+<p>3 november 2026 | Oracle Database 19c EE | opvolger van 003</p>
+<h2>PM-001-36 - Referentie en voorrang</h2>
+<p>De vooraf gecontroleerde reference/manifest.json v1 is de enige inhoudelijke besluitenbasis. De vier registers zijn in de root bytegelijk gekopieerd. De oorspronkelijke revisie 003 en historische bronnen blijven ongewijzigd beschikbaar onder reference/. H28-H35 uit 003 bepalen de behouden profiel-/protocolregels; 004 vervangt uitsluitend de implementatie en testdekking voor B03/B04/B07 zoals geregistreerd in DEVIATIONS.md. H01-H27 blijven historie. De concrete profielinvulling en CAN-001 zijn nog voorstellen; de architectuurscheiding en afwijzing van de installatiehash zijn besluiten.</p>
+<h2>PM-001-37 - Testbare interfaces (B03)</h2>
+<p>extract_metadata(table, source) retourneert METADATA_V1: eigenaar, tabel, bronroute, container, instance/versie en acht datasets met ruwe Oraclewaarden. Elke dataset bevat records met afzonderlijke NUMBER- en VARCHAR2-cellen. Alleen de extractor leest SYS.CDB_/DBA_ en GV_$INSTANCE. Identifiers zijn vast uit een allowlist; eigenaar/tabel/container zijn binds. De owner is de package-eigenaar binnen definerrechten; geen vrije cross-schemaextractie.</p>
+<p>normalize_metadata(dataset) retourneert een JSON-CLOB met genormaliseerde getypeerde veldrecords. Het doet geen dictionaryquery, opslag of hashing. De 003-regels blijven identiek voor geldige invoer. Ordered-column HEX-waarden blijven de bestaande profielgrammatica en gebruiken de gedeelde pure value_frame-helper. De test wijzigt een kopie van de raw dataset; de normalizer moet die wijziging behandelen zonder opnieuw de dictionary te lezen.</p>
+<p>serialize_manifest(manifest) retourneert BLOB en SHA-256. Het valideert de profieltupel, canonical version, recordaantallen, veld-ID-volgorde, tags, JSON-null/tekst en bytegrenzen, sorteert de volledige records unsigned binair en schrijft de CAN-001-header en records. Het doet geen dictionaryquery of DML. calculate coördineert de drie stappen en voegt alleen de digest aan de diagnostische manifest-JSON toe.</p>
+<p>store_observations(table, source, release) maakt één verse extractie via calculate, registreert de TABLE_CORE/2-observatie en serialiseert ieder constraint/index-record afzonderlijk als CONSTRAINT_CORE/1 of INDEX_CORE/1. Het leest geen metadata opnieuw per kind. Iedere individuele manifest/digest krijgt een releasekoppeling. De interne savepoint maakt de nieuwe set atomair zonder callerwerk te committen. Duplicaatsleutels overschrijven niets. Er komt geen samengestelde installatiehash.</p>
+<p>Foutcontract: op iedere exception alle OUT-waarden verwerpen. Bij succesvolle extractie zijn er geen LOBs; bij succesvolle normalisatie/serialisatie/calculatie moet de caller geretourneerde tijdelijke LOBs vrijgeven. Packagecoördinatoren ruimen hun eigen tijdelijke LOBs op. Geen enkele packageprocedure commit. Er is geen metadata- of baselinecache.</p>
+<h2>PM-001-38 - METADATA_V1 datasetcontract</h2>
+<p>Alle slots bestaan, ook wanneer hun rows_ leeg is. Records zijn dicht geïndexeerd vanaf 1. Tekstkolommen staan in txt(k), NUMBER-kolommen in num(k), inclusief expliciete NULL-waarden. De kolomposities volgen de vaste selectielijst in extract_metadata. De datasets zijn geen vrij uitbreidbare productie-API: bij wijziging is een nieuwe contractversie nodig.</p>
+<table><tbody>
+<tr><td>Slot</td><td>Dataset</td><td>Kolommen in selectvolgorde (N = NUMBER, overige tekst)</td></tr>
+<tr><td>1</td><td>TABLES</td><td>iot_type, cluster_name, temporary, nested, partitioned, secondary</td></tr>
+<tr><td>2</td><td>EXTERNAL_TABLES</td><td>table_name</td></tr>
+<tr><td>3</td><td>TAB_COLS</td><td>column_name, column_id(N), data_type, data_precision(N), data_scale(N), char_length(N), char_used, data_length(N), nullable, hidden_column, virtual_column, identity_column, default_length(N), collation</td></tr>
+<tr><td>4</td><td>CONS_COLUMNS</td><td>constraint_name, column_name, position(N); binary name/position order</td></tr>
+<tr><td>5</td><td>CONSTRAINTS</td><td>constraint_name, constraint_type, generated, status, deferrable, deferred, validated, rely</td></tr>
+<tr><td>6</td><td>IND_COLUMNS</td><td>index_name, column_name, column_position(N), descend, index_owner; binary name/position order</td></tr>
+<tr><td>7</td><td>INDEXES</td><td>index_name, index_type, uniqueness, generated, partitioned, status, visibility, compression, prefix_length(N), owner</td></tr>
+<tr><td>8</td><td>CHECK LONG</td><td>constraint_name, complete search_condition; DBMS_SQL COLUMN_VALUE_LONG</td></tr>
+</tbody></table>
+<p>De extractor bewaart de volledige CHECK LONG tot de expliciete buffergrens. Geen *_VC-truncatie. Per dataset maximaal 1000 rijen; de genormaliseerde documentgrens blijft 1000 records. De extra extractiebound voorkomt onbeperkte opslag vóór normalisatie. CDB filtert eigenaar+tabel+actuele CON_ID; DBA leest dezelfde lokale PDB met eigenaar+tabel. GV_$INSTANCE is provenance buiten de canonical bytes. Geen root-, cross-container- of atomair-snapshotclaim. Tijdens alle vergelijkingen geen gelijktijdige DDL [O1/O6].</p>
+<h2>PM-001-39 - Profielen en CAN-001 behouden</h2>
+<p>TABLE_CORE/2 bevat het HEAP-record, kolomrecords en de geselecteerde P/U/C-constraint- en NORMAL-indexrecords. NUMBER-precisie is decimaal; FLOAT-precisie is binair. NUMBER/FLOAT bewaren scale afzonderlijk. CHAR_LENGTH en CHAR_USED gelden alleen voor tekentypen; DATA_LENGTH wordt volgens de bestaande voorstelregel alleen voor RAW en BYTE CHAR/VARCHAR2 geëvalueerd. Overige toepasselijkheden zijn N/A, ontbrekende toepasselijke waarden NULL. De oorspronkelijke historische reden voor de DATA_LENGTH-omissie blijft onbekend [O2].</p>
+<p>Canonieke header: hex 414F330000000001, value frames voor profielcode, profielversie als integertekst, CAN-001-DRAFT-1, SHA256, daarna uint32-recordaantal. Record: één typetag (10 TABLE, 11 COLUMN, 12 CONSTRAINTS, 13 INDEX in hex), uint32-payloadlengte, daarna velden met uint32-ID plus value frame. Value frame: één tag (0 NULL, 1 N/A, 2 UTF-8 STRING, 3 canonieke integertekst), uint32-bytelengte en payload. Alle uint32 zijn unsigned big-endian. Tekst is expliciet AL32UTF8. Integertekst heeft geen plus, voorloopnul of -0. Oracle lege string is NULL; lege STRING-payload is in deze PoC uitgesloten.</p>
+<p>Records worden op volledige raw bytes gesorteerd; multipliciteit blijft behouden. Maximaal 8000 UTF-8-bytes/veld, 15995 payloadbytes plus 5 framingbytes/record, 1000 records en 1000000 documentbytes. SHA256 gebruikt de volledige BLOB [O3]. Runtimebron en diagnostische identiteit blijven buiten de hash; generated constraint/indexnamen volgen de 003-N/A-regels. Een TABLE-objectprofiel met componentrecords is geen installatiehash. De volledige vaste 003-vector wordt ongewijzigd uitgevoerd en onafhankelijk geverifieerd.</p>
+<h2>PM-001-40 - Echte preflight (B04)</h2>
+<p>preflight(label, identity, source, release) verwerkt een concrete componentaanvraag. TABLE wordt vers uitgelezen. INDEX en CONSTRAINTS resolveren hun parent in dezelfde gekozen bron en selecteren hun eigen genormaliseerde record; een unsupported parent voorkomt dus ook een misleidend kindresultaat. Een ondersteund resultaat heet RECOGNIZED/EVALUATED_WITHIN_PROFILE met reden BOUNDED_PROFILE; dit is de concrete invulling van het in de regie voorgestelde SUPPORTED, begrensd tot profieldekking.</p>
+<p>Bekende niet-geëvalueerde zelfstandige objecttypen krijgen pas na lokale identiteitscontrole RECOGNIZED_ONLY/NOT_EVALUATED. UNKNOWN betekent geen catalogusmapping voor het werkelijk aangeboden label; de aangeboden identiteit moet wel werkelijk bestaan. Het package verzint geen onbekend Oracle-type. De test biedt een ongemapt label bij de bestaande view AO4_V aan. USER_OBJECTS is hier een hulpbron voor lokale identiteit, niet de bron van de objectfingerprint.</p>
+<p>Unsupported shapes en expliciete extractiebounds leveren UNSUPPORTED/UNSUPPORTED_SHAPE. Ontbrekende of ontoegankelijke metadata levert ERROR/EXTRACTION_ERROR; onverwachte fouten in latere fases krijgen NORMALIZATION_ERROR of SERIALIZATION_ERROR. De werkelijke SQLCODE/SQLERRM, fase, bron, container, tijd en aanbevolen BLOCK_AND_REVIEW worden opgeslagen. Foutpaden leveren geen nieuwe succesvolle digest op. Registratiefouten zelf worden doorgegeven; het package kan niet beloven een bevinding te bewaren als de findingopslag zelf faalt.</p>
+<p>AO4_FINDING heeft een release-FK en identity-ID. Caller COMMIT maakt findings persistent; ROLLBACK verwijdert ze. Preflight schrijft geen accepted baseline en voert geen aangeboden DDL uit. Uitzonderingsautorisatie, uitvoeringsmodi en productielifecycle blijven buiten scope. De vijf gecommitte basisgevallen worden na herverbinding opnieuw gecontroleerd; de privilegeproef voegt afzonderlijk de werkelijke toegangsweigering toe.</p>
+<h2>PM-001-41 - Verificatie en grenzen (B07)</h2>
+<p>TEST_RESULTS.csv bevat de 63 vaste T-assertions plus dynamische rijassertions, drie persistentieassertions, twee privilegeassertions en cleanup, alle bij oplevering NOT_EXECUTED. TRACEABILITY.csv koppelt R01-R16 aan code en assertions. De onafhankelijke Pythonchecker reconstrueert alle werkelijke JSON/hex-evidence uit het latere Oracle-log en vergelijkt iedere opgeslagen kindobservatie met het bijbehorende bronrecord. Hij verlangt alle afzonderlijke markers. Synthetische invoer is uitsluitend gebruikt voor lokale checkerzelftests; zulke logs zijn geen Oracle-bewijs en worden niet meegeleverd als database-uitvoer.</p>
+<p>Lokale controle is begrensd: bronintegriteit, lexicale/scriptstructuur, interfaceverantwoordelijkheden, allowlists, testinventaris, referentie-encoder en documentopmaak. Dit is geen Oracle-compiler of runtime. Zie VALIDATION.json voor werkelijk uitgevoerde controles, RUNBOOK.md voor G0-G5 en OPEN_POINTS.md voor de resterende besluiten. Productieautorisatie en volledige historische sluitendheid worden niet geclaimd.</p>
+<p>Aanvullende technische bron O7: Oracle 19c JSON Data Structures, <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/json-types.html.">https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/json-types.html.</a> JSON-null wordt expliciet geïnspecteerd; niet-tekstwaarden worden niet impliciet naar canonical STRING geconverteerd. Dit is technische onderbouwing van K12/K15 en geen nieuwe besluitenbron.</p>
+<h2>PM-001-42 - Leeswijzer en legenda</h2>
+<p>Lees eerst de registers, afwijkingen en runbook. De actuele uitvoerbare scripts zijn uitsluitend sql/00_install.sql, 01_setup.sql, 02_package.sql, 03_tests.sql met 03_reference_vector.sql, 04_verify_persistence.sql, 06_privilege_error.sql en 05_cleanup.sql. sql/00_privileges.sql is een DBA-reviewtemplate. De code uit 003 is uitsluitend baseline/historie; meng nooit revisies.</p>
+<p>Codeweergave: Courier New 11 pt of vergelijkbaar monospace. Er is geen syntactische kleurcodering met betekenis. Besluitstatus staat altijd als tekst: Besloten, Afgewezen, Voorstel, Open, Uitgesteld. Kopkleuren zijn uitsluitend navigatie. De PDF is een leesdocument met registers/runbook; de exacte scripts en volledige 003-historie blijven losse pakketbestanden.</p></section><section id="REFERENCE_CHECK"><h1>Broncontrole voorafgaand aan implementatie 004</h1>
+<p>De vijf referentiebestanden in reference/ zijn samengesteld en gecontroleerd voordat 004-code is gegenereerd. De implementatiebuilder weigert verder te gaan als één van de 37 gehashte referentiebestanden gewijzigd is. De bronbestanden onder sources/ zijn niet gewijzigd. Revisie 003 in output/ is niet gewijzigd.</p>
+<table><tbody>
+<tr><td>Controle</td><td>Uitkomst / bewijsgrens</td></tr>
+<tr><td>ZIP 003 identiteit</td><td>SHA-256 ac7b6d2bb084c87326eaf2cd9b5e8c49296759d73b743217a15ad9fe6dcde85d; gelijk aan de in review vastgelegde bron</td></tr>
+<tr><td>ZIP 003 inhoud</td><td>18 entries; alle 17 manifestentries op bytes en SHA-256 opnieuw geverifieerd</td></tr>
+<tr><td>Catalogus</td><td>Setup 003 en contextoverdracht exact dezelfde 53 unieke labels in dezelfde volgorde</td></tr>
+<tr><td>Historische bronnen</td><td>Alle 12 lokale bestanden uit het 003-manifest op SHA-256 gecontroleerd en meegeleverd; historie is geen actuele codebasis</td></tr>
+<tr><td>Review-PDF</td><td>12 pagina&#x27;s rechtstreeks uitgelezen; B03/B04/B07 en bewijsgrenzen vergeleken met tekstcompanion</td></tr>
+<tr><td>Regiechat</td><td>Zes recente turns, nextCursor null, hasMore false; langere retrievalsnapshot meegeleverd, geen volledige historie</td></tr>
+<tr><td>D01-D18</td><td>Tegen C §§1-10, actuele H28-H35, review §§4-9 en expliciete actuele gebruikersopdrachten gecontroleerd</td></tr>
+<tr><td>R01-R16</td><td>Herleid tot D-ID&#x27;s en B03/B04/B07; runtime-eisen bewust niet als geslaagd aangemerkt</td></tr>
+<tr><td>Open punten</td><td>OP-01..13 en M1..M6 niet stilzwijgend gesloten; HIST-01..03 en VAL-01 expliciet</td></tr>
+<tr><td>Referentievoorbeeld</td><td>9 records, 1228 bytes, digest 1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1 lokaal opnieuw gecodeerd</td></tr>
+<tr><td>Oracle 19c primaire bronnen</td><td>O1-O6 online geraadpleegd; onderbouwen runtimebetekenis, niet de eigen ontwerpacceptatie</td></tr>
+</tbody></table>
+<p>Historische volledigheid is NIET aangetoond. Vooral oorspronkelijke woordelijke reviewrondes, volledige oudere regiegeschiedenis en de originele losse Pasted text.txt-upload ontbreken. Hashes bewijzen bestandsidentiteit en geen volledigheid van besluitvorming. Er is geen ontbrekend besluit ingevuld en geen bestaande voorstelstatus naar goedgekeurd omgezet.</p>
+<p>De referentieregisters gebruiken compacte bronaliassen. SOURCE_INDEX.md vertaalt ze naar de exacte meegeleverde versie. Nadere implementatiekeuzes staan in DEVIATIONS.md. Alle Oracle-tests zijn bij oplevering NOT_EXECUTED.</p></section><section id="DECISIONS"><h1>PM-001 / revisie 004 / gecontroleerde besluitenbasis v1</h1>
+<p>Peildatum: 2026-11-03. Status: brongecontroleerde implementatiebasis, geen nieuwe ontwerpacceptatie.</p>
+<p>Bronvolgorde: actuele expliciete gebruikersopdracht (S04/S05), daarna de in 003 vastgelegde besluiten (S01-C, §§1-10), actuele H28-H35 (S01-H), met review S02 als controle. H01-H27 en 001/002 zijn historische context. Adviezen uit S02 zijn geen goedgekeurde besluiten. S03 bevat slechts zes recente turns; oudere oorspronkelijke reviewgesprekken ontbreken.</p>
+<table><tbody>
+<tr><td>ID</td><td>Status</td><td>Besluit / grens</td><td>Bron</td></tr>
+<tr><td>D01</td><td>Besloten</td><td>Oracle Database 19c EE; alleen nieuw leeg disposable lokaal PDB-schema; geen productieobjecten wijzigen</td><td>S04; C§9; H35</td></tr>
+<tr><td>D02</td><td>Besloten</td><td>Bewaar alle 53 cataloguslabels exact; herkenning is geen evaluatie; RECOGNIZED_ONLY en UNKNOWN expliciet rapporteren</td><td>S04; C§1; H29</td></tr>
+<tr><td>D03</td><td>Besloten</td><td>Alleen eenvoudige permanente niet-gepartitioneerde heap, P/U/C-constraints, NORMAL B-tree-indexes werkelijk evalueren</td><td>C§1/9; H30-31; S04</td></tr>
+<tr><td>D04</td><td>Besloten</td><td>Geen reconstructie oorspronkelijke CREATE/ALTER-DDL; dictionarymetadata als waarneming</td><td>C§2 A; H28/31</td></tr>
+<tr><td>D05</td><td>Besloten</td><td>PROFILE_CODE, profielversie en CANONICAL_VERSION expliciet; versiegebonden normalisatieregels</td><td>C§2 B/E; H30/32</td></tr>
+<tr><td>D06</td><td>Besloten principe; invulling voorstel</td><td>Exacte canonieke bytes, onderscheiden NULL/N/A, framing/sortering/grenzen; CAN-001-DRAFT-1 blijft concreet voorstel</td><td>C§5; H32</td></tr>
+<tr><td>D07</td><td>Besloten</td><td>Extractie, normalisatie, serialisatie en opslag scheiden met testbare interfaces (B03)</td><td>C§2 H/§3 11; S04</td></tr>
+<tr><td>D08</td><td>Besloten</td><td>CDB_* + GV_$INSTANCE voorkeur; expliciet DBA_* + GV_$INSTANCE alternatief; geen stilzwijgende fallback</td><td>C§4; H31; S02 B06</td></tr>
+<tr><td>D09</td><td>Expliciet afgewezen</td><td>Geen samengestelde installatiehash; alleen individuele objectfingerprints aan release gekoppeld</td><td>C§3/8; H28/33; S04</td></tr>
+<tr><td>D10</td><td>Besloten</td><td>Objectmanifest met genormaliseerde getypeerde waarden, minimaal type/identiteit; pakbon tekst/JSON; aanbod apart van werkelijk resultaat</td><td>C§2 C/F/J; C§6; H33</td></tr>
+<tr><td>D11</td><td>Besloten</td><td>Onvoldoende betrouwbare opgeslagen fingerprint opnieuw berekenen; exacte vertrouwenscriteria open</td><td>C§3 12; H31/34</td></tr>
+<tr><td>D12</td><td>Besloten</td><td>Echte preflightbevindingen persistent opslaan: herkenning/evaluatie, ernst, reden, advies, exception reference; geen synthetische placeholders (B04)</td><td>C§7; S04</td></tr>
+<tr><td>D13</td><td>Uitgesteld</td><td>RECOMMENDED/FORCE_ALL/SELECTIVE uitvoeringsmodi, autorisatie-engine, overwritebeleid, lifecycle en retentie later; technische onuitvoerbaarheid nooit negeren</td><td>C§3 15/19; C§7; H34</td></tr>
+<tr><td>D14</td><td>Besloten</td><td>Exceptionverzoek is geen goedkeuring; voorbeeld in 003 verleent geen echte autorisatie</td><td>C§6; H33</td></tr>
+<tr><td>D15</td><td>Besloten opdracht</td><td>Volledige databaseassertions B07; statisch controleren, geen Oracle-runtimeclaim zonder echte database</td><td>S04; C§9; S02 B07</td></tr>
+<tr><td>D16</td><td>Besloten planning</td><td>M1 profielcontract, M2 CAN-001, M3 PoC, M4 pakbon/individuele registratie, M5 preflight, M6 lifecycle; niet automatisch voltooid</td><td>C§8; H34</td></tr>
+<tr><td>D17</td><td>Open; niet herinterpreteren</td><td>Historische reden voor DATA_LENGTH-omissie niet vastgesteld; datatypeafhankelijke regel van 003 blijft voorstel</td><td>C§3 DATA_LENGTH; H30; S02 B02</td></tr>
+<tr><td>D18</td><td>Besloten opdracht</td><td>Eerst deze vijf referentiebestanden controleren; uitsluitend deze basis gebruiken; iedere afwijking registreren</td><td>S05</td></tr>
+</tbody></table>
+<p>Concrete bevroren PoC-invulling (geen nieuwe acceptatie): TABLE_CORE/2, CONSTRAINT_CORE/1, INDEX_CORE/1, CAN-001-DRAFT-1, AO3_RULES_1; AL32UTF8, SHA256, magic 414F330000000001. Grenzen 8000 bytes/veld, 16000 bytes/record, 1000 records/document en 1000000 bytes/document. Exacte veldregels, profielwaarden en bronuitsluitingen zijn versiegebonden in S01-H H30-H32 en S01-S2 bewaard; bij conflict niet stilzwijgend kiezen maar afwijking registreren. COLUMN is een intern recordtype, geen 54e cataloguslabel.</p>
+<p>Historische context ontbreekt: oorspronkelijke woordelijke reviewrondes 01/02 en complete regiegeschiedenis zijn niet teruggeleverd door read_thread. De overdracht C is reconstructief. Wij claimen alleen volledigheid tegenover dit beschikbare corpus. Het losse oorspronkelijke <code>Pasted text.txt</code> is niet als zelfstandig bestand geverifieerd; C is de beschikbare tekstbron, met eigen hash.</p></section><section id="REQUIREMENTS"><h1>PM-001 / revisie 004 / eisenbaseline v1</h1>
+<p>Alle eisen zijn uitvoeringsopdrachten of herleidbare grenzen. Implementatiestatus en Oracle-acceptatie staan afzonderlijk in TRACEABILITY.csv en VALIDATION.json; onderstaande lijst zegt niet dat tests uitgevoerd zijn.</p>
+<table><tbody>
+<tr><td>Eis</td><td>Contract / acceptatiepoort</td><td>Besluit / bron</td></tr>
+<tr><td>R01</td><td>003 ZIP en alle 17 manifestentries bytebehoud; 53 labels exact; historische status behouden</td><td>D02/D18; S01/S02/S05</td></tr>
+<tr><td>R02</td><td>Publieke extractie -&gt; getypeerde ruwe dataset; geen normalisatie of opslag</td><td>D07; S04 B03</td></tr>
+<tr><td>R03</td><td>Pure normalisatie(dataset) -&gt; getypeerd manifest; geen dictionaryquery, hash of DML</td><td>D05/D07; S04 B03</td></tr>
+<tr><td>R04</td><td>Pure CAN-001-serialisatie(manifest) -&gt; exacte bytes/SHA256; geen dictionaryquery of DML</td><td>D06/D07; S04 B03</td></tr>
+<tr><td>R05</td><td>Aparte opslagcoördinator; één metadata-extractie; individuele table/constraint/index-observaties; savepoint en callercommit</td><td>D07/D09; H33; S04</td></tr>
+<tr><td>R06</td><td>Preflight op actuele aanvragen/objecten; opgeslagen recognized-only, unknown, unsupported shape, extraction error; geen success-digest bij fout</td><td>D12; S04 B04</td></tr>
+<tr><td>R07</td><td>Findings met release, type/identiteit, herkenning/evaluatie, severity, reason, action, exception; werkelijke foutcode/-tekst en bron voor fouten</td><td>D10/D12; S02 B04</td></tr>
+<tr><td>R08</td><td>CDB en DBA uitvoeren en profiel/bytes/digest vergelijken; zichtbaarheid/fout nooit als wereldwijde afwezigheid uitleggen</td><td>D08; S04 B07</td></tr>
+<tr><td>R09</td><td>Assertions USER_ERRORS/VALID, vaste CAN-vectoren en overflows; determinisme/NLS en datatypevelden</td><td>D15; S02 B07/H34</td></tr>
+<tr><td>R10</td><td>Iedere opgeslagen TABLE/CONSTRAINTS/INDEX-digest onafhankelijk reconstrueren; volledige rijaantallen, profiel, manifest, bytes controleren</td><td>D09/D15; S04 B07</td></tr>
+<tr><td>R11</td><td>Assertions rollback callertransactie, gedeeltelijke opslagfout, duplicaat, ontbrekende release, unsupported/foutpaden en cleanup</td><td>D15; S04 B07</td></tr>
+<tr><td>R12</td><td>SQL*Plus/SQLcl setup/package/tests/cleanup, directe privileges en stapsgewijs runbook; geen productiegebruik</td><td>D01/D15; S04</td></tr>
+<tr><td>R13</td><td>Downloadbare ZIP, offline HTML ontwerp, PDF, registers, traceability, bronindex, checksums; behoud 003</td><td>D18; S04/S05</td></tr>
+<tr><td>R14</td><td>Bewijsgrens: alleen werkelijk uitgevoerde lokale controles claimen; Oracle compilation/runtime NOT_EXECUTED zonder echte database</td><td>D15; S04</td></tr>
+<tr><td>R15</td><td>Geen installatiehash, uitvoeringsmodi, exception-engine of productielifecycle implementeren</td><td>D09/D13/D14; S04</td></tr>
+<tr><td>R16</td><td>Alle implementatiekeuzes/afwijkingen tegen baseline registreren, inclusief motivatie en gevolgen voor compatibiliteit/acceptatie</td><td>D18; S05</td></tr>
+</tbody></table>
+<p>Poorten: G0 bronintegriteit; G1 statische controle/artefacten; G2 echte Oracle 19c-compilatie en privileges; G3 volledige databaseassertions plus onafhankelijke bytes/digests; G4 commit-herverbinding en cleanupbewijs; G5 review van open ontwerpvoorstellen. G0/G1 vervangen G2-G5 niet.</p>
+<p>Refactoringconcept B03: hergebruik de veldregels en bytegrammatica van 003. Verplaats uitsluitend het ophalen naar extract_metadata; normaliseer de uitgelezen dataset afzonderlijk; laat serialize_manifest de framing/sortering/hashing uitvoeren; laat store_observations de individuele waarnemingen opslaan. calculate blijft uitsluitend coördineren. Geen generieke productieprofielengine. Een getypeerde dataset met benoemde querysets en afzonderlijke NUMBER-/tekstcellen houdt Oracle-getallen vrij van impliciete NLS-conversie. Eén dataset per tabel voorkomt herhaalde extractie per kindhash. Deze opzet is de uitwerking van het al geautoriseerde B03-besluit, geen nieuwe volledige productierefactoring.</p></section><section id="OPEN_POINTS"><h1>PM-001 / revisie 004 / open punten v1</h1>
+<p>Geen van deze punten wordt door het bouwen van code stilzwijgend goedgekeurd.</p>
+<table><tbody>
+<tr><td>ID</td><td>Open onderwerp</td><td>Mijlpaal / bron</td><td>Afhandeling 004</td></tr>
+<tr><td>OP-01</td><td>Definitieve CAN-001-wireformatacceptatie</td><td>M2; H32/34</td><td>DRAFT-1 behouden</td></tr>
+<tr><td>OP-02</td><td>Profielscope/datatypekeuze en historische DATA_LENGTH-redenering</td><td>M1; C§3/H30</td><td>regels 003 behouden als voorstel; oorspronkelijke reden onbekend</td></tr>
+<tr><td>OP-03</td><td>Portable objectidentiteit/naamnormalisatie</td><td>M2; H32/34</td><td>diagnostische identiteit buiten canonical bytes; generated-name-regels 003</td></tr>
+<tr><td>OP-04</td><td>Versie-/hashprecedentie bij installatie</td><td>M5; H34</td><td>geen installatiebeleid</td></tr>
+<tr><td>OP-05</td><td>Vertrouwde gelijkheid/baseline</td><td>M5; H34</td><td>vers berekenen; observatie is geen accepted baseline</td></tr>
+<tr><td>OP-06</td><td>Actualiteit/freshness</td><td>M5; H34</td><td>DDL-vrij testvenster; geen cachebewijs</td></tr>
+<tr><td>OP-07</td><td>Pakbonopslag en productiesleutels</td><td>M4/M5; H33/34</td><td>bestaand PoC-releasecontract, geen productieclaim</td></tr>
+<tr><td>OP-08</td><td>Uitzonderings-/autorisatiebeleid</td><td>M5; C§6/H34</td><td>voorbeeld behouden; niet uitvoeren</td></tr>
+<tr><td>OP-09</td><td>Historie/retentie</td><td>M6; H34</td><td>uitgesteld</td></tr>
+<tr><td>OP-10</td><td>Meerdere waarnemingen/concurrency</td><td>M6; H34</td><td>duplicate zichtbaar afwijzen; geen overwrite</td></tr>
+<tr><td>OP-11</td><td>Evaluatieovergangen/correctie</td><td>M6; H34</td><td>uitgesteld</td></tr>
+<tr><td>OP-12</td><td>Hashpad/grenzen definitief accepteren</td><td>M2; H32/34</td><td>vaste bounds 003 testen</td></tr>
+<tr><td>OP-13</td><td>Productie-extractie, consistentie en containerzichtbaarheid</td><td>M1/M3; C§4/H31</td><td>twee expliciete lokale PDB-routes, geen root/multi-PDBclaim</td></tr>
+<tr><td>HIST-01</td><td>Originele woordelijke reviewrondes 01/02 en volledige regiegeschiedenis ontbreken</td><td>S02 B02; S03</td><td>uitsluitend reconstructieve C als beschikbare besluitenbasis; niet als volledig historisch bewijs presenteren</td></tr>
+<tr><td>HIST-02</td><td>Los origineel Pasted text.txt niet teruggevonden/gehasht</td><td>S01 manifest/sources</td><td>eigen C-teksthash leidend; geen gelijkheidsclaim met origineel</td></tr>
+<tr><td>HIST-03</td><td>Oorspronkelijke reden DATA_LENGTH weglating ontbreekt</td><td>C§3; S02</td><td>hypothese niet als besluit gebruiken</td></tr>
+<tr><td>VAL-01</td><td>Oracle 19c EE database/verbinding ontbreekt in sessie</td><td>S04</td><td>runtime NOT_EXECUTED; uitvoerlogs later vereist</td></tr>
+<tr><td>M4-01</td><td>Volledige objectversie-/installerworkflow is nog geen productiecontract</td><td>S02 B05</td><td>enkel waarnemingen en echte preflight; tests zijn geen installerresultaat</td></tr>
+</tbody></table>
+<p>OP-samenvattingen zijn ontleend aan actuele H34 en de review; zij vervangen de bewaarde originele tekst in baseline_003 niet. Bij een ontbrekende oorspronkelijke nuance: HIST-01, geen nieuwe interpretatie als besloten beleid.</p></section><section id="SOURCE_INDEX"><h1>PM-001 / revisie 004 / bronindex v1</h1>
+<p>Alle pakketpaden relatief aan de revisie-004-root. SHA-256 en byteaantallen staan in manifest.json. Een hash bewijst identiteit, niet historische volledigheid.</p>
+<table><tbody>
+<tr><td>ID</td><td>Bron / precieze vindplaats</td><td>Gebruik / betrouwbaarheid</td></tr>
+<tr><td>S01</td><td>reference/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_003.zip; uitgepakt in reference/baseline_003</td><td>18 entries; 17 geverifieerde manifestbestanden; ongewijzigde baseline</td></tr>
+<tr><td>S01-C</td><td>baseline_003/*contextoverdracht_003.txt §§1-10</td><td>beschikbare reconstructieve besluitenoverdracht; geen woordelijk origineel</td></tr>
+<tr><td>S01-H</td><td>baseline_003/*ontwerp_profielmanifest_003.html H28-H35</td><td>actuele cumulatieve specificatie; H01-H27 historisch</td></tr>
+<tr><td>S01-S0..4</td><td>baseline_003/*00_privileges*, *01_setup*, *02_package*, *03_tests*, *04_cleanup*</td><td>implementatie 003; geen Oracle-runtimebewijs</td></tr>
+<tr><td>S01-V/J/B</td><td>baseline_003/*CAN001_testvectoren*, *objectmanifest_voorbeeld*, *canonieke_bytes_voorbeeld*</td><td>referentiebytes; geen echte databasewaarneming</td></tr>
+<tr><td>S02</td><td>reference/PM001_003_review.pdf; tekstcompanion PM001_003_review.md §§4-9 en bijlagen</td><td>beoordelingsbron, B03/B04/B07 uitvoeringshiaten; adviezen zijn geen besluiten</td></tr>
+<tr><td>S03</td><td>regiechat 6ae1c678-2a98-83ed-99b0-c8895440f708, read_thread 2026-11-03, turnLimit 10</td><td>zes recente turns, geen oudere cursor; geen volledige oorspronkelijke reviews; bijlagen lokaal beschikbaar</td></tr>
+<tr><td>S04</td><td>reference/USER_SCOPE_004.md</td><td>letterlijke actuele implementatieopdracht; voorrang boven eerdere voorstellen</td></tr>
+<tr><td>S05</td><td>reference/USER_REFERENCE_FIRST_004.md</td><td>letterlijke actuele instructie: eerst referentiepakket, afwijkingen registreren</td></tr>
+<tr><td>H001/H002</td><td>reference/historical/output/PM-001_*</td><td>12 lokale historische bestanden uit manifest 003 opnieuw op SHA-256 gecontroleerd en meegeleverd; uitsluitend historie</td></tr>
+</tbody></table>
+<p>Oracle 19c primaire technische bronnen (semantiek, geen TETOOLS-beleidsbesluiten):</p>
+<p>- O1 CDB_* Views: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/cdb_-views.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/cdb_-views.html</a> (huidige container, directe grants, zichtbaarheid).</p>
+<p>- O2 ALL_TAB_COLS: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_TAB_COLS.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ALL_TAB_COLS.html</a> (NUMBER/FLOAT, length/char semantics).</p>
+<p>- O3 DBMS_CRYPTO: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_CRYPTO.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_CRYPTO.html</a> (SHA256 BLOB).</p>
+<p>- O4 UTL_RAW: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_RAW.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_RAW.html</a> (COMPARE-resultaat, RAW-grenzen).</p>
+<p>- O5 AUTHID: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/invokers-rights-and-definers-rights-authid-property.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/invokers-rights-and-definers-rights-authid-property.html</a> (definerrechten/directe grants).</p>
+<p>- O6 DBMS_SQL: <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html</a> (getypeerde kolomextractie/LONG).</p>
+<p>O1/O3/O5/O6 zijn in deze sessie online geraadpleegd; O2/O4 staan tevens in S02 en dienen bij de betreffende codecontrole opnieuw geraadpleegd te worden. Ontbrekende oorspronkelijke chatteksten, niet-teruggevonden losse uploads en ontbrekend Oracle-testbewijs zijn expliciet opgenomen in OPEN_POINTS.md.</p></section><section id="DEVIATIONS"><h1>PM-001 revisie 004 - afwijkingen en implementatiekeuzes</h1>
+<p>Basis: reference/manifest.json v1. Geen gebruikersbesluit gewijzigd. Onderstaande keuzes zijn PoC-uitwerkingen, geen nieuwe productieacceptatie. D06/D17 en OP-01..13 blijven open waar dat in de basis staat.</p>
+<table><tbody>
+<tr><td>ID</td><td>Relatie</td><td>Keuze / wijziging tegenover 003</td><td>Reden en gevolgen</td></tr>
+<tr><td>K01</td><td>D07; R02-R05</td><td>Eén package AO4_POC met publieke extract_metadata, normalize_metadata, serialize_manifest, calculate, store_observations</td><td>B03 gericht refactoren; bestaande veldregels en wireformat behouden; geen vier packages nodig</td></tr>
+<tr><td>K02</td><td>D01; R01/R12</td><td>Nieuwe AO4_-objectnamen en verplichte AO4_POC_&lt;suffix&gt;-schemanaam</td><td>Geen botsing met 003; geen migratie of productie-upgrade; behoud 003 bytegelijk</td></tr>
+<tr><td>K03</td><td>D07; R02/R03</td><td>METADATA_V1 met acht benoemde queryslots, gescheiden NUMBER-/tekstcellen</td><td>Getypeerd onafhankelijk testcontract; geen impliciete NLS-getalconversie; positional mapping expliciet in DESIGN.html</td></tr>
+<tr><td>K04</td><td>D06/D07</td><td>Volledige framing/sortering/hashing naar serializer; ordered-column HEX-grammatica blijft in normalisatie</td><td>Exacte 003-profielwaarden behouden; gedeelde value_frame is een pure encoderhelper; geen dictionaryquery vanuit normalisatie</td></tr>
+<tr><td>K05</td><td>D12; R06/R07</td><td>AO4_FINDING krijgt identity-ID, release-FK, bron/container/tijd, fase, werkelijke foutcode/-tekst, actual type en optionele digest</td><td>Echte bevindingen opvraagbaar; success is bounded-profile, geen volledige DDL-gelijkheid; geen autonome commit</td></tr>
+<tr><td>K06</td><td>D02/D12</td><td>UNKNOWN-test verwerkt een werkelijk aangeboden onbekend label bij de bestaande AO4_V</td><td>Oracle 19c levert niet voorspelbaar een onbekend dictionarytype; geen fictieve objectidentiteit. Catalogus blijft exact 53 labels</td></tr>
+<tr><td>K07</td><td>D08; R06</td><td>USER_OBJECTS alleen voor lokale identiteitscontrole van niet-geëvalueerde objecten en cleanup</td><td>Noodzakelijke PoC-hulpbron, geen profielmetadata of vervanging van CDB/DBA. Geen extractors voor overige 50 labels</td></tr>
+<tr><td>K08</td><td>D12; R06</td><td>INDEX/CONSTRAINTS-preflight resolveert de parent via gekozen CDB/DBA-route; bounded parentextractie moet slagen</td><td>Geen claim dat een kind onafhankelijk van unsupported parentshape volledig ondersteund is</td></tr>
+<tr><td>K09</td><td>D01/D15</td><td>Root en non-CDB expliciet geweigerd; CON_ID &gt;=3</td><td>Verduidelijkt de al beperkte runbookscope; geen stilzwijgende rootondersteuning uit oud broncommentaar</td></tr>
+<tr><td>K10</td><td>D15; R09-R11</td><td>63 T-assertions, rowassertions, 3 P-, 2 D- en 1 C-assertion; volledige vector en onafhankelijke bytecontrole</td><td>B07; geen enkelvoudige eindmarker als bewijs. DBA-handoff voor echte privilegefout nodig</td></tr>
+<tr><td>K11</td><td>D15; R06</td><td>Extra lege-schemafixture-, LONG-, datatype- en unsupported-shapetabellen, uitsluitend AO4</td><td>Tests representeren echte metadata; alle fixtures op vaste cleanupallowlist</td></tr>
+<tr><td>K12</td><td>D15</td><td>Fail-closed bij ontbrekende shape-flags; serializer valideert niet-gehele tags, null canonical version, profiel/veldorde/bounds</td><td>Robuustere foutafhandeling zonder wijziging van geldige 003-canonical bytes</td></tr>
+<tr><td>K13</td><td>D18; R13</td><td>REGIE_RETRIEVAL_20261103.json als aanvullende ongewijzigde retrievalsnapshot buiten bevroren referentiemanifest</td><td>Langere weergave van dezelfde zes recente turns; geen oudere cursor of nieuwe besluitbasis; oorspronkelijke reviewrondes blijven HIST-01</td></tr>
+<tr><td>K16</td><td>D15; R11</td><td>Cleanup verwijdert AO4_SHAPE voor AO4_T</td><td>Concrete leesreviewbevinding: een falende FK-rejectassertion kan een verwijzende SHAPE-tabel achterlaten. Volgorde voorkomt ORA-02449 zonder cascade; statisch op afhankelijkheid gecontroleerd, Oracle nog niet uitgevoerd</td></tr>
+<tr><td>K15</td><td>D15; R04</td><td>Oracle 19c JSON-type-documentatie aanvullend technisch gecontroleerd; expliciete JSON-null/STRING-validatie</td><td>Geen besluitenbasis uitgebreid; voorkomt impliciete GET_STRING-conversie; exacte geldige 003-bytes behouden</td></tr>
+<tr><td>K14</td><td>D18; R13</td><td>Rootmanifest voor volledige oplevering naast reference/manifest.json; rootregisters bytegelijk aan referentie</td><td>Manifestzelfhash via SHA256SUMS, geen circulaire selfhash; bronpakket en resultaat afzonderlijk reproduceerbaar</td></tr>
+</tbody></table>
+<p>Geen afdoening van B05 als volledige installerworkflow: objectversies, accepted baselines, autorisatie en werkelijke installatie blijven open. Geen installatiehash en geen uitvoeringsmodi toegevoegd. Code legt alleen testobservaties en preflight vast.</p>
+<p>Als een volgende sessie deze basis inhoudelijk wil wijzigen: nieuwe versie van de referentie maken, bron en motivering registreren en de betreffende eisen/testverwachtingen opnieuw beoordelen. De huidige bronhistorie niet overschrijven.</p></section><section id="RUNBOOK"><h1>PM-001 revisie 004 - Oracle 19c EE runbook</h1>
+<p>Dit pakket is voorbereid en lokaal statisch gecontroleerd. Oracle-compilatie en database-uitvoering zijn NIET uitgevoerd. Gebruik alleen een nieuw leeg disposable lokaal schema in een test-PDB. Geen bestaande TETOOLS-installatie bijwerken. CAN-001-DRAFT-1 en de concrete profielregels blijven voorstellen.</p>
+<h2>1. Controleer de overdracht - G0</h2>
+<p>Pak de ZIP volledig uit. Behoud de mappenstructuur. Lees eerst reference/DECISIONS.md, REQUIREMENTS.md, OPEN_POINTS.md, SOURCE_INDEX.md en manifest.json, daarna DEVIATIONS.md en REFERENCE_CHECK.md. De bestanden met dezelfde registernamen in de pakketroot zijn bytegelijke leesexemplaren van de bevroren referentiebasis. Het manifest in de root beschrijft de volledige oplevering; reference/manifest.json beschrijft de vooraf gecontroleerde basis.</p>
+<p>Voer vanuit de uitgepakte pakketroot uit met Python 3:</p>
+<pre><code>
+python tools/verify_integrity.py
+
+</code></pre>
+<p>Verwacht: PASS delivery manifest and SHA256SUMS. Een verschil blokkeert verder gebruik. De externe ZIP-checksum hoort bij de ZIP; de interne checksums horen bij de uitgepakte bestanden. De referentie-ZIP kan zelfstandig aan een volgende sessie worden gegeven.</p>
+<h2>2. DBA-voorbereiding - G2</h2>
+<p>Leg PDB-service, Oracle 19c EE-versie/RU, instance, schema, SQL*Plus/SQLcl-versie en testdatum vast. De applicatie vermeldt PRODUCT_COMPONENT_VERSION en runtimeherkomst; laat de DBA aanvullend het werkelijk toegepaste RU/patchniveau bevestigen. Gebruik een DDL-vrij venster. De acht dictionaryqueries zijn geen atomair snapshot bij gelijktijdige DDL.</p>
+<p>De DBA maakt zelf een nieuwe lokale gebruiker AO4_POC_&lt;suffix&gt;, bijvoorbeeld AO4_POC_PM001004, met een geschikt testtablespace en begrensd quota. Wachtwoorden en CREATE USER staan bewust buiten de scripts. Setup vereist exact deze naamvorm, CURRENT_SCHEMA gelijk aan SESSION_USER, CON_ID &gt;= 3 en nul USER_OBJECTS. Geef het schema geen productieobjecten of brede dictionaryrechten.</p>
+<p>Lees sql/00_privileges.sql: dit is een gecontroleerd DBA-sjabloon, geen automatisch grantprogramma. Benodigd zijn CREATE SESSION, CREATE TABLE, CREATE PROCEDURE en CREATE VIEW; EXECUTE op SYS.DBMS_CRYPTO, SELECT op SYS.GV_$INSTANCE en directe SELECT-grants op beide families CDB_/DBA_ van TABLES, EXTERNAL_TABLES, TAB_COLS, CONSTRAINTS, CONS_COLUMNS, INDEXES en IND_COLUMNS. Beide families zijn verplicht voor de acceptatietests. Als PUBLIC-toegang ontbreekt: verleen ook direct EXECUTE op DBMS_SQL, DBMS_LOB, UTL_RAW en UTL_I18N. JSON_OBJECT_T/JSON_ARRAY_T zijn ingebouwde 19c-afhankelijkheden; lokale lockdowns kunnen DBA-aanpassing vereisen. Rollen alleen leveren in deze definerrechtenpackage onvoldoende rechten [O5].</p>
+<p>Er zijn geen CREATE ANY, ALTER ANY, DROP ANY, SET CONTAINER, ALTER SYSTEM of common-userrechten nodig. De brede SELECT ANY DICTIONARY-grant is niet nodig en verhindert de gerichte privilegeproef. USER_OBJECTS wordt uitsluitend gebruikt voor lokale fixture-/identiteitscontrole en cleanup; profielmetadata komt uit de gekozen CDB/DBA-route [O1].</p>
+<h2>3. Installatie</h2>
+<p>Start SQL*Plus of SQLcl vanuit de uitgepakte pakketroot. Verbind interactief met de PDB-service als het nieuwe disposable schema. Zet geen wachtwoord in een commandoregel of spoolbestand. Gebruik voor SQL*Plus een UTF-8-client, bijvoorbeeld NLS_LANG=.AL32UTF8 ingesteld voordat de client start. SQLcl-logbestanden moeten eveneens als UTF-8 worden bewaard.</p>
+<pre><code>
+@sql/00_install.sql
+
+</code></pre>
+<p>De driver spoolet ao4_install.log en roept setup en package relatief aan zichzelf aan. Setup voert DDL uit en commit de catalogus. De packagecontrole vraagt expliciet USER_ERRORS en VALID-status van spec en body op; CREATE PACKAGE zonder zo&#x27;n controle is onvoldoende. Verwacht INSTALL_COMPLETE PM001_004 en geen compileerfouten. Bewaar de volledige log. Bij fouten: stop, inspecteer USER_ERRORS en grants; niet blind opnieuw installeren. Cleanup en een nieuw leeg schema geven een reproduceerbare herstart.</p>
+<h2>4. Databaseassertions - G3</h2>
+<pre><code>
+@sql/03_tests.sql
+
+</code></pre>
+<p>Dit script draait eenmalig en maakt uitsluitend benoemde AO4-fixtures. Het voert eerst sql/03_reference_vector.sql uit met de exacte volledige 003-vector: 1228 bytes en SHA-256 1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1. Daarna volgen 62 aanvullende assertions, individuele ROW_HASH-/ROW_META-assertions en JSON/hex-bewijs voor CDB, DBA, datatypes, lange CHECK en alle opgeslagen objecten. De marker SUITE_COMPLETE PM001_004 is alleen een eindmarker; alle assertions en bytes moeten ook slagen.</p>
+<p>De test omvat pure interfaceverwerking, NLS, FLOAT/NUMBER, CHAR/BYTE/NCHAR/NVARCHAR2/RAW/DATE, negatieve schaal, lange CHECK &gt;4000 tekens, grensoverschrijdingen, mutatie/herstel, FK/virtual/IOT/partition/function-index-afwijzing, volledige opslag, duplicaten, ontbrekende release, savepoint, gedeeltelijke kindfout en callerrollback. De collision seed bij PARTIAL004 is uitdrukkelijke foutinjectie, wordt teruggedraaid en is geen preflightbevinding.</p>
+<p>De echte preflightgevallen zijn: AO4_V als VIEW, dezelfde werkelijk bestaande view met een onbekend aangeboden label, AO4_UNSUPPORTED met echte defaultmetadata, een werkelijk ontbrekend tabeldoel AO4_ABSENT en de ondersteunde AO4_T. UNKNOWN gaat hier over de inkomende labelmapping, niet over een verzonnen onbekend Oracle-dictionarytype. INDEX en CONSTRAINTS worden via hun parenttabel afzonderlijk geëvalueerd. Er is geen inventarisatie-engine voor de overige 50 labels.</p>
+<p>Het script commit FINAL004 met de individuele observaties en vijf echte bevindingen. TEST_OBSERVATION is geen uitgevoerde productie-installatie en geen accepted baseline. Foutbevindingen bevatten bron/container, fase, werkelijke SQLCODE/SQLERRM, reden en advies; zij krijgen geen nieuwe fingerprint. Een exception reference blijft NULL: geen autorisatie wordt uitgevoerd.</p>
+<h2>5. Herverbinding en persistentie - G4</h2>
+<p>Sluit de testsessie af. Start een NIEUWE clientverbinding naar dezelfde PDB als hetzelfde disposable schema; verander CURRENT_SCHEMA niet.</p>
+<pre><code>
+@sql/04_verify_persistence.sql
+
+</code></pre>
+<p>Verwacht P01-P03 en PERSISTENCE_COMPLETE PM001_004 in ao4_persistence.log. Hiermee worden gecommitte objectobservaties/digests en de vijf classificaties opnieuw uit de database opgevraagd. Het script kan niet zelfstandig bewijzen dat de operator werkelijk een nieuwe clientverbinding opende; leg dat vast in het uitvoerverslag.</p>
+<h2>6. Echte privilegefout - G3, DBA-handoff</h2>
+<p>Laat de DBA in deze test-PDB uitsluitend voor dit disposable schema tijdelijk uitvoeren, met de werkelijk gekozen schemanaam:</p>
+<pre><code>
+revoke select on sys.cdb_tables from AO4_POC_PM001004;
+
+</code></pre>
+<p>Start vervolgens opnieuw een verbinding als het disposable schema en voer uit:</p>
+<pre><code>
+@sql/06_privilege_error.sql
+
+</code></pre>
+<p>Verwacht D01_REAL_PRIVILEGE_ERROR en D02_EXPLICIT_DBA_ROUTE in ao4_privilege.log. De proef vereist een echte ORA-00942 of ORA-01031 die door preflight is opgevangen en geregistreerd; de fout wordt niet verzonnen of alleen in een log geplaatst. DBA wordt uitsluitend expliciet aangeroepen; geen automatische fallback. Als bredere rechten de fout verhinderen, faalt de assertion: laat de DBA het nieuwe testschema met alleen de benoemde directe grants gebruiken. Verwijder geen rechten uit andere schema&#x27;s.</p>
+<p>Laat de DBA de grant ook na een mislukte proef herstellen:</p>
+<pre><code>
+grant select on sys.cdb_tables to AO4_POC_PM001004;
+
+</code></pre>
+<p>De voorbeeldnaam vervangen door de echte disposable gebruiker. Bewaar DBA-uitvoer met revoke en restore. Een mislukte herstelgrant is een open beheeractie en geen geslaagde acceptatie.</p>
+<h2>7. Cleanup en onafhankelijke logcontrole - G4</h2>
+<p>Archiveer alle logs en eventuele aanvullende databasequeries BUITEN het te verwijderen schema. Voer in dezelfde disposable gebruiker uit:</p>
+<pre><code>
+@sql/05_cleanup.sql
+
+</code></pre>
+<p>Cleanup gebruikt een vaste lijst packages/views/tabellen. Alleen ontbrekende benoemde objecten worden genegeerd, zodat cleanup ook na gedeeltelijke setup werkt. Andere fouten blijven zichtbaar. Constraints/indexes en de identitysequence verdwijnen met hun tabel. Er volgt een assertion dat USER_OBJECTS leeg is. Bij onbekende resterende objecten: inspecteren, niet automatisch uitbreiden naar DROP USER CASCADE. Verwacht C01_SCHEMA_EMPTY en CLEANUP_COMPLETE PM001_004 in ao4_cleanup.log. De DBA kan daarna de disposable gebruiker verwijderen volgens het eigen beheerproces.</p>
+<p>Voer buiten SQL*Plus/SQLcl uit:</p>
+<pre><code>
+python tools/verify_logs.py ao4_tests.log ao4_persistence.log ao4_privilege.log ao4_cleanup.log
+
+</code></pre>
+<p>De checker verlangt alle 63 T-markers, alle individuele opgeslagen kindbewijzen, drie persistentieassertions, twee privilegeassertions en cleanup. Hij reconstrueert alle aangeleverde canonieke bytes/digests onafhankelijk in Python, vergelijkt de bronrecords met de kindmanifesten en weigert ontbrekende markers/foutmeldingen. Deze controle bewijst consistentie van aangeleverde logs; authenticiteit, doelomgeving en daadwerkelijk herverbinden blijven operatorbewijs. In het pakket zitten geen fictieve Oracle-uitvoerlogs.</p>
+<h2>8. Foutafhandeling en rollback</h2>
+<p>DDL commit impliciet: ROLLBACK verwijdert geen tabellen, grants of geslaagde compilatie. De tests voeren DDL daarom voor de transactionele assertions uit. store_observations gebruikt een intern savepoint en commit niet; een fout verwijdert alleen de nieuwe set, met behoud van eerder callerwerk. De caller bepaalt COMMIT of ROLLBACK. preflightbevindingen zijn eveneens gewone caller-DML, niet autonoom: zonder COMMIT zijn ze niet duurzaam, bij ROLLBACK verdwijnen ze. Na een fout eerst logs veiligstellen, vervolgens de vaste cleanup uitvoeren. Herhaal een installatie uitsluitend in een weer leeg disposable schema.</p>
+<p>Bij gelijktijdige DDL of ongekende metadata: resultaten niet accepteren. Herstel het DDL-vrije venster en herhaal in een schoon schema. Er is geen productieconcurrency-, benchmark-, caching- of lifecycleclaim.</p>
+<h2>9. Acceptatiepoorten</h2>
+<table><tbody>
+<tr><td>Poort</td><td>Vereist bewijs</td><td>Status bij oplevering</td></tr>
+<tr><td>G0</td><td>Bronhashes, catalogus, besluiten/eisen/open punten gecontroleerd</td><td>Lokaal uitgevoerd</td></tr>
+<tr><td>G1</td><td>Interne statische controles, referentie-encoder, checkerzelftests, PDF/ZIP-integriteit</td><td>Zie VALIDATION.json</td></tr>
+<tr><td>G2</td><td>Echte 19c EE/RU-identiteit, directe grants, foutloze spec/body-compilatie</td><td>NOT_EXECUTED</td></tr>
+<tr><td>G3</td><td>Alle databaseassertions, exacte bytes/digests, echte privilegefout, onafhankelijke logcheck</td><td>NOT_EXECUTED</td></tr>
+<tr><td>G4</td><td>Nieuwe sessie, persistente inhoud, rollbackbewijs, cleanup en herstelde grant</td><td>NOT_EXECUTED</td></tr>
+<tr><td>G5</td><td>Regiebeoordeling open profiel-/CAN-001-voorstellen en oplevering</td><td>Niet automatisch goedgekeurd</td></tr>
+</tbody></table>
+<p>Alleen G0/G1 rechtvaardigen de aanduiding &#x27;voorbereid en statisch gecontroleerd&#x27;. Technisch gevalideerd vereist G2-G4 met echte logs. Productieacceptatie vereist bovendien de nog open ontwerpbesluiten en valt buiten deze PoC.</p>
+<p>Technische bronnen O1-O6: zie SOURCE_INDEX.md. [O1] Oracle 19c CDB_* Views; [O5] Oracle 19c AUTHID; [O3/O6] DBMS_CRYPTO/DBMS_SQL. Deze bronnen onderbouwen Oracle-gedrag, niet de eigen profielkeuzes.</p></section><h1>Actuele scripts revisie 004</h1><details><summary>00_install.sql</summary><pre><code>-- Connect to a NEW EMPTY AO4_POC_&lt;suffix&gt; schema in the target PDB first.
+-- DBA grants/quota are a separate reviewed action; this driver grants nothing.
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set echo on
+spool ao4_install.log
+@@01_setup.sql
+@@02_package.sql
+prompt INSTALL_COMPLETE PM001_004
+spool off
+</code></pre></details><details><summary>00_privileges.sql</summary><pre><code>-- DBA REVIEW TEMPLATE ONLY. Execute selected grants manually in TARGET PDB.
+-- Replace &lt;AO4_POC_SUFFIX&gt; with a NEW empty disposable local user, not TETOOLS.
+-- Schema creation, password policy, quota and test tablespace are DBA responsibilities.
+-- GRANT CREATE SESSION, CREATE TABLE, CREATE PROCEDURE, CREATE VIEW TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT EXECUTE ON SYS.DBMS_CRYPTO TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.GV_$INSTANCE TO &lt;AO4_POC_SUFFIX&gt;;
+-- PUBLIC normally supplies EXECUTE on DBMS_SQL, DBMS_LOB, UTL_RAW, UTL_I18N.
+-- If revoked, grant those four packages directly as well.
+-- Prefer CDB views. DBA view grants are needed only for the explicit DBA route.
+-- Stored definer-rights code needs direct grants; a role alone is insufficient.
+-- GRANT SELECT ON SYS.CDB_TABLES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_EXTERNAL_TABLES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_TAB_COLS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_CONSTRAINTS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_CONS_COLUMNS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_INDEXES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.CDB_IND_COLUMNS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_TABLES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_EXTERNAL_TABLES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_TAB_COLS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_CONSTRAINTS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_CONS_COLUMNS TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_INDEXES TO &lt;AO4_POC_SUFFIX&gt;;
+-- GRANT SELECT ON SYS.DBA_IND_COLUMNS TO &lt;AO4_POC_SUFFIX&gt;;
+-- No common user, SET CONTAINER, ALTER SYSTEM or production write privilege is needed.
+</code></pre></details><details><summary>01_setup.sql</summary><pre><code>-- Oracle Database 19c, SQL*Plus/SQLcl; new EMPTY disposable PDB schema only.
+-- DBA prerequisites are in 00_privileges. No production TETOOLS objects.
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+set serveroutput on
+declare n number;begin
+ if sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;)&lt;&gt;sys_context(&#x27;USERENV&#x27;,&#x27;CURRENT_SCHEMA&#x27;)
+    or not regexp_like(sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;),&#x27;^AO4_POC_[A-Z0-9_]+$&#x27;,&#x27;c&#x27;)
+    or to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;))&lt;3 then
+   raise_application_error(-20300,&#x27;Use AO4_POC_&lt;suffix&gt; disposable local PDB user, CURRENT_SCHEMA unchanged&#x27;);end if;
+ select count(*) into n from user_objects;
+ if n&lt;&gt;0 then raise_application_error(-20300,&#x27;Use a new empty disposable schema&#x27;);end if;
+end;
+/
+create table ao4_catalog(type_code varchar2(40) primary key,default_status varchar2(20)
+ check(default_status=&#x27;RECOGNIZED_ONLY&#x27;));
+insert into ao4_catalog values(&#x27;CLUSTER&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;CONSTRAINTS&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;CONSUMER GROUP&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;CONTEXT&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;CREDENTIAL&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;DATABASE LINK&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;DESTINATION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;DIRECTORY&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;EDITION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;EVALUATION CONTEXT&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;FUNCTION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;INDEX&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;INDEX PARTITION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;INDEXTYPE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JAVA CLASS&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JAVA DATA&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JAVA RESOURCE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JAVA SOURCE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JOB&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;JOB CLASS&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;LIBRARY&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;LOB&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;LOB PARTITION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;MATERIALIZED VIEW&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;OPERATOR&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PACKAGE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PACKAGE BODY&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PRIVILEGES&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PROCEDURE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PROFILES&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;PROGRAM&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;QUEUE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;RESOURCE PLAN&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;ROLES&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;RULE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;RULE SET&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;SCHEDULE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;SCHEDULER GROUP&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;SEQUENCE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;SYNONYM&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TABLE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TABLESPACES&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TABLE PARTITION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TABLE SUBPARTITION&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TRIGGER&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TYPE&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;TYPE BODY&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;UNDEFINED&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;UNIFIED AUDIT POLICY&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;USERS&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;VIEW&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;WINDOW&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+insert into ao4_catalog values(&#x27;XML SCHEMA&#x27;,&#x27;RECOGNIZED_ONLY&#x27;);
+-- Registry presence never implies successful evaluation of an encountered object.
+create table ao4_release(release_id varchar2(80) primary key,offered_manifest clob,
+ installer varchar2(128),started_at timestamp with time zone,execution_result varchar2(30));
+create table ao4_fp(release_id varchar2(80) references ao4_release,
+ object_owner varchar2(128),object_name varchar2(128),object_type varchar2(40),
+ profile_code varchar2(30),profile_version number,canonical_version varchar2(40),
+ observed_at timestamp with time zone,con_id number,fingerprint raw(32),object_manifest clob,
+ primary key(release_id,object_owner,object_name,object_type));
+create table ao4_finding(finding_id number generated always as identity primary key,
+ release_id varchar2(80) not null references ao4_release,
+ component_type varchar2(128) not null,component_identity varchar2(128) not null,
+ recognition_status varchar2(20) not null,evaluation_status varchar2(30) not null,
+ severity varchar2(12) not null,reason_code varchar2(40) not null,
+ recommended_action varchar2(40) not null,exception_reference varchar2(80),
+ observed_at timestamp with time zone not null,source_family varchar2(3) not null,
+ con_id number not null,phase varchar2(20),error_code number,error_message varchar2(4000),
+ actual_object_type varchar2(128),fingerprint raw(32),
+ check (evaluation_status=&#x27;EVALUATED_WITHIN_PROFILE&#x27; or fingerprint is null));
+-- Simple heap fixture, including a CHECK, PK and ordinary B-tree index.
+create table ao4_t(id number(10,0) not null, message varchar2(40 char),amount number,
+ constraint ao4_pk primary key(id),constraint ao4_ck check(amount&gt;=0));
+create index ao4_ix on ao4_t(message);
+create view ao4_v as select id from ao4_t;
+create table ao4_unsupported(id number default 0);
+commit;
+</code></pre></details><details><summary>02_package.sql</summary><pre><code>-- PM-001 revision 004. See reference/DECISIONS.md D07 and REQUIREMENTS R02-R05.
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+create package ao4_poc authid definer as
+  -- METADATA_V1: positional query contracts documented in DESIGN.html.
+  -- Separate NUMBER and text cells avoid any NLS-dependent numeric conversion.
+  type text_cells is table of varchar2(32767) index by pls_integer;
+  type number_cells is table of number index by pls_integer;
+  type metadata_row is record(txt text_cells,num number_cells);
+  type metadata_rows is table of metadata_row index by pls_integer;
+  type metadata_set is record(rows_ metadata_rows);
+  type metadata_sets is table of metadata_set index by pls_integer;
+  type metadata_t is record(contract_version varchar2(30),sets_ metadata_sets,
+    owner_name varchar2(128),table_name varchar2(128),source_family varchar2(3),
+    container_id number,container_name varchar2(128),instance_number number,db_version varchar2(100));
+  -- No stage commits. Discard OUT values on exception. Caller frees successful LOBs.
+  procedure extract_metadata(p_table varchar2,p_source varchar2,p_data out metadata_t);
+  procedure normalize_metadata(p_data metadata_t,p_manifest out clob);
+  procedure serialize_manifest(p_manifest clob,p_bytes out blob,p_hash out raw);
+  procedure calculate(p_table varchar2,p_source varchar2,p_manifest out clob,p_bytes out blob,p_hash out raw);
+  procedure store_observations(p_table varchar2,p_source varchar2,p_release varchar2);
+  -- p_label is an encountered offer label, NOT a fabricated Oracle object type.
+  -- p_identity must exist locally, except TABLE extraction records a missing target error.
+  procedure preflight(p_label varchar2,p_identity varchar2,p_source varchar2,p_release varchar2);
+  function uint32(p_n number) return raw;
+  function value_frame(p_tag pls_integer,p_text varchar2 default null) return raw;
+  function recognition(p_type varchar2) return varchar2;
+  function binary_compare(p_x raw,p_y raw) return pls_integer;
+end;
+/
+create package body ao4_poc as
+  function recognition(p_type varchar2) return varchar2 is n number;
+  begin
+    select count(*) into n from ao4_catalog where type_code=p_type;
+    if n=1 then return &#x27;RECOGNIZED_ONLY&#x27;;end if;return &#x27;UNKNOWN&#x27;;
+  end;
+  function binary_compare(p_x raw,p_y raw) return pls_integer is
+    posn pls_integer;nx pls_integer:=nvl(utl_raw.length(p_x),0);
+    ny pls_integer:=nvl(utl_raw.length(p_y),0);bx number;by_ number;
+  begin
+    -- UTL_RAW.COMPARE returns a mismatch POSITION, NOT a signed sort result.
+    posn:=utl_raw.compare(p_x,p_y);
+    if posn=0 or posn&gt;least(nx,ny) then return sign(nx-ny);end if;
+    bx:=to_number(rawtohex(utl_raw.substr(p_x,posn,1)),&#x27;XX&#x27;);
+    by_:=to_number(rawtohex(utl_raw.substr(p_y,posn,1)),&#x27;XX&#x27;);
+    return sign(bx-by_);
+  end;
+  function uint32(p_n number) return raw is
+    n number:=p_n; h varchar2(8):=&#x27;&#x27;; digits constant varchar2(16):=&#x27;0123456789ABCDEF&#x27;;
+  begin
+    if n is null or n&lt;0 or n&gt;4294967295 or n&lt;&gt;trunc(n) then
+      raise_application_error(-20301,&#x27;uint32 out of range&#x27;); end if;
+    -- Arithmetic deliberately avoids signed PLS_INTEGER overflow at 2^31.
+    for i in 1..8 loop h:=substr(digits,mod(n,16)+1,1)||h;n:=trunc(n/16);end loop;
+    return hextoraw(h);
+  end;
+  function value_frame(p_tag pls_integer,p_text varchar2 default null) return raw is
+    b raw(32767); t raw(1);
+  begin
+    if p_tag is null or p_tag not in (0,1,2,3) then
+      raise_application_error(-20302,&#x27;Unsupported value tag&#x27;);end if;
+    t:=utl_raw.substr(uint32(p_tag),4,1);
+    if p_tag in (0,1) then
+      if p_text is not null then raise_application_error(-20303,&#x27;NULL/N/A has payload&#x27;);end if;
+      return utl_raw.concat(t,uint32(0));end if;
+    if p_text is null then
+      -- Oracle VARCHAR2 cannot represent an empty string independently of NULL.
+      raise_application_error(-20304,&#x27;Use NULL tag; empty text unsupported by PoC&#x27;);end if;
+    if p_tag=3 and (not regexp_like(p_text,&#x27;^(0|-[1-9][0-9]*|[1-9][0-9]*)$&#x27;,&#x27;c&#x27;)) then
+      raise_application_error(-20305,&#x27;Noncanonical integer&#x27;);end if;
+    b:=utl_i18n.string_to_raw(p_text,&#x27;AL32UTF8&#x27;);
+    if utl_raw.length(b)&gt;8000 then raise_application_error(-20306,&#x27;Field exceeds 8000 bytes&#x27;);end if;
+    return utl_raw.concat(t,uint32(utl_raw.length(b)),b);
+  end;
+
+  procedure extract_metadata(p_table varchar2,p_source varchar2,p_data out metadata_t) is
+    v_owner varchar2(128):=sys_context(&#x27;USERENV&#x27;,&#x27;CURRENT_USER&#x27;);
+    v_con number:=to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;));
+    v_prefix varchar2(4);filter_sql varchar2(100);
+    dc integer;cnt integer;ignored integer;descs dbms_sql.desc_tab2;
+    n number;t varchar2(32767);chunk varchar2(8000);got integer;off_ integer;r pls_integer;
+    empty_set metadata_set;row_ metadata_row;
+    function wh(p_owner_col varchar2,p_table_col varchar2) return varchar2 is begin
+      return &#x27; where &#x27;||p_owner_col||&#x27;=:own and &#x27;||p_table_col||&#x27;=:tab&#x27;||filter_sql;end;
+    procedure read_set(slot pls_integer,statement_ varchar2) is
+    begin
+      dc:=dbms_sql.open_cursor;
+      dbms_sql.parse(dc,statement_,dbms_sql.native);
+      dbms_sql.bind_variable(dc,&#x27;:own&#x27;,v_owner);dbms_sql.bind_variable(dc,&#x27;:tab&#x27;,p_table);
+      if p_source=&#x27;CDB&#x27; then dbms_sql.bind_variable(dc,&#x27;:cid&#x27;,v_con);end if;
+      dbms_sql.describe_columns2(dc,cnt,descs);
+      p_data.sets_(slot):=empty_set;
+      for col in 1..cnt loop
+        if descs(col).col_type=2 then dbms_sql.define_column(dc,col,n);
+        elsif descs(col).col_type=8 then dbms_sql.define_column_long(dc,col);
+        else dbms_sql.define_column(dc,col,t,32767);end if;
+      end loop;
+      ignored:=dbms_sql.execute(dc);r:=0;
+      while dbms_sql.fetch_rows(dc)&gt;0 loop
+        r:=r+1;
+        if r&gt;1000 then raise_application_error(-20311,&#x27;Metadata set exceeds 1000 rows&#x27;);end if;
+        row_.txt.delete;row_.num.delete;
+        for col in 1..cnt loop
+          if descs(col).col_type=2 then
+            dbms_sql.column_value(dc,col,n);row_.num(col):=n;
+          elsif descs(col).col_type=8 then
+            t:=null;off_:=0;
+            loop
+              dbms_sql.column_value_long(dc,col,8000,off_,chunk,got);exit when got=0;
+              -- Complete LONG, or an explicit bound failure. Never truncate *_VC.
+              if nvl(lengthb(t),0)+lengthb(chunk)&gt;8000 then
+                raise_application_error(-20312,&#x27;CHECK LONG exceeds bounded extractor buffer&#x27;);end if;
+              t:=t||chunk;off_:=off_+got;
+            end loop;
+            row_.txt(col):=t;
+          else dbms_sql.column_value(dc,col,t);row_.txt(col):=t;
+          end if;
+        end loop;
+        p_data.sets_(slot).rows_(r):=row_;
+      end loop;
+      dbms_sql.close_cursor(dc);dc:=null;
+    end;
+  begin
+    if p_source is null or p_source not in (&#x27;CDB&#x27;,&#x27;DBA&#x27;) then
+      raise_application_error(-20313,&#x27;Source must be CDB or DBA&#x27;);end if;
+    if v_con&lt;3 then raise_application_error(-20314,&#x27;Local target PDB only&#x27;);end if;
+    if p_table is null then raise_application_error(-20315,&#x27;Table identity required&#x27;);end if;
+    p_data.contract_version:=&#x27;METADATA_V1&#x27;;p_data.owner_name:=v_owner;p_data.table_name:=p_table;
+    p_data.source_family:=p_source;p_data.container_id:=v_con;
+    p_data.container_name:=sys_context(&#x27;USERENV&#x27;,&#x27;CON_NAME&#x27;);
+    v_prefix:=p_source||&#x27;_&#x27;;if p_source=&#x27;CDB&#x27; then filter_sql:=&#x27; and con_id=:cid&#x27;;end if;
+    read_set(1,&#x27;select iot_type,cluster_name,temporary,nested,partitioned,secondary from sys.&#x27;||v_prefix||&#x27;tables&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;));
+    read_set(2,&#x27;select table_name from sys.&#x27;||v_prefix||&#x27;external_tables&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;));
+    read_set(3,&#x27;select column_name,column_id,data_type,data_precision,data_scale,char_length,char_used,data_length,nullable,hidden_column,virtual_column,identity_column,default_length,collation from sys.&#x27;||v_prefix||&#x27;tab_cols&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;));
+    read_set(4,&#x27;select constraint_name,column_name,position from sys.&#x27;||v_prefix||&#x27;cons_columns&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;)||&#x27; order by nlssort(constraint_name,&#x27;&#x27;NLS_SORT=BINARY&#x27;&#x27;),position nulls last,nlssort(column_name,&#x27;&#x27;NLS_SORT=BINARY&#x27;&#x27;)&#x27;);
+    read_set(5,&#x27;select constraint_name,constraint_type,generated,status,deferrable,deferred,validated,rely from sys.&#x27;||v_prefix||&#x27;constraints&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;));
+    read_set(6,&#x27;select index_name,column_name,column_position,descend,index_owner from sys.&#x27;||v_prefix||&#x27;ind_columns&#x27;||wh(&#x27;table_owner&#x27;,&#x27;table_name&#x27;)||&#x27; order by nlssort(index_name,&#x27;&#x27;NLS_SORT=BINARY&#x27;&#x27;),column_position&#x27;);
+    read_set(7,&#x27;select index_name,index_type,uniqueness,generated,partitioned,status,visibility,compression,prefix_length,owner from sys.&#x27;||v_prefix||&#x27;indexes&#x27;||wh(&#x27;table_owner&#x27;,&#x27;table_name&#x27;));
+    read_set(8,&#x27;select constraint_name,search_condition from sys.&#x27;||v_prefix||&#x27;constraints&#x27;||wh(&#x27;owner&#x27;,&#x27;table_name&#x27;)||&#x27; and constraint_type=&#x27;&#x27;C&#x27;&#x27;&#x27;);
+
+    if p_data.sets_(1).rows_.count&lt;&gt;1 then
+      raise_application_error(-20316,&#x27;Table absent OR invisible OR duplicate in selected local source&#x27;);end if;
+    execute immediate &#x27;select instance_number,version from sys.gv_$instance where inst_id=to_number(sys_context(&#x27;&#x27;USERENV&#x27;&#x27;,&#x27;&#x27;INSTANCE&#x27;&#x27;))&#x27;
+      into p_data.instance_number,p_data.db_version;
+  exception when others then
+    if dc is not null then if dbms_sql.is_open(dc) then dbms_sql.close_cursor(dc);end if;end if;
+    raise;
+  end;
+  procedure normalize_metadata(p_data metadata_t,p_manifest out clob) is
+    type item_t is record(j json_object_t);
+    type items_t is table of item_t index by binary_integer;
+    type strings_t is table of varchar2(32767) index by varchar2(128);
+    items items_t; cc strings_t; ic strings_t; checks strings_t;
+    n pls_integer:=0; fields json_array_t;
+    v_owner varchar2(128):=p_data.owner_name;
+    v_con number:=p_data.container_id;
+    slot pls_integer;pos_ pls_integer;found_ boolean;
+    v_name varchar2(128); v_type varchar2(128);
+    a varchar2(4000); b varchar2(4000); d varchar2(4000); e varchar2(4000);
+    g varchar2(4000); h varchar2(4000); k varchar2(4000); z varchar2(4000);
+    q1 number;q2 number;q3 number;q4 number;q5 number;
+    ignored integer;
+    v_long varchar2(32767);
+    manifest json_object_t:=json_object_t(); records json_array_t:=json_array_t();
+    provenance json_object_t:=json_object_t();
+    procedure fail(msg varchar2) is begin raise_application_error(-20310,msg);end;
+    function nt(x number) return varchar2 is begin
+      return to_char(x,&#x27;TM9&#x27;,&#x27;NLS_NUMERIC_CHARACTERS=&#x27;&#x27;.,&#x27;&#x27;&#x27;);end;
+    procedure open_set(p_slot pls_integer) is begin slot:=p_slot;pos_:=0;end;
+    procedure next_row is begin pos_:=pos_+1;
+        found_:=p_data.sets_(slot).rows_.exists(pos_);end;
+    procedure start_record is begin fields:=json_array_t();end;
+    procedure field(fid pls_integer,label varchar2,tag pls_integer,val varchar2 default null) is
+      j json_object_t:=json_object_t();
+    begin
+      j.put(&#x27;id&#x27;,fid);j.put(&#x27;property&#x27;,label);j.put(&#x27;tag&#x27;,tag);
+      if val is null then j.put_null(&#x27;value&#x27;);else j.put(&#x27;value&#x27;,val);end if;
+      fields.append(j);
+    end;
+    procedure text_field(fid pls_integer,label varchar2,val varchar2) is begin
+      if val is null then field(fid,label,0);else field(fid,label,2,val);end if;end;
+    procedure int_field(fid pls_integer,label varchar2,val number) is begin
+      if val is null then field(fid,label,0);else field(fid,label,3,nt(val));end if;end;
+    procedure finish(kind varchar2) is begin
+      n:=n+1;if n&gt;1000 then fail(&#x27;More than 1000 records&#x27;);end if;
+      items(n).j:=json_object_t();items(n).j.put(&#x27;component&#x27;,kind);items(n).j.put(&#x27;fields&#x27;,fields);
+      -- Diagnostic identity stays outside the canonical bytes (generated names).
+      items(n).j.put(&#x27;source_identity&#x27;,v_name);
+    end;
+    procedure list_add(m in out nocopy strings_t,key_name varchar2,col varchar2,dir varchar2 default null) is
+      s varchar2(32767); part varchar2(32767);
+    begin
+      -- Ordered list grammar: uppercase HEX(value_frame(STRING,name)[,direction]).
+      -- Outer field is STRING. No delimiter or locale ambiguity is introduced.
+      part:=rawtohex(value_frame(2,col));
+      if dir is not null then part:=part||rawtohex(value_frame(2,dir));end if;
+      if m.exists(key_name) then s:=m(key_name);end if;
+      if nvl(length(s),0)+length(part)&gt;8000 then fail(&#x27;Ordered column list too large&#x27;);end if;
+      m(key_name):=s||part;
+    end;
+  begin
+    p_manifest:=null;
+    if p_data.contract_version is null or p_data.contract_version&lt;&gt;&#x27;METADATA_V1&#x27; then
+      fail(&#x27;Wrong metadata contract&#x27;);end if;
+    -- Raw dataset is a local-PDB observation; normalization performs no database reads.
+    open_set(1);
+    next_row;if found_ then
+        a:=p_data.sets_(slot).rows_(pos_).txt(1);
+        b:=p_data.sets_(slot).rows_(pos_).txt(2);
+        d:=p_data.sets_(slot).rows_(pos_).txt(3);
+        e:=p_data.sets_(slot).rows_(pos_).txt(4);
+        g:=p_data.sets_(slot).rows_(pos_).txt(5);
+        h:=p_data.sets_(slot).rows_(pos_).txt(6);end if;
+    if not found_ then fail(&#x27;Table absent OR invisible in selected source; no fingerprint&#x27;);end if;
+    if d is null or e is null or g is null or h is null or a is not null or b is not null or d&lt;&gt;&#x27;N&#x27; or e&lt;&gt;&#x27;NO&#x27; or g&lt;&gt;&#x27;NO&#x27; or h&lt;&gt;&#x27;N&#x27; then fail(&#x27;Only permanent nonpartitioned heap tables supported&#x27;);end if;
+    next_row;if found_ then
+        a:=p_data.sets_(slot).rows_(pos_).txt(1);
+        b:=p_data.sets_(slot).rows_(pos_).txt(2);
+        d:=p_data.sets_(slot).rows_(pos_).txt(3);
+        e:=p_data.sets_(slot).rows_(pos_).txt(4);
+        g:=p_data.sets_(slot).rows_(pos_).txt(5);
+        h:=p_data.sets_(slot).rows_(pos_).txt(6);end if;if found_ then fail(&#x27;Duplicate table metadata&#x27;);end if;
+    open_set(2);
+    next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);end if;if found_ then fail(&#x27;External table unsupported&#x27;);end if;
+    v_name:=p_data.table_name;start_record;field(1,&#x27;TABLE_KIND&#x27;,2,&#x27;HEAP&#x27;);finish(&#x27;TABLE&#x27;);
+    open_set(3);
+    loop
+      next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);
+        q1:=p_data.sets_(slot).rows_(pos_).num(2);
+        v_type:=p_data.sets_(slot).rows_(pos_).txt(3);
+        q2:=p_data.sets_(slot).rows_(pos_).num(4);
+        q3:=p_data.sets_(slot).rows_(pos_).num(5);
+        q4:=p_data.sets_(slot).rows_(pos_).num(6);
+        a:=p_data.sets_(slot).rows_(pos_).txt(7);
+        q5:=p_data.sets_(slot).rows_(pos_).num(8);
+        b:=p_data.sets_(slot).rows_(pos_).txt(9);
+        d:=p_data.sets_(slot).rows_(pos_).txt(10);
+        e:=p_data.sets_(slot).rows_(pos_).txt(11);
+        g:=p_data.sets_(slot).rows_(pos_).txt(12);
+        ignored:=p_data.sets_(slot).rows_(pos_).num(13);
+        h:=p_data.sets_(slot).rows_(pos_).txt(14);end if;exit when not found_;
+      if d is null or e is null or g is null or d&lt;&gt;&#x27;NO&#x27; or e&lt;&gt;&#x27;NO&#x27; or g&lt;&gt;&#x27;NO&#x27; or q1 is null or nvl(ignored,0)&gt;0 then fail(&#x27;Hidden/invisible/virtual/identity/default column unsupported&#x27;);end if;
+      if v_type not in (&#x27;NUMBER&#x27;,&#x27;FLOAT&#x27;,&#x27;CHAR&#x27;,&#x27;VARCHAR2&#x27;,&#x27;NCHAR&#x27;,&#x27;NVARCHAR2&#x27;,&#x27;RAW&#x27;,&#x27;DATE&#x27;) then fail(&#x27;Unsupported datatype: &#x27;||v_type);end if;
+      start_record;field(1,&#x27;COLUMN_NAME&#x27;,2,v_name);int_field(2,&#x27;COLUMN_ID&#x27;,q1);field(3,&#x27;DATA_TYPE&#x27;,2,v_type);
+      if v_type in (&#x27;NUMBER&#x27;,&#x27;FLOAT&#x27;) then int_field(4,&#x27;DATA_PRECISION&#x27;,q2);int_field(5,&#x27;DATA_SCALE&#x27;,q3);
+      else field(4,&#x27;DATA_PRECISION&#x27;,1);field(5,&#x27;DATA_SCALE&#x27;,1);end if;
+      if v_type in (&#x27;CHAR&#x27;,&#x27;VARCHAR2&#x27;,&#x27;NCHAR&#x27;,&#x27;NVARCHAR2&#x27;) then int_field(6,&#x27;CHAR_LENGTH&#x27;,q4);text_field(7,&#x27;CHAR_USED&#x27;,a);
+      else field(6,&#x27;CHAR_LENGTH&#x27;,1);field(7,&#x27;CHAR_USED&#x27;,1);end if;
+      -- Draft rule only. Historical rationale for omission remains unproven.
+      if v_type=&#x27;RAW&#x27; or (v_type in (&#x27;CHAR&#x27;,&#x27;VARCHAR2&#x27;) and a=&#x27;B&#x27;) then int_field(8,&#x27;DATA_LENGTH&#x27;,q5);
+      else field(8,&#x27;DATA_LENGTH&#x27;,1);end if;
+      field(9,&#x27;NULLABLE&#x27;,2,b);text_field(10,&#x27;COLLATION&#x27;,h);finish(&#x27;COLUMN&#x27;);
+    end loop;
+    if n=1 then fail(&#x27;No visible column metadata&#x27;);end if;
+    open_set(4);
+    loop next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);
+        a:=p_data.sets_(slot).rows_(pos_).txt(2);
+        q1:=p_data.sets_(slot).rows_(pos_).num(3);end if;exit when not found_;list_add(cc,v_name,a);end loop;
+    -- Complete LONG values already extracted in set 8; no dictionary access here.
+    open_set(8);loop next_row;exit when not found_;
+      v_name:=p_data.sets_(8).rows_(pos_).txt(1);
+      v_long:=p_data.sets_(8).rows_(pos_).txt(2);
+      if v_long is null then fail(&#x27;Missing CHECK expression&#x27;);end if;checks(v_name):=v_long;
+    end loop;
+    open_set(5);
+    loop next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);
+        a:=p_data.sets_(slot).rows_(pos_).txt(2);
+        b:=p_data.sets_(slot).rows_(pos_).txt(3);
+        d:=p_data.sets_(slot).rows_(pos_).txt(4);
+        e:=p_data.sets_(slot).rows_(pos_).txt(5);
+        g:=p_data.sets_(slot).rows_(pos_).txt(6);
+        h:=p_data.sets_(slot).rows_(pos_).txt(7);
+        k:=p_data.sets_(slot).rows_(pos_).txt(8);end if;exit when not found_;
+      if a not in (&#x27;P&#x27;,&#x27;U&#x27;,&#x27;C&#x27;) then fail(&#x27;Constraint type unsupported in this PoC: &#x27;||a);end if;
+      start_record;
+      if b=&#x27;GENERATED NAME&#x27; then field(1,&#x27;CONSTRAINT_NAME&#x27;,1);else field(1,&#x27;CONSTRAINT_NAME&#x27;,2,v_name);end if;
+      field(2,&#x27;CONSTRAINT_TYPE&#x27;,2,a);field(3,&#x27;STATUS&#x27;,2,d);field(4,&#x27;DEFERRABLE&#x27;,2,e);field(5,&#x27;DEFERRED&#x27;,2,g);field(6,&#x27;VALIDATED&#x27;,2,h);
+      -- RELY is not meaningful for validated constraints.
+      if h=&#x27;NOT VALIDATED&#x27; then text_field(7,&#x27;RELY&#x27;,k);else field(7,&#x27;RELY&#x27;,1);end if;
+      if not cc.exists(v_name) then fail(&#x27;Missing constraint columns&#x27;);end if;
+      field(8,&#x27;ORDERED_COLUMNS_HEX&#x27;,2,cc(v_name));
+      if a=&#x27;C&#x27; then if not checks.exists(v_name) then fail(&#x27;Missing CHECK text&#x27;);end if;field(9,&#x27;CHECK_TEXT&#x27;,2,checks(v_name));
+      else field(9,&#x27;CHECK_TEXT&#x27;,1);end if;
+      finish(&#x27;CONSTRAINTS&#x27;);
+    end loop;
+    open_set(6);
+    loop next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);
+        a:=p_data.sets_(slot).rows_(pos_).txt(2);
+        q1:=p_data.sets_(slot).rows_(pos_).num(3);
+        b:=p_data.sets_(slot).rows_(pos_).txt(4);
+        d:=p_data.sets_(slot).rows_(pos_).txt(5);end if;exit when not found_;
+      if d&lt;&gt;v_owner then fail(&#x27;Cross-owner index unsupported&#x27;);end if;
+      list_add(ic,v_name,a,b);end loop;
+    open_set(7);
+    loop next_row;if found_ then
+        v_name:=p_data.sets_(slot).rows_(pos_).txt(1);
+        a:=p_data.sets_(slot).rows_(pos_).txt(2);
+        b:=p_data.sets_(slot).rows_(pos_).txt(3);
+        d:=p_data.sets_(slot).rows_(pos_).txt(4);
+        e:=p_data.sets_(slot).rows_(pos_).txt(5);
+        g:=p_data.sets_(slot).rows_(pos_).txt(6);
+        h:=p_data.sets_(slot).rows_(pos_).txt(7);
+        k:=p_data.sets_(slot).rows_(pos_).txt(8);
+        q1:=p_data.sets_(slot).rows_(pos_).num(9);
+        z:=p_data.sets_(slot).rows_(pos_).txt(10);end if;exit when not found_;
+      if z&lt;&gt;v_owner then fail(&#x27;Cross-owner index unsupported&#x27;);end if;
+      if a&lt;&gt;&#x27;NORMAL&#x27; or e&lt;&gt;&#x27;NO&#x27; then fail(&#x27;Only nonpartitioned NORMAL B-tree indexes supported&#x27;);end if;
+      if not ic.exists(v_name) then fail(&#x27;Missing index columns&#x27;);end if;
+      start_record;
+      if d=&#x27;Y&#x27; then field(1,&#x27;INDEX_NAME&#x27;,1);else field(1,&#x27;INDEX_NAME&#x27;,2,v_name);end if;
+      field(2,&#x27;INDEX_TYPE&#x27;,2,a);field(3,&#x27;UNIQUENESS&#x27;,2,b);field(4,&#x27;STATUS&#x27;,2,g);field(5,&#x27;VISIBILITY&#x27;,2,h);
+      field(6,&#x27;COMPRESSION&#x27;,2,k);if k=&#x27;ENABLED&#x27; then int_field(7,&#x27;PREFIX_LENGTH&#x27;,q1);else field(7,&#x27;PREFIX_LENGTH&#x27;,1);end if;
+      field(8,&#x27;ORDERED_COLUMNS_DIRECTIONS_HEX&#x27;,2,ic(v_name));finish(&#x27;INDEX&#x27;);
+    end loop;
+    for i in 1..n loop records.append(items(i).j);end loop;
+    provenance.put(&#x27;dictionary_family&#x27;,p_data.source_family);provenance.put(&#x27;con_id&#x27;,v_con);
+    provenance.put(&#x27;con_name&#x27;,p_data.container_name);provenance.put(&#x27;instance&#x27;,p_data.instance_number);
+    provenance.put(&#x27;version&#x27;,p_data.db_version);provenance.put(&#x27;owner&#x27;,v_owner);
+    provenance.put(&#x27;table_name&#x27;,p_data.table_name);
+    manifest.put(&#x27;profile_code&#x27;,&#x27;TABLE_CORE&#x27;);manifest.put(&#x27;profile_version&#x27;,2);
+    manifest.put(&#x27;canonical_version&#x27;,&#x27;CAN-001-DRAFT-1&#x27;);manifest.put(&#x27;coverage&#x27;,&#x27;BOUNDED_PROFILE&#x27;);
+    manifest.put(&#x27;source&#x27;,provenance);manifest.put(&#x27;records&#x27;,records);manifest.put(&#x27;normalizer_code&#x27;,&#x27;AO3_RULES_1&#x27;);
+    p_manifest:=manifest.to_clob;
+  exception when others then
+    if dbms_lob.istemporary(p_manifest)=1 then dbms_lob.freetemporary(p_manifest);end if;
+    raise;
+  end;
+
+  procedure serialize_manifest(p_manifest clob,p_bytes out blob,p_hash out raw) is
+    root json_object_t:=json_object_t.parse(p_manifest);rs json_array_t;fs json_array_t;
+    r json_object_t;f json_object_t;profile varchar2(30);pv number;kind varchar2(40);cv varchar2(40);ftag number;
+    element_ json_element_t;text_value_ varchar2(32767);
+    type wires_t is table of raw(32767) index by pls_integer;
+    wires wires_t;body_ raw(32767);part raw(32767);tag raw(1);n pls_integer;last_id number;fid number;
+    procedure fail(msg varchar2) is begin raise_application_error(-20320,msg);end;
+    procedure wr(x raw) is begin
+      if dbms_lob.getlength(p_bytes)+utl_raw.length(x)&gt;1000000 then fail(&#x27;Document exceeds 1 MB&#x27;);end if;
+      dbms_lob.writeappend(p_bytes,utl_raw.length(x),x);
+    end;
+    procedure sort_(lo pls_integer,hi pls_integer) is
+      i pls_integer:=lo;j pls_integer:=hi;p raw(32767);tmp raw(32767);
+    begin
+      p:=wires(trunc((lo+hi)/2));
+      while i&lt;=j loop
+        while binary_compare(wires(i),p)&lt;0 loop i:=i+1;end loop;
+        while binary_compare(wires(j),p)&gt;0 loop j:=j-1;end loop;
+        if i&lt;=j then tmp:=wires(i);wires(i):=wires(j);wires(j):=tmp;i:=i+1;j:=j-1;end if;
+      end loop;
+      if lo&lt;j then sort_(lo,j);end if;if i&lt;hi then sort_(i,hi);end if;
+    end;
+  begin
+    p_bytes:=null;p_hash:=null;root.on_error(1);
+    profile:=root.get_string(&#x27;profile_code&#x27;);pv:=root.get_number(&#x27;profile_version&#x27;);
+    if profile is null or pv is null or not
+      ((profile=&#x27;TABLE_CORE&#x27; and pv=2) or (profile in (&#x27;INDEX_CORE&#x27;,&#x27;CONSTRAINT_CORE&#x27;) and pv=1))
+      then fail(&#x27;Unknown profile tuple&#x27;);end if;
+    cv:=root.get_string(&#x27;canonical_version&#x27;);
+    if cv is null or cv&lt;&gt;&#x27;CAN-001-DRAFT-1&#x27; then fail(&#x27;Unknown canonical version&#x27;);end if;
+    rs:=root.get_array(&#x27;records&#x27;);n:=rs.get_size;
+    if n&lt;1 or n&gt;1000 then fail(&#x27;Record count outside bounds&#x27;);end if;
+    if profile&lt;&gt;&#x27;TABLE_CORE&#x27; and n&lt;&gt;1 then fail(&#x27;Individual child profile requires exactly one record&#x27;);end if;
+    for i in 0..n-1 loop
+      r:=treat(rs.get(i) as json_object_t);r.on_error(1);kind:=r.get_string(&#x27;component&#x27;);
+      if kind=&#x27;TABLE&#x27; then tag:=hextoraw(&#x27;10&#x27;);elsif kind=&#x27;COLUMN&#x27; then tag:=hextoraw(&#x27;11&#x27;);
+      elsif kind=&#x27;CONSTRAINTS&#x27; then tag:=hextoraw(&#x27;12&#x27;);elsif kind=&#x27;INDEX&#x27; then tag:=hextoraw(&#x27;13&#x27;);
+      else fail(&#x27;Unknown record kind&#x27;);end if;
+      if (profile=&#x27;INDEX_CORE&#x27; and kind&lt;&gt;&#x27;INDEX&#x27;) or (profile=&#x27;CONSTRAINT_CORE&#x27; and kind&lt;&gt;&#x27;CONSTRAINTS&#x27;)
+        then fail(&#x27;Child profile record mismatch&#x27;);end if;
+      body_:=null;fs:=r.get_array(&#x27;fields&#x27;);last_id:=0;
+      if fs.get_size=0 then fail(&#x27;No fields&#x27;);end if;
+      for j in 0..fs.get_size-1 loop
+        f:=treat(fs.get(j) as json_object_t);f.on_error(1);fid:=f.get_number(&#x27;id&#x27;);
+        if fid is null or fid&lt;=last_id or fid&lt;&gt;trunc(fid) then fail(&#x27;Field IDs must increase&#x27;);end if;
+        last_id:=fid;
+        ftag:=f.get_number(&#x27;tag&#x27;);
+        if ftag is null or ftag&lt;&gt;trunc(ftag) or ftag not in (0,1,2,3) then fail(&#x27;Invalid value tag&#x27;);end if;
+        if not f.has(&#x27;value&#x27;) then fail(&#x27;Missing value member&#x27;);end if;
+        element_:=f.get(&#x27;value&#x27;);
+        if element_.is_null then text_value_:=null;
+        elsif element_.is_string then text_value_:=f.get_string(&#x27;value&#x27;);
+        else fail(&#x27;Field value must be STRING or JSON null&#x27;);end if;
+        part:=utl_raw.concat(uint32(fid),value_frame(ftag,text_value_));
+        if nvl(utl_raw.length(body_),0)+utl_raw.length(part)&gt;15995 then fail(&#x27;Record exceeds 16000 bytes&#x27;);end if;
+        body_:=utl_raw.concat(body_,part);
+      end loop;
+      wires(i+1):=utl_raw.concat(tag,uint32(utl_raw.length(body_)),body_);
+    end loop;
+    sort_(1,n);dbms_lob.createtemporary(p_bytes,true);
+    wr(hextoraw(&#x27;414F330000000001&#x27;));wr(value_frame(2,profile));
+    wr(value_frame(3,to_char(pv,&#x27;TM9&#x27;,&#x27;NLS_NUMERIC_CHARACTERS=&#x27;&#x27;.,&#x27;&#x27;&#x27;)));
+    wr(value_frame(2,&#x27;CAN-001-DRAFT-1&#x27;));wr(value_frame(2,&#x27;SHA256&#x27;));wr(uint32(n));
+    for i in 1..n loop wr(wires(i));end loop;
+    p_hash:=dbms_crypto.hash(p_bytes,dbms_crypto.hash_sh256);
+  exception when others then
+    if dbms_lob.istemporary(p_bytes)=1 then dbms_lob.freetemporary(p_bytes);end if;raise;
+  end;
+  procedure calculate(p_table varchar2,p_source varchar2,p_manifest out clob,p_bytes out blob,p_hash out raw) is
+    data_ metadata_t;doc json_object_t;
+  begin
+    p_manifest:=null;p_bytes:=null;p_hash:=null;
+    extract_metadata(p_table,p_source,data_);normalize_metadata(data_,p_manifest);
+    serialize_manifest(p_manifest,p_bytes,p_hash);
+    doc:=json_object_t.parse(p_manifest);doc.put(&#x27;sha256&#x27;,rawtohex(p_hash));
+    dbms_lob.freetemporary(p_manifest);p_manifest:=doc.to_clob;
+  exception when others then
+    if dbms_lob.istemporary(p_manifest)=1 then dbms_lob.freetemporary(p_manifest);end if;
+    if dbms_lob.istemporary(p_bytes)=1 then dbms_lob.freetemporary(p_bytes);end if;raise;
+  end;
+  procedure store_observations(p_table varchar2,p_source varchar2,p_release varchar2) is
+    m clob;bb blob;hh raw(32);child blob;cm clob;
+    root json_object_t;rs json_array_t;r json_object_t;
+    child_doc json_object_t;one_row json_array_t;src json_object_t;
+    profile varchar2(30);kind varchar2(40);
+    owner_name varchar2(128);identity_name varchar2(128);container_id number;
+    procedure release_lobs is begin
+      if dbms_lob.istemporary(m)=1 then dbms_lob.freetemporary(m);end if;
+      if dbms_lob.istemporary(bb)=1 then dbms_lob.freetemporary(bb);end if;
+      if dbms_lob.istemporary(child)=1 then dbms_lob.freetemporary(child);end if;
+      if dbms_lob.istemporary(cm)=1 then dbms_lob.freetemporary(cm);end if;
+    end;
+  begin
+    -- Savepoint makes this observation set atomic without committing caller work.
+    savepoint ao4_store;
+    calculate(p_table,p_source,m,bb,hh);root:=json_object_t.parse(m);
+    src:=root.get_object(&#x27;source&#x27;);rs:=root.get_array(&#x27;records&#x27;);
+    owner_name:=src.get_string(&#x27;owner&#x27;);container_id:=src.get_number(&#x27;con_id&#x27;);
+    insert into ao4_fp values(p_release,owner_name,p_table,&#x27;TABLE&#x27;,
+      &#x27;TABLE_CORE&#x27;,2,&#x27;CAN-001-DRAFT-1&#x27;,systimestamp,container_id,hh,m);
+    for i in 0..rs.get_size-1 loop
+      r:=treat(rs.get(i) as json_object_t);kind:=r.get_string(&#x27;component&#x27;);
+      if kind in (&#x27;CONSTRAINTS&#x27;,&#x27;INDEX&#x27;) then
+        if kind=&#x27;INDEX&#x27; then profile:=&#x27;INDEX_CORE&#x27;;
+        else profile:=&#x27;CONSTRAINT_CORE&#x27;;end if;
+        child_doc:=json_object_t();one_row:=json_array_t();one_row.append(r);
+        child_doc.put(&#x27;profile_code&#x27;,profile);child_doc.put(&#x27;profile_version&#x27;,1);
+        child_doc.put(&#x27;canonical_version&#x27;,&#x27;CAN-001-DRAFT-1&#x27;);child_doc.put(&#x27;source&#x27;,src);
+        child_doc.put(&#x27;coverage&#x27;,&#x27;BOUNDED_PROFILE&#x27;);child_doc.put(&#x27;records&#x27;,one_row);
+        cm:=child_doc.to_clob;serialize_manifest(cm,child,hh);
+        child_doc.put(&#x27;sha256&#x27;,rawtohex(hh));dbms_lob.freetemporary(cm);cm:=child_doc.to_clob;
+        identity_name:=r.get_string(&#x27;source_identity&#x27;);
+        insert into ao4_fp values(p_release,owner_name,identity_name,kind,
+          profile,1,&#x27;CAN-001-DRAFT-1&#x27;,systimestamp,container_id,hh,cm);
+        dbms_lob.freetemporary(child);dbms_lob.freetemporary(cm);
+      end if;
+    end loop;
+    release_lobs;
+  exception when others then rollback to ao4_store;release_lobs;raise;
+  end;
+  procedure preflight(p_label varchar2,p_identity varchar2,p_source varchar2,p_release varchar2) is
+    recognition_ varchar2(20);evaluation_ varchar2(30);reason_ varchar2(40);severity_ varchar2(12);
+    action_ varchar2(40);phase_ varchar2(20):=&#x27;VALIDATE&#x27;;err number;msg varchar2(4000);n number;
+    data_ metadata_t;m clob;b blob;h raw(32);actual_ varchar2(128);parent_ varchar2(128);
+    doc json_object_t;rs json_array_t;r json_object_t;one_ json_array_t;selected_ boolean;
+    query_ varchar2(1000);owner_ varchar2(128):=sys_context(&#x27;USERENV&#x27;,&#x27;CURRENT_USER&#x27;);
+    procedure free_ is begin
+      if dbms_lob.istemporary(m)=1 then dbms_lob.freetemporary(m);end if;
+      if dbms_lob.istemporary(b)=1 then dbms_lob.freetemporary(b);end if;
+    end;
+  begin
+    -- Findings are durable on caller COMMIT, and intentionally roll back with caller work.
+    -- Not autonomous: a failed caller transaction must not leave false accepted results.
+    select count(*) into n from ao4_release where release_id=p_release;
+    if n&lt;&gt;1 then raise_application_error(-20330,&#x27;Preflight release must exist&#x27;);end if;
+    if p_label is null or p_identity is null or p_source is null or p_source not in (&#x27;CDB&#x27;,&#x27;DBA&#x27;) then
+      raise_application_error(-20331,&#x27;Label/identity and valid source required&#x27;);end if;
+    recognition_:=recognition(p_label);
+    begin
+      if p_label in (&#x27;TABLE&#x27;,&#x27;INDEX&#x27;,&#x27;CONSTRAINTS&#x27;) then
+        recognition_:=&#x27;RECOGNIZED&#x27;;phase_:=&#x27;EXTRACT&#x27;;
+        parent_:=p_identity;
+        if p_label&lt;&gt;&#x27;TABLE&#x27; then
+          if p_label=&#x27;INDEX&#x27; then
+            query_:=&#x27;select table_name from sys.&#x27;||p_source||&#x27;_indexes where owner=:own and index_name=:obj&#x27;;
+          else query_:=&#x27;select table_name from sys.&#x27;||p_source||&#x27;_constraints where owner=:own and constraint_name=:obj&#x27;;end if;
+          if p_source=&#x27;CDB&#x27; then
+            query_:=query_||&#x27; and con_id=:cid&#x27;;
+            execute immediate query_ into parent_ using owner_,p_identity,to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;));
+          else execute immediate query_ into parent_ using owner_,p_identity;end if;
+        end if;
+        extract_metadata(parent_,p_source,data_);phase_:=&#x27;NORMALIZE&#x27;;normalize_metadata(data_,m);
+        if p_label&lt;&gt;&#x27;TABLE&#x27; then
+          doc:=json_object_t.parse(m);rs:=doc.get_array(&#x27;records&#x27;);one_:=json_array_t();selected_:=false;
+          for i in 0..rs.get_size-1 loop
+            r:=treat(rs.get(i) as json_object_t);
+            if r.get_string(&#x27;component&#x27;)=p_label and r.get_string(&#x27;source_identity&#x27;)=p_identity then
+              one_.append(r);selected_:=true;end if;
+          end loop;
+          if not selected_ then raise_application_error(-20317,&#x27;Requested child absent from normalized dataset&#x27;);end if;
+          if p_label=&#x27;INDEX&#x27; then doc.put(&#x27;profile_code&#x27;,&#x27;INDEX_CORE&#x27;);else doc.put(&#x27;profile_code&#x27;,&#x27;CONSTRAINT_CORE&#x27;);end if;
+          doc.put(&#x27;profile_version&#x27;,1);doc.put(&#x27;records&#x27;,one_);
+          dbms_lob.freetemporary(m);m:=doc.to_clob;
+        end if;
+        phase_:=&#x27;SERIALIZE&#x27;;serialize_manifest(m,b,h);
+        evaluation_:=&#x27;EVALUATED_WITHIN_PROFILE&#x27;;reason_:=&#x27;BOUNDED_PROFILE&#x27;;severity_:=&#x27;INFO&#x27;;action_:=&#x27;COMPARE_PROFILE_ONLY&#x27;;
+        actual_:=p_label;
+      else
+        -- Actual locally encountered object identity is checked, even for unknown offer labels.
+        -- This does not invent UNKNOWN Oracle types or claim an extractor for the other 50 labels.
+        phase_:=&#x27;EXTRACT&#x27;;
+        select min(object_type),count(*) into actual_,n from user_objects where object_name=p_identity
+          and (recognition_=&#x27;UNKNOWN&#x27; or object_type=p_label);
+        if n=0 then raise_application_error(-20332,&#x27;Offered object absent OR invisible locally&#x27;);end if;
+        evaluation_:=&#x27;NOT_EVALUATED&#x27;;severity_:=&#x27;WARNING&#x27;;action_:=&#x27;REVIEW_COVERAGE&#x27;;
+        if recognition_=&#x27;UNKNOWN&#x27; then reason_:=&#x27;NO_RECOGNITION_RULE&#x27;;action_:=&#x27;REVIEW_MAPPING&#x27;;
+        else reason_:=&#x27;NO_EVALUATION_RULE&#x27;;end if;
+      end if;
+    exception when others then
+      err:=sqlcode;msg:=substr(sqlerrm,1,4000);h:=null;
+      if (phase_=&#x27;NORMALIZE&#x27; and err=-20310) or (phase_=&#x27;EXTRACT&#x27; and err in (-20311,-20312)) then
+        evaluation_:=&#x27;UNSUPPORTED&#x27;;reason_:=&#x27;UNSUPPORTED_SHAPE&#x27;;
+      else evaluation_:=&#x27;ERROR&#x27;;reason_:=&#x27;EXTRACTION_ERROR&#x27;;
+        if phase_=&#x27;NORMALIZE&#x27; then reason_:=&#x27;NORMALIZATION_ERROR&#x27;;end if;
+        if phase_=&#x27;SERIALIZE&#x27; then reason_:=&#x27;SERIALIZATION_ERROR&#x27;;end if;
+      end if;
+      severity_:=&#x27;ERROR&#x27;;action_:=&#x27;BLOCK_AND_REVIEW&#x27;;
+    end;
+    insert into ao4_finding(release_id,component_type,component_identity,recognition_status,
+      evaluation_status,severity,reason_code,recommended_action,exception_reference,
+      observed_at,source_family,con_id,phase,error_code,error_message,actual_object_type,fingerprint)
+    values(p_release,p_label,p_identity,recognition_,evaluation_,severity_,reason_,action_,null,
+      systimestamp,p_source,to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;)),phase_,err,msg,actual_,h);
+    free_;
+  exception when others then free_;raise;
+  end;
+end;
+/
+show errors package ao4_poc
+show errors package body ao4_poc
+declare n number;begin
+ select count(*) into n from user_errors where name=&#x27;AO4_POC&#x27;;
+ if n&lt;&gt;0 then raise_application_error(-20399,&#x27;AO4_POC compilation errors&#x27;);end if;
+ select count(*) into n from user_objects where object_name=&#x27;AO4_POC&#x27; and status=&#x27;VALID&#x27;;
+ if n&lt;&gt;2 then raise_application_error(-20399,&#x27;AO4_POC spec/body not VALID&#x27;);end if;
+end;
+/
+</code></pre></details><details><summary>03_reference_vector.sql</summary><pre><code>-- Exact full 003 CAN-001 reference vector, executed on Oracle by 03_tests.sql.
+declare m clob;b blob;expected_ blob;h raw(32);r raw(32767);begin
+ m:=q&#x27;~
+{
+ &quot;profile_code&quot;: &quot;TABLE_CORE&quot;,
+ &quot;profile_version&quot;: 2,
+ &quot;canonical_version&quot;: &quot;CAN-001-DRAFT-1&quot;,
+ &quot;coverage&quot;: &quot;BOUNDED_PROFILE&quot;,
+ &quot;source&quot;: {
+  &quot;fixture&quot;: true,
+  &quot;table_name&quot;: &quot;AO3_EXAMPLE&quot;,
+  &quot;con_id&quot;: 3,
+  &quot;owner&quot;: &quot;ILLUSTRATIVE_ONLY&quot;
+ },
+ &quot;records&quot;: [
+  {
+   &quot;component&quot;: &quot;TABLE&quot;,
+   &quot;source_identity&quot;: &quot;AO3_EXAMPLE&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;TABLE_KIND&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;HEAP&quot;
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;COLUMN&quot;,
+   &quot;source_identity&quot;: &quot;ID&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;COLUMN_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;ID&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;COLUMN_ID&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;1&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;DATA_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NUMBER&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DATA_PRECISION&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;10&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DATA_SCALE&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;0&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;CHAR_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;CHAR_USED&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;DATA_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;NULLABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;N&quot;
+    },
+    {
+     &quot;id&quot;: 10,
+     &quot;property&quot;: &quot;COLLATION&quot;,
+     &quot;tag&quot;: 0,
+     &quot;value&quot;: null
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;COLUMN&quot;,
+   &quot;source_identity&quot;: &quot;AMOUNT&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;COLUMN_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;AMOUNT&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;COLUMN_ID&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;3&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;DATA_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NUMBER&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DATA_PRECISION&quot;,
+     &quot;tag&quot;: 0,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DATA_SCALE&quot;,
+     &quot;tag&quot;: 0,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;CHAR_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;CHAR_USED&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;DATA_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;NULLABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;Y&quot;
+    },
+    {
+     &quot;id&quot;: 10,
+     &quot;property&quot;: &quot;COLLATION&quot;,
+     &quot;tag&quot;: 0,
+     &quot;value&quot;: null
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;COLUMN&quot;,
+   &quot;source_identity&quot;: &quot;MESSAGE&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;COLUMN_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;MESSAGE&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;COLUMN_ID&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;2&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;DATA_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VARCHAR2&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DATA_PRECISION&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DATA_SCALE&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;CHAR_LENGTH&quot;,
+     &quot;tag&quot;: 3,
+     &quot;value&quot;: &quot;40&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;CHAR_USED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;C&quot;
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;DATA_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;NULLABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;Y&quot;
+    },
+    {
+     &quot;id&quot;: 10,
+     &quot;property&quot;: &quot;COLLATION&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;USING_NLS_COMP&quot;
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;CONSTRAINTS&quot;,
+   &quot;source_identity&quot;: &quot;AO3_EXAMPLE_PK&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;CONSTRAINT_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;AO3_EXAMPLE_PK&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;CONSTRAINT_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;P&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;STATUS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;ENABLED&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DEFERRABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NOT DEFERRABLE&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DEFERRED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;IMMEDIATE&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;VALIDATED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VALIDATED&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;RELY&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;ORDERED_COLUMNS_HEX&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;02000000024944&quot;
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;CHECK_TEXT&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;CONSTRAINTS&quot;,
+   &quot;source_identity&quot;: &quot;SYS_C_EXAMPLE&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;CONSTRAINT_NAME&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;CONSTRAINT_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;C&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;STATUS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;ENABLED&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DEFERRABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NOT DEFERRABLE&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DEFERRED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;IMMEDIATE&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;VALIDATED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VALIDATED&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;RELY&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;ORDERED_COLUMNS_HEX&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;02000000024944&quot;
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;CHECK_TEXT&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;\&quot;ID\&quot; IS NOT NULL&quot;
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;CONSTRAINTS&quot;,
+   &quot;source_identity&quot;: &quot;AO3_EXAMPLE_CK&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;CONSTRAINT_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;AO3_EXAMPLE_CK&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;CONSTRAINT_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;C&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;STATUS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;ENABLED&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;DEFERRABLE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NOT DEFERRABLE&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;DEFERRED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;IMMEDIATE&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;VALIDATED&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VALIDATED&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;RELY&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;ORDERED_COLUMNS_HEX&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;0200000006414D4F554E54&quot;
+    },
+    {
+     &quot;id&quot;: 9,
+     &quot;property&quot;: &quot;CHECK_TEXT&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;amount&gt;=0&quot;
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;INDEX&quot;,
+   &quot;source_identity&quot;: &quot;AO3_EXAMPLE_PK&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;INDEX_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;AO3_EXAMPLE_PK&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;INDEX_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NORMAL&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;UNIQUENESS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;UNIQUE&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;STATUS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VALID&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;VISIBILITY&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VISIBLE&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;COMPRESSION&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;DISABLED&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;PREFIX_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;ORDERED_COLUMNS_DIRECTIONS_HEX&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;020000000249440200000003415343&quot;
+    }
+   ]
+  },
+  {
+   &quot;component&quot;: &quot;INDEX&quot;,
+   &quot;source_identity&quot;: &quot;AO3_EXAMPLE_IX&quot;,
+   &quot;fields&quot;: [
+    {
+     &quot;id&quot;: 1,
+     &quot;property&quot;: &quot;INDEX_NAME&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;AO3_EXAMPLE_IX&quot;
+    },
+    {
+     &quot;id&quot;: 2,
+     &quot;property&quot;: &quot;INDEX_TYPE&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NORMAL&quot;
+    },
+    {
+     &quot;id&quot;: 3,
+     &quot;property&quot;: &quot;UNIQUENESS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;NONUNIQUE&quot;
+    },
+    {
+     &quot;id&quot;: 4,
+     &quot;property&quot;: &quot;STATUS&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VALID&quot;
+    },
+    {
+     &quot;id&quot;: 5,
+     &quot;property&quot;: &quot;VISIBILITY&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;VISIBLE&quot;
+    },
+    {
+     &quot;id&quot;: 6,
+     &quot;property&quot;: &quot;COMPRESSION&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;DISABLED&quot;
+    },
+    {
+     &quot;id&quot;: 7,
+     &quot;property&quot;: &quot;PREFIX_LENGTH&quot;,
+     &quot;tag&quot;: 1,
+     &quot;value&quot;: null
+    },
+    {
+     &quot;id&quot;: 8,
+     &quot;property&quot;: &quot;ORDERED_COLUMNS_DIRECTIONS_HEX&quot;,
+     &quot;tag&quot;: 2,
+     &quot;value&quot;: &quot;02000000074D4553534147450200000003415343&quot;
+    }
+   ]
+  }
+ ],
+ &quot;sha256&quot;: &quot;1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1&quot;
+}
+~&#x27;;
+ ao4_poc.serialize_manifest(m,b,h);dbms_lob.createtemporary(expected_,true);
+ r:=hextoraw(&#x27;414F330000000001020000000A5441424C455F434F5245030000000132020000000F43414E2D3030312D44524146542D31020000000653484132353600000009100000000D0000000102000000044845415011000000670000000102000000024944000000020300000001310000000302000000064E554D4245520000000403000000023130000000050300000001300000000601000000000000000701000000000000000801000000000000000902000000014E0000000A00000000001100000068000000010200000006414D4F554E54000000020300000001330000000302000000064E554D424552000000040000000000000000050000000000000000060100000000000000070100000000000000080100000000000000090200000001590000000A0000000000110000007C0000000102000000074D455353414745000000020300000001320000000302000000085641524348415232000000040100000000000000050100000000000000060300000002343000000007020000000143000000080100000000000000090200000001590000000A020000000E5553494E475F4E4C535F434F4D50120000009500000001020000000E414F335F4558414D504C455F504B00000002020000000150000000030200000007454E41424C454400000004020000000E4E4F542044454645525241424C45000000050200000009494D4D45444941544500000006020000000956414C49444154454400000007010000000000000008020000000E3032303030303030303234393434000000090100000000120000009700000001010000000000000002020000000143000000030200000007454E41424C454400000004020000000E4E4F542044454645525241424C45000000050200000009494D4D45444941544500000006020000000956414C49444154454400000007010000000000000008020000000E303230303030303030323439343400000009020000001022494422204953204E4F54204E554C4C12000000A600000001020000000E414F335F4558414D504C455F434B00000002020000000143000000030200000007454E41424C454400000004020000000E4E4F542044454645525241424C45000000050200000009494D4D45444941544500000006020000000956414C49444154454400000007010000000000000008020000001630323030303030303036343134443446353534453534000000090200000009616D6F756E743E3D30130000009400000001020000000E414F335F4558414D504C455F504B0000000202000000064E4F524D414C000000030200000006554E4951554500000004020000000556414C494400000005020000000756495349424C4500000006020000000844495341424C454400000007010000000000000008020000001E30323030303030303032343934343032303030303030303334313533343313000000A100000001020000000E414F335F4558414D504C455F49580000000202000000064E4F524D414C0000000302000000094E4F4E554E4951554500000004020000000556414C494400000005020000000756495349424C4500000006020000000844495341424C454400000007010000000000000008020000002830323030303030303037344434353533353334313437343530323030303030303033343135333433&#x27;);
+ dbms_lob.writeappend(expected_,utl_raw.length(r),r);
+ if dbms_lob.compare(b,expected_)&lt;&gt;0 or rawtohex(h)&lt;&gt;&#x27;1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1&#x27; then
+   raise_application_error(-20450,&#x27;Full CAN-001 reference differs&#x27;);end if;
+ dbms_lob.freetemporary(m);dbms_lob.freetemporary(b);dbms_lob.freetemporary(expected_);
+ dbms_output.put_line(&#x27;PASS T63_FULL_FIXED_VECTOR&#x27;);
+exception when others then
+ if dbms_lob.istemporary(m)=1 then dbms_lob.freetemporary(m);end if;
+ if dbms_lob.istemporary(b)=1 then dbms_lob.freetemporary(b);end if;
+ if dbms_lob.istemporary(expected_)=1 then dbms_lob.freetemporary(expected_);end if;raise;
+end;
+/
+</code></pre></details><details><summary>03_tests.sql</summary><pre><code>-- Run once after 01_setup.sql and 02_package.sql, in the same disposable PDB schema.
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+set echo off
+set serveroutput on size unlimited
+set linesize 32767
+set trimspool on
+set feedback on
+spool ao4_tests.log
+select product,version_full from product_component_version;
+select sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;) schema_name,
+       sys_context(&#x27;USERENV&#x27;,&#x27;CON_NAME&#x27;) con_name,
+       sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;) con_id from dual;
+select owner,table_name,privilege from user_tab_privs_recd where owner=&#x27;SYS&#x27; order by table_name,privilege;
+@@03_reference_vector.sql
+-- DDL fixture creation precedes all rollback assertions (DDL commits implicitly).
+create table ao4_types(n number,f float(30),c char(3 byte),vc varchar2(4 char),
+ nc nchar(3),nv nvarchar2(4),r raw(8),dt date,sc number(9,-2),
+ constraint ao4_uq unique(c,r));
+create table ao4_long(id number);
+declare s varchar2(32767):=&#x27;alter table ao4_long add constraint ao4_long_ck check (&#x27;;begin
+ for i in 1..450 loop s:=s||&#x27;id &gt;= 0 and &#x27;;end loop;
+ execute immediate s||&#x27;id &gt;= 0)&#x27;;
+end;
+/
+declare
+ m clob;m2 clob;b blob;b2 blob;h raw(32);h2 raw(32);base_ raw(32);tmp_ raw(32767);
+ data_ ao4_poc.metadata_t;bad_ ao4_poc.metadata_t;
+ n number;expected_ number;seen_ number;err_ number;old_nls varchar2(100);saved_sort varchar2(100);
+ root_ json_object_t;rs_ json_array_t;r_ json_object_t;fs_ json_array_t;f_ json_object_t;
+ children_ number;long_len_ number;found_ boolean;child_ json_object_t;one_ json_array_t;
+ identity_ varchar2(128);kind_ varchar2(40);
+ procedure ck(ok boolean,id_ varchar2) is begin
+   if ok is null or not ok then raise_application_error(-20400,&#x27;FAIL &#x27;||id_);end if;
+   dbms_output.put_line(&#x27;PASS &#x27;||id_);
+ end;
+ procedure free_ is begin
+   if dbms_lob.istemporary(m)=1 then dbms_lob.freetemporary(m);end if;
+   if dbms_lob.istemporary(m2)=1 then dbms_lob.freetemporary(m2);end if;
+   if dbms_lob.istemporary(b)=1 then dbms_lob.freetemporary(b);end if;
+   if dbms_lob.istemporary(b2)=1 then dbms_lob.freetemporary(b2);end if;
+ end;
+ procedure calc(tab_ varchar2 default &#x27;AO4_T&#x27;,src_ varchar2 default &#x27;CDB&#x27;) is begin
+   free_;ao4_poc.calculate(tab_,src_,m,b,h);
+ end;
+ procedure emit(id_ varchar2,doc_ clob,wire_ blob) is begin
+   dbms_output.put_line(&#x27;EVIDENCE_BEGIN &#x27;||id_);dbms_output.put_line(&#x27;JSON_BEGIN&#x27;);
+   -- Small character chunks also fit DBMS_OUTPUT&#x27;s byte limit on multibyte databases.
+   for i in 0..trunc((dbms_lob.getlength(doc_)-1)/1000) loop
+     dbms_output.put_line(dbms_lob.substr(doc_,1000,1+i*1000));end loop;
+   dbms_output.put_line(&#x27;JSON_END&#x27;);dbms_output.put_line(&#x27;HEX_BEGIN&#x27;);
+   for i in 0..trunc((dbms_lob.getlength(wire_)-1)/8000) loop
+     dbms_output.put_line(rawtohex(dbms_lob.substr(wire_,8000,1+i*8000)));end loop;
+   dbms_output.put_line(&#x27;HEX_END&#x27;);dbms_output.put_line(&#x27;EVIDENCE_END&#x27;);
+ end;
+ procedure release_(id_ varchar2) is begin
+   insert into ao4_release values(id_,to_clob(&#x27;{&quot;kind&quot;:&quot;TEST_OBSERVATION&quot;}&#x27;),
+     sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;),systimestamp,&#x27;TEST_OBSERVATION&#x27;);
+ end;
+ procedure expect_store_error(id_ varchar2,release_id_ varchar2,code_ number) is begin
+   err_:=0;begin ao4_poc.store_observations(&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,release_id_);
+     exception when others then err_:=sqlcode;end;ck(err_=code_,id_);
+ end;
+ procedure reject_shape(id_ varchar2) is begin
+   free_;err_:=0;begin ao4_poc.calculate(&#x27;AO4_SHAPE&#x27;,&#x27;CDB&#x27;,m,b,h);
+     exception when others then err_:=sqlcode;end;ck(err_=-20310,id_);
+ end;
+ function val_(column_ varchar2,property_ varchar2) return varchar2 is begin
+   for i in 0..rs_.get_size-1 loop
+     r_:=treat(rs_.get(i) as json_object_t);
+     if r_.get_string(&#x27;component&#x27;)=&#x27;COLUMN&#x27; and r_.get_string(&#x27;source_identity&#x27;)=column_ then
+       fs_:=r_.get_array(&#x27;fields&#x27;);for j in 0..fs_.get_size-1 loop
+         f_:=treat(fs_.get(j) as json_object_t);
+         if f_.get_string(&#x27;property&#x27;)=property_ then return f_.get_string(&#x27;value&#x27;);end if;
+       end loop;
+     end if;
+   end loop;return null;
+ end;
+ procedure finding_(identity_ varchar2,recognition_ varchar2,evaluation_ varchar2,reason_ varchar2,id_ varchar2) is begin
+   select count(*) into n from ao4_finding where release_id=&#x27;PF004&#x27;
+     and component_identity=identity_ and recognition_status=recognition_
+     and evaluation_status=evaluation_ and reason_code=reason_
+     and source_family=&#x27;CDB&#x27; and con_id=to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;))
+     and observed_at is not null and recommended_action is not null
+     and (evaluation_status=&#x27;EVALUATED_WITHIN_PROFILE&#x27; or fingerprint is null);
+   ck(n=1,id_);
+ end;
+begin
+ select count(*) into n from user_errors where name=&#x27;AO4_POC&#x27;;ck(n=0,&#x27;T01_COMPILE_ERRORS&#x27;);
+ select count(*) into n from user_objects where object_name=&#x27;AO4_POC&#x27; and status=&#x27;VALID&#x27;;ck(n=2,&#x27;T02_VALID_SPEC_BODY&#x27;);
+ select count(*) into n from ao4_catalog;ck(n=53,&#x27;T03_CATALOG_53&#x27;);
+ ck(ao4_poc.recognition(&#x27;UNDEFINED&#x27;)=&#x27;RECOGNIZED_ONLY&#x27; and ao4_poc.recognition(&#x27;UNMAPPED_OFFER_LABEL&#x27;)=&#x27;UNKNOWN&#x27;,&#x27;T04_RECOGNITION&#x27;);
+ ck(rawtohex(ao4_poc.value_frame(0,null))=&#x27;0000000000&#x27;,&#x27;T05_NULL&#x27;);
+ ck(rawtohex(ao4_poc.value_frame(1,null))=&#x27;0100000000&#x27;,&#x27;T06_NA&#x27;);
+ ck(rawtohex(ao4_poc.value_frame(2,unistr(&#x27;\00E9&#x27;)))=&#x27;0200000002C3A9&#x27;,&#x27;T07_UTF8&#x27;);
+ ck(rawtohex(ao4_poc.value_frame(3,&#x27;-12&#x27;))=&#x27;03000000032D3132&#x27;,&#x27;T08_INTEGER&#x27;);
+ ck(rawtohex(ao4_poc.uint32(4294967295))=&#x27;FFFFFFFF&#x27;,&#x27;T09_U32_MAX&#x27;);
+ err_:=0;begin tmp_:=ao4_poc.uint32(4294967296);exception when others then err_:=sqlcode;end;ck(err_=-20301,&#x27;T10_U32_OVERFLOW&#x27;);
+ err_:=0;begin tmp_:=ao4_poc.value_frame(3,&#x27;01&#x27;);exception when others then err_:=sqlcode;end;ck(err_=-20305,&#x27;T11_INTEGER_REJECT&#x27;);
+ err_:=0;begin tmp_:=ao4_poc.value_frame(2,rpad(&#x27;x&#x27;,8001,&#x27;x&#x27;));exception when others then err_:=sqlcode;end;ck(err_=-20306,&#x27;T12_FIELD_OVERFLOW&#x27;);
+ ck(ao4_poc.binary_compare(hextoraw(&#x27;FE&#x27;),hextoraw(&#x27;FF&#x27;))=-1 and
+    ao4_poc.binary_compare(hextoraw(&#x27;00&#x27;),hextoraw(&#x27;0000&#x27;))=-1 and
+    ao4_poc.binary_compare(hextoraw(&#x27;0201&#x27;),hextoraw(&#x27;0102&#x27;))=1,&#x27;T13_UNSIGNED_SORT&#x27;);
+ calc;base_:=h;emit(&#x27;CDB_TABLE&#x27;,m,b);
+ ao4_poc.calculate(&#x27;AO4_T&#x27;,&#x27;DBA&#x27;,m2,b2,h2);
+ ck(h=h2 and dbms_lob.compare(b,b2)=0,&#x27;T14_CDB_DBA_BYTES&#x27;);emit(&#x27;DBA_TABLE&#x27;,m2,b2);
+ calc;ck(h=base_,&#x27;T15_REPEAT&#x27;);
+ ao4_poc.extract_metadata(&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,data_);
+ ck(data_.contract_version=&#x27;METADATA_V1&#x27; and data_.sets_.count=8 and data_.sets_(1).rows_.count=1,&#x27;T16_EXTRACT_INTERFACE&#x27;);
+ ao4_poc.normalize_metadata(data_,m2);ao4_poc.serialize_manifest(m2,b2,h2);
+ ck(h2=h and dbms_lob.compare(b,b2)=0,&#x27;T17_STAGE_EQUIVALENCE&#x27;);
+ -- Alter a copied raw dataset only. The normalizer must consume its input, not query again.
+ bad_:=data_;bad_.sets_(1).rows_(1).txt(3):=&#x27;Y&#x27;;err_:=0;
+ free_;begin ao4_poc.normalize_metadata(bad_,m2);exception when others then err_:=sqlcode;end;
+ ck(err_=-20310,&#x27;T18_PURE_NORMALIZE&#x27;);
+ calc;root_:=json_object_t.parse(m);root_.put(&#x27;profile_version&#x27;,999);m2:=root_.to_clob;err_:=0;
+ begin ao4_poc.serialize_manifest(m2,b2,h2);exception when others then err_:=sqlcode;end;ck(err_=-20320,&#x27;T19_PROFILE_REJECT&#x27;);
+ select value into old_nls from nls_session_parameters where parameter=&#x27;NLS_NUMERIC_CHARACTERS&#x27;;
+ select value into saved_sort from nls_session_parameters where parameter=&#x27;NLS_SORT&#x27;;
+ execute immediate &#x27;alter session set nls_numeric_characters=&#x27;&#x27;,.&#x27;&#x27;&#x27;;
+ execute immediate &#x27;alter session set nls_sort=&#x27;&#x27;GERMAN&#x27;&#x27;&#x27;;
+ calc;ck(h=base_,&#x27;T20_NLS_INDEPENDENT&#x27;);
+ execute immediate &#x27;alter session set nls_numeric_characters=&#x27;&#x27;&#x27;||replace(old_nls,&#x27;&#x27;&#x27;&#x27;,&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;)||&#x27;&#x27;&#x27;&#x27;;
+ execute immediate &#x27;alter session set nls_sort=&#x27;&#x27;&#x27;||replace(saved_sort,&#x27;&#x27;&#x27;&#x27;,&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;)||&#x27;&#x27;&#x27;&#x27;;
+ calc(&#x27;AO4_TYPES&#x27;);root_:=json_object_t.parse(m);rs_:=root_.get_array(&#x27;records&#x27;);
+ ck(val_(&#x27;F&#x27;,&#x27;DATA_PRECISION&#x27;)=&#x27;30&#x27; and val_(&#x27;SC&#x27;,&#x27;DATA_SCALE&#x27;)=&#x27;-2&#x27;,&#x27;T21_FLOAT_NUMBER&#x27;);
+ ck(val_(&#x27;C&#x27;,&#x27;DATA_LENGTH&#x27;)=&#x27;3&#x27; and val_(&#x27;R&#x27;,&#x27;DATA_LENGTH&#x27;)=&#x27;8&#x27; and val_(&#x27;VC&#x27;,&#x27;CHAR_LENGTH&#x27;)=&#x27;4&#x27;,&#x27;T22_LENGTH_SEMANTICS&#x27;);
+ ck(val_(&#x27;NC&#x27;,&#x27;CHAR_LENGTH&#x27;)=&#x27;3&#x27; and val_(&#x27;NV&#x27;,&#x27;CHAR_LENGTH&#x27;)=&#x27;4&#x27; and val_(&#x27;DT&#x27;,&#x27;DATA_TYPE&#x27;)=&#x27;DATE&#x27;,&#x27;T23_NCHAR_DATE&#x27;);
+ emit(&#x27;DATATYPES&#x27;,m,b);
+ calc(&#x27;AO4_LONG&#x27;);ao4_poc.extract_metadata(&#x27;AO4_LONG&#x27;,&#x27;CDB&#x27;,data_);long_len_:=0;
+ for i in 1..data_.sets_(8).rows_.count loop
+   if data_.sets_(8).rows_(i).txt(1)=&#x27;AO4_LONG_CK&#x27; then long_len_:=length(data_.sets_(8).rows_(i).txt(2));end if;
+ end loop;ck(long_len_&gt;4000 and long_len_&lt;8000,&#x27;T24_COMPLETE_LONG&#x27;);emit(&#x27;LONG_CHECK&#x27;,m,b);
+ execute immediate &#x27;alter table ao4_t disable constraint ao4_ck&#x27;;calc;ck(h&lt;&gt;base_,&#x27;T25_CONSTRAINT_CHANGE&#x27;);
+ execute immediate &#x27;alter table ao4_t enable validate constraint ao4_ck&#x27;;calc;ck(h=base_,&#x27;T26_CONSTRAINT_RESTORE&#x27;);
+ execute immediate &#x27;alter index ao4_ix invisible&#x27;;calc;ck(h&lt;&gt;base_,&#x27;T27_INDEX_CHANGE&#x27;);
+ execute immediate &#x27;alter index ao4_ix visible&#x27;;
+ execute immediate &#x27;alter table ao4_t modify id number(11,0)&#x27;;calc;ck(h&lt;&gt;base_,&#x27;T28_PRECISION_CHANGE&#x27;);
+ execute immediate &#x27;alter table ao4_t modify id number(10,0)&#x27;;calc;ck(h=base_,&#x27;T29_PRECISION_RESTORE&#x27;);
+ free_;err_:=0;begin ao4_poc.calculate(&#x27;AO4_T&#x27;,&#x27;AUTO&#x27;,m,b,h);exception when others then err_:=sqlcode;end;
+ ck(err_=-20313,&#x27;T51_INVALID_SOURCE&#x27;);
+ ck(utl_raw.length(ao4_poc.value_frame(2,rpad(&#x27;x&#x27;,8000,&#x27;x&#x27;)))=8005,&#x27;T52_FIELD_BOUNDARY&#x27;);
+ err_:=0;begin tmp_:=ao4_poc.value_frame(0,&#x27;x&#x27;);exception when others then err_:=sqlcode;end;ck(err_=-20303,&#x27;T53_NULL_PAYLOAD&#x27;);
+ err_:=0;begin tmp_:=ao4_poc.value_frame(2,null);exception when others then err_:=sqlcode;end;ck(err_=-20304,&#x27;T54_EMPTY_TEXT&#x27;);
+ -- Direct serializer tests need no database metadata, and create no preflight findings.
+ root_:=json_object_t();root_.put(&#x27;profile_code&#x27;,&#x27;TABLE_CORE&#x27;);root_.put(&#x27;profile_version&#x27;,2);
+ root_.put(&#x27;canonical_version&#x27;,&#x27;CAN-001-DRAFT-1&#x27;);r_:=json_object_t();r_.put(&#x27;component&#x27;,&#x27;TABLE&#x27;);
+ fs_:=json_array_t();f_:=json_object_t();f_.put(&#x27;id&#x27;,1);f_.put(&#x27;tag&#x27;,2);f_.put(&#x27;value&#x27;,rpad(&#x27;x&#x27;,8000,&#x27;x&#x27;));fs_.append(f_);
+ f_.put(&#x27;id&#x27;,2);fs_.append(f_);r_.put(&#x27;fields&#x27;,fs_);rs_:=json_array_t();rs_.append(r_);root_.put(&#x27;records&#x27;,rs_);
+ m:=root_.to_clob;err_:=0;begin ao4_poc.serialize_manifest(m,b,h);exception when others then err_:=sqlcode;end;
+ ck(err_=-20320,&#x27;T55_RECORD_BOUND&#x27;);free_;
+ fs_:=json_array_t();f_.put(&#x27;id&#x27;,1);fs_.append(f_);r_.put(&#x27;fields&#x27;,fs_);rs_:=json_array_t();
+ for i in 1..1001 loop rs_.append(r_);end loop;root_.put(&#x27;records&#x27;,rs_);m:=root_.to_clob;err_:=0;
+ begin ao4_poc.serialize_manifest(m,b,h);exception when others then err_:=sqlcode;end;ck(err_=-20320,&#x27;T56_RECORD_COUNT_BOUND&#x27;);free_;
+ rs_:=json_array_t();for i in 1..130 loop rs_.append(r_);end loop;root_.put(&#x27;records&#x27;,rs_);m:=root_.to_clob;err_:=0;
+ begin ao4_poc.serialize_manifest(m,b,h);exception when others then err_:=sqlcode;end;ck(err_=-20320,&#x27;T57_DOCUMENT_BOUND&#x27;);free_;
+ execute immediate &#x27;create table ao4_shape(id number references ao4_t(id))&#x27;;reject_shape(&#x27;T58_FK_REJECT&#x27;);
+ execute immediate &#x27;drop table ao4_shape purge&#x27;;
+ execute immediate &#x27;create table ao4_shape(id number, v number generated always as (id+1) virtual)&#x27;;reject_shape(&#x27;T59_VIRTUAL_REJECT&#x27;);
+ execute immediate &#x27;drop table ao4_shape purge&#x27;;
+ execute immediate &#x27;create table ao4_shape(id number primary key) organization index&#x27;;reject_shape(&#x27;T60_IOT_REJECT&#x27;);
+ execute immediate &#x27;drop table ao4_shape purge&#x27;;
+ execute immediate &#x27;create table ao4_shape(id number) partition by range(id)(partition p0 values less than (maxvalue))&#x27;;reject_shape(&#x27;T61_PARTITION_REJECT&#x27;);
+ execute immediate &#x27;drop table ao4_shape purge&#x27;;
+ execute immediate &#x27;create table ao4_shape(id number)&#x27;;execute immediate &#x27;create index ao4_shape_ix on ao4_shape(abs(id))&#x27;;reject_shape(&#x27;T62_FBI_REJECT&#x27;);
+ execute immediate &#x27;drop table ao4_shape purge&#x27;;
+ -- All DDL complete. From here savepoint/rollback assertions have no implicit commits.
+ release_(&#x27;STORE004&#x27;);savepoint caller_before_store;
+ ao4_poc.store_observations(&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,&#x27;STORE004&#x27;);
+ select count(*) into expected_ from user_constraints where table_name=&#x27;AO4_T&#x27;;
+ select count(*) into n from user_indexes where table_name=&#x27;AO4_T&#x27;;expected_:=expected_+n+1;
+ select count(*) into n from ao4_fp where release_id=&#x27;STORE004&#x27;;ck(n=expected_,&#x27;T30_STORAGE_COUNT&#x27;);
+ seen_:=0;
+ for x in (select * from ao4_fp where release_id=&#x27;STORE004&#x27; order by object_type,object_name) loop
+   free_;ao4_poc.serialize_manifest(x.object_manifest,b,h);root_:=json_object_t.parse(x.object_manifest);
+   ck(h=x.fingerprint and rawtohex(h)=root_.get_string(&#x27;sha256&#x27;),&#x27;ROW_HASH_&#x27;||x.object_type||&#x27;_&#x27;||x.object_name);
+   ck(x.con_id=to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;)) and x.object_owner=sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;)
+     and x.canonical_version=&#x27;CAN-001-DRAFT-1&#x27; and x.observed_at is not null,&#x27;ROW_META_&#x27;||x.object_type||&#x27;_&#x27;||x.object_name);
+   emit(&#x27;STORED_&#x27;||x.object_type||&#x27;_&#x27;||x.object_name,x.object_manifest,b);seen_:=seen_+1;
+ end loop;ck(seen_=expected_,&#x27;T31_ALL_CHILD_HASHES&#x27;);
+ -- Compare each child with the corresponding record in the fresh table manifest.
+ calc;root_:=json_object_t.parse(m);rs_:=root_.get_array(&#x27;records&#x27;);children_:=0;
+ for i in 0..rs_.get_size-1 loop
+   r_:=treat(rs_.get(i) as json_object_t);
+   if r_.get_string(&#x27;component&#x27;) in (&#x27;CONSTRAINTS&#x27;,&#x27;INDEX&#x27;) then
+     child_:=json_object_t();one_:=json_array_t();one_.append(r_);
+     if r_.get_string(&#x27;component&#x27;)=&#x27;INDEX&#x27; then child_.put(&#x27;profile_code&#x27;,&#x27;INDEX_CORE&#x27;);else child_.put(&#x27;profile_code&#x27;,&#x27;CONSTRAINT_CORE&#x27;);end if;
+     child_.put(&#x27;profile_version&#x27;,1);child_.put(&#x27;canonical_version&#x27;,&#x27;CAN-001-DRAFT-1&#x27;);child_.put(&#x27;records&#x27;,one_);
+     if dbms_lob.istemporary(m2)=1 then dbms_lob.freetemporary(m2);end if;
+     if dbms_lob.istemporary(b2)=1 then dbms_lob.freetemporary(b2);end if;
+     m2:=child_.to_clob;ao4_poc.serialize_manifest(m2,b2,h2);
+     identity_:=r_.get_string(&#x27;source_identity&#x27;);kind_:=r_.get_string(&#x27;component&#x27;);
+     select count(*) into n from ao4_fp where release_id=&#x27;STORE004&#x27;
+       and object_name=identity_ and object_type=kind_ and fingerprint=h2;
+     if n&lt;&gt;1 then raise_application_error(-20401,&#x27;Child digest/key mismatch&#x27;);end if;children_:=children_+1;
+   end if;
+ end loop;ck(children_=expected_-1,&#x27;T32_CHILD_SOURCE_MATCH&#x27;);
+ expect_store_error(&#x27;T33_DUPLICATE&#x27;,&#x27;STORE004&#x27;,-1);
+ select count(*) into n from ao4_fp where release_id=&#x27;STORE004&#x27;;ck(n=expected_,&#x27;T34_DUPLICATE_PRESERVES&#x27;);
+ rollback to caller_before_store;
+ select count(*) into n from ao4_fp where release_id=&#x27;STORE004&#x27;;ck(n=0,&#x27;T35_CALLER_ROLLBACK&#x27;);
+ select count(*) into n from ao4_release where release_id=&#x27;STORE004&#x27;;ck(n=1,&#x27;T36_CALLER_WORK_PRESERVED&#x27;);
+ expect_store_error(&#x27;T37_MISSING_RELEASE&#x27;,&#x27;MISSING004&#x27;,-2291);
+ -- Seed an actual child collision: TABLE insert succeeds before a child fails.
+ release_(&#x27;PARTIAL004&#x27;);
+ insert into ao4_fp values(&#x27;PARTIAL004&#x27;,sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;),&#x27;AO4_IX&#x27;,&#x27;INDEX&#x27;,
+   &#x27;INDEX_CORE&#x27;,1,&#x27;CAN-001-DRAFT-1&#x27;,systimestamp,to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;)),hextoraw(&#x27;00&#x27;),null);
+ expect_store_error(&#x27;T38_PARTIAL_FAILURE&#x27;,&#x27;PARTIAL004&#x27;,-1);
+ select count(*) into n from ao4_fp where release_id=&#x27;PARTIAL004&#x27;;ck(n=1,&#x27;T39_PARTIAL_ATOMIC&#x27;);
+ select count(*) into n from ao4_fp where release_id=&#x27;PARTIAL004&#x27; and object_name=&#x27;AO4_IX&#x27; and fingerprint=hextoraw(&#x27;00&#x27;);ck(n=1,&#x27;T40_SEED_UNCHANGED&#x27;);
+ rollback;
+ release_(&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;VIEW&#x27;,&#x27;AO4_V&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ -- An actual offer with an unrecognized label references a real local view.
+ ao4_poc.preflight(&#x27;UNMAPPED_OFFER_LABEL&#x27;,&#x27;AO4_V&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_UNSUPPORTED&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_ABSENT&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;INDEX&#x27;,&#x27;AO4_IX&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ ao4_poc.preflight(&#x27;CONSTRAINTS&#x27;,&#x27;AO4_CK&#x27;,&#x27;CDB&#x27;,&#x27;PF004&#x27;);
+ finding_(&#x27;AO4_V&#x27;,&#x27;RECOGNIZED_ONLY&#x27;,&#x27;NOT_EVALUATED&#x27;,&#x27;NO_EVALUATION_RULE&#x27;,&#x27;T41_REAL_RECOGNIZED&#x27;);
+ finding_(&#x27;AO4_V&#x27;,&#x27;UNKNOWN&#x27;,&#x27;NOT_EVALUATED&#x27;,&#x27;NO_RECOGNITION_RULE&#x27;,&#x27;T42_REAL_UNKNOWN_OFFER&#x27;);
+ finding_(&#x27;AO4_UNSUPPORTED&#x27;,&#x27;RECOGNIZED&#x27;,&#x27;UNSUPPORTED&#x27;,&#x27;UNSUPPORTED_SHAPE&#x27;,&#x27;T43_REAL_UNSUPPORTED&#x27;);
+ finding_(&#x27;AO4_ABSENT&#x27;,&#x27;RECOGNIZED&#x27;,&#x27;ERROR&#x27;,&#x27;EXTRACTION_ERROR&#x27;,&#x27;T44_REAL_EXTRACTION_ERROR&#x27;);
+ finding_(&#x27;AO4_T&#x27;,&#x27;RECOGNIZED&#x27;,&#x27;EVALUATED_WITHIN_PROFILE&#x27;,&#x27;BOUNDED_PROFILE&#x27;,&#x27;T45_REAL_EVALUATED&#x27;);
+ select count(*) into n from ao4_finding where release_id=&#x27;PF004&#x27; and component_type in (&#x27;INDEX&#x27;,&#x27;CONSTRAINTS&#x27;)
+   and evaluation_status=&#x27;EVALUATED_WITHIN_PROFILE&#x27; and fingerprint is not null;ck(n=2,&#x27;T46_CHILD_PREFLIGHT&#x27;);
+ select count(*) into n from ao4_finding where release_id=&#x27;PF004&#x27; and component_identity in (&#x27;AO4_UNSUPPORTED&#x27;,&#x27;AO4_ABSENT&#x27;)
+   and error_code is not null and error_message is not null and fingerprint is null and recommended_action=&#x27;BLOCK_AND_REVIEW&#x27;;
+ ck(n=2,&#x27;T47_FAILURE_DIAGNOSTICS&#x27;);
+ select count(*) into n from ao4_fp where release_id=&#x27;PF004&#x27;;ck(n=0,&#x27;T48_PREFLIGHT_NO_BASELINE&#x27;);
+ rollback;
+ select count(*) into n from ao4_finding where release_id=&#x27;PF004&#x27;;ck(n=0,&#x27;T49_FINDING_ROLLBACK&#x27;);
+ -- Preserve real committed findings and object observations for a fresh-session assertion.
+ release_(&#x27;FINAL004&#x27;);ao4_poc.store_observations(&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ ao4_poc.preflight(&#x27;VIEW&#x27;,&#x27;AO4_V&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ ao4_poc.preflight(&#x27;UNMAPPED_OFFER_LABEL&#x27;,&#x27;AO4_V&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_UNSUPPORTED&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_ABSENT&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,&#x27;FINAL004&#x27;);
+ select count(*) into n from ao4_finding where release_id=&#x27;FINAL004&#x27;;ck(n=5,&#x27;T50_FINAL_FINDINGS&#x27;);
+ commit;free_;dbms_output.put_line(&#x27;SUITE_COMPLETE PM001_004&#x27;);
+exception when others then
+ rollback;free_;
+ if old_nls is not null then execute immediate &#x27;alter session set nls_numeric_characters=&#x27;&#x27;&#x27;||replace(old_nls,&#x27;&#x27;&#x27;&#x27;,&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;)||&#x27;&#x27;&#x27;&#x27;;end if;
+ if saved_sort is not null then execute immediate &#x27;alter session set nls_sort=&#x27;&#x27;&#x27;||replace(saved_sort,&#x27;&#x27;&#x27;&#x27;,&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;)||&#x27;&#x27;&#x27;&#x27;;end if;
+ raise;
+end;
+/
+select release_id,component_type,component_identity,recognition_status,evaluation_status,
+ reason_code,error_code,recommended_action from ao4_finding order by finding_id;
+spool off
+</code></pre></details><details><summary>04_verify_persistence.sql</summary><pre><code>-- Run in a NEW SQL*Plus/SQLcl session as the same disposable schema after 03_tests.
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+set serveroutput on size unlimited
+spool ao4_persistence.log
+declare n number;expected_ number;b blob;h raw(32);begin
+ select count(*) into expected_ from user_constraints where table_name=&#x27;AO4_T&#x27;;
+ select count(*) into n from user_indexes where table_name=&#x27;AO4_T&#x27;;expected_:=expected_+n+1;
+ select count(*) into n from ao4_fp where release_id=&#x27;FINAL004&#x27;;
+ if n&lt;&gt;expected_ then raise_application_error(-20410,&#x27;Persistent fingerprint count&#x27;);end if;
+ dbms_output.put_line(&#x27;PASS P01_PERSISTENT_OBJECTS&#x27;);
+ for x in (select * from ao4_fp where release_id=&#x27;FINAL004&#x27;) loop
+   ao4_poc.serialize_manifest(x.object_manifest,b,h);
+   if h is null or x.fingerprint is null or h&lt;&gt;x.fingerprint then raise_application_error(-20411,&#x27;Persistent digest mismatch&#x27;);end if;
+   dbms_lob.freetemporary(b);
+ end loop;dbms_output.put_line(&#x27;PASS P02_PERSISTENT_DIGESTS&#x27;);
+ select count(*) into n from ao4_finding where release_id=&#x27;FINAL004&#x27;;
+ if n&lt;&gt;5 then raise_application_error(-20412,&#x27;Persistent findings missing&#x27;);end if;
+ select count(*) into n from ao4_finding where release_id=&#x27;FINAL004&#x27; and
+ ((recognition_status=&#x27;RECOGNIZED_ONLY&#x27; and evaluation_status=&#x27;NOT_EVALUATED&#x27;)
+  or (recognition_status=&#x27;UNKNOWN&#x27; and evaluation_status=&#x27;NOT_EVALUATED&#x27;)
+  or (evaluation_status=&#x27;UNSUPPORTED&#x27; and error_code is not null and fingerprint is null)
+  or (evaluation_status=&#x27;ERROR&#x27; and error_code is not null and fingerprint is null)
+  or (evaluation_status=&#x27;EVALUATED_WITHIN_PROFILE&#x27; and fingerprint is not null));
+ if n&lt;&gt;5 then raise_application_error(-20413,&#x27;Persistent finding classifications&#x27;);end if;
+ dbms_output.put_line(&#x27;PASS P03_PERSISTENT_FINDINGS&#x27;);
+ dbms_output.put_line(&#x27;PERSISTENCE_COMPLETE PM001_004&#x27;);
+exception when others then
+ if dbms_lob.istemporary(b)=1 then dbms_lob.freetemporary(b);end if;raise;
+end;
+/
+spool off
+</code></pre></details><details><summary>05_cleanup.sql</summary><pre><code>-- Fixed allowlist only. Safe after partial setup; never drop a user or cascade a schema.
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+set serveroutput on
+spool ao4_cleanup.log
+declare
+ procedure drop_(kind_ varchar2,name_ varchar2) is begin
+   execute immediate &#x27;drop &#x27;||kind_||&#x27; &#x27;||name_||case when kind_=&#x27;table&#x27; then &#x27; purge&#x27; end;
+ exception when others then
+   if (kind_=&#x27;table&#x27; and sqlcode=-942) or (kind_=&#x27;view&#x27; and sqlcode=-942)
+      or (kind_=&#x27;package&#x27; and sqlcode=-4043) then null;else raise;end if;
+ end;
+begin
+ if not regexp_like(sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;),&#x27;^AO4_POC_[A-Z0-9_]+$&#x27;,&#x27;c&#x27;)
+   or sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;)&lt;&gt;sys_context(&#x27;USERENV&#x27;,&#x27;CURRENT_SCHEMA&#x27;)
+   or to_number(sys_context(&#x27;USERENV&#x27;,&#x27;CON_ID&#x27;))&lt;3 then
+   raise_application_error(-20420,&#x27;Wrong disposable local PDB schema&#x27;);end if;
+ drop_(&#x27;package&#x27;,&#x27;AO4_POC&#x27;);drop_(&#x27;view&#x27;,&#x27;AO4_V&#x27;);
+ drop_(&#x27;table&#x27;,&#x27;AO4_FP&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_FINDING&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_RELEASE&#x27;);
+ -- SHAPE can retain its FK to AO4_T if an assertion fails immediately after CREATE.
+ drop_(&#x27;table&#x27;,&#x27;AO4_SHAPE&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_CATALOG&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_T&#x27;);
+ drop_(&#x27;table&#x27;,&#x27;AO4_UNSUPPORTED&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_TYPES&#x27;);drop_(&#x27;table&#x27;,&#x27;AO4_LONG&#x27;);
+end;
+/
+declare n number;begin
+ select count(*) into n from user_objects;
+ if n&lt;&gt;0 then raise_application_error(-20421,&#x27;Cleanup left objects: inspect USER_OBJECTS; nothing else is dropped&#x27;);end if;
+ dbms_output.put_line(&#x27;PASS C01_SCHEMA_EMPTY&#x27;);
+ dbms_output.put_line(&#x27;CLEANUP_COMPLETE PM001_004&#x27;);
+end;
+/
+spool off
+</code></pre></details><details><summary>06_privilege_error.sql</summary><pre><code>-- After 04_verify_persistence, BEFORE cleanup. DBA first revokes only
+-- SELECT ON SYS.CDB_TABLES from this disposable user in the target PDB.
+-- Run as the disposable user in a NEW session. DBA restores that direct grant after.
+-- Do not run this scenario against any shared or production schema.
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set define off
+set sqlblanklines on
+set serveroutput on size unlimited
+spool ao4_privilege.log
+declare n number;m clob;b blob;h raw(32);begin
+ insert into ao4_release values(&#x27;PRIV004&#x27;,to_clob(&#x27;{&quot;kind&quot;:&quot;TEST_OBSERVATION&quot;}&#x27;),
+   sys_context(&#x27;USERENV&#x27;,&#x27;SESSION_USER&#x27;),systimestamp,&#x27;TEST_OBSERVATION&#x27;);
+ ao4_poc.preflight(&#x27;TABLE&#x27;,&#x27;AO4_T&#x27;,&#x27;CDB&#x27;,&#x27;PRIV004&#x27;);
+ select count(*) into n from ao4_finding where release_id=&#x27;PRIV004&#x27;
+   and evaluation_status=&#x27;ERROR&#x27; and reason_code=&#x27;EXTRACTION_ERROR&#x27;
+   and error_code in (-942,-1031) and error_message is not null
+   and fingerprint is null and recommended_action=&#x27;BLOCK_AND_REVIEW&#x27;;
+ if n&lt;&gt;1 then raise_application_error(-20430,&#x27;Expected real CDB privilege denial; check direct/broad grants&#x27;);end if;
+ dbms_output.put_line(&#x27;PASS D01_REAL_PRIVILEGE_ERROR&#x27;);
+ ao4_poc.calculate(&#x27;AO4_T&#x27;,&#x27;DBA&#x27;,m,b,h);
+ if h is null then raise_application_error(-20431,&#x27;Explicit DBA route failed&#x27;);end if;
+ dbms_lob.freetemporary(m);dbms_lob.freetemporary(b);
+ dbms_output.put_line(&#x27;PASS D02_EXPLICIT_DBA_ROUTE&#x27;);
+ commit;dbms_output.put_line(&#x27;PRIVILEGE_COMPLETE PM001_004&#x27;);
+exception when others then
+ rollback;
+ if dbms_lob.istemporary(m)=1 then dbms_lob.freetemporary(m);end if;
+ if dbms_lob.istemporary(b)=1 then dbms_lob.freetemporary(b);end if;raise;
+end;
+/
+spool off
+</code></pre></details></main><script>let saved;addEventListener('beforeprint',()=>{saved=[...document.querySelectorAll('details')].map(x=>[x,x.open]);saved.forEach(([x])=>x.open=true)});addEventListener('afterprint',()=>saved?.forEach(([x,o])=>x.open=o));</script></body></html>

@@ -20,3 +20,7 @@ Sessieregistratie: SESSION_REGISTRY.json. Herkomst en wijzigingshistorie: CHANGE
 ## ADMIN_LOGGER import
 
 Bronimport en rapporten zijn via [PR #4](https://github.com/JPouwiel/TETOOLS/pull/4) gemerged en vanaf main teruggelezen (38 bestandshashes bevestigd). Canonieke modulemap: `../modules/ADMIN_LOGGER/`; de relay-index verwijst daarheen. Oracle-validatie en bronreview 20261015_500 zijn nog open.
+
+## ADMIN_OBJECTS module-import
+
+Canoniek modulepad: [../modules/ADMIN_OBJECTS/](../modules/ADMIN_OBJECTS/). Laatste beschikbare PM-001 release: 004; oorspronkelijke bron en ontwerpcontext zijn afzonderlijk herkenbaar. Bevroren relay-release blijft behouden. Oracle-runtime NOT_EXECUTED; historische volledigheid niet geclaimd. Publicatiebewijs volgt na merge en teruglezen.

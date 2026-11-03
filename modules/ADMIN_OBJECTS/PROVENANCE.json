@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_OBJECTS",
+  "date": "2026-11-03",
+  "base_commit": "c188ce782c0334299afe2d959a0533c56f222f53",
+  "base_tree": "43c00a945d04d7530707e1198d96ff4a00998c4a",
+  "origin_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+  "regie_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+  "approval_actor": "user: explicit import request in current chat",
+  "canonical_path": "modules/ADMIN_OBJECTS",
+  "latest_available_release": "PM-001_20261103_004",
+  "release_git_tree_sha": "649a5889749126523fd379e8034fe48f86a31a67",
+  "release_files_verified_against_local": 71,
+  "original_source_files": 10,
+  "oracle_runtime": "NOT_EXECUTED",
+  "history_complete": false,
+  "legacy_frozen_publication": "COMMUNICATION_RELAY/MODULES/ADMIN_OBJECTS/RELEASES/PM-001_20261103_004",
+  "changes_to_release_or_code": "NONE",
+  "retrieval_limit": "Six recent REGIE turns; no older cursor. No full transcript coverage claim."
+}

@@ -1,0 +1,55 @@
+{
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_OBJECTS",
+  "revision": "004",
+  "reviewer_thread": "01a1a002-714e-7123-9778-8c26d79d0d72",
+  "oracle_runtime": "NOT_EXECUTED",
+  "checks": [
+    {
+      "check": "53_UNCHANGED_LABELS",
+      "status": "PASS",
+      "evidence": "sql/01_setup.sql versus reference/baseline_003/*01_setup*"
+    },
+    {
+      "check": "NORMALIZER_NO_DATABASE_READ",
+      "status": "PASS",
+      "evidence": "Structural text inspection; this is not PL/SQL compilation"
+    },
+    {
+      "check": "SERIALIZER_BLOB_SHA256",
+      "status": "PASS",
+      "evidence": "sql/02_package.sql serialize_manifest"
+    },
+    {
+      "check": "PUBLIC_STAGE_INTERFACES",
+      "status": "PASS",
+      "evidence": "sql/02_package.sql specification"
+    },
+    {
+      "check": "STORAGE_SAVEPOINT_NO_COMMIT",
+      "status": "PASS",
+      "evidence": "Text inspection of storage coordinator"
+    },
+    {
+      "check": "REAL_FINDING_INSERT",
+      "status": "PASS",
+      "evidence": "Preflight implementation; runtime NOT_EXECUTED"
+    },
+    {
+      "check": "63_ASSERTION_IDS",
+      "status": "PASS",
+      "evidence": "SQL assertion inventory, not executed assertions"
+    },
+    {
+      "check": "FULL_REFERENCE_BYTES_DIGEST",
+      "status": "PASS",
+      "evidence": "Python re-encoding of inherited vector, not Oracle evidence"
+    },
+    {
+      "check": "CLEANUP_FOREIGN_KEY_ORDER",
+      "status": "PASS",
+      "evidence": "AO4_SHAPE can reference AO4_T after failed T58; child must be dropped first"
+    }
+  ],
+  "package_sha256": "f0c9fbf9c9347f5e85f7362477b51b7ec05edef92423ceb1be1a42decccb9a60"
+}

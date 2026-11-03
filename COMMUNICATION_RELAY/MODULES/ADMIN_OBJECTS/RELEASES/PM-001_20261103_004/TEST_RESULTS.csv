@@ -1,0 +1,72 @@
+test_id,expected,actual,evidence
+T01_COMPILE_ERRORS,assertion true / PASS T01_COMPILE_ERRORS,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T02_VALID_SPEC_BODY,assertion true / PASS T02_VALID_SPEC_BODY,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T03_CATALOG_53,assertion true / PASS T03_CATALOG_53,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T04_RECOGNITION,assertion true / PASS T04_RECOGNITION,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T05_NULL,assertion true / PASS T05_NULL,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T06_NA,assertion true / PASS T06_NA,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T07_UTF8,assertion true / PASS T07_UTF8,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T08_INTEGER,assertion true / PASS T08_INTEGER,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T09_U32_MAX,assertion true / PASS T09_U32_MAX,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T10_U32_OVERFLOW,assertion true / PASS T10_U32_OVERFLOW,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T11_INTEGER_REJECT,assertion true / PASS T11_INTEGER_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T12_FIELD_OVERFLOW,assertion true / PASS T12_FIELD_OVERFLOW,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T13_UNSIGNED_SORT,assertion true / PASS T13_UNSIGNED_SORT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T14_CDB_DBA_BYTES,assertion true / PASS T14_CDB_DBA_BYTES,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T15_REPEAT,assertion true / PASS T15_REPEAT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T16_EXTRACT_INTERFACE,assertion true / PASS T16_EXTRACT_INTERFACE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T17_STAGE_EQUIVALENCE,assertion true / PASS T17_STAGE_EQUIVALENCE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T18_PURE_NORMALIZE,assertion true / PASS T18_PURE_NORMALIZE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T19_PROFILE_REJECT,assertion true / PASS T19_PROFILE_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T20_NLS_INDEPENDENT,assertion true / PASS T20_NLS_INDEPENDENT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T21_FLOAT_NUMBER,assertion true / PASS T21_FLOAT_NUMBER,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T22_LENGTH_SEMANTICS,assertion true / PASS T22_LENGTH_SEMANTICS,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T23_NCHAR_DATE,assertion true / PASS T23_NCHAR_DATE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T24_COMPLETE_LONG,assertion true / PASS T24_COMPLETE_LONG,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T25_CONSTRAINT_CHANGE,assertion true / PASS T25_CONSTRAINT_CHANGE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T26_CONSTRAINT_RESTORE,assertion true / PASS T26_CONSTRAINT_RESTORE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T27_INDEX_CHANGE,assertion true / PASS T27_INDEX_CHANGE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T28_PRECISION_CHANGE,assertion true / PASS T28_PRECISION_CHANGE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T29_PRECISION_RESTORE,assertion true / PASS T29_PRECISION_RESTORE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T30_STORAGE_COUNT,assertion true / PASS T30_STORAGE_COUNT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T31_ALL_CHILD_HASHES,assertion true / PASS T31_ALL_CHILD_HASHES,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T32_CHILD_SOURCE_MATCH,assertion true / PASS T32_CHILD_SOURCE_MATCH,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T33_DUPLICATE,assertion true / PASS T33_DUPLICATE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T34_DUPLICATE_PRESERVES,assertion true / PASS T34_DUPLICATE_PRESERVES,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T35_CALLER_ROLLBACK,assertion true / PASS T35_CALLER_ROLLBACK,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T36_CALLER_WORK_PRESERVED,assertion true / PASS T36_CALLER_WORK_PRESERVED,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T37_MISSING_RELEASE,assertion true / PASS T37_MISSING_RELEASE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T38_PARTIAL_FAILURE,assertion true / PASS T38_PARTIAL_FAILURE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T39_PARTIAL_ATOMIC,assertion true / PASS T39_PARTIAL_ATOMIC,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T40_SEED_UNCHANGED,assertion true / PASS T40_SEED_UNCHANGED,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T41_REAL_RECOGNIZED,assertion true / PASS T41_REAL_RECOGNIZED,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T42_REAL_UNKNOWN_OFFER,assertion true / PASS T42_REAL_UNKNOWN_OFFER,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T43_REAL_UNSUPPORTED,assertion true / PASS T43_REAL_UNSUPPORTED,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T44_REAL_EXTRACTION_ERROR,assertion true / PASS T44_REAL_EXTRACTION_ERROR,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T45_REAL_EVALUATED,assertion true / PASS T45_REAL_EVALUATED,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T46_CHILD_PREFLIGHT,assertion true / PASS T46_CHILD_PREFLIGHT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T47_FAILURE_DIAGNOSTICS,assertion true / PASS T47_FAILURE_DIAGNOSTICS,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T48_PREFLIGHT_NO_BASELINE,assertion true / PASS T48_PREFLIGHT_NO_BASELINE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T49_FINDING_ROLLBACK,assertion true / PASS T49_FINDING_ROLLBACK,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T50_FINAL_FINDINGS,assertion true / PASS T50_FINAL_FINDINGS,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T51_INVALID_SOURCE,assertion true / PASS T51_INVALID_SOURCE,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T52_FIELD_BOUNDARY,assertion true / PASS T52_FIELD_BOUNDARY,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T53_NULL_PAYLOAD,assertion true / PASS T53_NULL_PAYLOAD,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T54_EMPTY_TEXT,assertion true / PASS T54_EMPTY_TEXT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T55_RECORD_BOUND,assertion true / PASS T55_RECORD_BOUND,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T56_RECORD_COUNT_BOUND,assertion true / PASS T56_RECORD_COUNT_BOUND,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T57_DOCUMENT_BOUND,assertion true / PASS T57_DOCUMENT_BOUND,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T58_FK_REJECT,assertion true / PASS T58_FK_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T59_VIRTUAL_REJECT,assertion true / PASS T59_VIRTUAL_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T60_IOT_REJECT,assertion true / PASS T60_IOT_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T61_PARTITION_REJECT,assertion true / PASS T61_PARTITION_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T62_FBI_REJECT,assertion true / PASS T62_FBI_REJECT,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+T63_FULL_FIXED_VECTOR,assertion true / PASS T63_FULL_FIXED_VECTOR,NOT_EXECUTED,Oracle 19c required; sql/03_tests.sql or 03_reference_vector.sql
+ROW_HASH_EACH_STORED_OBJECT,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+ROW_META_EACH_STORED_OBJECT,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+P01_PERSISTENT_OBJECTS,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+P02_PERSISTENT_DIGESTS,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+P03_PERSISTENT_FINDINGS,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+D01_REAL_PRIVILEGE_ERROR,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+D02_EXPLICIT_DBA_ROUTE,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md
+C01_SCHEMA_EMPTY,assertion true / PASS,NOT_EXECUTED,Oracle 19c required; see RUNBOOK.md

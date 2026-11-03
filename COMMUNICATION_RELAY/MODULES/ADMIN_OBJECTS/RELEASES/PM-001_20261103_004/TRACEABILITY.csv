@@ -1,0 +1,17 @@
+requirement,decisions,implementation,assertion_or_gate,status
+R01,D02/D18,reference/manifest.json; sql/01_setup.sql,G0; T03,SOURCE_CHECKED
+R02,D07,sql/02_package.sql extract_metadata,T16,IMPLEMENTED_NOT_RUN
+R03,D05/D07,sql/02_package.sql normalize_metadata,T17/T18/T21-T24,IMPLEMENTED_NOT_RUN
+R04,D06/D07,sql/02_package.sql serialize_manifest,T05-T13/T19/T52-T57/T63; tools/verify_logs.py,IMPLEMENTED_NOT_RUN
+R05,D07/D09,sql/02_package.sql store_observations,T30-T40,IMPLEMENTED_NOT_RUN
+R06,D12,sql/02_package.sql preflight,T41-T49; D01/D02,IMPLEMENTED_NOT_RUN
+R07,D10/D12,sql/01_setup.sql ao4_finding; package preflight,T43-T47/P03,IMPLEMENTED_NOT_RUN
+R08,D08,package extract_metadata; explicit route selection,T14; D01/D02; byteproof CDB_TABLE/DBA_TABLE,IMPLEMENTED_NOT_RUN
+R09,D15,sql/03_tests.sql; 03_reference_vector.sql,T01-T29/T51-T63,IMPLEMENTED_NOT_RUN
+R10,D09/D15,sql/03_tests.sql; tools/verify_logs.py,T30-T32; ROW_HASH/ROW_META; stored byteproofs,IMPLEMENTED_NOT_RUN
+R11,D15,sql/03_tests.sql;04_verify_persistence.sql;05_cleanup.sql,T33-T40/T49/P01-P03/C01,IMPLEMENTED_NOT_RUN
+R12,D01/D15,sql/00_privileges.sql;00_install.sql;RUNBOOK.md,G2/G3/G4,DELIVERED_NOT_RUN
+R13,D18,DESIGN.html;PM001_004.pdf;registers;manifest.json,G0/G1; verify_integrity.py,DELIVERED
+R14,D15,VALIDATION.json;TEST_RESULTS.csv;RUNBOOK.md,Oracle runtime fields false/NOT_EXECUTED,ENFORCED_IN_REPORTING
+R15,D09/D13/D14,DECISIONS.md;DEVIATIONS.md; package bounded API,static scope scan; no installer mode API,SCOPE_PRESERVED
+R16,D18,DEVIATIONS.md K01-K16;REFERENCE_CHECK.md,reference hashes retained; root register byte equality,REGISTERED

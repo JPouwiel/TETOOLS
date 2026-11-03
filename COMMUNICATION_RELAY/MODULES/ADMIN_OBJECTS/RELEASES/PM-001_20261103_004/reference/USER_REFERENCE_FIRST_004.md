@@ -1,0 +1,1 @@
+Stel eerst `DECISIONS.md`, `REQUIREMENTS.md`, `OPEN_POINTS.md`, `SOURCE_INDEX.md` en `manifest.json` samen. Controleer deze tegen de beschikbare PM-001-bronnen. Markeer ontbrekende historische context expliciet. Gebruik uitsluitend dit gecontroleerde referentiepakket als uitgangspunt voor revisie 004 en registreer iedere afwijking.

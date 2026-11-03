@@ -1,0 +1,11 @@
+# Open work
+
+| ID | Open point | Evidence / next action |
+|---|---|---|
+| LOG-OPEN-01 | Review uploaded source 20261015_500 | The earlier requested analysis was blocked by environment failure; no completed report for this baseline was found in this conversation. Perform a new source review. |
+| LOG-OPEN-02 | Oracle verification | Confirm target 19c release update, container, direct privileges, compilation and functional test results. No new Oracle run took place during import. |
+| LOG-OPEN-03 | Installation reference 003 | Review report 030 and correct the installer through an agreed code change. Do not enable its commented DDL without resolving template and privilege defects. |
+| LOG-OPEN-04 | Proposals versus uploaded source | Compare proposal 027 against 20261015_500 before accepting any change. Preserve external backup/restore behavior. |
+| LOG-OPEN-05 | Suite dependency and release map | Determine actual ADMIN_LOGGER public consumers, required versions and per-module installation/test order. Shared Git storage does not decide these automatically. |
+
+No open point is silently closed by importing files into Git.

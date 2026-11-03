@@ -16,3 +16,7 @@ Historische gebeurtenissen en eerdere toegangsproblemen staan in SESSIONS/REGIE/
 ## Relay-functionaliteit
 
 Sessieregistratie: SESSION_REGISTRY.json. Herkomst en wijzigingshistorie: CHANGE_REGISTER.json, aangevuld met module-registers en Git-commits. Gebruik RELAY_CONTRACT.md en tools/validate_relay.py. De eerste registratie is een conservatieve inventarisatie; niet alle bestaande chats zijn geïnventariseerd. De functionaliteit vereist dat elke sessie haar wijzigingen daadwerkelijk publiceert.
+
+## ADMIN_LOGGER import
+
+Bronimport en rapporten worden voorbereid via een eigen branch/PR. Canonieke modulemap: `../modules/ADMIN_LOGGER/`; de relay-index verwijst daarheen. Oracle-validatie en bronreview 20261015_500 zijn nog open.

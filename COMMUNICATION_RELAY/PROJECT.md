@@ -29,3 +29,10 @@ geen toegang vanuit alle andere sessies. Beveiligde credentials horen niet in Gi
 
 Bestandschecksums zijn integriteitsbewijs. Dit zijn geen samengestelde
 installatiehashes voor Oracle-objecten.
+
+## Actuele projectbrede navigatie
+
+- CURRENT_STATUS.md is de actuele operationele status.
+- MODULE_REGISTRY.md registreert de modules van het project.
+- SESSIONS/REGIE/20261103.md is historische verantwoording, geen actuele status.
+- De module ADMIN_OBJECTS in het bestaande manifest is de focus van de eerste publicatie; de relay is projectbreed.

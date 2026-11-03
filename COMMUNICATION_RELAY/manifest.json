@@ -11,12 +11,16 @@
     "identity": "JPouwiel",
     "repository": "JPouwiel/TETOOLS",
     "path": "COMMUNICATION_RELAY",
-    "publication": "PREPARED_FOR_PUBLICATION",
+    "publication": "VERIFIED_GITHUB_PUBLICATION",
     "installation_id": 169799905,
     "repository_selection": "selected",
-    "write_operation_tested": false,
+    "write_operation_tested": true,
     "access": "VERIFIED_READ_ADMIN_PUSH_METADATA",
-    "base_commit": "6b712fbe04231cd3e7adaab748e9dfb10d786c8b"
+    "base_commit": "6b712fbe04231cd3e7adaab748e9dfb10d786c8b",
+    "publication_commit": "44d37dc9ef44bf43f29cae08f183211ec9830195",
+    "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/1",
+    "verified_remote_files": 82,
+    "verification": "All initial relay Git blob SHAs match local file bytes; publication receipt is an additional later file"
   },
   "revision_004": {
     "status": "FROZEN_STATICALLY_CHECKED",
@@ -424,13 +428,13 @@
     },
     {
       "path": "PROJECT.md",
-      "bytes": 1732,
-      "sha256": "399d0ab9afca73ace1d5d557c7ee528bc29bd248fe4599025f6ec5a14a062e3b"
+      "bytes": 1726,
+      "sha256": "612687df6ee51bdb890f2c6e97972181d26059c0a3126a8921a9e26f93e13ab0"
     },
     {
       "path": "SESSIONS/REGIE/20261103.md",
-      "bytes": 4931,
-      "sha256": "3595985914966eb0bf0d327c9777ef7605ddc2771dbba338c4a266789c637bc5"
+      "bytes": 5479,
+      "sha256": "ae7291b0924870d2b1ab8bca499ec7e7132313dd9c02f5289add7cedc4ea45df"
     }
   ]
 }

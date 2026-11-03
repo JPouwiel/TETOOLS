@@ -4,7 +4,7 @@ Centrale projectadministratie, voorbereid op 3 november 2026.
 
 Scope: Oracle Database 19c EE. Actieve module: ADMIN_OBJECTS, PM-001.
 GitHub-doel: JPouwiel/TETOOLS, map COMMUNICATION_RELAY, door de gebruiker
-gekozen. Deze lokale map is nog geen gepubliceerde centrale repository.
+gekozen. Deze projectmap is via de GitHub-connector gepubliceerd.
 De connector bevestigt identiteit JPouwiel en toegang tot TETOOLS met
 admin/push/pull-rechten. De aanvankelijke 404 is na appconfiguratie opgelost.
 

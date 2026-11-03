@@ -45,15 +45,15 @@
     },
     {
       "path": "CHANGE_REGISTER.json",
-      "bytes": 5953,
-      "sha256": "09a410ee466f716d4c4c57703a412886a0ca4f590f76b986b05b04fd3dee38d2",
-      "git_blob_sha": "c89eeedb4f5904bd34fe5748ea6a3688d1fdef8d"
+      "bytes": 6798,
+      "sha256": "0438b7a8bf6a58af6df1449b871ed92b94d3c78ed2f99aacdc38815e48cda696",
+      "git_blob_sha": "61aeff86d775c0a0fe9ff4716d8e19f1e8cec094"
     },
     {
       "path": "CURRENT_STATUS.md",
-      "bytes": 2185,
-      "sha256": "3479c1da433094a4dbc46c70b97c0751af5d803345578bca0b1a2298944494b1",
-      "git_blob_sha": "7a3e8a0bfcb1a02b3c04b909079bb4f82ced48ac"
+      "bytes": 2447,
+      "sha256": "5470fe12933294879bde8b8f0f3466f832bb54247575e64c3b19ce88cd277470",
+      "git_blob_sha": "7cd77c3196391d89ec40b70f38544ca812b370be"
     },
     {
       "path": "DECISIONS.md",
@@ -524,10 +524,16 @@
       "git_blob_sha": "413b3f784da48fc60f90229d23f3111cc1557333"
     },
     {
+      "path": "MODULES/ADMIN_TNSNAMES/README.md",
+      "bytes": 319,
+      "sha256": "269cb7a0b6fb30eb1e54c59cc04f56700cd5c945ca6b0669d6c79153d7f358d5",
+      "git_blob_sha": "bba4eae3168fa6b8d2350b30462970ae6ddc3382"
+    },
+    {
       "path": "MODULE_REGISTRY.md",
-      "bytes": 1210,
-      "sha256": "152911d2f0b07a87c7309fd7d0d7c675ba1dcca4e464f2e053938c018813eef7",
-      "git_blob_sha": "3ae9e8e03ec05f9c453fa38c21350d3c70b1373e"
+      "bytes": 1506,
+      "sha256": "300b9ff512b75d02eb8bdef0588961ed6d5b267d5752260858d2bd117effa794",
+      "git_blob_sha": "577a936f65be2c4bf6951445a224bd867f5e3936"
     },
     {
       "path": "PROJECT.md",
@@ -555,9 +561,9 @@
     },
     {
       "path": "SESSION_REGISTRY.json",
-      "bytes": 4899,
-      "sha256": "5bc074050160212bd7d10edfaa275929659a412a8eda084d1921a131b13828f8",
-      "git_blob_sha": "c68671573d157882d6f400d8eec1ffe5ab1589fe"
+      "bytes": 5794,
+      "sha256": "2c097bf1e7a0105dd145e3f087f0d6fa1213499179d38e03d5e1305395294b3e",
+      "git_blob_sha": "bbee0ad846ac3f87638d384d6f3e6aaeb1d446bd"
     },
     {
       "path": "tools/validate_relay.py",
@@ -568,16 +574,25 @@
   ],
   "canonical_modules": {
     "ADMIN_OBJECTS": "modules/ADMIN_OBJECTS",
-    "ADMIN_LOGGER": "modules/ADMIN_LOGGER"
+    "ADMIN_LOGGER": "modules/ADMIN_LOGGER",
+    "ADMIN_TNSNAMES": "modules/ADMIN_TNSNAMES"
   },
   "inventory_updated_at": "2026-11-03",
-  "inventory_base_commit": "c188ce782c0334299afe2d959a0533c56f222f53",
+  "inventory_base_commit": "09f6757772e08f711d4cb6ac074fa7b50623fdd2",
   "inventory_excludes_self": true,
   "canonical_module_imports": {
     "ADMIN_OBJECTS": {
       "path": "modules/ADMIN_OBJECTS",
       "verified_merge_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039",
       "proof": "../modules/ADMIN_OBJECTS/IMPORT_VERIFICATION.json",
+      "oracle_runtime": "NOT_EXECUTED"
+    }
+  },
+  "proposed_module_imports": {
+    "ADMIN_TNSNAMES": {
+      "path": "modules/ADMIN_TNSNAMES",
+      "revision": "ATN-PUB-20261103-001",
+      "review": "PENDING",
       "oracle_runtime": "NOT_EXECUTED"
     }
   }

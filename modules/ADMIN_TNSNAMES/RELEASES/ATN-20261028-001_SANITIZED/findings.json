@@ -1,0 +1,668 @@
+[
+  {
+    "id": "ATN-001",
+    "title": "Package declarations contain syntax and duplicate identifier blockers",
+    "priority": "P0",
+    "category": "Build",
+    "locations": [
+      [
+        "B",
+        14,
+        69
+      ]
+    ],
+    "issue": "The no_parent_attr_name PRAGMA at line 50 contains an extra comma. Repeated exception declarations include invalid_parameter, crud_unknown, idx_internal_check and others. References to repeated names are ambiguous.",
+    "impact": "The supplied main body cannot compile as delivered. Runtime findings are conditional on resolving build errors.",
+    "proposal": "First agree one error-code map, remove duplicate declarations, repair the PRAGMA, and compile the entire unit. Do not select an error number merely because it occurs last.",
+    "test": "Compile the unchanged baseline and capture USER_ERRORS; after an agreed correction, require zero errors. Review each public error-code compatibility change.",
+    "reference": "ERRORS"
+  },
+  {
+    "id": "ATN-002",
+    "title": "Persistence contract differs from the supplied base table",
+    "priority": "P0",
+    "category": "Build",
+    "locations": [
+      [
+        "B",
+        939,
+        959
+      ],
+      [
+        "D",
+        15,
+        30
+      ]
+    ],
+    "issue": "CRUD writes TNS_ALIAS, PHASE, HOST_NAME and other columns into ADMIN_TNSNAMES_BASE. The supplied base table contains only BASE_PK and TNS_ID.",
+    "impact": "Dynamic INSERT/UPDATE fails at runtime against this DDL; fixing package syntax alone does not restore registration.",
+    "proposal": "Concept decision required: keep the current attribute hierarchy and make registration persist one complete entry atomically through it. The alternative is a wide-table migration; it is not an equivalent drop-in fix.",
+    "test": "Install only declared dependencies in a test schema, then register and update one alias; verify every persisted node and its parent.",
+    "reference": "DYNAMIC"
+  },
+  {
+    "id": "ATN-003",
+    "title": "Reference table constraint names an absent column",
+    "priority": "P0",
+    "category": "Build",
+    "locations": [
+      [
+        "D",
+        35,
+        50
+      ]
+    ],
+    "issue": "The STATUS check constraint reads MANDATORY, which is not a column of ADMIN_TNSNAMES_REFERENCE. MANDATORY belongs to the attributes table.",
+    "impact": "CREATE TABLE fails and prevents dependent objects from being created.",
+    "proposal": "Concept: separate reference support status from attribute requiredness. Select the allowed STATUS set independently; do not add a copied MANDATORY column without a functional reason.",
+    "test": "Create the reference table alone in Oracle 19c; test each allowed and rejected status and then the attribute foreign key.",
+    "reference": "ERRORS"
+  },
+  {
+    "id": "ATN-004",
+    "title": "View and helper queries use an older checks-table contract",
+    "priority": "P0",
+    "category": "Build",
+    "locations": [
+      [
+        "V",
+        1,
+        23
+      ],
+      [
+        "D",
+        405,
+        429
+      ],
+      [
+        "F",
+        8,
+        72
+      ]
+    ],
+    "issue": "The view selects TNS_ATTR_CHECK, TNS_ATTR_STATEMENT and TNS_ATTR_CHECK_TYPE. The supplied table defines CHECK_TARGET, CHECK_STATEMENT and CHECK_TYPE instead. Standalone validation functions also use the old names.",
+    "impact": "The view and helpers cannot compile against the supplied table. This is direct contract drift, not proof that every differently dated component is incompatible.",
+    "proposal": "Choose the installed contract explicitly; update all consumers together. The three column-name substitutions alone do not validate the view grammar or its return types.",
+    "test": "Create the baseline table and compile each consumer separately; record all invalid objects, then test ATTRIBUTE and VALUE rule lookup.",
+    "reference": "ERRORS"
+  },
+  {
+    "id": "ATN-005",
+    "title": "Installation prerequisites and runnable scripts are not isolated",
+    "priority": "P1",
+    "category": "Installation",
+    "locations": [
+      [
+        "P",
+        76,
+        97
+      ],
+      [
+        "P",
+        470,
+        477
+      ],
+      [
+        "D",
+        545,
+        603
+      ],
+      [
+        "S",
+        269,
+        272
+      ],
+      [
+        "F",
+        76,
+        110
+      ],
+      [
+        "Q",
+        1774,
+        1808
+      ]
+    ],
+    "issue": "SLICE_CLOB, the staging table and ADMIN_TNSNAMES_AUDIT are referenced but not defined by an installation contract in this ZIP. The view calls an unqualified standalone validator while the supplied implementation is packaged and returns a collection. The FUNCTION and SQL files mix definitions, experiments and sample DML.",
+    "impact": "A clean installation is not reproducible. Existing standalone objects may hide missing dependencies. Running the experimental files as installers can change data.",
+    "proposal": "Create a reviewed object/grant/version inventory and explicit installation order. Separate samples from installable components; inventory existing standalone functions and SQL types before choosing the view adapter.",
+    "test": "Install in an isolated schema from a reviewed list; inspect USER_OBJECTS, USER_ERRORS and USER_DEPENDENCIES. Do not run the scratch scripts as a batch.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-006",
+    "title": "Definer-rights CRUD exposes an unchecked mutation route",
+    "priority": "P1",
+    "category": "Security",
+    "locations": [
+      [
+        "S",
+        322,
+        329
+      ],
+      [
+        "B",
+        788,
+        813
+      ],
+      [
+        "B",
+        928,
+        959
+      ],
+      [
+        "P",
+        450,
+        457
+      ]
+    ],
+    "issue": "CRUD is public in an AUTHID DEFINER package. It does not call the access/maintenance gate and reads continue without enforcing it. PROTO intake compares roles but does not enforce administrator/contributor flags before DDL/DML.",
+    "impact": "An EXECUTE grantee could reach mutation without the intended application check once runtime contracts are repaired. Actual grants and exploitability are not inspected.",
+    "proposal": "Keep the documented public interface until callers are inventoried, but enforce a shared fail-closed gate at every public mutation boundary. Prefer private persistence routines in a future agreed interface revision.",
+    "test": "Use EXECUTE-only users with no configured role, contributor role and administrator role. Direct CRUD and intake must reject unauthorised requests before any mutation.",
+    "reference": "AUTH"
+  },
+  {
+    "id": "ATN-007",
+    "title": "SQL text concatenates unescaped values",
+    "priority": "P1",
+    "category": "Security",
+    "locations": [
+      [
+        "B",
+        939,
+        959
+      ]
+    ],
+    "issue": "Alias, description and other JSON strings are concatenated into SQL literals. Numeric text is also rendered into statement text.",
+    "impact": "A description such as OBrien breaks SQL; malicious values may alter the SQL structure. The code runs with definer rights.",
+    "proposal": "After selecting the target table model, bind every data value with native dynamic SQL or use static DML. Keep dynamic SQL only where required; do not replace binding with quote removal.",
+    "test": "Test apostrophes, Unicode, NULL, boundary lengths and hostile quote text. Assert exact stored values and unchanged unrelated rows.",
+    "reference": "DYNAMIC"
+  },
+  {
+    "id": "ATN-008",
+    "title": "Description is lost between JSON producer and consumer",
+    "priority": "P1",
+    "category": "Data",
+    "locations": [
+      [
+        "B",
+        920,
+        925
+      ],
+      [
+        "B",
+        2094,
+        2104
+      ]
+    ],
+    "issue": "REGISTER_TNS emits the key description. CRUD reads entry_description.",
+    "impact": "A valid supplied description becomes NULL in persistence.",
+    "proposal": "Use one documented JSON contract with typed extraction and required-key validation. Preserve the public parameter name.",
+    "test": "Register and update an alias with a nonempty description and verify the value end to end. Also distinguish an omitted update field from an explicit clear.",
+    "reference": "JSON"
+  },
+  {
+    "id": "ATN-009",
+    "title": "Date default depends on NLS conversion",
+    "priority": "P1",
+    "category": "Data",
+    "locations": [
+      [
+        "S",
+        416,
+        433
+      ],
+      [
+        "B",
+        2003,
+        2022
+      ],
+      [
+        "B",
+        939,
+        953
+      ]
+    ],
+    "issue": "The VARCHAR2 parameter p_date_valid_from defaults to SYSDATE. That conversion uses the session date format, but CRUD parses it with YYYY-MM-DD.",
+    "impact": "Calls that omit the date can fail or interpret it incorrectly under other NLS settings.",
+    "proposal": "Preserve the string interface for compatibility; use an explicit ISO default and FX validation, or propose a typed DATE overload with documented time-of-day policy. Do not silently truncate dates.",
+    "test": "Repeat omitted and explicit dates under DD-MON-RR and YYYY-MM-DD. Include leap days and invalid calendar dates.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-010",
+    "title": "Staging query and cleanup are not scoped to the intake",
+    "priority": "P1",
+    "category": "Concurrency",
+    "locations": [
+      [
+        "P",
+        398,
+        398
+      ],
+      [
+        "P",
+        479,
+        509
+      ]
+    ],
+    "issue": "The validation query reads ADMIN_TNSNAMES_PROTO_CHECKS without filtering the current proto ID. INSERT assigns the current ID even when the fetched row comes from another intake. Cleanup deletes all staging rows.",
+    "impact": "Concurrent or leftover staging rows can be reassigned or deleted. Impact depends on whether TEMP_TNSNAMES_PROTO_ENTRIES is permanent or session-private; its DDL is absent.",
+    "proposal": "Make request ownership explicit; filter validation and cleanup by the allocated proto ID. Confirm staging lifetime first. Use session-local collections or a precreated GTT if consistent with the design.",
+    "test": "Two sessions submit distinct aliases concurrently; add leftover rows. Verify no cross-request reads, inserts or deletes. Repeat a second call in one session.",
+    "reference": "DYNAMIC"
+  },
+  {
+    "id": "ATN-011",
+    "title": "Shared sequence DDL introduces contention and transaction boundaries",
+    "priority": "P1",
+    "category": "Transactions",
+    "locations": [
+      [
+        "P",
+        392,
+        398
+      ],
+      [
+        "P",
+        436,
+        470
+      ],
+      [
+        "P",
+        525,
+        543
+      ]
+    ],
+    "issue": "Each call creates and drops the same permanent ordering sequence. CREATE PRIVATE TEMPORARY TABLE uses PRESERVE DEFINITION, whose creation commits in Oracle 19c. An explicit COMMIT precedes evaluate_entry. MAX+1 is calculated but overwritten by a sequence value.",
+    "impact": "Concurrent calls can interfere with the shared sequence. Caller work can be committed before entry acceptance, and later rollback cannot undo committed intake.",
+    "proposal": "Concept: remove per-request permanent DDL; allocate identity once with the existing persistent sequence and derive request-local positions deterministically. Keep validation and registration in a caller-owned transaction unless an explicit service contract says otherwise.",
+    "test": "Insert an unrelated marker without committing, call intake, then roll back. Verify the marker and intake atomicity; repeat with evaluation failure and concurrent calls.",
+    "reference": "TEMP"
+  },
+  {
+    "id": "ATN-012",
+    "title": "Dynamic execution helpers hide failures",
+    "priority": "P1",
+    "category": "Errors",
+    "locations": [
+      [
+        "P",
+        270,
+        280
+      ],
+      [
+        "P",
+        422,
+        432
+      ],
+      [
+        "P",
+        545,
+        590
+      ],
+      [
+        "B",
+        435,
+        451
+      ]
+    ],
+    "issue": "EXEC_DSQL prints SQLERRM but does not re-raise. Several outer handlers notify and return. TNSNAMES_STATUS can leave p_cont unset after handled errors.",
+    "impact": "Failure can look like success and later steps can run after unsuccessful setup. Output is not a reliable failure contract.",
+    "proposal": "Propagate operational errors after cleanup; preserve the original error if cleanup also fails. Initialise outputs to a rejected state before work. Keep expected business rejections explicit.",
+    "test": "Inject table/sequence/privilege failures at each stage. Require a raised error, no false accepted status, and preservation of original diagnostics.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-013",
+    "title": "Intake changes user content before validation",
+    "priority": "P1",
+    "category": "Parsing",
+    "locations": [
+      [
+        "P",
+        470,
+        477
+      ]
+    ],
+    "issue": "REGEXP_REPLACE removes commas, question marks, angle brackets and other characters from every split line before validating it.",
+    "impact": "Distinct inputs collapse to the same text; alias lists and values can be altered. Lossless reconstruction and trustworthy canonicalisation are impossible from this altered representation.",
+    "proposal": "Retain original text and source offsets. Reject unsupported syntax with a location; apply only grammar-defined whitespace handling. Normalisation must follow successful parsing.",
+    "test": "Test multiple aliases, punctuation in a quoted value, comments and invalid syntax. Require either preserved meaning or a precise rejection; never silent deletion.",
+    "reference": "NET"
+  },
+  {
+    "id": "ATN-014",
+    "title": "Invalid lines can disappear before acceptance",
+    "priority": "P1",
+    "category": "Parsing",
+    "locations": [
+      [
+        "V",
+        52,
+        63
+      ],
+      [
+        "P",
+        489,
+        509
+      ],
+      [
+        "P",
+        285,
+        324
+      ]
+    ],
+    "issue": "The view filters INVALID_ATTRIBUTE and inner-joins known checks. evaluate_entry validates only rows that survived intake. It does not prove that all input tokens were consumed, required nodes exist, or parentheses balance.",
+    "impact": "An accepted subset does not prove the complete descriptor is valid. An FK proves attribute membership, not grammar correctness.",
+    "proposal": "Make complete input consumption, balanced nesting, required children and cardinality explicit acceptance conditions. Keep rejected tokens in diagnostic output.",
+    "test": "Add an unknown attribute to an otherwise valid descriptor; remove CONNECT_DATA or a closing bracket. All must be rejected as complete entries.",
+    "reference": "NET"
+  },
+  {
+    "id": "ATN-015",
+    "title": "PROTO persistence drops node identity and sequence",
+    "priority": "P1",
+    "category": "Model",
+    "locations": [
+      [
+        "T",
+        1,
+        31
+      ],
+      [
+        "P",
+        479,
+        523
+      ],
+      [
+        "D",
+        223,
+        248
+      ]
+    ],
+    "issue": "The final proto table stores TNS_ATTR and TNS_ATTR_VALUE but no parent instance, node ID or input position. The attributes table has a definition hierarchy; it does not by itself identify each repeated instance in an input descriptor.",
+    "impact": "Repeated ADDRESS/HOST nodes cannot be reconstructed reliably from the stored proto rows alone. JSON_ARRAYAGG also has no explicit ordering.",
+    "proposal": "Keep definition hierarchy and instance hierarchy distinct. Preserve node ID, parent node ID and sibling position; normalise only unordered properties. Use the same typed node model for generation and comparison.",
+    "test": "Round-trip two DESCRIPTION nodes each with two addresses and differing values. Verify exact parentage, sibling order and diagnostic source positions.",
+    "reference": "NET"
+  },
+  {
+    "id": "ATN-016",
+    "title": "CLOB input is narrowed to several VARCHAR2 buffers",
+    "priority": "P1",
+    "category": "Capacity",
+    "locations": [
+      [
+        "P",
+        392,
+        393
+      ],
+      [
+        "P",
+        411,
+        416
+      ],
+      [
+        "P",
+        483,
+        490
+      ],
+      [
+        "P",
+        512,
+        523
+      ]
+    ],
+    "issue": "The input CLOB is inserted into VARCHAR2(4000). Fetch buffers for lines/values are VARCHAR2(64), and v_json is VARCHAR2(2000). JSON aggregation defaults to VARCHAR2(4000).",
+    "impact": "Long descriptors or values can fail before reporting despite the CLOB public interface.",
+    "proposal": "Use a CLOB-safe tokenisation path and explicit bounds per field. Generate large JSON with RETURNING CLOB at each relevant aggregation/object layer. Define limits rather than relying on implicit conversion.",
+    "test": "Test 65-character host/value, 2048-character values and descriptors above 4000 and 32767 bytes, including multibyte text. Require correct results or explicit documented size rejection.",
+    "reference": "JSON"
+  },
+  {
+    "id": "ATN-017",
+    "title": "Re-evaluation never clears a prior acceptance",
+    "priority": "P1",
+    "category": "Validation",
+    "locations": [
+      [
+        "P",
+        285,
+        324
+      ]
+    ],
+    "issue": "evaluate_entry sets INTAKE_ENTRY_ACCEPTED to Y only for accepted entries. It does not write N when validation fails. It counts existing row flags rather than checking expected structure.",
+    "impact": "An entry previously marked Y can remain accepted after its flags become invalid.",
+    "proposal": "Concept: compute the entire decision once, reject empty input and persist Y or N for the entire request atomically, with validation version and time.",
+    "test": "Accept an entry, change one flag to N, evaluate again and require every row to show N. Test zero rows and mixed flags.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-018",
+    "title": "Duplicate alias matches are treated as absence",
+    "priority": "P1",
+    "category": "Identity",
+    "locations": [
+      [
+        "B",
+        1059,
+        1065
+      ],
+      [
+        "B",
+        1125,
+        1131
+      ],
+      [
+        "B",
+        1132,
+        1182
+      ]
+    ],
+    "issue": "Both existence checks map COUNT=1 to Y and all other counts to N. Existing rows are pivoted with MAX and the retrieval joins on alias text.",
+    "impact": "Duplicate registrations can trigger another create instead of a diagnostic. Multi-address values collapse to one MAX value; ambiguity can overwrite OUT parameters.",
+    "proposal": "Resolve distinct registration IDs first. Return absent, unique or ambiguous explicitly; enforce the agreed alias/phase identity transactionally. Query the hierarchy for all address instances rather than pivoting them into a scalar.",
+    "test": "Supply zero, one and two matching registrations and repeated addresses. Require a deterministic unique result or an explicit ambiguity error, never create-on-duplicate.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-019",
+    "title": "Audit updates miss transitions involving NULL",
+    "priority": "P1",
+    "category": "Audit",
+    "locations": [
+      [
+        "D",
+        604,
+        630
+      ],
+      [
+        "D",
+        958,
+        978
+      ]
+    ],
+    "issue": "Update logging requires NEW IS NOT NULL and NEW <> OLD. Clearing a value fails the first condition; NULL-to-value makes the comparison UNKNOWN.",
+    "impact": "Audit history omits valid changes and cannot support reliable rollback/reconstruction of those changes.",
+    "proposal": "Use a null-safe change predicate for each typed field; preserve raw old/new values. Review delete code that uppercases values separately from actual stored content.",
+    "test": "Test NULL-to-value, value-to-NULL, unchanged NULL, equal non-NULL and changed non-NULL for each audited field.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-020",
+    "title": "Per-attribute trigger creates unrelated base registrations",
+    "priority": "P1",
+    "category": "Model",
+    "locations": [
+      [
+        "D",
+        545,
+        547
+      ],
+      [
+        "D",
+        596,
+        601
+      ],
+      [
+        "D",
+        26,
+        30
+      ]
+    ],
+    "issue": "The entries row trigger creates a new base row for every inserted attribute and does not use that generated ID for the supplied NEW.TNS_ID. It references ADMIN_TNSNAMES_BASE_TNSID_SEQ while the DDL defines ADMIN_TNSNAMES_TNSID_SEQ.",
+    "impact": "With missing dependencies fixed, attribute insertion can create orphan base rows or fail. Registration identity allocation is duplicated across layers.",
+    "proposal": "Allocate one TNS_ID at the registration boundary, persist its base row once and attach all attribute nodes to it. Let audit triggers record changes, not allocate separate registrations.",
+    "test": "Insert an entry of ten nodes; require one base row and all ten nodes with its ID. Roll back and verify both base and nodes disappear.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-021",
+    "title": "Port validation accepts non-port numeric strings",
+    "priority": "P1",
+    "category": "Validation",
+    "locations": [
+      [
+        "B",
+        1313,
+        1331
+      ]
+    ],
+    "issue": "The numeric regex allows periods and checks neither integerness nor the full 1..65535 interval. The 1520..1600 test has warning severity, so values outside it need not stop processing.",
+    "impact": "0, 65536 and decimal values can pass the hard numeric gate. Period-only or repeated-period strings can produce conversion failures.",
+    "proposal": "Separate valid TCP-port syntax/range from local preferred-port policy. Require a non-NULL integer in 1..65535; keep the preferred range as a documented warning if intended.",
+    "test": "Test NULL, 0, 1, 1521, 65535, 65536, -1, 1.5 and dotted strings. Confirm the local-policy warning does not redefine protocol validity.",
+    "reference": "NET"
+  },
+  {
+    "id": "ATN-022",
+    "title": "Generated template and documented call do not match the API",
+    "priority": "P2",
+    "category": "Documentation",
+    "locations": [
+      [
+        "B",
+        317,
+        365
+      ],
+      [
+        "S",
+        416,
+        433
+      ]
+    ],
+    "issue": "The generated sample calls register_tns(l_clob), but the specification exposes a multi-parameter routine, not that overload. A multirow UNION query is selected into a scalar; template strings include DESCIPTION and an unclosed SERVER component.",
+    "impact": "Users cannot copy the generated sample into a working registration flow. The procedure prints a template; it is not a working descriptor serialiser.",
+    "proposal": "Choose the intended typed or PROTO intake route explicitly. Generate a complete valid sample for that route, including concatenation/aggregation and stable ordering; validate the sample as part of release checks.",
+    "test": "Copy the printed example into a clean Oracle 19c client. Require successful compilation, valid balanced descriptor and the expected target routine.",
+    "reference": "NET"
+  },
+  {
+    "id": "ATN-023",
+    "title": "Normalisation principles transfer; existing parser code does not yet",
+    "priority": "P2",
+    "category": "Reuse",
+    "locations": [
+      [
+        "D",
+        223,
+        248
+      ],
+      [
+        "P",
+        470,
+        523
+      ],
+      [
+        "V",
+        15,
+        63
+      ]
+    ],
+    "issue": "The module already separates reference documentation, attribute definitions, validation rules and instance values. However, the PROTO path lacks a lossless instance tree, canonical encoding, versioned normalisation and fingerprint generation.",
+    "impact": "It is useful design input for ADMIN_OBJECTS, but it is not a proven canonical manifest engine. Copying the current parser would transfer its data-loss and ordering defects.",
+    "proposal": "Retain separate domain extractors. Reuse the rule/definition/value separation, explicit ordering concept and diagnostic model. Specify a common typed serialisation contract only after the two domains pass golden tests. No shared utility package is justified yet.",
+    "test": "Run equivalent-format and unequal-meaning cases in both domains. Require identical bytes only for agreed equivalence, and a mismatch for semantically relevant changes. See the comparison document.",
+    "reference": "HASH"
+  },
+  {
+    "id": "ATN-024",
+    "title": "Current ADMIN_OBJECTS hash path is different from the proposed manifest",
+    "priority": "P2",
+    "category": "Reuse",
+    "locations": [
+      [
+        "OB",
+        1038,
+        1055
+      ]
+    ],
+    "issue": "The locally available ADMIN_OBJECTS body hashes v_metadata with STANDARD_HASH(..., MD5). It does not implement the profile/object-manifest design discussed in Oracle tabelstructuur vergelijken. This is a dated local reference, not a claim about deployed code.",
+    "impact": "There is no existing pair of canonical generators that can simply be merged. Directly hashing arbitrary CLOB input with STANDARD_HASH is unsupported.",
+    "proposal": "Use the chat design as concept context. Pin profile ID/version, format version, algorithm and byte encoding; use a LOB-safe hash implementation such as DBMS_CRYPTO with explicit conversion where needed. Preserve expected-baseline provenance and report incomplete extraction separately from mismatch.",
+    "test": "Compare canonical bytes and SHA-256 for shuffled irrelevant properties, changed key-column order, multibyte text, NULL and large manifests. Do not treat local illustrative tests as Oracle execution.",
+    "reference": "HASH"
+  },
+  {
+    "id": "ATN-025",
+    "title": "Validation output can overwrite the accumulated decision",
+    "priority": "P1",
+    "category": "Validation",
+    "locations": [
+      [
+        "B",
+        1901,
+        1948
+      ]
+    ],
+    "issue": "VALIDATE_TNS records decisions in its validation array but exports v_continue from the last validation call. PORT_CHECKER can overwrite the hostname result instead of exporting the final accumulated array decision.",
+    "impact": "A later successful port check can obscure a prior failure if execution reaches it. Several business handlers also return without an explicit final rejected flag.",
+    "proposal": "Derive the final outcome from one cumulative decision. Initialise rejection before validation and set acceptance only when every required check completed successfully.",
+    "test": "Force a hostname rejection followed by a valid port and require rejection. Test every handled exception and NULL output path.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-026",
+    "title": "Preference helper reads ADMIN_SESSION configuration",
+    "priority": "P2",
+    "category": "Configuration",
+    "locations": [
+      [
+        "S",
+        269,
+        272
+      ],
+      [
+        "B",
+        119,
+        138
+      ]
+    ],
+    "issue": "GET_PREF types and queries ADMIN_SESSIONS_PREFS, while TNSNAMES_STATUS uses ADMIN_TNSNAMES_PREFS.",
+    "impact": "A public helper has an unexpected cross-module dependency and may return another modules value. Intended shared policy is not documented.",
+    "proposal": "Confirm whether this is a copied dependency or an intentional shared preference API. Prefer module-local configuration for TNS-specific settings; preserve deliberate shared configuration through an explicit contract.",
+    "test": "Set distinct values under the same key in both preference tables and verify the selected contract. Verify the package can compile with declared prerequisites only.",
+    "reference": "PLSQL"
+  },
+  {
+    "id": "ATN-027",
+    "title": "PROTO validator contains an invalid aggregate projection",
+    "priority": "P0",
+    "category": "Build",
+    "locations": [
+      [
+        "P",
+        76,
+        97
+      ]
+    ],
+    "issue": "The nested SELECT projects attr alongside COUNT(*) without GROUP BY. The outer BULK COLLECT return is a collection, while the supplied view expects scalar attribute fields from an unqualified helper.",
+    "impact": "The supplied packaged validator has an additional static SQL blocker and its interface is not interchangeable with the view call.",
+    "proposal": "Define whether validation returns one typed result or a collection. Use a direct REGEXP_LIKE decision for one input; implement the SQL-visible adapter only if the view requires it. Do not assume a packaged collection is a SQL object.",
+    "test": "Compile the PROTO body and SQL-visible consumer independently; test matching, nonmatching and NULL values and check the exact return type.",
+    "reference": "ERRORS"
+  }
+]

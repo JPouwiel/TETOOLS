@@ -1,0 +1,104 @@
+{
+  "project": "TETOOLS",
+  "module": "ADMIN_TNSNAMES",
+  "archive": "ADMIN_TNSNAMES.zip",
+  "archive_sha256": "ba3c9084abc7e4345377a5630aa14d40db4227d07bb608ea73d2baec030c67d9",
+  "source_label": "Mixed component snapshot; main body 20260921_301, not one certified module release",
+  "files": [
+    {
+      "path": "prd_tnsnames.ora",
+      "sha256": "44360ec5351b9ce666e21f305a1787a9e236800d62fceaab389ca52f2b5d9aef",
+      "bytes": 14287,
+      "lines": 784,
+      "version_statements": []
+    },
+    {
+      "path": "FUNCTION\\FUNC_ADMIN_TNSNAMES_20250213_301.func",
+      "sha256": "d5111fdeb8d554b66e92816713d68c85331ccaac98dd76c13a13f6974a18c5aa",
+      "bytes": 43562,
+      "lines": 888,
+      "version_statements": []
+    },
+    {
+      "path": "PACKAGE_BODY\\PCK_ADMIN_TNSNAMES_20260921_301.pkb",
+      "sha256": "4b6c7a06c74dd5f05813be5d98dae1b2c2b05989698ba4dc862140b7722c222f",
+      "bytes": 128996,
+      "lines": 2166,
+      "version_statements": [
+        "--  20260921_301",
+        "ECHO( '!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301', ' ');",
+        "ECHO( '!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301', ' ');",
+        "ECHO( '!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301', ' ');",
+        "ECHO( '!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301', ' ');"
+      ]
+    },
+    {
+      "path": "PACKAGE_BODY\\PCK_ADMIN_TNSNAMES_PROTO_20250220_301.pkb",
+      "sha256": "d03f7a6d2a5f59b1888d69820c9281fcb589abd2c0997a0727891e3c6539a7a3",
+      "bytes": 32245,
+      "lines": 595,
+      "version_statements": [
+        "ECHO( '        :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301');"
+      ]
+    },
+    {
+      "path": "PACKAGE_SPECIFICATION\\PCK_ADMIN_TNSNAMES_20250129_301.pks",
+      "sha256": "44526381f31c7cb9aef179bb7c507930184855c34a719e52682680401d4b8224",
+      "bytes": 30557,
+      "lines": 434,
+      "version_statements": [
+        "--B-     Version:      0.1",
+        "--HV-       !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!",
+        "--HV-       !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!"
+      ]
+    },
+    {
+      "path": "PACKAGE_SPECIFICATION\\PCK_ADMIN_TNSNAMES_PROTO_20250217_306.pks",
+      "sha256": "e2618edd009b604aab5e05ef7c1aeec51ddf138553e5eaa10c95ba7153dc8bd3",
+      "bytes": 20478,
+      "lines": 319,
+      "version_statements": [
+        "--B-     Version:      0.1",
+        "--HV-               :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301",
+        "--HV-       !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!"
+      ]
+    },
+    {
+      "path": "SQL\\SQL_ADMIN_TNSNAMES_20250219_001.sql",
+      "sha256": "1ec127c0c5f5133e6c8786422884d52d4e34dd45181549ec07ca9e2fe31efecd",
+      "bytes": 101653,
+      "lines": 2060,
+      "version_statements": [
+        "--  !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!",
+        "--  !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!",
+        "--  !!       :%@@=.  =.   .=    TET - TNSNAMES ADMINISTRATION PACKAGE 0.301                                          !!"
+      ]
+    },
+    {
+      "path": "TABLE\\TAB_TETOOLS_ADMIN_TNSNAMES_20260825_300.sql",
+      "sha256": "38bbcf4927d213077dfc5a88186f4ffc58888aace6e5f0ddb4a9313ba3777760",
+      "bytes": 117633,
+      "lines": 1387,
+      "version_statements": []
+    },
+    {
+      "path": "TABLE\\TAB_TETOOLS_ADMIN_TNSNAMES_PROTO_20250220_302.sql",
+      "sha256": "a1c04fc247f2b8395e65eb0f94288ec00b35fbe5a117df4e148efca0847c82e6",
+      "bytes": 5898,
+      "lines": 68,
+      "version_statements": []
+    },
+    {
+      "path": "VIEW\\VIEW_TETOOLS_ADMIN_TNSNAMES_PROTO_20250217_301.sql",
+      "sha256": "982e8a93b71024987065d22a5c8882bf71327980eab2bbe0675e6e1ca8ba7a0a",
+      "bytes": 7176,
+      "lines": 67,
+      "version_statements": []
+    }
+  ],
+  "comparison_source": {
+    "path": "[LOCAL_PATH_REDACTED]",
+    "sha256": "4d10a473cb9094c210a85a18b5b25e90a212c558c8ee0f60b134819a5de7dbda",
+    "status": "Dated local ADMIN_OBJECTS reference, not confirmed deployment"
+  }
+}

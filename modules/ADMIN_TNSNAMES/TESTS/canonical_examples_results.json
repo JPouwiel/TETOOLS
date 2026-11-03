@@ -1,0 +1,61 @@
+{
+  "scope": "Executed local illustrative Python byte-contract tests; not module code and not Oracle/TNS tests",
+  "cases": [
+    {
+      "name": "Unordered input records",
+      "expected_equal": true,
+      "observed_equal": true,
+      "passed": true,
+      "sha256_a": "5c58d65df01a07788cff8b710bca868fb3285d336efbd1668704ae20c3b0be02",
+      "sha256_b": "5c58d65df01a07788cff8b710bca868fb3285d336efbd1668704ae20c3b0be02"
+    },
+    {
+      "name": "Relevant element position",
+      "expected_equal": false,
+      "observed_equal": false,
+      "passed": true,
+      "sha256_a": "5c58d65df01a07788cff8b710bca868fb3285d336efbd1668704ae20c3b0be02",
+      "sha256_b": "33c3f48845eeb4d977c9b9b26e1486c25f688384d3f137c06c3c1de2cdbf582c"
+    },
+    {
+      "name": "NULL versus literal NULL",
+      "expected_equal": false,
+      "observed_equal": false,
+      "passed": true,
+      "sha256_a": "28859e345f55ce45426724100617830af221bdf3e01f4333ee34ba58d2df4429",
+      "sha256_b": "f393d0be8ab6499efc6a10210fb4007bd83085ac43a80b931fead1993667a1ff"
+    },
+    {
+      "name": "Unambiguous field boundaries",
+      "expected_equal": false,
+      "observed_equal": false,
+      "passed": true,
+      "sha256_a": "9ed12f10b7196b9f22026c678bd4e5ba1923d0490c6e73d6597d5646ea32669b",
+      "sha256_b": "f983ab3011dcc203ac594ce17c7454370a1231bfb33786f4fc60f7c0aae9ebbc"
+    },
+    {
+      "name": "Profile identity",
+      "expected_equal": false,
+      "observed_equal": false,
+      "passed": true,
+      "sha256_a": "5c58d65df01a07788cff8b710bca868fb3285d336efbd1668704ae20c3b0be02",
+      "sha256_b": "801d99a447c48273e0bef00e691bbfc985c239724fcac84d082b0ce06943aed0"
+    },
+    {
+      "name": "UTF-8 byte length",
+      "expected_equal": true,
+      "observed_equal": true,
+      "passed": true,
+      "sha256_a": "52669a268b3de8bd030d5dca3e0171b22b253b2ac8ccc8a7a238985fe419e171",
+      "sha256_b": "52669a268b3de8bd030d5dca3e0171b22b253b2ac8ccc8a7a238985fe419e171"
+    },
+    {
+      "name": "Large value",
+      "expected_equal": false,
+      "observed_equal": false,
+      "passed": true,
+      "sha256_a": "4c13f1b38b3aa1920f7e98521cb94aee3f550feb1dba601eacd4791157545b00",
+      "sha256_b": "58052fef0ef0d049d4ba6b6a0791ba19b40179a98f5b8f36a23e0f6f881dc867"
+    }
+  ]
+}

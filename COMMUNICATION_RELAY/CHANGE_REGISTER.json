@@ -125,6 +125,28 @@
         "../modules/ADMIN_OBJECTS/CURRENT_STATUS.md"
       ],
       "verification": "28 imported files and unchanged 71-file release tree read back on main; 117 unrelated original blobs preserved. Oracle NOT_EXECUTED."
+    },
+    {
+      "change_id": "TNSNAMES-20261103-001",
+      "record_type": "MODULE_IMPORT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_TNSNAMES",
+      "subject": "Sanitized source and analysis publication; no module fixes",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_TNSNAMES/DECISIONS.md",
+      "origin_session": "01a184a4-b6f6-76d3-be6a-38608571155a",
+      "recorded_by_session": "01a184a4-b6f6-76d3-be6a-38608571155a",
+      "approved_by": "user: explicit publication request in this session on 2026-11-03",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "ATN-PUB-20261103-001",
+      "supersedes": null,
+      "base_commit": "09f6757772e08f711d4cb6ac074fa7b50623fdd2",
+      "artifact_refs": [
+        "../modules/ADMIN_TNSNAMES/manifest.json",
+        "MODULES/ADMIN_TNSNAMES/README.md"
+      ],
+      "note": "Publication authorised; technical changes not approved. Leave PR open."
     }
   ]
 }

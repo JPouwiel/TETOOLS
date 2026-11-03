@@ -12,3 +12,6 @@ Nieuwe modules krijgen een eigen map onder MODULES en een entry in deze index. R
 ADMIN_LOGGER-uitzondering: de gebruiker koos expliciet `modules/ADMIN_LOGGER` vanaf de repositoryroot. De relay bevat uitsluitend een verwijzing; module-inhoud blijft op het canonieke pad.
 
 ADMIN_OBJECTS: op expliciete gebruikersopdracht is `modules/ADMIN_OBJECTS` het canonieke modulepad. De bestaande bevroren relay-release blijft behouden; beide publicaties gebruiken dezelfde ongewijzigde Git-tree. Gebruik de module-index en releasegebonden registers, geen afzonderlijke handmatig gesynchroniseerde besluitenlijsten.
+
+
+ADMIN_TNSNAMES: proposed canonical import at [../modules/ADMIN_TNSNAMES/](../modules/ADMIN_TNSNAMES/), publication ATN-PUB-20261103-001, mixed source/main body 20260921_301; review pending, Oracle NOT_EXECUTED. Explicit user-selected repository-root module path; relay contains a pointer only.

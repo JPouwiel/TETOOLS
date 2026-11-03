@@ -1,0 +1,125 @@
+{
+  "origin_session": "01a184a4-b6f6-76d3-be6a-38608571155a",
+  "archive_name": "ADMIN_TNSNAMES.zip",
+  "archive_sha256": "ba3c9084abc7e4345377a5630aa14d40db4227d07bb608ea73d2baec030c67d9",
+  "archive_publication": "WITHHELD: includes production endpoints",
+  "files": [
+    {
+      "path": "FUNCTION/FUNC_ADMIN_TNSNAMES_20250213_301.func",
+      "bytes": 43562,
+      "sha256": "d5111fdeb8d554b66e92816713d68c85331ccaac98dd76c13a13f6974a18c5aa",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "PACKAGE_BODY/PCK_ADMIN_TNSNAMES_20260921_301.pkb",
+      "bytes": 128996,
+      "sha256": "4b6c7a06c74dd5f05813be5d98dae1b2c2b05989698ba4dc862140b7722c222f",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "PACKAGE_BODY/PCK_ADMIN_TNSNAMES_PROTO_20250220_301.pkb",
+      "bytes": 32245,
+      "sha256": "d03f7a6d2a5f59b1888d69820c9281fcb589abd2c0997a0727891e3c6539a7a3",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "PACKAGE_SPECIFICATION/PCK_ADMIN_TNSNAMES_20250129_301.pks",
+      "bytes": 30557,
+      "sha256": "44526381f31c7cb9aef179bb7c507930184855c34a719e52682680401d4b8224",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "PACKAGE_SPECIFICATION/PCK_ADMIN_TNSNAMES_PROTO_20250217_306.pks",
+      "bytes": 20478,
+      "sha256": "e2618edd009b604aab5e05ef7c1aeec51ddf138553e5eaa10c95ba7153dc8bd3",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "prd_tnsnames.ora",
+      "bytes": 14287,
+      "sha256": "44360ec5351b9ce666e21f305a1787a9e236800d62fceaab389ca52f2b5d9aef",
+      "publication": "WITHHELD_PRODUCTION_CONFIG"
+    },
+    {
+      "path": "SQL/SQL_ADMIN_TNSNAMES_20250219_001.sql",
+      "bytes": 101653,
+      "sha256": "1ec127c0c5f5133e6c8786422884d52d4e34dd45181549ec07ca9e2fe31efecd",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "TABLE/TAB_TETOOLS_ADMIN_TNSNAMES_20260825_300.sql",
+      "bytes": 117633,
+      "sha256": "38bbcf4927d213077dfc5a88186f4ffc58888aace6e5f0ddb4a9313ba3777760",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "TABLE/TAB_TETOOLS_ADMIN_TNSNAMES_PROTO_20250220_302.sql",
+      "bytes": 5898,
+      "sha256": "a1c04fc247f2b8395e65eb0f94288ec00b35fbe5a117df4e148efca0847c82e6",
+      "publication": "SANITIZED_COPY"
+    },
+    {
+      "path": "VIEW/VIEW_TETOOLS_ADMIN_TNSNAMES_PROTO_20250217_301.sql",
+      "bytes": 7176,
+      "sha256": "982e8a93b71024987065d22a5c8882bf71327980eab2bbe0675e6e1ca8ba7a0a",
+      "publication": "SANITIZED_COPY"
+    }
+  ],
+  "sanitized_files": [
+    {
+      "path": "SOURCE/SNAPSHOT/FUNCTION/FUNC_ADMIN_TNSNAMES_20250213_301.func",
+      "original_sha256": "d5111fdeb8d554b66e92816713d68c85331ccaac98dd76c13a13f6974a18c5aa",
+      "published_sha256": "b9346cf31dbfd85eefe8604f0026b07c9a4f0f0160d13ad448b2935b868c6fa4",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/PACKAGE_BODY/PCK_ADMIN_TNSNAMES_20260921_301.pkb",
+      "original_sha256": "4b6c7a06c74dd5f05813be5d98dae1b2c2b05989698ba4dc862140b7722c222f",
+      "published_sha256": "9dfea0cd5a7ac934cfdbd71a67279b8c08dd46926aa19e8716ba35e6af7306d6",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/PACKAGE_BODY/PCK_ADMIN_TNSNAMES_PROTO_20250220_301.pkb",
+      "original_sha256": "d03f7a6d2a5f59b1888d69820c9281fcb589abd2c0997a0727891e3c6539a7a3",
+      "published_sha256": "d03f7a6d2a5f59b1888d69820c9281fcb589abd2c0997a0727891e3c6539a7a3",
+      "changed": false
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/PACKAGE_SPECIFICATION/PCK_ADMIN_TNSNAMES_20250129_301.pks",
+      "original_sha256": "44526381f31c7cb9aef179bb7c507930184855c34a719e52682680401d4b8224",
+      "published_sha256": "17ed232c510cb427ac295ea4bc4580d9092c853590524e742d1254456ab8e97e",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/PACKAGE_SPECIFICATION/PCK_ADMIN_TNSNAMES_PROTO_20250217_306.pks",
+      "original_sha256": "e2618edd009b604aab5e05ef7c1aeec51ddf138553e5eaa10c95ba7153dc8bd3",
+      "published_sha256": "26d8b25cb2fdc71820bfe2c217d72e101b45cc0efb201dee00241630a1ec5cdd",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/SQL/SQL_ADMIN_TNSNAMES_20250219_001.sql",
+      "original_sha256": "1ec127c0c5f5133e6c8786422884d52d4e34dd45181549ec07ca9e2fe31efecd",
+      "published_sha256": "59861f4725390de6b74b83d368ca799a142917ef7593f874c049518d65d988f7",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/TABLE/TAB_TETOOLS_ADMIN_TNSNAMES_20260825_300.sql",
+      "original_sha256": "38bbcf4927d213077dfc5a88186f4ffc58888aace6e5f0ddb4a9313ba3777760",
+      "published_sha256": "f9932f5d9f72288ccfd11e8b535ee8a13f89ecc13e42c08f9a0b9ee70358891b",
+      "changed": true
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/TABLE/TAB_TETOOLS_ADMIN_TNSNAMES_PROTO_20250220_302.sql",
+      "original_sha256": "a1c04fc247f2b8395e65eb0f94288ec00b35fbe5a117df4e148efca0847c82e6",
+      "published_sha256": "a1c04fc247f2b8395e65eb0f94288ec00b35fbe5a117df4e148efca0847c82e6",
+      "changed": false
+    },
+    {
+      "path": "SOURCE/SNAPSHOT/VIEW/VIEW_TETOOLS_ADMIN_TNSNAMES_PROTO_20250217_301.sql",
+      "original_sha256": "982e8a93b71024987065d22a5c8882bf71327980eab2bbe0675e6e1ca8ba7a0a",
+      "published_sha256": "65260868a737473db49a99cc47a81cafc4b1517f9818d3b6570d9e9feef9ac21",
+      "changed": true
+    }
+  ],
+  "not_installation_hash": true
+}

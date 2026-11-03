@@ -1,0 +1,36 @@
+{
+  "source_files_unchanged": true,
+  "files_in_source": 10,
+  "findings": 27,
+  "static_scope": "Targeted source analysis; not exhaustive formal verification",
+  "canonical_examples": "Seven local illustrative checks passed; no Oracle/TNS execution",
+  "browser": {
+    "finding_count": 27,
+    "checked_links": 346,
+    "console_errors": [],
+    "external_requests": [],
+    "checks": [
+      "IDs",
+      "links",
+      "search",
+      "priority/topic filters",
+      "expand/collapse",
+      "notes/status",
+      "append test history",
+      "reload persistence",
+      "exact-source roundtrip",
+      "reject mismatches/duplicates/invalid tests without mutation",
+      "explicit history",
+      "mobile horizontal fit",
+      "print source visibility and test evidence"
+    ],
+    "download": "Download not saved: canceled",
+    "scope": "Headless Chrome checks. Simulated test outcomes are QA only and are not shipped as initial progress."
+  },
+  "oracle_compilation": "Not run",
+  "oracle_runtime": "Not run",
+  "performance": "Not measured",
+  "visual_review": "Desktop screenshot inspected; mobile fit tested",
+  "solution_status": "Concept for review, not a corrected replacement module",
+  "progress_schema": "TETOOLS-FINDING-PROGRESS-v3"
+}

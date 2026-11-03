@@ -10,6 +10,83 @@
   "manifest_excludes_self": true,
   "files": [
     {
+      "path": "CURRENT_STATUS.md",
+      "bytes": 1167,
+      "sha256": "dd424be0671df9aeab923a712d1066924976fb85e19a4f04af2f7a5a105793c5",
+      "git_blob_sha": "f2cb619707f61e1140a0fd6c93f332bef495fe51",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "DECISIONS.md",
+      "bytes": 1656,
+      "sha256": "e21c698db2b2badd140da2afed99b077001b4958e1ae78cfe9b0813ed12a7186",
+      "git_blob_sha": "da1e946326178d781b42ed75f3a5e83b7b94745e",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "IMPORT_VERIFICATION.json",
+      "bytes": 891,
+      "sha256": "b13d09f2f0d2163428336cd64a088136adc5fae6c2e82e80a6751cf41d2cb42b",
+      "git_blob_sha": "46d0f564e10788f32308478a8a0538624ea6d765",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "OPEN_POINTS.md",
+      "bytes": 1054,
+      "sha256": "684e265435254d337c9f2e513a6ccfd240b509ce7bf0e3f9de7eb3df35ce8bdc",
+      "git_blob_sha": "1f15e59ed240165e1cc3ee494b603bc9a0a85c74",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 972,
+      "sha256": "c2f6602afb66b54b0f21dea3bfb61ed91f1c6531425b1bddf7b6c702acb0f8ad",
+      "git_blob_sha": "2f96e019d406729d689a9dbb1644b5ebcafafffd",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2707,
+      "sha256": "5299ec2dd42ce732d91d8c20c3c3723f9fa17dba903ffee02a449df6294d9743",
+      "git_blob_sha": "12e8ec12115362ffb21306e7096fe0a616b07580",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "SOURCE_INDEX.md",
+      "bytes": 1861,
+      "sha256": "498cf552c703ee72ad255f12753113ec9b74c19efd9e640155de16950caa629f",
+      "git_blob_sha": "f0f046e2fa93cae0ea348c789a968810df6a8fe5",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "context/20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md",
+      "bytes": 10568,
+      "sha256": "f716f34a4a2b4e1a5e272b511d95a87ebfcb5d6a3161e72f3536deb2d355dd89",
+      "git_blob_sha": "ea27099e0f8a0ccb98a65de4697d8b9347af70c7",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "context/ADMIN_OBJECTS_REGIE_recent_20261103.json",
+      "bytes": 23753,
+      "sha256": "f7d11a01e9dd5f034bb133396ead34eb9fcf8a62b95f5e3a67e9ec07e203ae63",
+      "git_blob_sha": "f02aaf7be2824ea9ce946d2fda803d9909eb733a",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "history/analysis_20261014/ADMIN_OBJECTS_20261014_reportset.zip",
+      "bytes": 349653,
+      "sha256": "20afb4ad1b7502f32ffc33f7dbf608f9f753d46c0360a66d2f11dde6fbf64d38",
+      "git_blob_sha": "4978b0009e05535c4c1682f56bbd96b1f232aa55",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
+      "path": "history/analysis_20261014/README.md",
+      "bytes": 440,
+      "sha256": "35252025255a843802004be8e5df968be22c1a890bef1e728d25eb01f809673f",
+      "git_blob_sha": "22e7185214a58de269c00691d4be90f25bc347fc",
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
+    },
+    {
       "path": "releases/PM-001_20261103_004/DECISIONS.md",
       "bytes": 4307,
       "sha256": "5a2742c432e1b81f25e88d053d6edbf00ec6291e8812227bde5c41852f4fd67b",
@@ -507,144 +584,75 @@
       "source": "unchanged existing relay release"
     },
     {
-      "path": "context/20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md",
-      "bytes": 10568,
-      "sha256": "f716f34a4a2b4e1a5e272b511d95a87ebfcb5d6a3161e72f3536deb2d355dd89",
-      "git_blob_sha": "ea27099e0f8a0ccb98a65de4697d8b9347af70c7",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "context/ADMIN_OBJECTS_REGIE_recent_20261103.json",
-      "bytes": 23753,
-      "sha256": "f7d11a01e9dd5f034bb133396ead34eb9fcf8a62b95f5e3a67e9ec07e203ae63",
-      "git_blob_sha": "f02aaf7be2824ea9ce946d2fda803d9909eb733a",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "CURRENT_STATUS.md",
-      "bytes": 1119,
-      "sha256": "bf089e7504930d7fd13e4cc464ec74c0f73c842f8594aa9de80927360de49e43",
-      "git_blob_sha": "9c3ab4dc5f69f92e283677f9b5e7ad8f3728d21f",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "DECISIONS.md",
-      "bytes": 1656,
-      "sha256": "e21c698db2b2badd140da2afed99b077001b4958e1ae78cfe9b0813ed12a7186",
-      "git_blob_sha": "da1e946326178d781b42ed75f3a5e83b7b94745e",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "history/analysis_20261014/ADMIN_OBJECTS_20261014_reportset.zip",
-      "bytes": 349653,
-      "sha256": "20afb4ad1b7502f32ffc33f7dbf608f9f753d46c0360a66d2f11dde6fbf64d38",
-      "git_blob_sha": "4978b0009e05535c4c1682f56bbd96b1f232aa55",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "history/analysis_20261014/README.md",
-      "bytes": 440,
-      "sha256": "35252025255a843802004be8e5df968be22c1a890bef1e728d25eb01f809673f",
-      "git_blob_sha": "22e7185214a58de269c00691d4be90f25bc347fc",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "OPEN_POINTS.md",
-      "bytes": 1054,
-      "sha256": "684e265435254d337c9f2e513a6ccfd240b509ce7bf0e3f9de7eb3df35ce8bdc",
-      "git_blob_sha": "1f15e59ed240165e1cc3ee494b603bc9a0a85c74",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "PROVENANCE.json",
-      "bytes": 972,
-      "sha256": "c2f6602afb66b54b0f21dea3bfb61ed91f1c6531425b1bddf7b6c702acb0f8ad",
-      "git_blob_sha": "2f96e019d406729d689a9dbb1644b5ebcafafffd",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "README.md",
-      "bytes": 2707,
-      "sha256": "5299ec2dd42ce732d91d8c20c3c3723f9fa17dba903ffee02a449df6294d9743",
-      "git_blob_sha": "12e8ec12115362ffb21306e7096fe0a616b07580",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
       "path": "source/original_20261012_001/FUNCTION/FUNCTION__TETOOLS_ADMIN_VERSION_NUMBERFY_FUNC__20260819_001.sql",
       "bytes": 2602,
       "sha256": "7dc5d04f886e27b60f4c20710f9abcf828d1bed62fc60c9f1e9d0c60b20a48a4",
       "git_blob_sha": "795db71fccaef5c22f4f3f7968085b6d6a26285d",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/JOBS/JOB_TETOOLS_ADMIN_OBJECTS_20260819_001.sql",
       "bytes": 14463,
       "sha256": "c72b07fe78acc7e765a2226f1e0f3b1fe95fad4a363b33a4a2a0f232f7b32570",
       "git_blob_sha": "532b2bacec7ec9c6fc66f13d23abeaf31203f1b1",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/PACKAGES/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_OBJECTS__20261012_001.pkb",
       "bytes": 66969,
       "sha256": "4d10a473cb9094c210a85a18b5b25e90a212c558c8ee0f60b134819a5de7dbda",
       "git_blob_sha": "a269b38ba5eb390867aa2e2a37ace9fce1c52901",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/PACKAGES/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_OBJECTS__20261008_001.pks",
       "bytes": 24800,
       "sha256": "6ad539f0f23457601238bbd20ff01fc9f5adb9e55432b40afa3df658bec12bf9",
       "git_blob_sha": "1c26a2112c1172462202a2616e4325ed04d0a838",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/PROCEDURE/PROCEDURE__TETOOLS_ADMIN_VERSION_COMPARE__20260819_001.prc",
       "bytes": 5727,
       "sha256": "9a4a0bdb74d65477a4717e6283c9debdf1d1dbd702ef5f07370a420d67b6c7e0",
       "git_blob_sha": "c84d93a7c19d85c81c35c31a188d7ebec0f2e84f",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/PROCEDURE/PROCEDURE__TETOOLS_ADMIN_VERSION_NUMBERFY__20260819_004.prc",
       "bytes": 5039,
       "sha256": "f755765534328df9a47eafcfb815c6f6f2604a58589761f2721e691591370edb",
       "git_blob_sha": "e5b96158cd27b47f3115760479297882f157dfcf",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/PROCEDURE/PROCEDURE__TETOOLS_ADMIN_VERSION_VALIDATE__20260819_001.prc",
       "bytes": 10284,
       "sha256": "084471c93cb138b30a1c8703ddffa6a1dfa3b9d58a49292d74605190ad7b5618",
       "git_blob_sha": "e46a7d6ed7bcc7ad8916eaa69a1afddcadb51a0e",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/SQL/DML_TETOOLS_ADMIN_OBJECTS__20260824_101.sql",
       "bytes": 45978,
       "sha256": "ee0af82648d4b9187d1412525ef11a1e197e71962825f0c587d8db9959b581af",
       "git_blob_sha": "9d31ac666a76f91d6abc2034aff7b5df8b4aaa1d",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/TABLES/TAB_TETOOLS_ADMIN_OBJECTS__20261001_003.sql",
       "bytes": 14084,
       "sha256": "a12f3324e4fa103cb494d41a829bdebea0e480ef542f204424fa90d4e7c7bc0b",
       "git_blob_sha": "c826bdc99a51b84c64cc44436947650e1a6830f8",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     },
     {
       "path": "source/original_20261012_001/TYPE/TYPE_type_tbl_ADMIN_OBJECTS_CONFIG__20260707_001.sql",
       "bytes": 73,
       "sha256": "0f4a10ce1b152be3054ac621538796e4eeed7d1fcef0b123ce492941c860ca61",
       "git_blob_sha": "bba772c4d1f65a0cd2f0b19a8e64591c03eaa29d",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
-    },
-    {
-      "path": "SOURCE_INDEX.md",
-      "bytes": 1861,
-      "sha256": "498cf552c703ee72ad255f12753113ec9b74c19efd9e640155de16950caa629f",
-      "git_blob_sha": "f0f046e2fa93cae0ea348c789a968810df6a8fe5",
-      "source": "current import; origin documented in SOURCE_INDEX.md"
+      "source": "import context or verification; see SOURCE_INDEX.md / IMPORT_VERIFICATION.json"
     }
-  ]
+  ],
+  "import_verified_commit": "af9ac3e9b26ae4d9f7e012c5e5d2cafb7485c039"
 }

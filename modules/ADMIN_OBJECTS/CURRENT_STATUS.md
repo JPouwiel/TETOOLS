@@ -13,4 +13,4 @@ Peildatum: 2026-11-03. Canoniek pad: `modules/ADMIN_OBJECTS`.
 | Productie-installer/lifecycle/autorisatie | Buiten deze beperkte PoC; geen volledigheidsclaim |
 | Volledige historische context | Niet bewezen; HIST-01/HIST-02/HIST-03 blijven open |
 
-Zie [release-OPEN_POINTS](releases/PM-001_20261103_004/OPEN_POINTS.md), [VALIDATION](releases/PM-001_20261103_004/VALIDATION.json) en [SOURCE_MANIFEST](SOURCE_MANIFEST.json). Publicatiestatus wordt na merge en terugleescontrole in een afzonderlijk bewijsrecord vastgelegd; bovenstaande integriteitscontrole is geen Oracle-test.
+Zie [release-OPEN_POINTS](releases/PM-001_20261103_004/OPEN_POINTS.md), [VALIDATION](releases/PM-001_20261103_004/VALIDATION.json) en [SOURCE_MANIFEST](SOURCE_MANIFEST.json). Publicatie is via PR #6 gemerged en vanaf main op alle geimporteerde blobhashes teruggelezen. Zie [IMPORT_VERIFICATION.json](IMPORT_VERIFICATION.json). De controle is geen Oracle-test.

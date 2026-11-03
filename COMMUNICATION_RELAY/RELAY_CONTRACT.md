@@ -29,3 +29,11 @@ Geen wachtwoorden, tokens of persoonlijke geheimen in de repository. Git-auteur 
 - Geen ELIGIBLE_FOR_DELETION bij open dependencies of ontbrekende historie.
 - Bevroren releases blijven ongewijzigd.
 - Projectbrede index mag niet impliciet een andere projectscope importeren.
+
+## Suite-impact signalering en escalatie (REGIE-20261103-003)
+
+Elke module-regiesessie mag een bevinding met **mogelijke** suitebrede impact aanmelden bij TETOOLS__REGIE via COMMUNICATION_RELAY. Bewezen impact is geen voorwaarde voor aanmelding. De centrale regie beoordeelt of een suitebrede architectuurregel, gemeenschappelijke oplossing, extra onderzoek of geen centrale actie nodig is. De module-regie behoudt eigenaarschap van bronanalyse en module-implementatie.
+
+Registreer de melding in CHANGE_REGISTER.json met uniek change_id, record_type `SUITE_IMPACT_SIGNAL`, origin_module, origin_session, source_reference, subject, observed_facts, potential_cross_module_impact, affected_modules (of UNKNOWN), status `PROPOSED`, recorded_at, recorded_by_session en artifact_refs. Vermeld aannames expliciet; leg geen oplossing of impact als vastgesteld feit vast zonder bewijs. Verwijs in het relevante module-register naar het centrale signalerings-ID. Voeg bij beoordeling een opvolgend change-record toe met disposition (SUITE_STANDARD, SHARED_SOLUTION, INVESTIGATE, MODULE_ONLY of REJECTED), onderbouwing en eventuele supersedes; behoud het oorspronkelijke record.
+
+Signalering is **geen automatische notificatie of chatsynchronisatie**. TETOOLS__REGIE moet bij aanvang en bij statuscontrole open SUITE_IMPACT_SIGNAL-records uitlezen. De indienende sessie moet de GitHub-commit/PR teruglezen en kan de centrale regie expliciet op de melding wijzen. Geen modulebesluit wordt stilzwijgend vervangen.

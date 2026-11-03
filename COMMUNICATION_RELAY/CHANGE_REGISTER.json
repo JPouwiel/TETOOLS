@@ -59,6 +59,28 @@
         "MODULES/ADMIN_LOGGER/README.md"
       ],
       "note": "User requested scope; implementation evidence recorded only after merge and readback."
+    },
+    {
+      "change_id": "LOGGER-20261103-002",
+      "record_type": "MODULE_IMPORT_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Confirm source import after merge and main readback",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/4",
+      "origin_session": "current ADMIN_LOGGER conversation; exact thread ID not exposed",
+      "recorded_by_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "approved_by": "user import request in current ADMIN_LOGGER conversation on 2026-11-03",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "20261015_500",
+      "supersedes": "LOGGER-20261103-001",
+      "merge_commit": "e741ae9e2b8d82d25acf778690ff60b9476c6bc1",
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/CURRENT_STATUS.md",
+        "../modules/ADMIN_LOGGER/SOURCE_MANIFEST.json"
+      ],
+      "verification": "38 changed Git blob hashes read back on main; unrelated original blobs preserved. Oracle NOT_EXECUTED."
     }
   ]
 }

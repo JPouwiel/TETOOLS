@@ -1,0 +1,888 @@
+create or replace type tetools.tns_type_attr_valdn 
+as object
+( admin_tnsnames_tns_id    INTEGER,
+  admin_tnsnames_tns_match VARCHAR2(13)
+);
+/
+
+CREATE OR REPLACE FUNCTION tetools.tns_func_attr_value_valdn (p_proto_tns_id IN INTEGER, p_tns_attr IN VARCHAR2 ) RETURN tetools.tns_type_attr_valdn IS
+  v_proto_tns_id INTEGER;
+  v_tns_match    VARCHAR2(13);
+BEGIN
+SELECT x.ID,
+          CASE
+            WHEN x.matching = 0 THEN 'NOT VALIDATED'
+            WHEN x.matching > 0 THEN 'VALIDATED'
+            ELSE 'ERROR'
+          END INTO v_proto_tns_id, v_tns_match FROM (
+SELECT a.PROTO_TNS_ID id,
+       COUNT(b.tns_count) matching
+     FROM (SELECT atpe.PROTO_TNS_ID, count(atpe.tns_attr) tns_count
+             FROM tetools.admin_tnsnames_checks        atc
+             JOIN tetools.admin_tnsnames_proto_entries atpe
+                  ON atc.tns_attr = atpe.tns_attr
+            WHERE atpe.PROTO_TNS_ID = p_proto_tns_id
+              AND atpe.tns_attr = p_tns_attr
+            GROUP BY PROTO_TNS_ID) a,
+          (SELECT atpe.PROTO_TNS_ID, count(atpe.tns_attr) tns_count
+             FROM tetools.admin_tnsnames_checks        atc
+             JOIN tetools.admin_tnsnames_proto_entries atpe
+               ON atc.tns_attr = atpe.tns_attr
+            WHERE atc.tns_attr = p_tns_attr
+              AND atc.tns_attr_check = 'VALUE'
+              AND REGEXP_LIKE(TNS_ATTR_VALUE, atc.tns_attr_statement, 'i')
+              AND atpe.PROTO_TNS_ID = p_proto_tns_id
+            GROUP BY PROTO_TNS_ID) b
+            WHERE a.PROTO_TNS_ID = b.PROTO_TNS_ID(+)
+            group by a.PROTO_TNS_ID) x;
+   RETURN
+     tetools.tns_type_attr_valdn(v_proto_tns_id, v_tns_match);
+END;
+/
+
+CREATE OR REPLACE FUNCTION tetools.tns_func_attr_valdn (p_proto_tns_id IN INTEGER, p_tns_attr IN VARCHAR2 ) RETURN tetools.tns_type_attr_valdn IS
+  v_proto_tns_id INTEGER;
+  v_tns_match    VARCHAR2(13);
+BEGIN
+SELECT x.ID,
+          CASE
+            WHEN x.matching = 0 THEN 'NOT VALIDATED'
+            WHEN x.matching > 0 THEN 'VALIDATED'
+            ELSE 'ERROR'
+          END INTO v_proto_tns_id, v_tns_match FROM (
+SELECT a.PROTO_TNS_ID id,
+       COUNT(b.tns_count) matching
+     FROM (SELECT atpe.PROTO_TNS_ID, count(atpe.tns_attr) tns_count
+             FROM tetools.admin_tnsnames_checks        atc
+             JOIN tetools.admin_tnsnames_proto_entries atpe
+                  ON atc.tns_attr = atpe.tns_attr
+            WHERE atpe.PROTO_TNS_ID = p_proto_tns_id
+              AND atpe.tns_attr = p_tns_attr
+            GROUP BY PROTO_TNS_ID) a,
+          (SELECT atpe.PROTO_TNS_ID, count(atpe.tns_attr) tns_count
+             FROM tetools.admin_tnsnames_checks        atc
+             JOIN tetools.admin_tnsnames_proto_entries atpe
+               ON atc.tns_attr = atpe.tns_attr
+            WHERE atc.tns_attr = p_tns_attr
+              AND atc.tns_attr_check = 'ATTRIBUTE'
+              AND REGEXP_LIKE(TNS_ATTR_VALUE, atc.tns_attr_statement, 'i')
+              AND atpe.PROTO_TNS_ID = p_proto_tns_id
+            GROUP BY PROTO_TNS_ID) b
+            WHERE a.PROTO_TNS_ID = b.PROTO_TNS_ID(+)
+            group by a.PROTO_TNS_ID) x;
+   RETURN
+     tetools.tns_type_attr_valdn(v_proto_tns_id, v_tns_match);
+END;
+/
+
+SELECT tetools.tns_func_attr_value_valdn ( 2110, 'ADDRESS') result FROM DUAL;
+SELECT tetools.tns_func_attr_valdn ( 2110, 'ADDRESS') result FROM DUAL;
+
+CREATE OR REPLACE FUNCTION tetools.tns_macro_attr_value_valdn( proto_tns_id IN integer, attr_check IN VARCHAR2 )
+RETURN CLOB sql_macro AS
+stmt CLOB;
+BEGIN
+stmt := '
+   SELECT x.c.admin_tnsnames_tns_id tns_id, x.c.admin_tnsnames_tns_match match
+   FROM (SELECT tetools.tns_func_attr_value_valdn ( tns_macro_attr_value_valdn.proto_tns_id, tns_macro_attr_value_valdn.attr_check ) c FROM DUAL) x
+';
+  
+ RETURN stmt;
+END tns_macro_attr_value_valdn;
+/
+
+CREATE OR REPLACE FUNCTION tetools.tns_macro_attr_valdn( proto_tns_id IN integer, attr_check IN VARCHAR2 )
+RETURN CLOB sql_macro AS
+stmt CLOB;
+BEGIN
+stmt := '
+   SELECT x.c.admin_tnsnames_tns_id tns_id, x.c.admin_tnsnames_tns_match match
+   FROM (SELECT tetools.tns_func_attr_valdn ( tns_macro_attr_valdn.proto_tns_id, tns_macro_attr_valdn.attr_check ) c FROM DUAL) x
+';
+  
+ RETURN stmt;
+END tns_macro_attr_valdn;
+/
+
+SELECT tns_id, match FROM tetools.tns_macro_attr_value_valdn(2110, 'ADDRESS');
+SELECT tns_id, match FROM tetools.tns_macro_attr_valdn(2110, 'ADDRESS');
+
+
+
+
+SELECT PROTO_TNS_ID, TNS_ATTR, TNS_ATTR_VALUE,
+       CASE
+         WHEN regexp_like(TNS_ATTR, '^\s*[(]?\w+([_]?[1-9]{1})(\s)?(=)?([[:space:])]+)?([)]?)*$', 'i') THEN '1_'||regexp_substr(TNS_ATTR, '^\s*[(]?\w+*')
+         WHEN regexp_like(TNS_ATTR, '^\s*[(]?\w+([_]?[1-9]{1})(\s)?(=)?([[:space:])]+)?([)]?)*$', 'i') THEN '2_'||regexp_substr(TNS_ATTR, '^\s*[(]?\w+([_]?[1-9]{1})*')
+         ELSE '3_'||regexp_substr(TNS_ATTR, '^\s*[(]?\w+([_]?[1-9]{1})(\s)?=([[:space:])]+)?([)]?)*$')
+       END REGEX
+  FROM TETOOLS.ADMIN_TNSNAMES_PROTO_ENTRIES
+ WHERE PROTO_TNS_ID IN (2110, 2111)
+   AND TNS_ATTR IN ('VALID_DATE_FROM', 'ADDRESS_1')
+ ORDER BY 1;
+ 
+ 
+-- 2025-02-10
+
+
+create or replace type tetools.type_test 
+as object
+( type_object_name   VARCHAR2(64),
+  type_object_status VARCHAR2(64)
+);
+/
+
+
+
+
+CREATE OR REPLACE FUNCTION tetools.func_test (p_value IN VARCHAR2, p_stmnt IN VARCHAR2 ) RETURN tetools.type_test IS
+  func_object_name   VARCHAR2(64);
+  func_object_status VARCHAR2(64);
+BEGIN
+  SELECT  attr,
+          CASE
+            WHEN x.matching = 0 THEN 'NOT VALIDATED'
+            WHEN x.matching > 0 THEN 'VALIDATED'
+            ELSE 'ERROR'
+          END INTO func_object_name, func_object_status
+     FROM (
+           SELECT attr, COUNT(*) matching FROM (
+             SELECT p_value as attr, 1
+               FROM DUAL
+              WHERE REGEXP_LIKE(p_value, p_stmnt, 'i'))) x;
+     RETURN tetools.type_test(func_object_name, func_object_status);
+END;
+/
+
+SELECT x.c.admin_tnsnames_tns_id tns_id, x.c.admin_tnsnames_tns_match match
+   FROM (SELECT tetools.tns_func_attr_value_valdn ( tns_macro_attr_value_valdn.proto_tns_id, tns_macro_attr_value_valdn.attr_check ) c FROM DUAL) x
+
+
+SELECT x.c.TYPE_OBJECT_NAME, x.c.TYPE_OBJECT_STATUS from (select tetools.func_test ('blaat', '^\w') c from dual) x;
+
+SELECT atpe.PROTO_TNS_ID, atpe.PROTO_TNS_ENTRY_LINE, atc.tns_attr, tetools.func_test(atpe.PROTO_TNS_ENTRY_LINE, atc.TNS_ATTR_STATEMENT) regex, atc.TNS_ATTR_STATEMENT
+  FROM TETOOLS.TEMP_ADMIN_TNSNAMES_PROTO_ENTRIES atpe
+  JOIN TETOOLS.ADMIN_TNSNAMES_CHECKS        atc
+       ON atpe.TNS_ATTR = atc.TNS_ATTR
+ WHERE atpe.PROTO_TNS_ID = 2408
+   --AND atpe.TNS_ATTR IN ('DATE_VALID_FROM', 'ADDRESS_1')
+ ORDER BY 1;
+
+
+
+
+
+  SELECT proto_tns_id
+      ,  proto_tns_order_line
+      ,  proto_tns_entry_line
+      ,  CASE
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_STATUS  = 'VALIDATED'                                                      THEN 'ENTRY_DESCRIPTION'
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$').TYPE_OBJECT_STATUS  = 'VALIDATED' AND proto_tns_order_line <= 2    THEN 'NET_SERVICE_NAME'
+           ELSE 'UNMATCHED_ATTRIBUTE'
+         END attribute_name
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+    JOIN ADMIN_TNSNAMES_CHECKS        atc ON atc.tns_attr =func_test( ttpe.proto_tns_entry_line, '^([[:space:](]*)\w[[:space:]]?=?[[:space:]]?').TYPE_OBJECT_NAME
+   WHERE ttpe.proto_tns_id = 2408;
+
+
+
+
+WITH cte1 AS (
+  SELECT proto_tns_id
+      ,  proto_tns_order_line
+      ,  proto_tns_entry_line
+   FROM TEMP_TNSNAMES_PROTO_ENTRIES WHERE proto_tns_id = 2408
+)
+SELECT x.c.TYPE_OBJECT_NAME, x.c.TYPE_OBJECT_STATUS from (select tetools.func_test (proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_NAME from dual) x
+
+
+
+
+(SELECT x.c.TYPE_OBJECT_NAME, x.c.TYPE_OBJECT_STATUS from (select tetools.func_test (p_value, p_statement) c from dual) x) T1
+
+
+
+  SELECT proto_tns_id
+      ,  proto_tns_order_line
+      ,  proto_tns_entry_line
+      --,  atc.tns_attr
+      ,  regexp_replace(ttpe.proto_tns_entry_line, '[()0-9= ]', '') "MODIFIED_STRING"
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+    JOIN ADMIN_TNSNAMES_CHECKS        atc ON atc.tns_attr = regexp_replace(ttpe.proto_tns_entry_line, '[()0-9= ]', '')
+   WHERE ttpe.proto_tns_id = 2408;
+
+
+
+select regexp_substr( ttpe.proto_tns_entry_line, '^([[:space:](]*)\w[[:space:]]?=?[[:space:]]?') from TEMP_TNSNAMES_PROTO_ENTRIES ttpe;
+select regexp_substr( ' ( blaat = 5', '^([[:space:](]*)\w+[[:space:]]?=?[[:space:]]?') from dual;
+
+select regexp_substr( regexp_substr( ' ( blaat = 5', '^([[:space:](]*)\w+'), '^([[:space:](]*)', 2) from dual;
+
+SELECT regexp_replace(regexp_substr( ' ( blaat = 5', '^([[:space:](]*)\w+'), '[( ]', '') "MODIFIED_STRING" from dual;
+
+SELECT regexp_replace(regexp_substr(ttpe.proto_tns_entry_line, '^([[:space:](]*)\w+'), '[(_0-9 ]', '') "MODIFIED_STRING" from TEMP_TNSNAMES_PROTO_ENTRIES ttpe;
+
+
+
+  SELECT proto_tns_id
+      ,  proto_tns_order_line
+      ,  proto_tns_entry_line
+      ,  CASE
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_STATUS  = 'VALIDATED'                                                      THEN 'ENTRY_DESCRIPTION'
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$').TYPE_OBJECT_STATUS  = 'VALIDATED' AND proto_tns_order_line <= 2    THEN 'NET_SERVICE_NAME'
+           ELSE 'UNMATCHED_ATTRIBUTE'
+         END attribute_name
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+    JOIN ADMIN_TNSNAMES_CHECKS        atc ON atc.tns_attr = regexp_replace(regexp_substr(ttpe.proto_tns_entry_line, '^([[:space:](]*)\w+'), '[(_0-9 ]', '')
+
+
+
+  SELECT proto_tns_id
+      ,  proto_tns_order_line
+      ,  proto_tns_entry_line
+      ,  CASE
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_STATUS  = 'VALIDATED'                                                      THEN 'ENTRY_DESCRIPTION'
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$').TYPE_OBJECT_STATUS  = 'VALIDATED' AND proto_tns_order_line <= 2    THEN 'NET_SERVICE_NAME'
+           ELSE regexp_replace(regexp_substr(ttpe.proto_tns_entry_line, '^([[:space:](]*)\w+'), '[(_0-9 ]', '')
+         END attribute_name
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+
+
+
+
+
+
+SELECT proto_tns_entry_line
+     , regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+') AS "TRIM"
+  FROM TEMP_TNSNAMES_PROTO_ENTRIES;
+
+
+
+  SELECT DISTINCT(
+         CASE
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_STATUS  = 'VALIDATED'                                                      THEN 'ENTRY_DESCRIPTION'
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$').TYPE_OBJECT_STATUS  = 'VALIDATED' AND proto_tns_order_line <= 2    THEN 'NET_SERVICE_NAME'
+           WHEN regexp_like(regexp_replace(LTRIM(regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+'), '(' ), '[_]{1}[1-9]{1}$', ''))   THEN regexp_replace(LTRIM(regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+'), '(' ), '[_]{1}[1-9]{1}$', '')
+           ELSE 'UNMATCHED'
+         END) attribute_name
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+   WHERE attribute_name IS NOT NULL;
+    
+
+
+
+SELECT regexp_replace(
+                      regexp_substr(ttpe.proto_tns_entry_line, '^([[:space:](]*)\w+')
+                      , '[(_0-9 ]', '')
+  FROM TEMP_TNSNAMES_PROTO_ENTRIES;
+
+
+SELECT DISTINCT(regexp_replace(LTRIM(regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+'), '(' ), '[_]{1}[1-9]{1}$', ''))
+  FROM TEMP_TNSNAMES_PROTO_ENTRIES;
+
+
+
+
+## 20250211 #########################################
+WITH cte AS (
+  SELECT proto_tns_order_line AS "ORDER_ID"
+       , CASE
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*').TYPE_OBJECT_STATUS  = 'VALIDATED'                                                      THEN 'ENTRY_DESCRIPTION'
+           WHEN func_test(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$').TYPE_OBJECT_STATUS  = 'VALIDATED' AND proto_tns_order_line <= 2    THEN 'NET_SERVICE_NAME'
+           WHEN regexp_replace(LTRIM(regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+'), '(' ), '[_]{1}[1-9]{1}$', '') IS NOT NULL    THEN regexp_replace(LTRIM(regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line), '^([[:space:](]*)\w+'), '(' ), '[_]{1}[1-9]{1}$', '')
+           ELSE 'UNMATCHED_ATTRIBUTE'
+         END attribute_name
+       , proto_tns_entry_line
+    FROM TEMP_TNSNAMES_PROTO_ENTRIES ttpe
+)
+SELECT order_id, attribute_name, proto_tns_entry_line
+  FROM cte
+ WHERE attribute_name <> 'UNMATCHED_ATTRIBUTE' 
+ORDER BY order_id ASC;
+
+
+SELECT TNS_ATTR, TNS_ATTR_STATEMENT
+  FROM ADMIN_TNSNAMES_CHECKS
+ WHERE TNS_ATTR_CHECK = 'ATTRIBUTE'
+
+
+
+
+SELECT TNS_ATTR, TNS_ATTR_STATEMENT
+  FROM tetools.admin_tnsnames_proto_checks
+ WHERE  func_test(proto_tns_entry_line, TNS_ATTR_STATEMENT).type_object_status = 'NOT VALIDATED'
+ORDER BY order_id;
+
+--  TNS_ATTR                         VALIDATION
+--  -------------------------------- ----------------------------------------------------------------
+--  ENTRY_DESCRIPTION                VALIDATED
+--  DESCRIPTION_LIST                 VALIDATED
+--  DESCRIPTION                      VALIDATED
+--  TRANSPORT_CONNECT_TIMEOUT        VALIDATED
+--  CONNECT_TIMEOUT                  VALIDATED
+--  RETRY_DELAY                      VALIDATED
+--  RETRY_COUNT                      NOT VALIDATED
+--  FAILOVER                         VALIDATED
+--  LOAD_BALANCE                     VALIDATED
+--  ADDRESS_LIST                     VALIDATED
+--  ADDRESS                          VALIDATED
+--  PROTOCOL                         NOT VALIDATED
+--  HOST                             NOT VALIDATED
+--  PORT                             VALIDATED
+--  ADDRESS                          VALIDATED
+--  PROTOCOL                         NOT VALIDATED
+--  HOST                             NOT VALIDATED
+--  PORT                             VALIDATED
+--  ADDRESS                          VALIDATED
+--  PROTOCOL                         NOT VALIDATED
+--  HOST                             NOT VALIDATED
+--  PORT                             VALIDATED
+--  CONNECT_DATA                     VALIDATED
+--  SERVICE_NAME                     NOT VALIDATED
+--  SERVER                           NOT VALIDATED
+--  DATE_VALID_FROM                  VALIDATED
+--  DATE_VALID_TILL                  VALIDATED
+--  PHASE                            NOT VALIDATED
+--  TARGET_ENV                       VALIDATED
+--  
+--  29 rows selected.
+
+
+
+TNS_ATTR      TNS_ATTR_STATEMENT
+------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PROTOCOL      '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(tcp|tcps|ws)([)])?*$'
+PROTOCOL      '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(tcp|tcps|ws)([)])?*$'
+PROTOCOL      '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(tcp|tcps|ws)([)])?*$'
+HOST          '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+HOST          '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+SERVICE_NAME  '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+RETRY_COUNT   '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+HOST          '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+SERVER        '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+PHASE         '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$'
+
+SELECT regexp_substr(TNS_ATTR_STATEMENT, '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$') regex
+     , CASE
+         WHEN regexp_like() THEN regexp_substr(TNS_ATTR_STATEMENT, TNS_ATTR_STATEMENT)
+         ELSE 
+       END case_stmnt
+  FROM admin_tnsnames_checks
+ WHERE tns_attr IN ('TARGET_ENV', 'PHASE', 'SERVER', 'RETRY_COUNT', 'SERVICE_NAME', 'HOST')
+
+
+
+
+
+
+SELECT order_id, tns_attr, '*'||proto_tns_entry_line||'*' proto_tns_entry_line
+     , regexp_substr(proto_tns_entry_line, TNS_ATTR_STATEMENT) sub_stmnt
+     , CASE
+         WHEN regexp_like(proto_tns_entry_line, TNS_ATTR_STATEMENT, 'i') THEN '____VALID__'||regexp_substr(proto_tns_entry_line, TNS_ATTR_STATEMENT)
+         ELSE 'NOT_VALID__'||regexp_substr(proto_tns_entry_line, TNS_ATTR_STATEMENT)
+       END case_stmnt
+  FROM tetools.admin_tnsnames_proto_checks
+ --WHERE NOT regexp_like(proto_tns_entry_line, TNS_ATTR_STATEMENT, 'i')
+ORDER BY order_id;
+
+
+--   ORDER_ID TNS_ATTR                   PROTO_TNS_ENTRY_LINE                                 SUB_STMNT                                          CASE_STMNT
+-- ---------- -------------------------- ---------------------------------------------------- -------------------------------------------------- ----------------------------------------------------------------
+--          1 ENTRY_DESCRIPTION          * # test description for parsing existing tns entry*  # test description for parsing existing tns entry ____VALID__ # test description for parsing existing tns entry
+--          3 DESCRIPTION_LIST           *   (DESCRIPTION_LIST =                            *    (DESCRIPTION_LIST =                             ____VALID__   (DESCRIPTION_LIST =
+--          4 DESCRIPTION                *     (DESCRIPTION =                               *      (DESCRIPTION =                                ____VALID__     (DESCRIPTION =
+--          5 TRANSPORT_CONNECT_TIMEOUT  *     (TRANSPORT_CONNECT_TIMEOUT = 5)              *      (TRANSPORT_CONNECT_TIMEOUT = 5)               ____VALID__     (TRANSPORT_CONNECT_TIMEOUT = 5)
+--          6 CONNECT_TIMEOUT            *     (CONNECT_TIMEOUT = 5)                        *      (CONNECT_TIMEOUT = 5)                         ____VALID__     (CONNECT_TIMEOUT = 5)
+--          7 RETRY_DELAY                *     (RETRY_DELAY = 1)                            *      (RETRY_DELAY = 1)                             ____VALID__     (RETRY_DELAY = 1)
+--          8 RETRY_COUNT                *     (RETRY_COUNT = BLAAT)*                              (RETRY_COUNT = BLAAT)                         ____VALID__     (RETRY_COUNT = BLAAT)
+--          9 FAILOVER                   *     (FAILOVER = ON)                              *      (FAILOVER = ON)                               ____VALID__     (FAILOVER = ON)
+--         10 LOAD_BALANCE               *     (LOAD_BALANCE = OFF)                         *      (LOAD_BALANCE = OFF)                          ____VALID__     (LOAD_BALANCE = OFF)
+--         11 ADDRESS_LIST               *       (ADDRESS_LIST =                            *        (ADDRESS_LIST =                             ____VALID__       (ADDRESS_LIST =
+--         12 ADDRESS                    *         (ADDRESS_1 =                             *          (ADDRESS_1 =                              ____VALID__         (ADDRESS_1 =
+--         13 PROTOCOL                   *           (PROTOCOL_1 = TCP)                     *                                                    ____VALID__
+--         14 HOST                       *           (HOST_1 = 192.0.2.10)                  *            (HOST_1 = 192.0.2.10)                   ____VALID__           (HOST_1 = 192.0.2.10)
+--         15 PORT                       *           (PORT_1 = 1521)                        *            (PORT_1 = 1521)                         ____VALID__           (PORT_1 = 1521)
+--         17 ADDRESS                    *         (ADDRESS_2 =                             *          (ADDRESS_2 =                              ____VALID__         (ADDRESS_2 =
+--         18 PROTOCOL                   *           (PROTOCOL_2 = TCP)                     *                                                    ____VALID__
+--         19 HOST                       *           (HOST_2 = 192.0.2.10)                  *            (HOST_2 = 192.0.2.10)                   ____VALID__           (HOST_2 = 192.0.2.10)
+--         20 PORT                       *           (PORT_2 = 1526)                        *            (PORT_2 = 1526)                         ____VALID__           (PORT_2 = 1526)
+--         22 ADDRESS                    *         (ADDRESS_3 =                             *          (ADDRESS_3 =                              ____VALID__         (ADDRESS_3 =
+--         23 PROTOCOL                   *           (PROTOCOL_3 = TCP)                     *                                                    ____VALID__
+--         24 HOST                       *           (HOST_3 = example.invalid)           *            (HOST_3 = example.invalid)            ____VALID__           (HOST_3 = example.invalid)
+--         25 PORT                       *           (PORT_3 = 1522)                        *            (PORT_3 = 1522)                         ____VALID__           (PORT_3 = 1522)
+--         28 CONNECT_DATA               *       (CONNECT_DATA =                            *        (CONNECT_DATA =                             ____VALID__       (CONNECT_DATA =
+--         29 SERVICE_NAME               *         (SERVICE_NAME = pbobdb)                  *          (SERVICE_NAME = pbobdb)                   ____VALID__         (SERVICE_NAME = pbobdb)
+--         30 SERVER                     *         (SERVER = VIES)*                                    (SERVER = VIES)                           ____VALID__         (SERVER = VIES)
+--         34 DATE_VALID_FROM            * (DATE_VALID_FROM = sysdate,)                     *  (DATE_VALID_FROM = sysdate,)                      ____VALID__ (DATE_VALID_FROM = sysdate,)
+--         35 DATE_VALID_TILL            * (DATE_VALID_TILL = 9999-12-31,)                  *  (DATE_VALID_TILL = 9999-12-31,)                   ____VALID__ (DATE_VALID_TILL = 9999-12-31,)
+--         36 PHASE                      * (PHASE = T)                                      *  (PHASE = T)                                       ____VALID__ (PHASE = T)
+--         37 TARGET_ENV                 * TARGET_ENV = TST                                 *  TARGET_ENV = TST                                  ____VALID__ TARGET_ENV = TST
+-- 
+-- 29 rows selected
+
+
+
+
+
+SELECT regexp_substr('           (PROTOCOL_1 = TCP)'                     , '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(tcp|tcps|ws)([)])?(\s)*$') regex__no_trail_space
+     , regexp_substr('           (PROTOCOL_1 = TCP)                     ', '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(tcp|tcps|ws)([)])?(\s)*$') regex_yes_trail_space
+     , regexp_substr('           (PROTOCOL_1 = TCP)                     ', '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(TCP|TCPS|WS)([)])?(\s)*$') regex_yes_trail_space
+  FROM dual;
+  
+  
+
+
+
+SELECT proto_tns_id
+    ,  proto_tns_order_line order_id
+    , '*'||TRIM(BOTH ' ' FROM proto_tns_entry_line )||'*' AS "TRIMMED_ENTRY_LINE"
+    , regexp_replace(proto_tns_entry_line, '[,?<>!@$%^&~`+]', '', 1, 0, 'i') AS "CLEANED"
+    ,  CASE
+         -- ENTRY DESCRIPTION 
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)?#{1}.*','i')                                                                                                               THEN REGEXP_REPLACE(REGEXP_REPLACE(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^[[:space:]]*','',1,1,'i'), '[[:space:]]*$','',1,1,'i')
+         -- DESCRIPTION  / DESCRIPTION_LIST 
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$','i') AND proto_tns_order_line <= 2                                                             THEN REGEXP_REPLACE(REGEXP_REPLACE(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^[[:space:]]*','',1,1,'i'), '[[:space:]]*=[[:space:]]*$','',1,1,'i')
+         -- DATE_VALID_FROM / DATE_VALID_TILL
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))([)])?*$','i')                   THEN regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))')
+         -- NON-LEAF MEMBERS
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\s)?=([[:space:])]+)?([)]?)*$','i')                                                                                             THEN 'NULL' --REGEXP_REPLACE(proto_tns_entry_line, '\s*[(]?\w+(\s)?=([[:space:])]+)?', '', 1)
+         -- ATRRIBUTES WITH DIGIT VALUES, e.g.: PORT/RETRY_DELAY/
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\s)?=[[:space:]]?(\d+[[:space:]]?(ms|msec|sec|min)?|ON|OFF|TRUE|FALSE|tcp|tcps|ws|shared|dedicated)([)])?([[:space:]]?)*$','i') THEN regexp_replace(regexp_replace(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- HOSTNAME / IP-ADDRESS / PHASE / TARGET_ENV 
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)*$','i')
+              THEN regexp_replace(regexp_replace(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- CLOSING_BRACKET
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)[)]{1}$','i')                                                                                                                THEN 'NULL'
+         -- OPENING_BRACKET
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)[(]{1}$','i')                                                                                                                THEN 'NULL'
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?.*(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1])).*([)])?.*$','i') THEN
+         --    REGEXP_REPLACE(REGEXP_REPLACE(proto_tns_entry_line, '^\s*[(]?', '',1),'(\s)?=(\s)?.*(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1])).*([)]?).*$','',1,1,'i')
+         --REGEXP_REPLACE(proto_tns_entry_line, '^\s*[(]?', '',1)
+         REGEXP_REPLACE(REGEXP_SUBSTR(proto_tns_entry_line, '[^=]+$'), '[[:space:]),]', '')
+         ELSE 'UNMATCHED_VALUE'
+       END trimmed_attribute_value
+  FROM TEMP_TNSNAMES_PROTO_ENTRIES WHERE proto_tns_id = 2408
+ ORDER BY proto_tns_order_line;
+
+
+PROTO_TNS_ID ORDER_ID TRIMMED_ENTRY_LINE                                   TRIMMED_ATTRIBUTE_VALUE
+------------ -------- ---------------------------------------------------- ----------------------------------------------------
+        2408        1 *# test description for parsing existing tns entry*  # test description for parsing existing tns entry
+        2408        2 *foo_baz_20250206 =*                                 foo_baz_20250206
+        2408        3 *(DESCRIPTION_LIST =*                                NULL
+        2408        4 *(DESCRIPTION =*                                     NULL
+        2408        5 *(TRANSPORT_CONNECT_TIMEOUT = 5)*                    5
+        2408        6 *(CONNECT_TIMEOUT = 5)*                              5
+        2408        7 *(RETRY_DELAY = 1)*                                  1
+        2408        8 *(RETRY_COUNT = BLAAT)*                              BLAAT
+        2408        9 *(FAILOVER = ON)*                                    ON
+        2408       10 *(LOAD_BALANCE = OFF)*                               OFF
+        2408       11 *(ADDRESS_LIST =*                                    NULL
+        2408       12 *(ADDRESS_1 =*                                       NULL
+        2408       13 *(PROTOCOL_1 = TCP)*                                 TCP
+        2408       14 *(HOST_1 = 192.0.2.10)*                              UNMATCHED_VALUE
+        2408       15 *(PORT_1 = 1521)*                                    1521
+        2408       17 *(ADDRESS_2 =*                                       NULL
+        2408       18 *(PROTOCOL_2 = TCP)*                                 TCP
+        2408       19 *(HOST_2 = 192.0.2.10)*                              UNMATCHED_VALUE
+        2408       20 *(PORT_2 = 1526)*                                    1526
+        2408       22 *(ADDRESS_3 =*                                       NULL
+        2408       23 *(PROTOCOL_3 = TCP)*                                 TCP
+        2408       24 *(HOST_4 = example.invalid)*                       example.invalid
+        2408       25 *(PORT_3 = 1522)*                                    1522
+        2408       28 *(CONNECT_DATA =*                                    NULL
+        2408       29 *(SERVICE_NAME = pbobdb)*                            UNMATCHED_VALUE
+        2408       30 *(SERVER = VIES)*                                    VIES
+        2408       32 *)*                                                  NULL
+        2408       33 *)*                                                  NULL
+        2408       34 *(DATE_VALID_FROM = sysdate,)*                       UNMATCHED_VALUE
+        2408       35 *(DATE_VALID_TILL = 9999-12-31,)*                    UNMATCHED_VALUE
+        2408       36 *(PHASE = T)*                                        UNMATCHED_VALUE
+        2408       37 *TARGET_ENV = TST*                                   TST
+
+32 rows selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT proto_tns_id
+    ,  proto_tns_order_line order_id
+    ,  '*'||proto_tns_entry_line||'*' proto_tns_entry_line
+    , '*'||TRIM(BOTH ' ' FROM proto_tns_entry_line )||'*' AS "TRIMMED_ENTRY_LINE"
+    ,  CASE
+         -- ENTRY DESCRIPTION 
+         WHEN regexp_like(proto_tns_entry_line, '^([[:space:])]*)?#{1}.*','i')                                                                                                               THEN REGEXP_REPLACE(REGEXP_REPLACE(proto_tns_entry_line, '^[[:space:]]*','',1,1,'i'), '[[:space:]]*$','',1,1,'i')
+         -- DESCRIPTION  / DESCRIPTION_LIST 
+         WHEN regexp_like(proto_tns_entry_line, '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$','i') AND proto_tns_order_line <= 2                                                             THEN REGEXP_REPLACE(REGEXP_REPLACE(proto_tns_entry_line, '^[[:space:]]*','',1,1,'i'), '[[:space:]]*=[[:space:]]*$','',1,1,'i')
+         -- DATE_VALID_FROM / DATE_VALID_TILL
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))([)])?*$','i')                   THEN regexp_substr(proto_tns_entry_line, '(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))')
+         -- NON-LEAF MEMBERS
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\s)?=([[:space:])]+)?([)]?)*$','i')                                                                                             THEN 'NULL' --REGEXP_REPLACE(proto_tns_entry_line, '\s*[(]?\w+(\s)?=([[:space:])]+)?', '', 1)
+         -- ATRRIBUTES WITH DIGIT VALUES, e.g.: PORT/RETRY_DELAY/
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\s)?=[[:space:]]?(\d+[[:space:]]?(ms|msec|sec|min)?|ON|OFF|TRUE|FALSE|tcp|tcps|ws|shared|dedicated)([)])?([[:space:]]?)*$','i') THEN regexp_replace(regexp_replace(proto_tns_entry_line, '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- HOSTNAME / IP-ADDRESS / PHASE / TARGET_ENV 
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$','i')
+              THEN regexp_replace(regexp_replace(proto_tns_entry_line, '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- CLOSING_BRACKET
+         WHEN regexp_like(proto_tns_entry_line, '^([[:space:])]*)[)]{1}$','i')                                                                                                                THEN 'NULL'
+         -- OPENING_BRACKET
+         WHEN regexp_like(proto_tns_entry_line, '^([[:space:])]*)[(]{1}$','i')                                                                                                                THEN 'NULL'
+         ELSE 'UNMATCHED_VALUE'
+       END attribute_value
+    ,  CASE
+         -- ENTRY DESCRIPTION 
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)?#{1}.*','i')                                                                                                               THEN REGEXP_REPLACE(REGEXP_REPLACE(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^[[:space:]]*','',1,1,'i'), '[[:space:]]*$','',1,1,'i')
+         -- DESCRIPTION  / DESCRIPTION_LIST 
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)?\w+(\s)?=([[:space:])]+)?$','i') AND proto_tns_order_line <= 2                                                             THEN REGEXP_REPLACE(REGEXP_REPLACE(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^[[:space:]]*','',1,1,'i'), '[[:space:]]*=[[:space:]]*$','',1,1,'i')
+         -- DATE_VALID_FROM / DATE_VALID_TILL
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\d{1})?(\s)?=[[:space:]]?(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))([)])?*$','i')                   THEN regexp_substr(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '(sysdate|(9999|20[0-9]{2})-(1[0-2]|0[0-9])-(0[1-9]|[1-2][0-9]|3[0-1]))')
+         -- NON-LEAF MEMBERS
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\s)?=([[:space:])]+)?([)]?)*$','i')                                                                                             THEN 'NULL' --REGEXP_REPLACE(proto_tns_entry_line, '\s*[(]?\w+(\s)?=([[:space:])]+)?', '', 1)
+         -- ATRRIBUTES WITH DIGIT VALUES, e.g.: PORT/RETRY_DELAY/
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^\s*[(]?\w+(\s)?=[[:space:]]?(\d+[[:space:]]?(ms|msec|sec|min)?|ON|OFF|TRUE|FALSE|tcp|tcps|ws|shared|dedicated)([)])?([[:space:]]?)*$','i') THEN regexp_replace(regexp_replace(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- HOSTNAME / IP-ADDRESS / PHASE / TARGET_ENV 
+         WHEN regexp_like(proto_tns_entry_line, '^\s*[(]?\w+(\d{1})?(\s)*=(\s)*((\w+([.-]*\w+)*)*|([1-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.(([0-9]{1}|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){2}([1-9]{1}|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))?(\s)*([)])?(\s)?$','i')
+              THEN regexp_replace(regexp_replace(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:]]+)?([(])?\w+([[:space:]])+=([[:space:]])+','',1,1,'i'),'([[:space:]]+)?([)])?*$','',1,1,'i')
+         -- CLOSING_BRACKET
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)[)]{1}$','i')                                                                                                                THEN 'NULL'
+         -- OPENING_BRACKET
+         WHEN regexp_like(TRIM(BOTH ' ' FROM proto_tns_entry_line ), '^([[:space:])]*)[(]{1}$','i')                                                                                                                THEN 'NULL'
+         ELSE 'UNMATCHED_VALUE'
+       END trimmed_attribute_value
+  FROM TEMP_TNSNAMES_PROTO_ENTRIES WHERE proto_tns_id = 2408
+ ORDER BY proto_tns_order_line;
+
+
+PROTO_TNS_ID PROTO_TNS_ORDER_LINE PROTO_TNS_ENTRY_LINE                                 trimmed_entry_line                                   ATTRIBUTE_VALUE
+------------ -------------------- ---------------------------------------------------- ---------------------------------------------------- ----------------------------------------------------------------
+        2408                    1 * # test description for parsing existing tns entry* *# test description for parsing existing tns entry*  # test description for parsing existing tns entry
+        2408                    2 * foo_baz_20250206 =                               * *foo_baz_20250206 =*                                 foo_baz_20250206
+        2408                    3 *   (DESCRIPTION_LIST =                            * *(DESCRIPTION_LIST =*                                NULL
+        2408                    4 *     (DESCRIPTION =                               * *(DESCRIPTION =*                                     NULL
+        2408                    5 *     (TRANSPORT_CONNECT_TIMEOUT = 5)              * *(TRANSPORT_CONNECT_TIMEOUT = 5)*                    5)
+        2408                    6 *     (CONNECT_TIMEOUT = 5)                        * *(CONNECT_TIMEOUT = 5)*                              5)
+        2408                    7 *     (RETRY_DELAY = 1)                            * *(RETRY_DELAY = 1)*                                  1)
+        2408                    8 *     (RETRY_COUNT = BLAAT)*                         *(RETRY_COUNT = BLAAT)*                              BLAAT
+        2408                    9 *     (FAILOVER = ON)                              * *(FAILOVER = ON)*                                    ON)
+        2408                   10 *     (LOAD_BALANCE = OFF)                         * *(LOAD_BALANCE = OFF)*                               OFF)
+        2408                   11 *       (ADDRESS_LIST =                            * *(ADDRESS_LIST =*                                    NULL
+        2408                   12 *         (ADDRESS_1 =                             * *(ADDRESS_1 =*                                       NULL
+        2408                   13 *           (PROTOCOL_1 = TCP)                     * *(PROTOCOL_1 = TCP)*                                 TCP)
+        2408                   14 *           (HOST_1 = 192.0.2.10)                  * *(HOST_1 = 192.0.2.10)*                              UNMATCHED_VALUE
+        2408                   15 *           (PORT_1 = 1521)                        * *(PORT_1 = 1521)*                                    1521)
+        2408                   17 *         (ADDRESS_2 =                             * *(ADDRESS_2 =*                                       NULL
+        2408                   18 *           (PROTOCOL_2 = TCP)                     * *(PROTOCOL_2 = TCP)*                                 TCP)
+        2408                   19 *           (HOST_2 = 192.0.2.10)                  * *(HOST_2 = 192.0.2.10)*                              UNMATCHED_VALUE
+        2408                   20 *           (PORT_2 = 1526)                        * *(PORT_2 = 1526)*                                    1526)
+        2408                   22 *         (ADDRESS_3 =                             * *(ADDRESS_3 =*                                       NULL
+        2408                   23 *           (PROTOCOL_3 = TCP)                     * *(PROTOCOL_3 = TCP)*                                 TCP)
+        2408                   24 *           (HOST_4 = example.invalid) *           *(HOST_4 = example.invalid)*                       example.invalid)
+        2408                   25 *           (PORT_3 = 1522)                        * *(PORT_3 = 1522)*                                    1522)
+        2408                   28 *       (CONNECT_DATA =                            * *(CONNECT_DATA =*                                    NULL
+        2408                   29 *         (SERVICE_NAME = pbobdb)                  * *(SERVICE_NAME = pbobdb)*                            UNMATCHED_VALUE
+        2408                   30 *         (SERVER = VIES)*                           *(SERVER = VIES)*                                    VIES
+        2408                   32 *     )                                            * *)*                                                  UNMATCHED_VALUE
+        2408                   33 *   )                                              * *)*                                                  UNMATCHED_VALUE
+        2408                   34 * (DATE_VALID_FROM = sysdate,)                     * *(DATE_VALID_FROM = sysdate,)*                       UNMATCHED_VALUE
+        2408                   35 * (DATE_VALID_TILL = 9999-12-31,)                  * *(DATE_VALID_TILL = 9999-12-31,)*                    UNMATCHED_VALUE
+        2408                   36 * (PHASE = T)                                      * *(PHASE = T)*                                        UNMATCHED_VALUE
+        2408                   37 * TARGET_ENV = TST                                 * *TARGET_ENV = TST*                                   TST
+
+32 rows selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

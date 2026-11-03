@@ -1,0 +1,43 @@
+{
+  "revision": "ATN-PUB-20261103-001",
+  "checks_performed_on": "2026-11-03",
+  "source_selection": "PASS: archive comparison of all ten original files, nine sanitized code exports; no new repaired module invented",
+  "sanitized_html_static_links": {
+    "status": "PASS",
+    "checked_links": 346,
+    "unique_ids": true,
+    "required_remote_assets": false
+  },
+  "sensitive_data_review": {
+    "status": "PASS_WITH_DOCUMENTED_REDACTIONS",
+    "production_config_and_raw_zips": "EXCLUDED",
+    "author_paths_endpoints": "REDACTED",
+    "pattern_scan": [
+      "private_key",
+      "github_token",
+      "password_assignment",
+      "personal_author",
+      "local_personal_path",
+      "internal_domain"
+    ],
+    "limitation": "Targeted pattern scan and source inspection, not a guarantee against every possible secret"
+  },
+  "canonical_examples": {
+    "status": "PASS",
+    "cases": 7,
+    "scope": "Abstract Python byte-contract examples, not Oracle or module code"
+  },
+  "relay_validation": {
+    "status": "PASS",
+    "sessions": 6,
+    "changes": 7
+  },
+  "historical_evidence": "Historical report/browser records preserved as historical; export download canceled",
+  "oracle_compilation": "NOT_EXECUTED",
+  "oracle_runtime": "NOT_EXECUTED",
+  "oracle_privileges": "NOT_EXECUTED",
+  "oracle_concurrency": "NOT_EXECUTED",
+  "performance": "NOT_EXECUTED",
+  "sanitized_browser_interactions": "NOT_EXECUTED",
+  "github_readback": "Recorded separately by commit/blob receipt after publication"
+}

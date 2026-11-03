@@ -1,0 +1,23 @@
+{
+  "finding_count": 27,
+  "checked_links": 346,
+  "console_errors": [],
+  "external_requests": [],
+  "checks": [
+    "IDs",
+    "links",
+    "search",
+    "priority/topic filters",
+    "expand/collapse",
+    "notes/status",
+    "append test history",
+    "reload persistence",
+    "exact-source roundtrip",
+    "reject mismatches/duplicates/invalid tests without mutation",
+    "explicit history",
+    "mobile horizontal fit",
+    "print source visibility and test evidence"
+  ],
+  "download": "Download not saved: canceled",
+  "scope": "Headless Chrome checks. Simulated test outcomes are QA only and are not shipped as initial progress."
+}

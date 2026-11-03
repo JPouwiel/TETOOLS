@@ -123,6 +123,35 @@
       ],
       "recorded_by": "01a138d4-ee43-7930-aea2-4ec084041013",
       "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation."
+    },
+    {
+      "session_id": "01a184a4-b6f6-76d3-be6a-38608571155a",
+      "role": "WORK_IMPORT",
+      "module": "ADMIN_TNSNAMES",
+      "subject": "Sanitized source and analysis publication",
+      "revision": "ATN-PUB-20261103-001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "../modules/ADMIN_TNSNAMES/SOURCE_INDEX.md",
+      "deliverables": [
+        "../modules/ADMIN_TNSNAMES/"
+      ],
+      "open_dependencies": [
+        "ATN-OPEN-01",
+        "ATN-OPEN-02",
+        "ATN-OPEN-03",
+        "ATN-OPEN-04",
+        "ATN-OPEN-05",
+        "ATN-OPEN-06",
+        "ATN-OPEN-07",
+        "ATN-OPEN-08",
+        "ATN-OPEN-09"
+      ],
+      "recorded_by": "01a184a4-b6f6-76d3-be6a-38608571155a",
+      "note": "Publication package completed; proposed branch awaits PR review. Not merged or approved for deployment. Oracle NOT_EXECUTED; chat retained and not closed."
     }
   ]
 }

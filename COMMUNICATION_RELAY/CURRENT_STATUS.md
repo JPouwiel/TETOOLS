@@ -24,3 +24,8 @@ Bronimport en rapporten zijn via [PR #4](https://github.com/JPouwiel/TETOOLS/pul
 ## ADMIN_OBJECTS module-import
 
 Canoniek modulepad: [../modules/ADMIN_OBJECTS/](../modules/ADMIN_OBJECTS/). Laatste beschikbare PM-001 release: 004; oorspronkelijke bron en ontwerpcontext zijn afzonderlijk herkenbaar. Bevroren relay-release blijft behouden. Oracle-runtime NOT_EXECUTED; historische volledigheid niet geclaimd. Import gemerged via [PR #6](https://github.com/JPouwiel/TETOOLS/pull/6); alle 28 geimporteerde bestanden en de ongewijzigde releasetree zijn vanaf main teruggelezen. Zie [bewijs](../modules/ADMIN_OBJECTS/IMPORT_VERIFICATION.json).
+
+
+## ADMIN_TNSNAMES publication proposal
+
+Sanitized source and analysis import proposed under ../modules/ADMIN_TNSNAMES/, revision ATN-PUB-20261103-001. Open PR review required; no merge/implementation approval claimed. Oracle compilation/runtime NOT_EXECUTED. See module OPEN_POINTS.md.

@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> (new connection) in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Run in a NEW SQL*Plus/SQLcl session as the same disposable schema after 03_tests.
 whenever oserror exit failure rollback
 whenever sqlerror exit failure rollback

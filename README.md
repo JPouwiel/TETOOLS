@@ -11,3 +11,5 @@ Oracle Database 19c EE. Begin bij het projectmanifest en het runbook van revisie
 - [ADMIN_OBJECTS](modules/ADMIN_OBJECTS/): oorspronkelijke ontwikkelbron, ontwerpcontext en PM-001 revisie 004; Oracle-runtime NOT_EXECUTED.
 
 - [ADMIN_TNSNAMES](modules/ADMIN_TNSNAMES/): geschoonde bronset met hoofdpackagebody 20260921_301, analyse met 27 bevindingen en herstelconcept; bekende compileer- en contractblokkades; Oracle-validatie NOT_EXECUTED.
+
+- [ADMIN_SESSIONS](modules/ADMIN_SESSIONS/): bronimport VERSIE_0.301, analyse AS-20261014-001 en losse loggerconceptadapter; bekende blokkades; Oracle NOT_EXECUTED; PR-review vereist.

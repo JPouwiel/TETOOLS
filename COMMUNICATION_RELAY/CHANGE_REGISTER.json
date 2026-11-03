@@ -147,6 +147,30 @@
         "MODULES/ADMIN_TNSNAMES/README.md"
       ],
       "note": "Publication authorised; technical changes not approved. Leave PR open."
+    },
+    {
+      "change_id": "SESSIONS-20261103-001",
+      "record_type": "MODULE_IMPORT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_SESSIONS",
+      "subject": "Publish sanitized reviewed source baseline and independent C01 concept",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_SESSIONS/DOCS/SESSION_CONTEXT.md",
+      "origin_session": "01a138df-aece-73c1-a082-32fa2d835303",
+      "recorded_by_session": "01a138df-aece-73c1-a082-32fa2d835303",
+      "approval_actor": "user (publication scope only)",
+      "recorded_at": "2026-11-03",
+      "revision": "AS-PUB-20261103-001",
+      "supersedes": null,
+      "base_commit": "49843f0c4adeefb24ce4623efd24e0bce58fbe37",
+      "artifact_refs": [
+        "../modules/ADMIN_SESSIONS/manifest.json",
+        "MODULES/ADMIN_SESSIONS/README.md"
+      ],
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/10",
+      "note": "Published branch PR #10 remains open; 44 initial payload Git identities and both manifests read back. No merge or technical approval. Final head verification is reported in the PR.",
+      "approved_by": "user: explicit publication request on 2026-11-03; publication scope only",
+      "publication_payload_commit": "f6d150c80625e8e16249e0f391c4dd8a56433f38"
     }
   ]
 }

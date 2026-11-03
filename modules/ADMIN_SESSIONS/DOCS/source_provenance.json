@@ -1,0 +1,97 @@
+{
+  "origin_session": "01a138df-aece-73c1-a082-32fa2d835303",
+  "archive_name": "ADMIN_SESSION.zip",
+  "historical_archive_sha256": "2a6fd94283b99dcb12b06a7d57a3273f4c0993a92f8ce50db0519ec225d1b1b5",
+  "archive_rechecked_on_publication": "NOT_AVAILABLE",
+  "archive_status": "Original download no longer present; retained extraction matches recorded individual hashes",
+  "baseline": {
+    "folder": "VERSIE_0.301",
+    "spec": "20251216.301",
+    "body": "20260921_300",
+    "banner": "0.2",
+    "body_comment": "202609121_300"
+  },
+  "selection": "Only complete session-module source set found in this session; no repaired implementation was produced. Concept C01 is separate and not a replacement.",
+  "files": [
+    {
+      "original_path": "TETOOLS_grants.sql",
+      "original_bytes": 2288,
+      "original_sha256": "2700387b48cc94499db6fb5f9a8a7eb3e5ee5c958c8c79f2641fe8a44b4cb42d",
+      "published_path": "SOURCE/SNAPSHOT/TETOOLS_grants.sql",
+      "published_sha256": "2700387b48cc94499db6fb5f9a8a7eb3e5ee5c958c8c79f2641fe8a44b4cb42d",
+      "line_count": 38,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/JOB_TETOOLS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "original_bytes": 1332,
+      "original_sha256": "18145817f53b165c5ccef2492773c4720d2fdcdbb6a5bf0993e2eefb9c10f444",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/JOB_TETOOLS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "published_sha256": "18145817f53b165c5ccef2492773c4720d2fdcdbb6a5bf0993e2eefb9c10f444",
+      "line_count": 46,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/PCK_ADMIN_SESSION_20251216.301.pks",
+      "original_bytes": 20836,
+      "original_sha256": "d588582212c39177a6298a6f7322df97320d9aa60fd3383d7d1f6fc1bc6cb834",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/PCK_ADMIN_SESSION_20251216.301.pks",
+      "published_sha256": "d69977b4b5b6928ce44e66074662487debf9e2e79b62fee2e43ddd7f6411c733",
+      "line_count": 339,
+      "sanitized": true,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/PCK_ADMIN_SESSION_20260921_300.pkb",
+      "original_bytes": 84409,
+      "original_sha256": "331c846fe29bde6be9e970da786f3f664583cfe8276cad8a321106b7c89b713a",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/PCK_ADMIN_SESSION_20260921_300.pkb",
+      "published_sha256": "331c846fe29bde6be9e970da786f3f664583cfe8276cad8a321106b7c89b713a",
+      "line_count": 1454,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/PROC_TETOOLS.stop_sessie__20251103__300.prc",
+      "original_bytes": 3063,
+      "original_sha256": "a9bd89d3334bd12e490c2c5f05d18cde1c30d2761170f0d6bfd2e66a6ed22b81",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/PROC_TETOOLS.stop_sessie__20251103__300.prc",
+      "published_sha256": "a9bd89d3334bd12e490c2c5f05d18cde1c30d2761170f0d6bfd2e66a6ed22b81",
+      "line_count": 83,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/TAB_TETOOLS_ADMIN_SESSIONS_20240530.301.sql",
+      "original_bytes": 3898,
+      "original_sha256": "76db13255b084311eb2903babc3d12ca9fc7cc08e890de2369d341c90194571a",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/TAB_TETOOLS_ADMIN_SESSIONS_20240530.301.sql",
+      "published_sha256": "76db13255b084311eb2903babc3d12ca9fc7cc08e890de2369d341c90194571a",
+      "line_count": 75,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/TRG_ADMIN_SESSIONS_LOG_20260824.301.sql",
+      "original_bytes": 322,
+      "original_sha256": "a1baeffeb896608180f565ec4fdfcd5904a52a85ca144dd00ab80da6b79b1b99",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/TRG_ADMIN_SESSIONS_LOG_20260824.301.sql",
+      "published_sha256": "a1baeffeb896608180f565ec4fdfcd5904a52a85ca144dd00ab80da6b79b1b99",
+      "line_count": 13,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    },
+    {
+      "original_path": "VERSIE_0.301/VIEWS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "original_bytes": 1419,
+      "original_sha256": "de15811f54855c59d3aa590777f7716e79d839aebc3c1b27c972fedd78dd3aba",
+      "published_path": "SOURCE/SNAPSHOT/VERSIE_0.301/VIEWS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "published_sha256": "de15811f54855c59d3aa590777f7716e79d839aebc3c1b27c972fedd78dd3aba",
+      "line_count": 23,
+      "sanitized": false,
+      "encoding_export": "UTF-8 without BOM"
+    }
+  ]
+}

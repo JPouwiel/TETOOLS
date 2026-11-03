@@ -15,3 +15,5 @@ ADMIN_OBJECTS: op expliciete gebruikersopdracht is `modules/ADMIN_OBJECTS` het c
 
 
 ADMIN_TNSNAMES: proposed canonical import at [../modules/ADMIN_TNSNAMES/](../modules/ADMIN_TNSNAMES/), publication ATN-PUB-20261103-001, mixed source/main body 20260921_301; review pending, Oracle NOT_EXECUTED. Explicit user-selected repository-root module path; relay contains a pointer only.
+
+ADMIN_SESSIONS: explicit user-selected canonical path [../modules/ADMIN_SESSIONS/](../modules/ADMIN_SESSIONS/), publication AS-PUB-20261103-001; supplied spec 20251216.301/body 20260921_300, historical review AS-20261014-001; technical proposals unapproved, Oracle NOT_EXECUTED. Relay pointer only.

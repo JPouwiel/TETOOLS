@@ -15,7 +15,7 @@ Historische gebeurtenissen en eerdere toegangsproblemen staan in SESSIONS/REGIE/
 
 ## Relay-functionaliteit
 
-Sessieregistratie: SESSION_REGISTRY.json. Herkomst en wijzigingshistorie: CHANGE_REGISTER.json, aangevuld met module-registers en Git-commits. Gebruik RELAY_CONTRACT.md en tools/validate_relay.py. De eerste registratie is een conservatieve inventarisatie; niet alle bestaande chats zijn geïnventariseerd. De functionaliteit vereist dat elke sessie haar wijzigingen daadwerkelijk publiceert.
+Sessieregistratie: SESSION_REGISTRY.json. Herkomst en wijzigingshistorie: CHANGE_REGISTER.json, aangevuld met module-registers en Git-commits. Gebruik RELAY_CONTRACT.md en tools/validate_relay.py. De eerste registratie is een conservatieve inventarisatie; niet alle bestaande chats zijn geÃ¯nventariseerd. De functionaliteit vereist dat elke sessie haar wijzigingen daadwerkelijk publiceert.
 
 ## ADMIN_LOGGER import
 
@@ -29,3 +29,7 @@ Canoniek modulepad: [../modules/ADMIN_OBJECTS/](../modules/ADMIN_OBJECTS/). Laat
 ## ADMIN_TNSNAMES publication proposal
 
 Sanitized source and analysis import proposed under ../modules/ADMIN_TNSNAMES/, revision ATN-PUB-20261103-001. Open PR review required; no merge/implementation approval claimed. Oracle compilation/runtime NOT_EXECUTED. See module OPEN_POINTS.md.
+
+## ADMIN_SESSIONS publication proposal
+
+Canonical path: [../modules/ADMIN_SESSIONS/](../modules/ADMIN_SESSIONS/), publication AS-PUB-20261103-001. Original source import plus independent C01 proposal; not a repaired/validated release. Review pending, no automatic merge. Oracle NOT_EXECUTED. See module OPEN_POINTS.md.

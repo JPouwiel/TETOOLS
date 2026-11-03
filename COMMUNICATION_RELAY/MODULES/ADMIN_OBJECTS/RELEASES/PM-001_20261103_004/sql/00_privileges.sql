@@ -1,3 +1,12 @@
+-- EXECUTION ROLE: local PDB DBA / security administrator in the TARGET test PDB.
+-- DO NOT execute this template as AO4_POC_<suffix>.
+-- Example preparation (review and replace identifiers/password via secure DBA process):
+-- CREATE USER AO4_POC_PM001004 IDENTIFIED BY <secure_password>
+--   DEFAULT TABLESPACE <test_tablespace> TEMPORARY TABLESPACE <temp_tablespace>;
+-- ALTER USER AO4_POC_PM001004 QUOTA 100M ON <test_tablespace>;
+-- 100M is an illustrative bounded quota, NOT a verified capacity requirement.
+-- The quota must apply to the user's actual DEFAULT TABLESPACE.
+-- Verify DBA_USERS.DEFAULT_TABLESPACE and DBA_TS_QUOTAS before installation.
 -- DBA REVIEW TEMPLATE ONLY. Execute selected grants manually in TARGET PDB.
 -- Replace <AO4_POC_SUFFIX> with a NEW empty disposable local user, not TETOOLS.
 -- Schema creation, password policy, quota and test tablespace are DBA responsibilities.

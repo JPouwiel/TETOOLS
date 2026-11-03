@@ -36,6 +36,29 @@
         "SESSION_REGISTRY.json",
         "RELAY_CONTRACT.md"
       ]
+    },
+    {
+      "change_id": "LOGGER-20261103-001",
+      "record_type": "MODULE_IMPORT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Import latest available source and supporting reports under modules/ADMIN_LOGGER",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_LOGGER/DECISIONS.md#log-dec-01---central-suite-repository--module-location",
+      "origin_session": "current ADMIN_LOGGER conversation; exact thread ID not exposed",
+      "recorded_by_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "approved_by": "user requested import in current conversation on 2026-11-03",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "20261015_500",
+      "supersedes": null,
+      "base_commit": "f8172d04b193356177584f9d71c3384cee38eb37",
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/README.md",
+        "../modules/ADMIN_LOGGER/SOURCE_MANIFEST.json",
+        "MODULES/ADMIN_LOGGER/README.md"
+      ],
+      "note": "User requested scope; implementation evidence recorded only after merge and readback."
     }
   ]
 }

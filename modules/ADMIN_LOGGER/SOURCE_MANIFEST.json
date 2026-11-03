@@ -1,0 +1,261 @@
+{
+  "module": "ADMIN_LOGGER",
+  "target": "Oracle Database 19c EE",
+  "import_date": "2026-11-03",
+  "base_commit": "f8172d04b193356177584f9d71c3384cee38eb37",
+  "latest_available_uploaded_module": "20261015_500",
+  "latest_uploaded_archive_sha256": "e3df1a7cb3b93a88e1967652511020b9f709a1b2d814eaf7d437371d858f5214",
+  "installer_original_sha256": "8ab4e610a569e3f40e4b78176429609f397d444672bc7cb51892e1359cfe0859",
+  "source_change_policy": "source byte-preserving; one explicitly redacted installation reference only",
+  "oracle_validation": "NOT_EXECUTED",
+  "files": [
+    {
+      "path": "CURRENT_STATUS.md",
+      "size_bytes": 934,
+      "sha256": "b1674acd13264516f7dd52c71cd4e57908cf4caa391d88159a02f27a4c30420d",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "DECISIONS.md",
+      "size_bytes": 1597,
+      "sha256": "8638d26107ddbcc3a60014ed88800679963ef8667c66a48c4188051bfadde33b",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "OPEN_POINTS.md",
+      "size_bytes": 1133,
+      "sha256": "9cb86b094ea8d7502bf366168128901457f75d0e16c7a5b7b2c84355eb4259f0",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 2170,
+      "sha256": "0be9f0265ca80ef84dec8a15943a0a8d9317ef6287ea2c5473468933bd9810bb",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "archives/TETOOLS.ADMIN_LOGGER_20261015_500.zip",
+      "size_bytes": 25184,
+      "sha256": "e3df1a7cb3b93a88e1967652511020b9f709a1b2d814eaf7d437371d858f5214",
+      "origin": "User upload; Library libfile_33182a2c5a78819182275eca321379ed",
+      "classification": "source_archive",
+      "status": "imported_unreviewed"
+    },
+    {
+      "path": "docs/README.md",
+      "size_bytes": 1102,
+      "sha256": "957db1461fbee102d1e92870948537f6846b9212bd11dfb68d3f58e541ea9551",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "docs/reports/20261013__PLSQL__TETOOLS_ADMIN_LOGGER__analyse_20261013_500_STE_025.html",
+      "size_bytes": 536637,
+      "sha256": "b3ca05e6310493746b6c13e2dc74116bbcc4a3d4ccaf6627108439d8296871bf",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261013__PLSQL__TETOOLS_ADMIN_LOGGER__oplossingen_20261013_500_STE_027.html",
+      "size_bytes": 5116846,
+      "sha256": "38cc8e10c7584668c4f66b6d4ab3e3b769b4a48841f5dced631b5944b4abd737",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261013__PLSQL__TETOOLS_ADMIN_LOGGER__rapportenset_500_STE_028.zip",
+      "size_bytes": 708927,
+      "sha256": "4c0540506a2d9d8cf078eebadb4fb581a022f96e1c93e1c11aa4c6deb307db57",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261013__PLSQL__TETOOLS_ADMIN_LOGGER__verdieping_20261013_500_STE_026.html",
+      "size_bytes": 541136,
+      "sha256": "6b6c889744acfed9076ac5f9574f2d7ea33d44ef00d0020a3b8739585bed08c3",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261014__PLSQL__TETOOLS_ADMIN_LOGGER__dode_code_checklist_500_PROPOSAL_STE_029.html",
+      "size_bytes": 350001,
+      "sha256": "64b57fc0471851686d91831983995b7229ff854d6e1743bc5f78acf0e076045e",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261023__PLSQL__TETOOLS_ADMIN_LOGGER__installatie_review_003_STE_030.html",
+      "size_bytes": 129875,
+      "sha256": "94babb05c53cbf5e1af5c122dffd4c6b69b13cfb25e1006a552ba5d3df1b32f7",
+      "origin": "Previously delivered report in current ADMIN_LOGGER conversation",
+      "classification": "report",
+      "status": "historical_baseline_or_install_review_as_labelled"
+    },
+    {
+      "path": "docs/reports/20261103__PLSQL__TETOOLS_ADMIN_LOGGER__repository_gebruik_en_gespreksstatus_031.pdf",
+      "size_bytes": 50666,
+      "sha256": "ae0b0741b9049b135f014928e8ea613eaf37b0da505368d6495f90c974b3c5d3",
+      "origin": "Previously delivered report 031",
+      "classification": "report",
+      "status": "historical_status_before_this_import"
+    },
+    {
+      "path": "install/README.md",
+      "size_bytes": 1069,
+      "sha256": "a3630bc8b186e22b068500b3f10936212ef715915f7fb4aca0776a4f80640dcf",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "install/reviewed/CREATE-TETOOLS_ADMIN_LOGGER__20261023__003__REDACTED.sql",
+      "size_bytes": 36428,
+      "sha256": "28cf3cb8dfc58f7dcab1fd75d9e811ec13d5dbb051c75e399576ecf78daef926",
+      "origin": "CREATE-TETOOLS_ADMIN_LOGGER__20261023__003.sql; one password literal removed; raw SHA256 8ab4e610a569e3f40e4b78176429609f397d444672bc7cb51892e1359cfe0859",
+      "classification": "redacted_installation_reference",
+      "status": "not_ready_for_execution_see_report_030"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/CONSTRAINTS_AFTER_REVIEW.sql",
+      "size_bytes": 1155,
+      "sha256": "af76eb0f12a1113031d7eb0acea39f163b9f288605d2e5c508c0f9611e68a9ce",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/DEMO_PROPOSAL.prc",
+      "size_bytes": 593,
+      "sha256": "ea37ae2bf077c0b9fcf035ef27c83609e5b3828de333f2cde3927aca64b7dc3c",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/INSTALL_MANIFEST.txt",
+      "size_bytes": 2801,
+      "sha256": "12ed906ac76f3f100a19b253bf44a2f53aa1d404e6fa4aecae52ccd5bb861994",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261013_500_PROPOSAL.pkb",
+      "size_bytes": 80075,
+      "sha256": "c3bf75de58f0682552164a1a99aa0d53c9cb236a3b2c9cae3b30116db2f60ec7",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/PACKAGE_TETOOLS_ADMIN_LOGGER__20261013_500_PROPOSAL.pks",
+      "size_bytes": 28630,
+      "sha256": "df8f8b71fd0fb56312112776fdb24c96947301c700cc28470deb07756b92f387",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/PREFLIGHT_READ_ONLY.sql",
+      "size_bytes": 1720,
+      "sha256": "dc11420b3dfcdaecf3d448046a1c74304e252d1382d3ae29c2054b3c2fb673f8",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/20261013_500_PROPOSAL_027/SUPPORT_SCHEMA_PROPOSAL.sql",
+      "size_bytes": 1309,
+      "sha256": "f83710d1f433bfb4c7723220c834541348ff42a6be2f69cd1f88e4a235defe38",
+      "origin": "Clean proposed code embedded in report 027",
+      "classification": "code_proposal",
+      "status": "proposal_only_not_latest_source"
+    },
+    {
+      "path": "proposals/README.md",
+      "size_bytes": 425,
+      "sha256": "9b9a86538c25e15e951cb4f26e4ffea275c5128416a4a709244622d5dd8686e2",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "reference/20261013_500/TETOOLS.ADMIN_LOGGER_20261013_500.zip",
+      "size_bytes": 23517,
+      "sha256": "ed33ed1d9b33098167a06ffd481a37f725fc5d40e6378746e40de1b0f5e334b8",
+      "origin": "User source baseline for reports 025-027",
+      "classification": "historical_source_archive",
+      "status": "historical_not_current"
+    },
+    {
+      "path": "src/20261015_500/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
+      "size_bytes": 86854,
+      "sha256": "3ed2278be65ab8a27737ffc868b14419ee469da23b150d2eb2de5c9e607328d8",
+      "origin": "TETOOLS.ADMIN_LOGGER_20261015_500.zip::TETOOLS.ADMIN_LOGGER_20261015_500/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
+      "classification": "uploaded_source",
+      "status": "not_compiled_or_runtime_tested_by_this_import"
+    },
+    {
+      "path": "src/20261015_500/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks",
+      "size_bytes": 29128,
+      "sha256": "77f93871f1c838508071decc7479eb235ed2615de71ad9459bbbaebb51eb7c7b",
+      "origin": "TETOOLS.ADMIN_LOGGER_20261015_500.zip::TETOOLS.ADMIN_LOGGER_20261015_500/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks",
+      "classification": "uploaded_source",
+      "status": "not_compiled_or_runtime_tested_by_this_import"
+    },
+    {
+      "path": "src/20261015_500/PROCEDURES/20260527__ADMIN_LOGGER__001.prc",
+      "size_bytes": 1260,
+      "sha256": "f7dbb9710c98c9ff4ae5489496c6d0f47ba02dcf68b526030cc425b362c7dd62",
+      "origin": "TETOOLS.ADMIN_LOGGER_20261015_500.zip::TETOOLS.ADMIN_LOGGER_20261015_500/PROCEDURES/20260527__ADMIN_LOGGER__001.prc",
+      "classification": "uploaded_source",
+      "status": "not_compiled_or_runtime_tested_by_this_import"
+    },
+    {
+      "path": "src/20261015_500/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql",
+      "size_bytes": 119,
+      "sha256": "eded04ad72f51733a8cf29a701fdbd883fc4d85199b017f72339a91fa0c8b4a2",
+      "origin": "TETOOLS.ADMIN_LOGGER_20261015_500.zip::TETOOLS.ADMIN_LOGGER_20261015_500/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql",
+      "classification": "uploaded_source",
+      "status": "not_compiled_or_runtime_tested_by_this_import"
+    },
+    {
+      "path": "src/20261015_500/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql",
+      "size_bytes": 12337,
+      "sha256": "b684c443ef70815a9453782eb5e044fa32e889e768fc863d26fb2ab1ce3e6649",
+      "origin": "TETOOLS.ADMIN_LOGGER_20261015_500.zip::TETOOLS.ADMIN_LOGGER_20261015_500/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql",
+      "classification": "uploaded_source",
+      "status": "not_compiled_or_runtime_tested_by_this_import"
+    },
+    {
+      "path": "tests/README.md",
+      "size_bytes": 385,
+      "sha256": "682a79093df0c8a2e090edbe8881ad21d89c958bd714299bbd65e53f6bc8faa5",
+      "origin": "Import documentation authored from current conversation and inspected repository contract",
+      "classification": "import_documentation",
+      "status": "descriptive_not_database_validation"
+    },
+    {
+      "path": "tools/verify_import.py",
+      "size_bytes": 3119,
+      "sha256": "4c588ab1336c771084b1e81d69e2c278f257c39c613146fd25c9ca8a3ab46cf9",
+      "origin": "Local import verification tool authored for this import",
+      "classification": "verification_tool",
+      "status": "static_file_checks_only"
+    }
+  ]
+}

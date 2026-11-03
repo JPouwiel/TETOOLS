@@ -1,0 +1,42 @@
+Coordinated Oracle Database 19c TEST PROPOSAL; no installation was executed.
+Baseline archive SHA-256:
+ed33ed1d9b33098167a06ffd481a37f725fc5d40e6378746e40de1b0f5e334b8
+
+Required assumptions:
+- Normal single-instance READ COMMITTED operation.
+- All cooperating registration/configuration/purge writers lock guard_id=1.
+- One active configuration writer per batch ID.
+- Application callers do not write g_session_recovery_busy.
+- Replacement registration uses logging/debug OFF, SCREEN debug target, SINGLE mode.
+- Optional NULL debug flag is FALSE; NULL debug target is SCREEN; NULL mode is SINGLE.
+- p_settings_id asserts current config_id. Review legacy callers before adoption.
+- Guard wait is initially 5 seconds. Tune from measured administration latency.
+- Reserve -20041 (missing configuration) and -20042 (re-entry) in the project registry.
+- DATE purge input is truncated to a day; <= midnight and < day-3 are preserved.
+- Display wraps an individual logical line above 4000 characters.
+
+Upgrade/test order:
+1. Use a disposable Oracle 19c database with the TETOOLS owner and baseline objects,
+   or apply a fully reviewed owner substitution to ALL scripts and quoted SQL.
+2. Read PREFLIGHT_READ_ONLY.sql. Preserve conflicts and historical evidence.
+3. Apply SUPPORT_SCHEMA_PROPOSAL.sql once after checking current schema state.
+4. Keep the existing admin_logger_logbatch_seq. For a fresh installation, select
+   ONLY SEQ_20261007__ADMIN_LOGGER__001.sql from the baseline archive.
+   Do not recreate a sequence against existing log history at START WITH 1.
+5. Compile the proposed SPEC, then BODY. Inspect USER_ERRORS and object validity.
+6. Use fresh sessions. Run legacy-corruption tests before the new uniqueness rules,
+   then resolve conflicts with preserved evidence. No automatic historical deletion
+   or renumbering script is supplied.
+7. Normalize reviewed SINGLE config metadata to SQL NULL before enabling its CHECK.
+   This is an operator-approved data migration, not an automatic step in this packet.
+8. Apply CONSTRAINTS_AFTER_REVIEW.sql only when the relevant preflight queries
+   return no unresolved conflicts. Re-test under the final constraints.
+9. Compile DEMO_PROPOSAL.prc only as an optional demonstration.
+10. Complete the test protocols in report 026 and measure performance.
+
+Do not execute the older Qold sequence file or the EMP/log_activity demo as required
+installation. The support migration is not idempotent. Existing baseline tables,
+partition definitions, numeric precision, grants, and public signatures are retained.
+No Oracle compilation, concurrency run, payload run, or performance run was done.
+A failure after a commit can leave a durable row despite a caller error; reload before
+retry. No exactly-once receipt API or automatic deployment is claimed.

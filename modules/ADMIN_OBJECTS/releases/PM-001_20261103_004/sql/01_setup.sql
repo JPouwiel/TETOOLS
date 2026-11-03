@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Oracle Database 19c, SQL*Plus/SQLcl; new EMPTY disposable PDB schema only.
 -- DBA prerequisites are in 00_privileges. No production TETOOLS objects.
 whenever sqlerror exit failure rollback

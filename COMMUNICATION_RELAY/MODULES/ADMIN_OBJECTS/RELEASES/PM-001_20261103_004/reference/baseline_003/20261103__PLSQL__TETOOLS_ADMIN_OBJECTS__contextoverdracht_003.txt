@@ -1,0 +1,236 @@
+# Aanvullende contextoverdracht — TETOOLS.ADMIN_OBJECTS / PM-001
+
+**Datum:** 3 november 2026  
+**Doel:** ontbrekende projectcontext aanvullen bij de reeds gestarte Work-opdracht.  
+**Platform:** Oracle Database 19c Enterprise Edition, CDB/PDB.  
+**Bron:** regiesessie PM-001, reviewrondes 01 en 02, inclusief latere besluiten.
+
+## 1. Volledige objecten- en componentencatalogus
+
+De gebruiker heeft onderstaande lijst expliciet vastgesteld als **volledig voor de TETOOLS-scope**. Er hoeft geen aanvullende inventarisatie van Oracle-objecttypen te worden uitgevoerd.
+
+```text
+CLUSTER
+CONSTRAINTS
+CONSUMER GROUP
+CONTEXT
+CREDENTIAL
+DATABASE LINK
+DESTINATION
+DIRECTORY
+EDITION
+EVALUATION CONTEXT
+FUNCTION
+INDEX
+INDEX PARTITION
+INDEXTYPE
+JAVA CLASS
+JAVA DATA
+JAVA RESOURCE
+JAVA SOURCE
+JOB
+JOB CLASS
+LIBRARY
+LOB
+LOB PARTITION
+MATERIALIZED VIEW
+OPERATOR
+PACKAGE
+PACKAGE BODY
+PRIVILEGES
+PROCEDURE
+PROFILES
+PROGRAM
+QUEUE
+RESOURCE PLAN
+ROLES
+RULE
+RULE SET
+SCHEDULE
+SCHEDULER GROUP
+SEQUENCE
+SYNONYM
+TABLE
+TABLESPACES
+TABLE PARTITION
+TABLE SUBPARTITION
+TRIGGER
+TYPE
+TYPE BODY
+UNDEFINED
+UNIFIED AUDIT POLICY
+USERS
+VIEW
+WINDOW
+XML SCHEMA
+```
+
+### Vastgestelde verwerkingsregels
+
+1. Alle genoemde typen worden in het profielmodel herkenbaar geregistreerd.
+2. Een type mag geregistreerd zijn zonder evaluatieregel.
+3. `RECOGNIZED_ONLY` betekent: bekend type, niet geëvalueerd voor de objectfingerprint.
+4. `UNKNOWN` betekent: geen passende herkenningsregel gevonden; dit moet zichtbaar worden gerapporteerd.
+5. Niet-geëvalueerde componenten mogen niet stilzwijgend als volledig beoordeeld worden aangemerkt.
+6. De status van niet-geëvalueerde componenten wordt opgenomen in de installatiegegevens.
+7. Voor de PoC worden uitsluitend een eenvoudige heap table, constraints en indexes daadwerkelijk geëvalueerd.
+8. De overige typen hoeven in de PoC nog geen functionerende metadata-extractor te krijgen.
+
+De catalogus bevat zowel zelfstandige objecttypen als componenten en andere relevante database-entiteiten. Behoud deze categorieën zoals aangeleverd.
+
+## 2. Reviewronde 01 — A t/m J
+
+| Punt | Onderwerp | Vastgelegde uitkomst |
+|---|---|---|
+| A | PM-001-03 | Geen reconstructie van oorspronkelijke CREATE/ALTER-DDL. OP-13 toegevoegd voor metadataherkomst en extractiecontract. |
+| B | PM-001-04 | `PROFILE_CODE` en `CANONICAL_VERSION` geaccepteerd. Een volledig ingevuld `TABLE_CORE`-profiel ontbreekt nog. |
+| C | PM-001-05 | Objectmanifest bevat genormaliseerde evaluatiewaarden. Minimale componentinventaris bevat herkenbare typen en identiteiten. |
+| D | PM-001-06 | `NORMALIZER_CODE` verduidelijken. `DATA_LENGTH`-keuze onderzoeken. NUMBER en FLOAT datatypeafhankelijk behandelen. |
+| E | PM-001-07 | Versiebeheer van normalisatieregels en koppeling aan profielen uitwerken. |
+| F | PM-001-08 | Een concreet, volledig objectmanifestvoorbeeld opnemen. |
+| G | PM-001-09 | Exacte canonieke bytes als principe geaccepteerd. Definitief byteprotocol nog niet vastgesteld. DBMS_CRYPTO-privileges documenteren indien toegepast. |
+| H | PM-001-11 | Metadata-extractie, normalisatie en opslagcoördinatie scheiden. Akkoord. |
+| I | PM-001-12 | Betrouwbaarheid en actualiteit van bestaande fingerprints expliciet behandelen. |
+| J | PM-001-13 | Pakbon, uitzonderingen en installatiegegevens nader definiëren. |
+
+## 3. Reviewronde 02 — PM-001-03 t/m 24
+
+| Paragraaf | Besluit of opdracht |
+|---|---|
+| 03 | Volledige aangeleverde objectcatalogus gebruiken. Herkennen en evalueren strikt scheiden. |
+| 04 | Naamgeving akkoord; concrete profiel- en normalisatieregels uitwerken. |
+| 05 | Objecten zelfstandig inventariseren en evalueren. Relatie met installatieversie via registratie van individuele fingerprints. |
+| 06 | Oorspronkelijke reden voor het weglaten van `DATA_LENGTH` terugzoeken. Complexiteit minimaliseren. |
+| 07 | Een expliciete byteformatspecificatie gebruiken. |
+| 08 | Concept objectmanifest is al akkoord; concrete technische recordstructuur en testvoorbeeld ontbreken. |
+| 09 | Exact binair protocol uitwerken met tags, lengtes, framing, NULL/N/A, sortering en overflow. |
+| 11 | Scheiding extractie, normalisatie en opslag akkoord. Geen aanvullend architectuuronderzoek vereist. |
+| 12 | Bij onvoldoende betrouwbare opgeslagen fingerprint opnieuw berekenen. Criteria voor betrouwbaarheid blijven open. |
+| 13 | Pakbon in tekst/JSON. Exception references uitgebreider verklaren en illustreren. Installerinformatie registreren. |
+| 15 | Preflightbevindingen classificeren. Uitvoeringsmodi later ontwerpen; niet volledig in de PoC implementeren. |
+| 19 | Evaluatielifecycle uitstellen tot na de PoC. |
+| 21 | Brede herkenningscatalogus; uitvoerbare PoC voor heap table met constraints en indexes. Performance meewegen, niet als primaire eis. |
+| 22 | Testprioriteiten en zwaarte later gezamenlijk vaststellen. |
+| 23 | Open beslissingen aan herkenbare mijlpalen koppelen. |
+| 24 | Achterhaalde voorstellen herclassificeren volgens de nieuwe besluiten. |
+
+### Belangrijke correctie: installatiefingerprint
+
+Het voorstel om een samengestelde SHA-256-fingerprint te berekenen over alle objectfingerprints van een installatie is **expliciet afgewezen**.
+
+Motivering: de individuele fingerprints zijn al beschikbaar en worden aan de installatieversie gekoppeld. Een extra hash biedt onvoldoende aantoonbare meerwaarde en veroorzaakt extra complexiteit.
+
+Er komt dus geen samengestelde installatiefingerprint in de PoC.
+
+### DATA_LENGTH
+
+De oorspronkelijke reden voor verwijdering is niet definitief vastgesteld. Onderzoek eerdere Work-artefacten indien beschikbaar.
+
+Maak onderscheid tussen aantoonbare historische besluitvorming en technische hypothesen. Behoud dit punt als open wanneer de onderbouwing niet teruggevonden wordt.
+
+## 4. Extractiecontract OP-13
+
+Het extractiecontract bepaalt waar en hoe metadata wordt uitgelezen om het objectmanifest te vullen.
+
+**Bronvoorkeur:**
+
+1. `CDB_*` gecombineerd met relevante `GV_$*`-views.
+2. `DBA_*` gecombineerd met relevante `GV_$*`-views.
+3. Andere bronnen alleen indien noodzakelijk en gemotiveerd.
+
+Gebruik deze bronnen complementair. Documenteer metadataherkomst, filters, containeridentificatie (`CON_ID`), privileges, ontbrekende gegevens en CDB/PDB-zichtbaarheid.
+
+De profielregels bepalen welke metadata relevant is; het extractiecontract bepaalt hoe deze wordt verkregen.
+
+## 5. CAN-001 — Canonical Byte Format
+
+CAN-001 is de voorgestelde naam voor een afzonderlijke, versiegebonden technische specificatie.
+
+Het is geen Oracle-standaard.
+
+Werk een concreet voorstel uit voor:
+
+- Header, recordtypes en veldstructuur.
+- Type tags.
+- UTF-8-tekstcodering.
+- Vier-byte unsigned lengtes, big-endian.
+- NULL en N/A als afzonderlijke toestanden.
+- Deterministische integerrepresentatie.
+- Deterministische sortering.
+- Overflow en foutafhandeling.
+- Ten minste drie vaste testvectoren.
+
+Het principe van exacte canonieke bytes is goedgekeurd. De concrete protocoldefinitie blijft een voorstel totdat deze is beoordeeld.
+
+## 6. PM-001-13 — Pakbon en uitzonderingen
+
+De pakbon is tekst/JSON.
+
+Maak onderscheid tussen:
+
+- Aangeboden installatiegegevens.
+- Individuele objectfingerprints en versies.
+- Preflightbevindingen.
+- Eventuele geautoriseerde uitzonderingen.
+- Werkelijke installeridentiteit en uitvoeringsresultaten.
+
+Neem een uitgewerkt voorbeeld op van een exception reference, bijvoorbeeld een expliciet geautoriseerde herinstallatie van een bestaande objectversie.
+
+Een aangevraagde uitzondering is niet automatisch een goedgekeurde uitzondering.
+
+## 7. PM-001-15 — Preflight
+
+**Binnen PoC:**
+- Bevindingen registreren.
+- Bevindingen classificeren.
+- Aanbevolen acties per component vastleggen.
+
+**Toekomstig ontwerp:**
+- `RECOMMENDED`: aanbevolen acties volgen.
+- `FORCE_ALL`: aangeboden componenten geforceerd uitvoeren waar technisch mogelijk.
+- `SELECTIVE`: per component een expliciete uitvoeringskeuze.
+
+Een geforceerde installatie mag technische onuitvoerbaarheid niet negeren.
+
+De volledige uitvoeringslogica wordt nog niet gebouwd.
+
+## 8. Geaccepteerde mijlpalen M1–M6
+
+| Mijlpaal | Oplevering | Open beslissingen |
+|---|---|---|
+| M1 — Profielcontract | Herkenningscatalogus, concrete TABLE_CORE-profielregels, normalisatiecontract en extractiecontract OP-13 | OP-02, OP-13 |
+| M2 — Canoniek formaat | CAN-001, exact byteprotocol en testvectoren | OP-01, OP-03, OP-12 |
+| M3 — PoC | Heap table, constraints, indexes, objectmanifesten en individuele fingerprints | Extractie, datatypes en evaluatiedekking |
+| M4 — Installatiemanifest | Tekst/JSON-pakbon en registratie van componenten, fingerprints en installatieversies | Registratie- en identificatieregels |
+| M5 — Preflight | Bevindingen, classificaties en toekomstig ontwerp voor uitvoeringsmodi | OP-04 t/m OP-08 |
+| M6 — Lifecycle | Evaluatiestatussen, correctie, historie, audit en retentie | OP-09 t/m OP-11 |
+
+**Correctie op de oorspronkelijke mijlpaalbeschrijving:** M4 bevat géén samengestelde installatiefingerprint meer, omdat dit voorstel later expliciet is afgewezen.
+
+## 9. Implementatiegrenzen
+
+- Oracle Database 19c Enterprise Edition.
+- Geïsoleerde PoC binnen TETOOLS.
+- Geen wijzigingen aan bestaande productieobjecten.
+- Gebruik bestaande variabelen en structuren waar mogelijk.
+- Documenteer noodzakelijke privileges.
+- Lever uitvoerbare, gecommentarieerde SQL/PLSQL-code, setup, tests en cleanup.
+- Claim geen succesvolle compilatie zonder daadwerkelijke Oracle-testomgeving.
+- Behoud het onderscheid tussen goedgekeurde besluiten, voorstellen en open punten.
+- Behoud de bestaande PM-001-documentstructuur en offline HTML-presentatie.
+- Lever de nieuwe revisie en bijbehorende testbestanden downloadbaar op.
+
+## 10. Uitvoeringsinstructie
+
+Gebruik deze context als aanvulling op de bestaande Work-opdracht.
+
+Controleer eerst de beschikbare PM-001-bronbestanden en eventuele eerdere revisies. Verwerk daarna de vastgestelde besluiten en werk de open technische onderdelen uit.
+
+Start geen afzonderlijk nieuw project en maak geen tweede, conflicterende revisiereeks.
+
+Als het oorspronkelijke HTML-brondocument niet toegankelijk is, meld dat expliciet voordat een vervangend document wordt opgebouwd.
+
+
+## Bronverantwoording gebruiker
+
+Belangrijk: de bovenstaande overdracht bevat de volledige objectcatalogus en de inhoudelijke besluiten uit beide reviewrondes, maar is geen woordelijke transcriptie van alle oorspronkelijke opmerkingen. Voor de exacte oorspronkelijke formuleringen moet Work het PM-001-brondocument en de regiesessie raadplegen.

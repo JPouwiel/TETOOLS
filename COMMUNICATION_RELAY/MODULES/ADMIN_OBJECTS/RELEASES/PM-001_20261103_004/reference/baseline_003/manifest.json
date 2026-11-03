@@ -1,0 +1,166 @@
+{
+  "date": "2026-11-03",
+  "design_id": "PM-001",
+  "revision": "003",
+  "predecessor_revision": "002",
+  "oracle_scope": "Oracle Database 19c Enterprise Edition, CDB/PDB",
+  "oracle_execution": false,
+  "prior_work_thread": "01a19b24-b412-7360-af2a-235918b5c37c",
+  "regie_thread": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+  "current_work_thread": "01a19fbe-1f4b-7231-97c4-ff621f55fd9d",
+  "source_quotation_boundary": "User addendum summarizes decisions. Exact original quotations require original PM-001 or regie source.",
+  "sources": [
+    {
+      "relative_path": "output\\PM-001_20261029\\20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "bytes": 112554,
+      "sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc"
+    },
+    {
+      "relative_path": "output\\PM-001_20261029\\manifest.json",
+      "bytes": 1406,
+      "sha256": "cda9b459e4c9660661b145bbe3ed50b73e284f0ef159416e8bf3bc9ae656e52d"
+    },
+    {
+      "relative_path": "output\\PM-001_20261029\\README.txt",
+      "bytes": 314,
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4"
+    },
+    {
+      "relative_path": "output\\PM-001_20261029\\validation.json",
+      "bytes": 1348,
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql",
+      "bytes": 2732,
+      "sha256": "11511977896d83bf23a2b3b9a84283df94cd60627c2ea8a56ade7859400b98ad"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql",
+      "bytes": 7066,
+      "sha256": "43984788615025d676d6f2a5f1f111f93089ec397e4210058248321c329abc23"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql",
+      "bytes": 3508,
+      "sha256": "b1dd6b3b59cbc9ae68ec76638073e5f55d737f9c17eb1e5c71e71514d53b1cb2"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql",
+      "bytes": 527,
+      "sha256": "daf9818d11b0f53b31d12e7b023b142498bd541f1a98e66fd9a3f451254cc401"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+      "bytes": 146958,
+      "sha256": "e04f7bccfdc4b816b04c7801688723f1e1036b8bf536ea11b45b55e09dc35679"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\manifest.json",
+      "bytes": 2249,
+      "sha256": "7bc05bf4e92c42248c1bfa393327767dac875f6d4516a9ec562c30fcf8697a04"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\README.txt",
+      "bytes": 1745,
+      "sha256": "c5a3fd787af795617187810abc421011dd620b90a8a79d43926e5a3dc1e5636f"
+    },
+    {
+      "relative_path": "output\\PM-001_20261102_002\\validation.json",
+      "bytes": 1708,
+      "sha256": "1a4ac3106d2cd0ebf75e5f7c446cdd28b1fe2c55e844085cda1231257605471d"
+    },
+    {
+      "source": "User addendum, 3 November 2026",
+      "name": "Pasted text.txt",
+      "sha256": "c0526ed793ee25d6d70e56d67e107be35793ed5b9e45be2e16dee455e67bf024"
+    }
+  ],
+  "files": [
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__00_privileges_003.sql",
+      "bytes": 1604,
+      "sha256": "8da829f947550a26a547e715c7370aab47d37ec247b6bb2510b9f0a15e7b03a5"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__01_setup_003.sql",
+      "bytes": 5210,
+      "sha256": "94f9a973ec98df0113bde2f8779f2d1916827d0d1b4161a2597bd61816b5d97d"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_003.sql",
+      "bytes": 19887,
+      "sha256": "a8db9ad765465f8164c797653aa1f16a87cb9b5ccc6a15648e5a63dc304fe59b"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_003.sql",
+      "bytes": 5622,
+      "sha256": "8d53507887be72dc9bb0b1b9daf7a2a6fd002c9b066e1cb06dd3e8b1394e1e80"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_003.sql",
+      "bytes": 390,
+      "sha256": "7b57d867d2034b050b52c758b7b423b5a77604e946e858dfe5f35dbfd3d860d1"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__CAN001_testvectoren_003.json",
+      "bytes": 740,
+      "sha256": "abf3bec6cc140a6304a62714ee5d3cef33f3ffec10d615fb30f3203a58b996cd"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__canonieke_bytes_voorbeeld_003.txt",
+      "bytes": 2458,
+      "sha256": "0d7c8f060cf19b9c6be99753cc2a5691118f36c6946cb440f7f92d1196b9800b"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__contextoverdracht_003.txt",
+      "bytes": 10754,
+      "sha256": "2ee38c2460536edd88a867e411d70cea013444cbab847d947059a6db01791c5a"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__cumulatief_overzicht_003.pdf",
+      "bytes": 51881,
+      "sha256": "7fa1a7855acb597b17f258d2b2a86fddb15774387e1b4d562842524ef4cdadfd"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__exception_voorbeeld_003.json",
+      "bytes": 789,
+      "sha256": "518f2e011ff9f37e820236897d22643f665fa610434bd6d0d5064e2d822970aa"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__objectmanifest_voorbeeld_003.json",
+      "bytes": 11131,
+      "sha256": "ba715d6340161a532d37831734c1e089dc067d3ef8675cd04936220acf7fe5af"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_003.html",
+      "bytes": 263242,
+      "sha256": "c22e948ec68ac717ba579965e8e085810c3d3fac0fd9bc5fceeefd7a11bb61c3"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__pakbon_voorbeeld_003.json",
+      "bytes": 629,
+      "sha256": "f51b1edbe31e22fa0ade25863c7298771c4a3a0ef5c6aad347c8c8724ff4e4a7"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__README_003.txt",
+      "bytes": 1092,
+      "sha256": "de4197b4a7abf364779cdc665beaea870368e4008f4e286358f6ef796ef3aae2"
+    },
+    {
+      "name": "20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__verify_log_003.py",
+      "bytes": 2546,
+      "sha256": "c10d74f096832f0d913bc3d82f5acd3760492b5763232308f97c14b5d0764478"
+    },
+    {
+      "name": "README.txt",
+      "bytes": 1092,
+      "sha256": "de4197b4a7abf364779cdc665beaea870368e4008f4e286358f6ef796ef3aae2"
+    },
+    {
+      "name": "validation.json",
+      "bytes": 4986,
+      "sha256": "b7c16a06a536372e01bc181946267ef91c4409b8284660fac52f0611dbe28b4a"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "label": "NULL",
+    "tag": 0,
+    "value": null,
+    "hex": "0000000000",
+    "sha256": "8855508AADE16EC573D21E6A485DFD0A7624085C1A14B5ECDD6485DE0C6839A4"
+  },
+  {
+    "label": "N/A",
+    "tag": 1,
+    "value": null,
+    "hex": "0100000000",
+    "sha256": "957B88B12730E646E0F33D3618B77DFA579E8231E3C59C7104BE7165611C8027"
+  },
+  {
+    "label": "UTF-8 e-acute",
+    "tag": 2,
+    "value": "é",
+    "hex": "0200000002C3A9",
+    "sha256": "518A46B7B3DFF95EA9E4107A5FC52EAA908FD4E6F26BF1BD0A2CB90EE1DEC1C0"
+  },
+  {
+    "label": "negative integer",
+    "tag": 3,
+    "value": "-12",
+    "hex": "03000000032D3132",
+    "sha256": "A8AC5E96CA2BF0D3D2DBED66D702768198D68C6EB219D7D0D7418085CEC68C94"
+  }
+]

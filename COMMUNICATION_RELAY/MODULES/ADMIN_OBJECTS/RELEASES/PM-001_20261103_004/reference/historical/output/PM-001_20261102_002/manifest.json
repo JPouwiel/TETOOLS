@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-02",
+  "design_id": "PM-001",
+  "revision": "002",
+  "oracle_scope": "Oracle Database 19c",
+  "oracle_execution": false,
+  "source_files": [
+    {
+      "name": "20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc"
+    },
+    {
+      "name": "manifest.json",
+      "sha256": "cda9b459e4c9660661b145bbe3ed50b73e284f0ef159416e8bf3bc9ae656e52d"
+    },
+    {
+      "name": "README.txt",
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4"
+    },
+    {
+      "name": "validation.json",
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3"
+    }
+  ],
+  "review_source": {
+    "conversation_id": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+    "message_id": "4739f983-debb-462c-a64f-6dd20edf64c5"
+  },
+  "files": [
+    {
+      "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql",
+      "bytes": 2732,
+      "sha256": "11511977896d83bf23a2b3b9a84283df94cd60627c2ea8a56ade7859400b98ad"
+    },
+    {
+      "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql",
+      "bytes": 7066,
+      "sha256": "43984788615025d676d6f2a5f1f111f93089ec397e4210058248321c329abc23"
+    },
+    {
+      "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql",
+      "bytes": 3508,
+      "sha256": "b1dd6b3b59cbc9ae68ec76638073e5f55d737f9c17eb1e5c71e71514d53b1cb2"
+    },
+    {
+      "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql",
+      "bytes": 527,
+      "sha256": "daf9818d11b0f53b31d12e7b023b142498bd541f1a98e66fd9a3f451254cc401"
+    },
+    {
+      "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+      "bytes": 146958,
+      "sha256": "e04f7bccfdc4b816b04c7801688723f1e1036b8bf536ea11b45b55e09dc35679"
+    },
+    {
+      "name": "README.txt",
+      "bytes": 1745,
+      "sha256": "c5a3fd787af795617187810abc421011dd620b90a8a79d43926e5a3dc1e5636f"
+    },
+    {
+      "name": "validation.json",
+      "bytes": 1708,
+      "sha256": "1a4ac3106d2cd0ebf75e5f7c446cdd28b1fe2c55e844085cda1231257605471d"
+    }
+  ]
+}

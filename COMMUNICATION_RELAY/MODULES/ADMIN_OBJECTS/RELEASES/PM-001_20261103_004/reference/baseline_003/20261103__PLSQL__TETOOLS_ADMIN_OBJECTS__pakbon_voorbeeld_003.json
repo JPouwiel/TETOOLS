@@ -1,0 +1,24 @@
+{
+  "release_id": "DEMO-003",
+  "offered_by": "BUILD_EXAMPLE",
+  "components": [
+    {
+      "object_type": "TABLE",
+      "object_name": "AO3_EXAMPLE",
+      "object_version": "001",
+      "profile_code": "TABLE_CORE",
+      "profile_version": 2,
+      "canonical_version": "CAN-001-DRAFT-1",
+      "fingerprint": "1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1"
+    },
+    {
+      "object_type": "VIEW",
+      "object_name": "DEMO_VIEW",
+      "recognition": "RECOGNIZED_ONLY",
+      "evaluation": "NOT_EVALUATED"
+    }
+  ],
+  "requested_exception_refs": [
+    "EX-20261103-001"
+  ]
+}

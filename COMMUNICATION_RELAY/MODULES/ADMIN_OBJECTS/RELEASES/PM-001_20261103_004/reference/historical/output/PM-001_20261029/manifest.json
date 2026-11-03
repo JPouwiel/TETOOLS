@@ -1,0 +1,41 @@
+{
+  "document": "20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+  "date": "2026-10-29",
+  "design_id": "PM-001",
+  "revision": "001",
+  "oracle_scope": "19c Enterprise",
+  "inputs": [
+    {
+      "name": "pm001_thread_excerpt.json",
+      "sha256": "eb4e75458e9da3706e7ac70d9c302c2e775e6d7a74b941f3f25bb51a2ef52b8b"
+    },
+    {
+      "name": "20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md",
+      "sha256": "f716f34a4a2b4e1a5e272b511d95a87ebfcb5d6a3161e72f3536deb2d355dd89"
+    },
+    {
+      "name": "20261013__PLSQL__TETOOLS_ADMIN_LOGGER__analyse_20261013_500_STE_025.html",
+      "sha256": "b2d7bcbc3d327246cdcf48b9f56f36a0e8ac1d7af6403f98a89d5d5ac9eaa86c"
+    }
+  ],
+  "html_sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc",
+  "chapters": 26,
+  "future_tests": 20,
+  "open_decisions": 12,
+  "oracle_execution": false,
+  "limitations": [
+    "Early PDF-only assistant responses were not inspected.",
+    "No approved final canonical byte protocol.",
+    "No Oracle compilation, runtime or benchmark."
+  ],
+  "companion_files": [
+    {
+      "name": "validation.json",
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3"
+    },
+    {
+      "name": "README.txt",
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4"
+    }
+  ]
+}

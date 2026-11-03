@@ -171,6 +171,51 @@
       "note": "Published branch PR #10 remains open; 44 initial payload Git identities and both manifests read back. No merge or technical approval. Final head verification is reported in the PR.",
       "approved_by": "user: explicit publication request on 2026-11-03; publication scope only",
       "publication_payload_commit": "f6d150c80625e8e16249e0f391c4dd8a56433f38"
+    },
+    {
+      "change_id": "REGIE-20261103-001",
+      "record_type": "SUITE_GOVERNANCE_DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Central architecture authority with justified module exceptions",
+      "status": "APPROVED",
+      "source_reference": "Current TETOOLS__REGIE conversation, 2026-11-03; exact thread ID unavailable",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "user",
+      "approved_by": "user explicit instruction in this conversation",
+      "recorded_at": "2026-11-03",
+      "revision": "001",
+      "supersedes": null,
+      "impact": "All ADMIN_* modules; module-specific regie retains justified exception authority",
+      "dependencies": [],
+      "artifact_refs": [
+        "SUITE_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "change_id": "REGIE-20261103-002",
+      "record_type": "ARCHITECTURE_REQUIREMENT",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Oracle 19c Enterprise three-node RAC target; cross-module impact analysis",
+      "status": "PROPOSED",
+      "source_reference": "START_HERE_TETOOLS_REGIE.md, 2026-11-03; technical impacts unverified",
+      "origin_session": "UNVERIFIED (project start protocol)",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "user as documented in start protocol",
+      "recorded_at": "2026-11-03",
+      "revision": "001",
+      "supersedes": null,
+      "impact": "Instance/session identity, CDB/PDB, dictionary grants, concurrency, logging and deployment",
+      "dependencies": [
+        "RAC-ARCH-01",
+        "RAC-ARCH-02",
+        "RAC-ARCH-03"
+      ],
+      "artifact_refs": [
+        "SUITE_ARCHITECTURE.md"
+      ]
     }
   ]
 }

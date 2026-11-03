@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Fixed allowlist only. Safe after partial setup; never drop a user or cascade a schema.
 whenever oserror exit failure rollback
 whenever sqlerror exit failure rollback

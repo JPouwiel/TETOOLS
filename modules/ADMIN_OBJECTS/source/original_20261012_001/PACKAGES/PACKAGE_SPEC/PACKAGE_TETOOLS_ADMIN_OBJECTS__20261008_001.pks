@@ -1,0 +1,385 @@
+CREATE OR REPLACE PACKAGE tetools.admin_objects AUTHID DEFINER 
+IS
+  -- VER SPEC VERSION 20261008_001
+  --B-  /* ======================================================================================================= */
+  --B-  --
+  --B-  -- BANNER FOR PACKAGE TETOOLS.ADMIN_OBJECTS
+  --B-  --
+  --B-  /* ------------------------------------------------------------------------------------------------------- */
+  --B-  
+  --B-    Package name:  ADMIN_OBJECTS
+  --B-     Author:       JPouwiel
+  --B-     Version:      0.1
+  --B-     Purpose:      Provide a comprehensive tool for administering the ADMIN* suite objects
+  --B-     Parameters:   Depends on procedure/function called
+  --B-  
+  --B-    History     
+  --B-    Version  Date       Changed by     Remark
+  --B-    -------- ---------- -------------- ------------------------------------
+  --B-         0.1 2026.05.27 JPouwiel       Setup of package
+  --B-   
+  --B-  /* ======================================================================================================= */
+  --
+  --HS-  /* ======================================================================================================= */
+  --HS-  --
+  --HS-  -- HELP / USAGE SCENARIOS FOR PACKAGE TETOOLS.ADMIN_OBJECTS
+  --HS-  --
+  --HS-  /* ------------------------------------------------------------------------------------------------------- */
+  --HS-  
+  --HS-   DISPLAY THIS HELP SECTION
+  --HS-   -----------------------------------------------------------------------
+  --HS-   exec TETOOLS.ADMIN_OBJECTS.help[(verbose => 'N/Y')]; --DEFAULT = No
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.help
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [help] procedure will display usage scenarios and examples of the procedures contained within the 
+  --HV-   [ADMIN_OBJECTS] package which are made public via the header.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.help
+  --HV-   -----------------------------------------------------------------------
+  --HV-   verbose: 'Y'
+  --HV-   verbose: 'N' -- Default.
+  --HV-   
+  --HV-   --  The [help] procedure takes one (1) parameter < verbose >. Using this parameter, the user may choose whether
+  --HV-       to display the extended help/usage information contained in the specification of the header.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.help
+  --HV-   -----------------------------------------------------------------------
+  --HV-
+  --HV-       --HS-   DISPLAY THIS HELP SECTION
+  --HV-       --HS-   -----------------------------------------------------------------------
+  --HV-       --HS-   exec TETOOLS.ADMIN_OBJECTS.help[(verbose => 'N/Y')]; --DEFAULT = No
+  --HV-       --HS-   
+  --HV-       --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.help
+  --HV-       --HV-   -----------------------------------------------------------------------
+  --HV-       --HV-   The [help] procedure will display usage scenarios and examples of the procedures contained within the 
+  --HV-       --HV-   [ADMIN_OBJECTS] package which are made public via the header.
+  --HV-       --HV-   The [help] procedure takes one (1) parameter < verbose >. Using this parameter, the user may choose whether
+  --HV-       --HV-   to display the extended help/usage information contained in the specification of the header.
+  --HV-   
+  --HS-  
+  --HS-  
+  --HS-   DISPLAY THE PACKAGE BANNER
+  --HS-   -----------------------------------------------------------------------
+  --HS-   exec TETOOLS.ADMIN_OBJECTS.banner;
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.banner
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [banner] procedure will display the details and specifications of the physical package itself.
+  --HV-   The [banner] procedure does not take parameters, it does not modify or process any data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.banner
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [banner] procedure does NOT take any parameters
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.banner
+  --HV-   -----------------------------------------------------------------------
+  --HV-
+  --HV-     /* ======================================================================================================= */
+  --HV-     --
+  --HV-     -- BANNER FOR PACKAGE TETOOLS.ADMIN_OBJECTS
+  --HV-     --
+  --HV-     /* ------------------------------------------------------------------------------------------------------- */
+  --HV-   
+  --HV-       Package name:  ADMIN_OBJECTS
+  --HV-        Author:       TET
+  --HV-        Version:      0.1
+  --HV-        Purpose:      This package allows users to kill database session.
+  --HV-                      Depending on the invoking user's privileges,  additional confirmation may be required.
+  --HV-                      Various procedures exist to exert control on the termination requests.
+  --HV-        Parameters:   Depends on procedure being called. Execute TETOOLS.ADMIN_SESSION.help for usage examples.
+  --HV-   
+  --HV-       History
+  --HV-       Version  Date       Changed by     Remark
+  --HV-       -------- ---------- -------------- --------------------
+  --HV-            0.1 2026.05.27 JPouwiel       Setup package
+  --HV-   
+  --HV-     /* ======================================================================================================= */
+  --HV-   
+  --HS-  
+  --HS-  
+  --HS-   COMPARE A VERSION NUMBER TO ANOTHER  (function)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   select ADMIN_OBJECTS.version_compare_func('26.1.0.0', '26.1.0') from dual;
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_compare_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_compare_func] function will compare given version numbers, and report if one is lower/equal/higher than the other.
+  --HV-   The [version_compare_func] function does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_compare_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_compare_func] function takes two (2) parameters.
+  --HV-   The first parameter is compared against the second parameter.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_compare_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> select ADMIN_OBJECTS.version_compare_func('26.1.0.0', '26.1.0') AS compare from dual;
+  --HV-   COMPARE
+  --HV-   -----------------
+  --HV-   EQUAL
+  --HV-
+  --HS-
+  --HS-  
+  --HS-   COMPARE A VERSION NUMBER TO ANOTHER  (procedure)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   exec TETOOLS.ADMIN_OBJECTS.version_compare('26.1.3',  '19.1', var_status);
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_compare
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_compare] procedure will compare given version numbers, and report if one is lower/equal/higher than the other.
+  --HV-   The [version_compare] procedure does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_compare
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_compare] procedure takes two (2) parameters in, and one (1) out.
+  --HV-   The [p_to_compare_version] parameter takes a string that represents a version number to compare to another version number.
+  --HV-   The [p_base_version] parameter takes a string that represents a version number which [p_to_compare_version] is
+  --HV-   compared against.
+  --HV-   The versions given must be in the format: 99.99.99 Any sequence can/will be used, decimal notation is not compulsary but expected.
+  --HV-   The [p_return] is an OUT parameter and will contain a result in string format.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_compare
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> DECLARE
+  --HV-     2    v_status          VARCHAR2(14);
+  --HV-     3    v_current_version VARCHAR2(12) := '26.1.3.0.3';
+  --HV-     4    v_base_version    VARCHAR2(12) := '19.1.03';
+  --HV-     5  BEGIN
+  --HV-     6    ADMIN_OBJECTS.version_compare(v_current_version, v_base_version, v_status);
+  --HV-     7    DBMS_OUTPUT.PUT_LINE('VERSION: '||v_current_version||' has validation status: '||v_status);
+  --HV-     8  END;
+  --HV-     9  /
+  --HV-   VERSION: 26.1.3.0.3 has validation status: NEWER
+  --HV-   
+  --HS-  
+  --HS-  
+  --HS-   VALIDATE A VERSION NUMBER BETWEEN BOUNDARIES  (function)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   select ADMIN_OBJECTS.version_validate_func('26.1.3', '19.1.03' , '26.1') from dual;
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_validate_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_validate_func] function will compare given version numbers, and report if one is lower/equal/higher than the other.
+  --HV-   The [version_validate_func] function does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_validate_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_validate_func] function takes three (3) parameters.
+  --HV-   The first parameter is validated against the boundaries of the second and third parameter.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_validate_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> select ADMIN_OBJECTS.version_validate_func('26.1.3', '19.1.03' , '26.1') AS validation from dual;
+  --HV-   VALIDATION
+  --HV-   ------------------------------------------------------------------------------------------------------------------------
+  --HV-   INACTIVE
+  --HV-   
+  --HV-   ADMIN_VERSION_VALIDATE:: CURRENT VERSION is greater than maximum required version for this object.) (CUR: 3; MIN: 19.1.0
+  --HV-   ADMIN_VERSION_VALIDATE:: Consider reloading the required objects for this version of module.)
+  --HV-
+  --HS-
+  --HS-  
+  --HS-   VALIDATE A VERSION NUMBER BETWEEN BOUNDARIES  (procedure)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   exec TETOOLS.ADMIN_OBJECTS.version_validate('26.1.3', '19.1.03' , '26.1', var_status);
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_validate
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_validate] procedure will validate a given version number if is inside a lower/upper boundary.
+  --HV-   The [version_validate] procedure does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_validate
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_validate] procedure takes two (2) parameters in, and one (1) out.
+  --HV-   The [p_current_version] parameter takes a string that represents a version number to validate.
+  --HV-   The [p_min_version] parameter takes a string that represents a version number which forms the lower
+  --HV-   boundary. The [p_max_version] parameter takes a string that represents a version number which forms
+  --HV-   the upper boundary. 
+  --HV-   The versions given must be in the format: 99.99.99 Any sequence can/will be used, decimal notation is not compulsary but expected.
+  --HV-   The [p_return] is an OUT parameter and will contain a result in string format.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_validate
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> DECLARE
+  --HV-     2    v_status          VARCHAR2(14);
+  --HV-     3    v_current_version VARCHAR2(12) := '26.1.3.0.3';
+  --HV-     4    v_min_version     VARCHAR2(12) := '19.1.03';
+  --HV-     5    v_max_version     VARCHAR2(12) := '26.1.0';
+  --HV-     6  BEGIN
+  --HV-     7    ADMIN_OBJECTS.version_validate(v_current_version, v_min_version, v_max_version, v_status);
+  --HV-     8    DBMS_OUTPUT.PUT_LINE('VERSION: '||v_current_version||' has validation status: '||v_status);
+  --HV-     9  END;
+  --HV-    10  /
+  --HV-   ADMIN_OBJECTS.version_validate:: CURRENT VERSION is greater than maximum required version for this object.) (CUR: 3; MIN: 19.1.0
+  --HV-   ADMIN_OBJECTS.version_validate:: Consider reloading the required objects for this version of module.)
+  --HV-   VERSION: 26.1.3.0.3 has validation status: INACTIVE
+  --HV-   
+  --HS-  
+  --HS-  
+  --HS-   NUMBERFY A VERSION NUMBER TO A FLOAT  (function)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   select ADMIN_OBJECTS.version_numberfy_func('26.1.3') from dual;
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_numberfy_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_numberfy_func] function will validate given version numbers, and transforms it into a calculable float.
+  --HV-   The [version_numberfy_func] function does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_numberfy_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_numberfy_func] function takes one (1) parameter in the format as "99.99.99".
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_numberfy_func
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> select ADMIN_OBJECTS.version_numberfy_func('26.1.3') AS numberfy from dual;
+  --HV-   NUMBERFY
+  --HV-   -----------------
+  --HV-   26001.003
+  --HV-
+  --HS-
+  --HS-  
+  --HS-   NUMBERFY A VERSION NUMBER TO A FLOAT  (procedure)
+  --HS-   -----------------------------------------------------------------------
+  --HS-   exec TETOOLS.ADMIN_OBJECTS.version_numberfy('26.0.3.01', var_result);
+  --HV-   
+  --HV-   DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.version_numberfy
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_numberfy] procedure will verify a given string if it conforms to the versioning format used in this module.
+  --HV-   If it conforms, it'll remove the periods (.), and expand the segments, in order to return a computable number.
+  --HV-   The [version_numberfy] procedure does take parameters, it does not modify or process any persistent data or information.
+  --HV-   
+  --HV-   ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.version_numberfy
+  --HV-   -----------------------------------------------------------------------
+  --HV-   The [version_validate] procedure does take one (1) parameters in, and one (1) out.
+  --HV-   The [p_current_version] parameter takes a string that represents a version number to verify and transform.
+  --HV-   
+  --HV-   (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.version_numberfy
+  --HV-   -----------------------------------------------------------------------
+  --HV-   SQL> DECLARE
+  --HV-     2    v_version                 VARCHAR2(16)  := '26.03.07.01';
+  --HV-     3    v_result                  VARCHAR2(16);
+  --HV-     4    --
+  --HV-     5  BEGIN
+  --HV-     6    ADMIN_VERSION_NUMBERFY(v_version, v_result);
+  --HV-     7    DBMS_OUTPUT.PUT_LINE(v_result);
+  --HV-     8  END;
+  --HV-     9  /
+  --HV-   26003.007001
+  --HV-
+  --HS-
+  --HS- CAO 
+  --HS- CAO  CATALOG OBJECTS BELONGING TO A ADMIN_* MODULE/SUIT
+  --HS- CAO  -----------------------------------------------------------------------
+  --HS- CAO  exec TETOOLS.ADMIN_OBJECTS.catalog_admin_objects('ADMIN_OBJECTS', 'TETOOLS');
+  --HV- CAO  
+  --HV- CAO  DESCRIPTION OF:  TETOOLS.ADMIN_OBJECTS.catalog_admin_objects
+  --HV- CAO  -----------------------------------------------------------------------
+  --HV- CAO  The [catalog_admin_objects] procedure will gather all exiating and registered objects known to be in a ADMIN_* suit module.
+  --HV- CAO  It will evaluate if the object found is (still) in use, and should be cataloged if it not yet is.
+  --HV- CAO  The [catalog_admin_objects] procedure does take two (2) parameters, it does modifies and/or process persistent data and/or information.
+  --HV- CAO  
+  --HV- CAO  ACCEPTED PARAMETERS FOR:  TETOOLS.ADMIN_OBJECTS.catalog_admin_objects
+  --HV- CAO  -----------------------------------------------------------------------
+  --HV- CAO  The [catalog_admin_objects] procedure does take two (2) parameters in.
+  --HV- CAO  The [p_module] parameter takes a string that represents a version number to verify and transform.
+  --HV- CAO  The [p_user] parameter takes a string that represents a username. Default is [USER].
+  --HV- CAO  
+  --HV- CAO  (SAMPLE) OUTPUT OF:  TETOOLS.ADMIN_OBJECTS.catalog_admin_objects
+  --HV- CAO  -----------------------------------------------------------------------
+  --HV- CAO  
+  --HV- CAO
+  --HV- CAO
+  --HS-
+  --HS-  
+  --HS-  /* ======================================================================================================= */
+  --
+  -- /* ============================================================================================================================= */
+  -- /*                                                                                                                            == */
+  -- /* CONSTANTS                                                                                                     CONSTANTS ===== */
+  -- /*                                                                                                                            == */
+  -- /* ============================================================================================================================= */
+  -- 
+  c_module          CONSTANT VARCHAR2 (7)   := 'ADMIN';
+  c_true            CONSTANT BOOLEAN        := TRUE;
+  c_false           CONSTANT BOOLEAN        := FALSE;
+  c_on              CONSTANT VARCHAR2 (2)   := 'ON';
+  c_off             CONSTANT VARCHAR2 (3)   := 'OFF';
+  c_y               CONSTANT VARCHAR2 (1)   := 'Y';
+  c_n               CONSTANT VARCHAR2 (1)   := 'N';
+  c_b               CONSTANT CHAR (1)       := 'B';
+  c_s               CONSTANT CHAR (1)       := 'S';
+  c_batch           CONSTANT CHAR (5)       := 'BATCH';
+  c_single          CONSTANT CHAR (6)       := 'SINGLE';
+  c_date_mask       CONSTANT VARCHAR2 (30)  := 'YYYY-MM-DD HH24:MI:SS' ;
+  c_to_screen       CONSTANT CHAR (1)       := 'S';
+  c_to_table        CONSTANT CHAR (1)       := 'T';
+  c_helpme          CONSTANT VARCHAR2 (4)   := 'HELP';
+  g_debug_on                 BOOLEAN        := c_false;
+  g_logging_target           CHAR (1)       := c_to_table;
+  g_debug_target             CHAR (1)       := c_to_screen;
+  g_override_target          CHAR (1)       := c_to_table;
+  --
+  --
+  --
+  -- /* ============================================================================================================================= */
+  -- /*                                                                                                                            == */
+  -- /* TYPES                                                                                                             TYPES ===== */
+  -- /*                                                                                                                            == */
+  -- /* ============================================================================================================================= */
+  --
+  --
+  --
+  --
+  -- /* ============================================================================================================================= */
+  -- /*                                                                                                                            == */
+  -- /* FUNCTIONS                                                                                                     FUNCTIONS ===== */
+  -- /*                                                                                                                            == */
+  -- /* ============================================================================================================================= */
+  --
+  -- /* FUNCTION > version_compare_func ------------------------------------------------------ VERSION_COMPARE_FUNC ----- */
+  FUNCTION version_compare_func ( p_current_version IN VARCHAR2, p_base_version IN VARCHAR2 ) RETURN VARCHAR2;
+  --
+  -- /* FUNCTION > version_validate_func ---------------------------------------------------- VERSION_VALIDATE_FUNC ----- */
+  FUNCTION version_validate_func ( p_current_version IN VARCHAR2, p_min_version IN VARCHAR2, p_max_version IN VARCHAR2 ) RETURN VARCHAR2;
+  --
+  -- /* FUNCTION > version_numberfy_func ---------------------------------------------------- VERSION_NUMBERFY_FUNC ----- */
+  FUNCTION version_numberfy_func ( p_current_version IN VARCHAR2 ) RETURN VARCHAR2;
+  --
+  --
+  -- /* ============================================================================================================================= */
+  -- /*                                                                                                                            == */
+  -- /* PROCEDURES                                                                                                   PROCEDURES ===== */
+  -- /*                                                                                                                            == */
+  -- /* ============================================================================================================================= */
+  --
+  -- /* PROCEDURE > get_audsid ------------------------------------------------------------------------------- HELP ----- */
+  PROCEDURE help ( verbose IN VARCHAR2 DEFAULT 'N');
+  --
+  -- /* PROCEDURE > banner --------------------------------------------------------------------------------- BANNER ----- */
+  PROCEDURE banner;
+  --
+  -- /* PROCEDURE > version ------------------------------------------------------------------------------- VERSION ----- */
+  PROCEDURE version;
+  --
+  -- /* PROCEDURE > who_called ------------------------------------------------------------------------- WHO_CALLED ----- */
+  PROCEDURE who_called ( p_level IN NUMBER, p_trm_result OUT VARCHAR2 );
+  --
+  -- /* PROCEDURE > version_compare --------------------------------------------------------------- VERSION_COMPARE ----- */
+  PROCEDURE version_compare ( p_to_compare_version IN VARCHAR2, p_base_version IN VARCHAR2 DEFAULT NULL, p_return OUT VARCHAR2 );
+  --
+  -- /* PROCEDURE > version_validate ------------------------------------------------------------- VERSION_VALIDATE ----- */
+  PROCEDURE version_validate ( p_current_version IN VARCHAR2, p_min_version IN VARCHAR2, p_max_version IN VARCHAR2, p_return OUT VARCHAR2 );
+  --
+  -- /* PROCEDURE > version_numberfy ------------------------------------------------------------- VERSION_NUMBERFY ----- */
+  PROCEDURE version_numberfy ( p_current_version IN VARCHAR2, p_return OUT VARCHAR2 );
+  --
+  -- /* PROCEDURE > catalog_admin_objects --------------------------------------------------- CATALOG_ADMIN_OBJECTS ----- */
+  PROCEDURE catalog_admin_objects ( p_module IN VARCHAR2 DEFAULT c_module, p_user IN VARCHAR2 DEFAULT USER );
+  --
+  -- /* PROCEDURE > report_catalog ---------------------------------------------------======= CATALOG_ADMIN_OBJECTS ----- */
+  PROCEDURE report_catalog ( report_on IN VARCHAR2 );
+  --
+  --
+END admin_objects;
+/

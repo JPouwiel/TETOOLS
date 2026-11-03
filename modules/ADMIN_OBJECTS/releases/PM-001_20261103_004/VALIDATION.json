@@ -1,0 +1,54 @@
+{
+  "design_id": "PM-001",
+  "revision": "004",
+  "date": "2026-11-03",
+  "reference_first": true,
+  "controlled_reference_manifest_sha256": "97acaa9b84e5463a75f6fd7b5ac37e13744d76d73060537cbcc470088211863b",
+  "oracle_scope": "Oracle Database 19c Enterprise Edition, local disposable PDB schema",
+  "oracle_compilation": "NOT_EXECUTED",
+  "oracle_runtime": "NOT_EXECUTED",
+  "database_connection_available": false,
+  "database_logs_delivered": false,
+  "historical_context_complete": false,
+  "local_checks": {
+    "reference_zip_manifest_entries_verified": 17,
+    "historical_file_hashes_verified": 12,
+    "catalog_exact_unique_labels": 53,
+    "frozen_reference_entries_verified": 37,
+    "register_copies_byte_equal": true,
+    "fixed_reference_records": 9,
+    "fixed_reference_bytes": 1228,
+    "fixed_reference_sha256": "1a1e83b0450bc00a53e476d7d15fa8379ea0b07aea999440931f7fa15bd34af1",
+    "static_sql_structure_and_pure_stage_scans": "PASS_LIMITED_NOT_A_COMPILER",
+    "cleanup_fixed_allowlist_and_fk_dependency_order": "PASS_STATIC_ONLY",
+    "fixed_T_assertions_in_inventory": 63,
+    "additional_assertions": "ROW_HASH/ROW_META each object; P01-P03; D01-D02; C01",
+    "independent_checker_selftest": {
+      "valid_synthetic_input_accepted": 1,
+      "damaged_synthetic_inputs_rejected": 5,
+      "oracle_evidence": false
+    },
+    "python_tool_syntax": "PASS",
+    "html_local_links_and_anchors": "PASS",
+    "html_browser_runtime": "NOT_EXECUTED",
+    "pdf_pages": 13,
+    "pdf_rendered_all_pages": true,
+    "pdf_contact_sheet_visual_review": "PASS; all pages plus full-size runbook page reviewed"
+  },
+  "acceptance_gates": {
+    "G0": "LOCAL_PASS_BOUNDED_SOURCES",
+    "G1": "LOCAL_PASS_LIMITED_STATIC_CHECKS",
+    "G2": "NOT_EXECUTED",
+    "G3": "NOT_EXECUTED",
+    "G4": "NOT_EXECUTED",
+    "G5": "REGIE_REVIEW_REQUIRED_NO_AUTOMATIC_APPROVAL"
+  },
+  "limits": [
+    "Not an Oracle compiler",
+    "No successful Oracle compilation or runtime claim",
+    "No fabricated database logs",
+    "Missing original review rounds and complete older chat history",
+    "Draft profile and CAN-001 decisions remain open",
+    "Not a production installer or upgrade"
+  ]
+}

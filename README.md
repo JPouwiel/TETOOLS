@@ -7,3 +7,5 @@ Oracle Database 19c EE. Begin bij het projectmanifest en het runbook van revisie
 ## Modules
 
 - [ADMIN_LOGGER](modules/ADMIN_LOGGER/): laatst beschikbare upload 20261015_500, historische voorstellen en rapporten; Oracle-validatie nog niet uitgevoerd.
+
+- [ADMIN_OBJECTS](modules/ADMIN_OBJECTS/): oorspronkelijke ontwikkelbron, ontwerpcontext en PM-001 revisie 004; Oracle-runtime NOT_EXECUTED.

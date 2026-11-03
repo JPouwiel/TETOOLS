@@ -1,0 +1,1 @@
+Open 20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html in a browser. The HTML is standalone and works offline. External reference links need internet. Print full document expands all content. See validation.json for checks actually performed. No Oracle implementation was executed.

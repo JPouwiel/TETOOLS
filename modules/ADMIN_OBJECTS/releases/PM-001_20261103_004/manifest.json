@@ -1,0 +1,359 @@
+{
+  "design_id": "PM-001",
+  "revision": "004",
+  "predecessor_revision": "003",
+  "controlled_reference_version": "v1",
+  "controlled_reference_manifest_sha256": "97acaa9b84e5463a75f6fd7b5ac37e13744d76d73060537cbcc470088211863b",
+  "oracle_runtime_validated": false,
+  "history_complete": false,
+  "deviations": "DEVIATIONS.md",
+  "validation": "VALIDATION.json",
+  "files": [
+    {
+      "path": "DECISIONS.md",
+      "bytes": 4307,
+      "sha256": "5a2742c432e1b81f25e88d053d6edbf00ec6291e8812227bde5c41852f4fd67b"
+    },
+    {
+      "path": "DESIGN.html",
+      "bytes": 143278,
+      "sha256": "9c9447f2a864b8470b1842dbf87efe1a90bdfb0f4c06eed468de549f0d247c07"
+    },
+    {
+      "path": "DESIGN.md",
+      "bytes": 10776,
+      "sha256": "b0dea11e2e76044f29cf0388a6ed7c41633543e1a71ca05fc1fa49822cd15270"
+    },
+    {
+      "path": "DEVIATIONS.md",
+      "bytes": 4572,
+      "sha256": "f614b653795420742261143b74450a86102ca14908f349addcec3987708ceb8e"
+    },
+    {
+      "path": "EXPECTED_ASSERTIONS.json",
+      "bytes": 1560,
+      "sha256": "70f214dcbbb120bdf5320d992336094c3875235083204ad1f81d4c78276c93e4"
+    },
+    {
+      "path": "OPEN_POINTS.md",
+      "bytes": 2585,
+      "sha256": "200e872f174cd8e10d3dbd3f0210d80af1b53e3b6ac173e516142c77db2175a3"
+    },
+    {
+      "path": "PM001_004.pdf",
+      "bytes": 149993,
+      "sha256": "685bbb3d8bba74f0f6f932e2f7fdb0b7bfa48e3eb19e78f6c617b7fd75b43860"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1285,
+      "sha256": "aabc3a6e63e075ab6dfad27263cddf5904f5941bc7a807b9a83117bcef4e4d86"
+    },
+    {
+      "path": "reference/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_003.zip",
+      "bytes": 134862,
+      "sha256": "ac7b6d2bb084c87326eaf2cd9b5e8c49296759d73b743217a15ad9fe6dcde85d"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__00_privileges_003.sql",
+      "bytes": 1604,
+      "sha256": "8da829f947550a26a547e715c7370aab47d37ec247b6bb2510b9f0a15e7b03a5"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__01_setup_003.sql",
+      "bytes": 5210,
+      "sha256": "94f9a973ec98df0113bde2f8779f2d1916827d0d1b4161a2597bd61816b5d97d"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_003.sql",
+      "bytes": 19887,
+      "sha256": "a8db9ad765465f8164c797653aa1f16a87cb9b5ccc6a15648e5a63dc304fe59b"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_003.sql",
+      "bytes": 5622,
+      "sha256": "8d53507887be72dc9bb0b1b9daf7a2a6fd002c9b066e1cb06dd3e8b1394e1e80"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_003.sql",
+      "bytes": 390,
+      "sha256": "7b57d867d2034b050b52c758b7b423b5a77604e946e858dfe5f35dbfd3d860d1"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__CAN001_testvectoren_003.json",
+      "bytes": 740,
+      "sha256": "abf3bec6cc140a6304a62714ee5d3cef33f3ffec10d615fb30f3203a58b996cd"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__canonieke_bytes_voorbeeld_003.txt",
+      "bytes": 2458,
+      "sha256": "0d7c8f060cf19b9c6be99753cc2a5691118f36c6946cb440f7f92d1196b9800b"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__contextoverdracht_003.txt",
+      "bytes": 10754,
+      "sha256": "2ee38c2460536edd88a867e411d70cea013444cbab847d947059a6db01791c5a"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__cumulatief_overzicht_003.pdf",
+      "bytes": 51881,
+      "sha256": "7fa1a7855acb597b17f258d2b2a86fddb15774387e1b4d562842524ef4cdadfd"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__exception_voorbeeld_003.json",
+      "bytes": 789,
+      "sha256": "518f2e011ff9f37e820236897d22643f665fa610434bd6d0d5064e2d822970aa"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__objectmanifest_voorbeeld_003.json",
+      "bytes": 11131,
+      "sha256": "ba715d6340161a532d37831734c1e089dc067d3ef8675cd04936220acf7fe5af"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_003.html",
+      "bytes": 263242,
+      "sha256": "c22e948ec68ac717ba579965e8e085810c3d3fac0fd9bc5fceeefd7a11bb61c3"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__pakbon_voorbeeld_003.json",
+      "bytes": 629,
+      "sha256": "f51b1edbe31e22fa0ade25863c7298771c4a3a0ef5c6aad347c8c8724ff4e4a7"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__README_003.txt",
+      "bytes": 1092,
+      "sha256": "de4197b4a7abf364779cdc665beaea870368e4008f4e286358f6ef796ef3aae2"
+    },
+    {
+      "path": "reference/baseline_003/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__verify_log_003.py",
+      "bytes": 2546,
+      "sha256": "c10d74f096832f0d913bc3d82f5acd3760492b5763232308f97c14b5d0764478"
+    },
+    {
+      "path": "reference/baseline_003/manifest.json",
+      "bytes": 6708,
+      "sha256": "45ba18626091f7e70751f00dd27c7c0117d1f1bf0509fa5070bcabc0e097c95c"
+    },
+    {
+      "path": "reference/baseline_003/README.txt",
+      "bytes": 1092,
+      "sha256": "de4197b4a7abf364779cdc665beaea870368e4008f4e286358f6ef796ef3aae2"
+    },
+    {
+      "path": "reference/baseline_003/validation.json",
+      "bytes": 4986,
+      "sha256": "b7c16a06a536372e01bc181946267ef91c4409b8284660fac52f0611dbe28b4a"
+    },
+    {
+      "path": "reference/CATALOG_003.txt",
+      "bytes": 602,
+      "sha256": "4b5f78fa3faac5a102101b3e4ff36def98f43f21e779e957152b3b02e84de309"
+    },
+    {
+      "path": "reference/DECISIONS.md",
+      "bytes": 4307,
+      "sha256": "5a2742c432e1b81f25e88d053d6edbf00ec6291e8812227bde5c41852f4fd67b"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "bytes": 112554,
+      "sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261029/manifest.json",
+      "bytes": 1406,
+      "sha256": "cda9b459e4c9660661b145bbe3ed50b73e284f0ef159416e8bf3bc9ae656e52d"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261029/README.txt",
+      "bytes": 314,
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261029/validation.json",
+      "bytes": 1348,
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql",
+      "bytes": 2732,
+      "sha256": "11511977896d83bf23a2b3b9a84283df94cd60627c2ea8a56ade7859400b98ad"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql",
+      "bytes": 7066,
+      "sha256": "43984788615025d676d6f2a5f1f111f93089ec397e4210058248321c329abc23"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql",
+      "bytes": 3508,
+      "sha256": "b1dd6b3b59cbc9ae68ec76638073e5f55d737f9c17eb1e5c71e71514d53b1cb2"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql",
+      "bytes": 527,
+      "sha256": "daf9818d11b0f53b31d12e7b023b142498bd541f1a98e66fd9a3f451254cc401"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+      "bytes": 146958,
+      "sha256": "e04f7bccfdc4b816b04c7801688723f1e1036b8bf536ea11b45b55e09dc35679"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/manifest.json",
+      "bytes": 2249,
+      "sha256": "7bc05bf4e92c42248c1bfa393327767dac875f6d4516a9ec562c30fcf8697a04"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/README.txt",
+      "bytes": 1745,
+      "sha256": "c5a3fd787af795617187810abc421011dd620b90a8a79d43926e5a3dc1e5636f"
+    },
+    {
+      "path": "reference/historical/output/PM-001_20261102_002/validation.json",
+      "bytes": 1708,
+      "sha256": "1a4ac3106d2cd0ebf75e5f7c446cdd28b1fe2c55e844085cda1231257605471d"
+    },
+    {
+      "path": "reference/manifest.json",
+      "bytes": 12764,
+      "sha256": "97acaa9b84e5463a75f6fd7b5ac37e13744d76d73060537cbcc470088211863b"
+    },
+    {
+      "path": "reference/OPEN_POINTS.md",
+      "bytes": 2585,
+      "sha256": "200e872f174cd8e10d3dbd3f0210d80af1b53e3b6ac173e516142c77db2175a3"
+    },
+    {
+      "path": "reference/PM001_003_review.md",
+      "bytes": 26521,
+      "sha256": "6e956355c3a6d69b2ec323cee1c8af8f86b2584560af0e304d2602dd6ca04a87"
+    },
+    {
+      "path": "reference/PM001_003_review.pdf",
+      "bytes": 30106,
+      "sha256": "d2324f140c3986bceb0eeb68ca0599c976f04cbc180d6ecb428787c81c722f0a"
+    },
+    {
+      "path": "reference/REQUIREMENTS.md",
+      "bytes": 3580,
+      "sha256": "438db5a4c4d062fd77a64a18a403bca71aa7fabbd5913c6e7bab9ae44d5d39de"
+    },
+    {
+      "path": "reference/SOURCE_INDEX.md",
+      "bytes": 3088,
+      "sha256": "543ea43ef49adcced8bfb79629fd2fa0519c12fa06eecbe045787a791f32df17"
+    },
+    {
+      "path": "reference/USER_REFERENCE_FIRST_004.md",
+      "bytes": 335,
+      "sha256": "a983df135b8b5dc085025636b58d59bae485a6d8489ee942eb346ffa49f34c26"
+    },
+    {
+      "path": "reference/USER_SCOPE_004.md",
+      "bytes": 1585,
+      "sha256": "4f29385ca3735de754fdccb05dcc02448cbdc70fddbe6bbe179830a5a990ca04"
+    },
+    {
+      "path": "REFERENCE_CHECK.md",
+      "bytes": 2314,
+      "sha256": "321732ac6e3c3d73c93860e3a27370bfc082b7d1b30916afec80bec5ce9274b0"
+    },
+    {
+      "path": "REGIE_RETRIEVAL_20261103.json",
+      "bytes": 31068,
+      "sha256": "1507ded7bab6e645365d7028b40bfd52ac9ebdb24e1b6783a0cbd86c30288197"
+    },
+    {
+      "path": "REQUIREMENTS.md",
+      "bytes": 3580,
+      "sha256": "438db5a4c4d062fd77a64a18a403bca71aa7fabbd5913c6e7bab9ae44d5d39de"
+    },
+    {
+      "path": "RUNBOOK.md",
+      "bytes": 11033,
+      "sha256": "8d85f6b51ecf3145775526d6af2fa6f98350e0382477892478f7779c35949cd3"
+    },
+    {
+      "path": "SOURCE_INDEX.md",
+      "bytes": 3088,
+      "sha256": "543ea43ef49adcced8bfb79629fd2fa0519c12fa06eecbe045787a791f32df17"
+    },
+    {
+      "path": "sql/00_install.sql",
+      "bytes": 344,
+      "sha256": "23c2dcdec73974eb93a668c4e2a3889834caf595b34a20065762890c0a940647"
+    },
+    {
+      "path": "sql/00_privileges.sql",
+      "bytes": 1689,
+      "sha256": "776d0b2e53934d7df894b63e99c0cad27d696c9405edb0c17f7905bab1772525"
+    },
+    {
+      "path": "sql/01_setup.sql",
+      "bytes": 6121,
+      "sha256": "b3ae370e8657d72e9edd2075f1966bc5f83a8bd6dd28e507332c360c8a5a7b47"
+    },
+    {
+      "path": "sql/02_package.sql",
+      "bytes": 33623,
+      "sha256": "f0c9fbf9c9347f5e85f7362477b51b7ec05edef92423ceb1be1a42decccb9a60"
+    },
+    {
+      "path": "sql/03_reference_vector.sql",
+      "bytes": 12283,
+      "sha256": "46c42f66ded370ab09ab162ca23d75a6378c76274328c653736e793f248934ba"
+    },
+    {
+      "path": "sql/03_tests.sql",
+      "bytes": 18227,
+      "sha256": "ab2b94fab8db78876ad1fd3dc18025b9e9bec761e608bddd2362458eb8d66639"
+    },
+    {
+      "path": "sql/04_verify_persistence.sql",
+      "bytes": 2043,
+      "sha256": "3ab9a58b97aed0776684aeb5beda67c41591677bf349d5b8cc6e02bb6be54de8"
+    },
+    {
+      "path": "sql/05_cleanup.sql",
+      "bytes": 1636,
+      "sha256": "c597cda4892876f71e597b6e84d30e55171d1fb849755a7618bf9e10d8c65446"
+    },
+    {
+      "path": "sql/06_privilege_error.sql",
+      "bytes": 1703,
+      "sha256": "b015d06d7464271011d6fefe245043f0b99a6b4381e02c0d3dd05a7f2a8313dc"
+    },
+    {
+      "path": "STATIC_CHECKS.json",
+      "bytes": 1576,
+      "sha256": "025958b1a9d52805d18cba7e31e3f31515a6388c9747d26124b404a3c262c9dd"
+    },
+    {
+      "path": "TEST_RESULTS.csv",
+      "bytes": 9518,
+      "sha256": "a3d63fe5eed2cafd595a97d89dd6d50d5ca9fe0d7560f34673f4fcd98b87bc68"
+    },
+    {
+      "path": "tools/verify_integrity.py",
+      "bytes": 588,
+      "sha256": "21f136346a9c281b93b01f4cdb69a6aab25652364e5a6a7f5511cae7597b5caa"
+    },
+    {
+      "path": "tools/verify_logs.py",
+      "bytes": 5226,
+      "sha256": "a4684ef891949fae31a5fb11e2f46c50ed2d72205fc612a7d179112776561d5f"
+    },
+    {
+      "path": "TRACEABILITY.csv",
+      "bytes": 1639,
+      "sha256": "64b64b6a7ca342ec600b7921ae3823d76b92ba7c10fe08613c14c93ee83451b7"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 2237,
+      "sha256": "dfa53e5cc98618fb00662b6e6666ce67aced63d3b88a1be0930961c97cfa0200"
+    }
+  ],
+  "self_hash_policy": "This manifest is excluded from its own file list and hashed by SHA256SUMS.txt. SHA256SUMS.txt is excluded from itself. The ZIP is hashed externally."
+}

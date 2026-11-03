@@ -1,0 +1,9 @@
+# ADMIN_OBJECTS — open punten
+
+Leidende PoC-lijst: [revisie 004 OPEN_POINTS.md](releases/PM-001_20261103_004/OPEN_POINTS.md). De import sluit geen inhoudelijk punt uit die lijst.
+
+Belangrijk: OP-01 CAN-001-acceptatie, OP-02 profielkeuzes/DATA_LENGTH, OP-03 identiteit, OP-04–OP-08 installatie/baseline/freshness/pakbon/autorisatie, OP-09–OP-11 historie/concurrency/lifecycle, OP-12 grenzen, OP-13 extractie, HIST-01–HIST-03 en VAL-01 Oracle-runtimebewijs. M4-01 volledige productie-installer blijft open.
+
+Algemene ontwerpverkenning: [open punten voor hervatting](context/20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md#open-punten-voor-hervatting). Dat zijn beleids-/ontwerpvragen buiten de begrensde PoC; geen nieuwe implementatieopdracht.
+
+REGIE noemt daarnaast een volledige retourtest tussen verschillende sessies. De onderhavige sessie leest bestaande regie-informatie en publiceert een import, maar presenteert dat niet als een gecoördineerde DEV/REVIEW-retourtest of Oracle-test. Bewaar oorspronkelijke chats bij onzekerheid.

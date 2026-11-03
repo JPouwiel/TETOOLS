@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-02",
+  "html": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+  "checks": {
+    "unique_ids": 60,
+    "internal_links": 134,
+    "chapters": 27,
+    "search": true,
+    "status_filter": true,
+    "subject_filter": true,
+    "no_results": true,
+    "clear_filters": true,
+    "expand_collapse": true,
+    "anchor_reveals_collapsed_chapter": true,
+    "offline_file_load": true,
+    "external_asset_requests": 0,
+    "javascript_errors": [],
+    "viewport_390_no_page_overflow": true,
+    "print_expands_all_chapters_and_appendices": true,
+    "print_restores_screen_state": true,
+    "print_styles_checked": true,
+    "browser_print_pdf_generated": true,
+    "sql_embedded_matches_downloads": true,
+    "desktop_visual_review": "Desktop screenshot inspected; original layout retained.",
+    "sql_static_review": "Dictionary fields, LONG avoidance, overflow guard, script sequence and failure handling reviewed; not an Oracle compiler check."
+  },
+  "not_executed": [
+    "Oracle compilation",
+    "Oracle SQL/PLSQL runtime",
+    "Performance benchmark",
+    "Complete external-link HTTP validation; Oracle reference pages were opened separately"
+  ],
+  "limitations": [
+    "Early PDF-only conversation attachments not inspected.",
+    "Exact byte protocol remains a proposal/open decision.",
+    "Single fixed draft profile; mapping is documentation, not a generic execution engine.",
+    "Canonical input limited to 2000 bytes; broad table shapes unsupported.",
+    "Concurrent DDL must be excluded by operator.",
+    "Datatype smoke tests require manual inspection; not all acceptance cases automated."
+  ]
+}

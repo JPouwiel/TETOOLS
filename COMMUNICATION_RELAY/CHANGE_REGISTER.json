@@ -81,6 +81,28 @@
         "../modules/ADMIN_LOGGER/SOURCE_MANIFEST.json"
       ],
       "verification": "38 changed Git blob hashes read back on main; unrelated original blobs preserved. Oracle NOT_EXECUTED."
+    },
+    {
+      "change_id": "OBJECTS-20261103-001",
+      "record_type": "MODULE_IMPORT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Import original source, analysis/context and unchanged PM-001 004 into canonical modules/ADMIN_OBJECTS",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+      "origin_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "recorded_by_session": "01a138d4-ee43-7930-aea2-4ec084041013",
+      "approved_by": "user: current chat import request, 2026-11-03",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-03",
+      "revision": "PM-001-004",
+      "supersedes": null,
+      "base_commit": "c188ce782c0334299afe2d959a0533c56f222f53",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/README.md",
+        "../modules/ADMIN_OBJECTS/SOURCE_MANIFEST.json"
+      ],
+      "note": "No new code or policy acceptance; implementation verification appended after merge/readback."
     }
   ]
 }

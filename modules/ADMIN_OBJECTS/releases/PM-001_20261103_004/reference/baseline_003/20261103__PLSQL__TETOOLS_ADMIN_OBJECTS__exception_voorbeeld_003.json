@@ -1,0 +1,22 @@
+{
+  "exception_ref": "EX-20261103-001",
+  "status": "APPROVED_EXAMPLE_ONLY",
+  "authorized_by": "DBA_APPROVER_EXAMPLE",
+  "scope": {
+    "release_id": "DEMO-003",
+    "object_type": "TABLE",
+    "object_name": "AO3_EXAMPLE",
+    "action": "REINSTALL_SAME_VERSION",
+    "object_version": "001"
+  },
+  "reason": "Controlled reinstallation of the same object version",
+  "expires_at": "2026-11-04T00:00:00+01:00",
+  "expected_profile": {
+    "profile_code": "TABLE_CORE",
+    "profile_version": 2,
+    "canonical_version": "CAN-001-DRAFT-1"
+  },
+  "expected_fingerprint": "1A1E83B0450BC00A53E476D7D15FA8379EA0B07AEA999440931F7FA15BD34AF1",
+  "approval_evidence_ref": "CHANGE-DEMO-001",
+  "technical_preconditions": "No ignored technical failure; bounded profile only"
+}

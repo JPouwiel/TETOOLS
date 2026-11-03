@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- PM-001 revision 004. See reference/DECISIONS.md D07 and REQUIREMENTS R02-R05.
 whenever sqlerror exit failure rollback
 set define off

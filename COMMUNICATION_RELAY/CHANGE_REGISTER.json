@@ -25,7 +25,7 @@
       "record_type": "RELAY_POLICY",
       "module": null,
       "subject": "Session lifecycle and provenance registry",
-      "status": "IMPLEMENTATION_PROPOSED",
+      "status": "IMPLEMENTED",
       "source_reference": "user approval in current conversation on 2026-11-03",
       "origin_session": "current regie chat; exact thread ID not exposed",
       "recorded_by_session": "current regie chat; exact thread ID not exposed",

@@ -183,6 +183,32 @@
       "recorded_by": "01a138df-aece-73c1-a082-32fa2d835303",
       "note": "Published through open PR #10; readback of initial payload passed. Not merged or technically approved. Oracle NOT_EXECUTED; retention KEEP, not CLOSED.",
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/10"
+    },
+    {
+      "session_id": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+      "role": "REGIE",
+      "module": null,
+      "subject": "TETOOLS__REGIE — suite-wide ADMIN_* architecture governance",
+      "revision": "relay-v1 / 2026-11-03",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "Current TETOOLS__REGIE conversation, 2026-11-03; exact ChatGPT thread ID unavailable",
+      "recorded_by": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "deliverables": [
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "COMMUNICATION_RELAY/SUITE_ARCHITECTURE.md"
+      ],
+      "open_dependencies": [
+        "RAC-ARCH-01",
+        "RAC-ARCH-02",
+        "RAC-ARCH-03"
+      ],
+      "note": "Registration performed by this session. User-approved governance; RAC technical effects not validated."
     }
   ]
 }

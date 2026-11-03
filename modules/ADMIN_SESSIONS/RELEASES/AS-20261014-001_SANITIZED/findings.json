@@ -1,0 +1,929 @@
+[
+  {
+    "id": "AS-01",
+    "title": "Duplicate exception names block the package body",
+    "priority": "P0",
+    "category": "Build",
+    "anchors": [
+      [
+        "B",
+        71,
+        113,
+        "package declarations"
+      ]
+    ],
+    "refs": [
+      "SCOPE"
+    ],
+    "summary": "Five exception names occur twice in the same declaration scope: invalid_parameter, not_correct_phase, no_valid_domain, crud_unknown, and idx_internal_check.",
+    "impact": "The supplied body has a compile blocker. Runtime findings describe source paths that become relevant after build repairs; they are not observed production failures.",
+    "trace": "invalid_parameter is declared at lines 73 and 109. The following EXCEPTION_INIT pragmas reference the duplicate names in the same scope. Other duplicate declarations carry unrelated host, TNS, and network error text.",
+    "question": "Which errors form the public session-module contract?",
+    "answer": "The suite error-code allocation is not supplied. Keep the session errors that callers need; do not copy the logger declaration block.",
+    "solution": "Remove duplicate declarations and dead errors. Assign one documented code to each domain error. Use small local Oracle exception mappings for engine outcomes.",
+    "reason": "A compact contract avoids duplicated application infrastructure and copied unrelated code.",
+    "consequence": "Preserve codes already used by external callers through explicit compatibility wrappers. Exact compiler diagnostics still require Oracle.",
+    "test": "Compile spec and body in an isolated 19c schema. Inspect USER_ERRORS and warnings. Gate: no duplicate declaration errors and no unrelated error declarations.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-02",
+    "title": "terminate_confirm does not implement the public signature",
+    "priority": "P0",
+    "category": "Build",
+    "anchors": [
+      [
+        "S",
+        317,
+        323,
+        "terminate_confirm declaration"
+      ],
+      [
+        "B",
+        734,
+        739,
+        "terminate_confirm definition"
+      ],
+      [
+        "S",
+        194,
+        215,
+        "help examples"
+      ]
+    ],
+    "refs": [
+      "ERR"
+    ],
+    "summary": "The spec declares four parameters. The body defines five, with p_cfm_rsn inserted before p_trm_result. The help examples also reverse the two output arguments.",
+    "impact": "The advertised public routine has no matching implementation in the supplied body. Positional examples are unreliable.",
+    "trace": "Spec: (id, confirmation, VARCHAR2 IN OUT result, NUMBER OUT result_num). Body adds VARCHAR2 reason in position 3. The help passes result_num before result.",
+    "question": "Is a denial reason part of the public API?",
+    "answer": "The body uses a reason; the spec does not expose it. Proposed choice: retain the four-argument API and add a distinct named overload with a required reason.",
+    "solution": "Align the implementation and spec. Keep a four-argument compatibility wrapper. Use named notation in all examples. Avoid default parameters that make overload resolution ambiguous.",
+    "reason": "Named arguments and explicit overloads protect existing clients from argument-order changes.",
+    "consequence": "A new overload is an interface change. Compile every dependent caller and document the result contract.",
+    "test": "Compile both declarations and definitions. Call the legacy routine and the new overload with named notation. Test approval and denial and inspect both outputs.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-03",
+    "title": "Jobs call an object that this archive does not create",
+    "priority": "P1",
+    "category": "Installation",
+    "anchors": [
+      [
+        "J",
+        8,
+        18,
+        "expire job"
+      ],
+      [
+        "J",
+        33,
+        43,
+        "grace job"
+      ],
+      [
+        "S",
+        1,
+        2,
+        "package name"
+      ]
+    ],
+    "refs": [],
+    "summary": "Both job actions call ADMIN_SESSIONS. The package created by the spec and body is ADMIN_SESSION. Jobs are enabled immediately and existing jobs are never corrected.",
+    "impact": "On an installation containing only these scripts, the scheduled calls cannot resolve the supplied package. A previously installed alias is an unverified dependency.",
+    "trace": "The existence check only counts job_name. It does not compare action, enabled state, schedule, or owner.",
+    "question": "Is a plural package or synonym installed elsewhere?",
+    "answer": "No such object is supplied. Use ADMIN_SESSION as the compatibility name unless a deliberate module rename is approved.",
+    "solution": "Qualify job actions as TETOOLS.ADMIN_SESSION. Create jobs disabled. Update existing attributes during upgrades, validate prerequisites, then enable them.",
+    "reason": "One canonical name and a repeatable installation remove hidden environment assumptions.",
+    "consequence": "Renaming to ADMIN_SESSIONS would need caller and synonym migration. Preserve the current public name for a limited repair.",
+    "test": "Install in an empty 19c test schema, verify job actions, run each once, inspect USER_SCHEDULER_JOB_RUN_DETAILS, then repeat the upgrade with deliberately stale attributes.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-04",
+    "title": "Preferences have no active seed or typed validation",
+    "priority": "P1",
+    "category": "Configuration",
+    "anchors": [
+      [
+        "D",
+        46,
+        75,
+        "preference table and commented seed"
+      ],
+      [
+        "B",
+        192,
+        213,
+        "get_pref"
+      ],
+      [
+        "B",
+        356,
+        393,
+        "grace and expire"
+      ]
+    ],
+    "refs": [
+      "TX"
+    ],
+    "summary": "All preference seed DML is commented. get_pref returns NULL for a missing key. grace and expire convert preference text to NUMBER without a format or range contract.",
+    "impact": "Missing values can make housekeeping update no rows without an error. The commented grace value (180/1440) is an expression string, not a numeric value for implicit conversion.",
+    "trace": "NULL duration produces an unknown date predicate. A literal text expression such as (180/1440) cannot be evaluated by assigning it to NUMBER.",
+    "question": "What are the intended grace and expiry durations?",
+    "answer": "The old seed suggests 180 minutes and 7 days, but this is not active configuration. Treat these as historical hints, not confirmed policy.",
+    "solution": "Seed validated numeric minutes or seconds with idempotent DML. Reject missing, nonnumeric, zero, negative, and inconsistent values. Version the preference contract.",
+    "reason": "Typed configuration prevents NLS-dependent conversion and silent nonoperation.",
+    "consequence": "Change of unit is a migration. Retain explicit NUMBER parameters through wrappers that convert documented days to the chosen unit.",
+    "test": "Test absent keys, 0, negative, decimal comma, decimal point, expression text, NULL, and normal values. Verify boundary times against a fixed clock fixture.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-05",
+    "title": "The grant script is broad but omits important prerequisites",
+    "priority": "P1",
+    "category": "Security",
+    "anchors": [
+      [
+        "G",
+        1,
+        38,
+        "grants"
+      ],
+      [
+        "S",
+        1,
+        2,
+        "AUTHID DEFINER"
+      ],
+      [
+        "B",
+        146,
+        152,
+        "DBMS_DEBUG_JDWP"
+      ],
+      [
+        "B",
+        709,
+        710,
+        "engine operation"
+      ]
+    ],
+    "refs": [
+      "AUTH",
+      "ALTER"
+    ],
+    "summary": "The script grants many unrelated dictionary views with WITH GRANT OPTION. It does not grant ALTER SYSTEM or explicitly declare all package and local-view access required by this body.",
+    "impact": "The archive does not define a reproducible least-privilege installation. Existing system privileges, public grants, or roles may hide missing dependencies.",
+    "trace": "The body reads V$SESSION, GV$SESSION, GV$PROCESS, GV$SQL, DBA_USERS, DBA_ROLE_PRIVS and DBA_SOURCE. It also uses built-in packages; exact required direct privileges depend on existing grants.",
+    "question": "What privilege envelope permits session termination in the managed database?",
+    "answer": "The provider contract is not supplied. A DBA must establish the permitted schemas, container, engine mechanism, and direct privilege set.",
+    "solution": "Provide a module-specific prerequisite manifest. Remove unrelated view grants and WITH GRANT OPTION unless delegation is required. Use a narrowly exposed definer-rights worker; restrict its EXECUTE grants.",
+    "reason": "Definer rights make the package boundary the delegation point. A role-name check does not provide the engine privilege.",
+    "consequence": "Do not change AUTHID to CURRENT_USER as a shortcut. That changes the authorization model and can require callers to hold engine privileges.",
+    "test": "Install with only declared prerequisites. Verify compilation and authorized execution. Verify that an unapproved account cannot invoke the worker or read the workflow tables.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-06",
+    "title": "Admin classification uses role-name substrings",
+    "priority": "P1",
+    "category": "Authorization",
+    "anchors": [
+      [
+        "B",
+        594,
+        663,
+        "compare_roles"
+      ],
+      [
+        "B",
+        1282,
+        1298,
+        "request authorization"
+      ]
+    ],
+    "refs": [
+      "AUTH"
+    ],
+    "summary": "A directly granted role with DBA or TET anywhere in its name makes the account an admin. If both accounts are classified nonadmin, confirmation is not required.",
+    "impact": "A caller with EXECUTE can request immediate termination of another nonadmin account under this policy. Names such as NOT_DBA still match. This is a source behavior; actual exposure depends on EXECUTE grants.",
+    "trace": "compare_roles sets confirmation to N for (caller N, target N). terminate_session accepts that value as authority to execute. Nested roles and enabled-state semantics are not resolved.",
+    "question": "May ordinary users stop only their own sessions, or other users too?",
+    "answer": "The policy is absent. Recommended default: own other user sessions only; cross-user requests require an explicit operator permission and protected-target checks.",
+    "solution": "Use an explicit module authorization table or approved security service with exact principals and operations. Separate request, approve, cancel, and execute permissions. Check the trusted caller identity at every boundary.",
+    "reason": "Authorization must describe an operation and target scope; role spelling is not a security contract.",
+    "consequence": "This intentionally narrows current behavior. Proxy and shared application-account identity need a documented policy; CLIENT_IDENTIFIER alone is not trusted authorization.",
+    "test": "Test own session, another ordinary account, protected operator, nested role, NOT_DBA, revoked permission, and proxy access. Gate: every allowed and denied action matches an explicit matrix.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-07",
+    "title": "Protected targets are not checked by one common rule",
+    "priority": "P1",
+    "category": "Authorization",
+    "anchors": [
+      [
+        "B",
+        326,
+        339,
+        "list filter"
+      ],
+      [
+        "B",
+        1282,
+        1298,
+        "request protection"
+      ],
+      [
+        "B",
+        800,
+        814,
+        "confirmation execution"
+      ]
+    ],
+    "refs": [
+      "SESSION",
+      "ALTER"
+    ],
+    "summary": "Listing excludes Oracle-maintained users, but termination only denies SYS or AUDSID=0. The confirmation path does not repeat the complete target eligibility check.",
+    "impact": "The listing and command APIs enforce different rules. Direct calls can address targets omitted from the list. Old approvals can use outdated target or authorization data.",
+    "trace": "The check does not explicitly reject the current session, non-USER types, protected services, or other Oracle-maintained accounts. Oracle can reject some targets, but that is not the module policy.",
+    "question": "Which accounts and services must never be stopped by this module?",
+    "answer": "A managed-provider policy is needed. Proposed minimum: self, background sessions, Oracle-maintained users, and configured protected accounts/services.",
+    "solution": "Create one eligibility operation. Apply it to discovery, request creation, approval, and immediately before engine execution. Derive trusted facts from the dictionary; never accept caller-supplied username as proof.",
+    "reason": "One rule prevents a direct API call from bypassing a presentation filter.",
+    "consequence": "An explicit override, if needed, must be a separately audited operator permission. Service policies need testing with the provider.",
+    "test": "Test direct calls for SYS, an Oracle-maintained non-SYS account, a background session, the caller session, and a protected service; confirm that no engine command is issued.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-08",
+    "title": "Global session and process joins omit INST_ID",
+    "priority": "P1",
+    "category": "Identity",
+    "anchors": [
+      [
+        "B",
+        172,
+        187,
+        "get_spid and get_logon_time"
+      ],
+      [
+        "B",
+        326,
+        339,
+        "list_session"
+      ],
+      [
+        "B",
+        554,
+        568,
+        "get_details"
+      ]
+    ],
+    "refs": [
+      "RAC",
+      "SESSION"
+    ],
+    "summary": "GV$SESSION joins GV$PROCESS by address only. Global session lookups use SID and SERIAL# without INST_ID. get_details counts local sessions but fetches global details.",
+    "impact": "In RAC, addresses and session identifiers are scoped to instances. Queries can mix or multiply rows. The public API cannot express a selected remote-instance target.",
+    "trace": "get_spid uses ses.paddr=prc.addr(+) with no instance predicate. get_details combines a local count with a global projection.",
+    "question": "Must this module support RAC?",
+    "answer": "The source uses GV$ views, but the supported topology is unspecified. Choose either an explicit local-only contract or full instance-aware identity.",
+    "solution": "Add target INST_ID to request data, lookup predicates, process and SQL joins, and the API. For a local-only interim repair, use V$ views consistently and refuse remote targets.",
+    "reason": "Identity must have the same scope from selection through execution.",
+    "consequence": "Adding INST_ID is an API and data migration. Legacy rows with unknown instance must not be guessed into an executable target.",
+    "test": "Use two RAC instances with overlapping SID values and process addresses. Verify exactly one selected identity, correct process, and explicit rejection of incomplete legacy rows.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-09",
+    "title": "The kill command always targets the local instance",
+    "priority": "P1",
+    "category": "Identity",
+    "anchors": [
+      [
+        "B",
+        667,
+        710,
+        "eject_session"
+      ],
+      [
+        "B",
+        330,
+        331,
+        "generated command"
+      ]
+    ],
+    "refs": [
+      "ALTER",
+      "RAC"
+    ],
+    "summary": "The command contains SID,SERIAL# only. It omits the optional @INST_ID that Oracle 19c supports for remote-instance termination.",
+    "impact": "A row discovered globally does not necessarily refer to the session addressed by the command. Execution may fail or address a local matching pair.",
+    "trace": "Discovery generates terminate_session(sid, serial) for global rows, and the worker builds ALTER SYSTEM KILL SESSION with the same two numbers.",
+    "question": "Should the current two-argument API remain available?",
+    "answer": "Recommended compatibility rule: it addresses the current instance only. Use a new explicit instance-aware operation for RAC.",
+    "solution": "Carry the validated instance identity into the command. Render validated integers with a fixed numeric format. Reject NULL, fractional, negative, and out-of-contract values before dictionary access.",
+    "reason": "The executor must consume the exact identity that the operator selected.",
+    "consequence": "NUMBER parameters prevent simple text SQL injection here; the main issues are identity scope and numeric validation. Confirm container and provider restrictions too.",
+    "test": "On RAC, select a remote target and verify the command contains its instance. Test a same-pair local fixture, fractional input, NULL, and a local compatibility call.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-10",
+    "title": "Delayed approval does not revalidate the saved target generation",
+    "priority": "P1",
+    "category": "Identity",
+    "anchors": [
+      [
+        "B",
+        780,
+        810,
+        "confirmation cursor and execution"
+      ],
+      [
+        "B",
+        694,
+        710,
+        "worker checks"
+      ],
+      [
+        "B",
+        1329,
+        1333,
+        "saved JSON identity"
+      ]
+    ],
+    "refs": [
+      "SESSION"
+    ],
+    "summary": "The request saves AUDSID but confirmation extracts SID and SERIAL# and passes only those to the worker. The worker checks request status but does not compare saved username, AUDSID, logon time, container, or instance with a current snapshot.",
+    "impact": "An old approval lacks a robust stale-target guard. SERIAL# protects ordinary SID reuse, but the stored request must still be bound to its original target and scope.",
+    "trace": "Confirmation can remain pending for days. Saved target details are not verified again against dictionary facts just before the engine call.",
+    "question": "How long can an approval remain executable?",
+    "answer": "No reliable expiry contract is installed. Proposed: a short explicit approval validity period plus a current identity comparison.",
+    "solution": "Store typed INST_ID, CON_ID, SID, SERIAL#, AUDSID, username and LOGON_TIME where supported. Re-read and compare immediately before execution. If absent or changed, close as TARGET_GONE or STALE_TARGET without issuing a kill.",
+    "reason": "A stable snapshot makes stale requests explainable and reduces mistaken execution.",
+    "consequence": "Oracle session termination is not atomically conditional on every snapshot field. A final lookup reduces the race; document the residual gap and rely on the SID/SERIAL#/instance engine identity.",
+    "test": "Request approval, end the target, create a replacement, then approve. Change eligibility and permissions before approval. Gate: stale or no-longer-allowed targets never reach the engine.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-11",
+    "title": "Current SQL lookup can return several child cursors",
+    "priority": "P1",
+    "category": "Diagnostics",
+    "anchors": [
+      [
+        "B",
+        554,
+        568,
+        "get_details SQL join"
+      ]
+    ],
+    "refs": [
+      "SQL",
+      "SESSION"
+    ],
+    "summary": "GV$SQL is joined by SQL_ADDRESS and HASH_VALUE, without SQL_CHILD_NUMBER or INST_ID. A statement with several child cursors can produce multiple detail rows even on one instance.",
+    "impact": "SELECT INTO can raise TOO_MANY_ROWS. That exception is swallowed by the catch-all handler, leaving result outputs unsuitable for the caller.",
+    "trace": "The local match count can be one while the global SQL projection contains several child cursors. The match_count test occurs only after SELECT INTO succeeds.",
+    "question": "Is current SQL detail required to authorize termination?",
+    "answer": "No. Session identity and policy must work even when current SQL is NULL, aged out, or changes during observation.",
+    "solution": "Resolve session identity first. Fetch optional SQL data with a left join on instance, SQL_ID and SQL_CHILD_NUMBER, with appropriate container scope. Treat missing SQL as unavailable diagnostic data.",
+    "reason": "Optional diagnostics must not make a valid session request fail or authorize an invalid one.",
+    "consequence": "Dynamic views change during a query. Do not claim snapshot-level certainty for performance metadata.",
+    "test": "Test several child cursors, idle target, NULL SQL_ID, aged-out cursor and changing SQL. Gate: one target record, nullable diagnostics, deterministic result status.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-12",
+    "title": "SQL cursor statistics are labelled as target-session cost",
+    "priority": "P2",
+    "category": "Diagnostics",
+    "anchors": [
+      [
+        "B",
+        541,
+        568,
+        "statistics outputs"
+      ],
+      [
+        "B",
+        1230,
+        1232,
+        "v_cpu_msec"
+      ],
+      [
+        "D",
+        25,
+        27,
+        "stored counters"
+      ]
+    ],
+    "refs": [
+      "SQL"
+    ],
+    "summary": "CPU_TIME is passed through a variable named cpu_msec, although V$SQL reports microseconds. Physical read/write values are bytes from the shared child cursor, not isolated target-session measurements.",
+    "impact": "Reports can misstate units and attribute work from other executions or sessions to the target.",
+    "trace": "There is no conversion by 1000. The code stores one cumulative cursor sample without a start/end delta or session-specific evidence.",
+    "question": "Are the numbers diagnostic context or a termination criterion?",
+    "answer": "The source records them as context. Keep them out of authorization and document their scope.",
+    "solution": "Rename fields to cursor_cpu_us and cursor_physical_read_bytes/write_bytes, or explicitly convert units. Record sample time, instance and child identity. Use session deltas only when a real session-cost requirement exists.",
+    "reason": "Accurate units and scope are more useful than misleading precision.",
+    "consequence": "Existing values cannot be converted into target-only cost. A column rename needs view and consumer migration.",
+    "test": "Execute the same SQL from two sessions, sample its child cursor, and confirm the report labels cumulative cursor values and microseconds rather than target-session elapsed time.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-13",
+    "title": "Request IDs lose range and the table has no primary key",
+    "priority": "P1",
+    "category": "Data contract",
+    "anchors": [
+      [
+        "B",
+        408,
+        408,
+        "v_trm_id_qry"
+      ],
+      [
+        "D",
+        1,
+        43,
+        "request table"
+      ]
+    ],
+    "refs": [],
+    "summary": "get_trm_status stores an identity value in NUMBER(3). The identity column has no PRIMARY KEY or UNIQUE constraint in the supplied DDL.",
+    "impact": "An existing request ID of 1000 or more overflows the local variable. GENERATED ALWAYS defines generation, but the table has no declared uniqueness constraint for its workflow key.",
+    "trace": "The cursor fetches MAX(id) into v_trm_id_qry NUMBER(3); the catch-all handler prints the failure and does not set a reliable output.",
+    "question": "Is ID the immutable request identifier?",
+    "answer": "All update predicates use it as such. Declare that invariant explicitly.",
+    "solution": "Use ADMIN_SESSIONS_LOG.ID%TYPE for every request ID. Add a primary key after checking existing data. Return existing_request_id separately from result_code.",
+    "reason": "One typed identity avoids range drift and separates a reference from an outcome.",
+    "consequence": "Pre-migration uniqueness and NULL checks are needed. Do not assume the currently installed table matches this DDL.",
+    "test": "Test IDs 999, 1000, and a larger generated value; inspect returned references. Verify the primary-key constraint and migrate only after duplicate/NULL diagnostics pass.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-14",
+    "title": "The marked-for-kill state violates the table contract",
+    "priority": "P1",
+    "category": "State machine",
+    "anchors": [
+      [
+        "D",
+        5,
+        5,
+        "status comment"
+      ],
+      [
+        "D",
+        35,
+        35,
+        "status constraint"
+      ],
+      [
+        "B",
+        502,
+        506,
+        "set_trm_status"
+      ],
+      [
+        "B",
+        1375,
+        1377,
+        "marked result"
+      ]
+    ],
+    "refs": [
+      "ALTER"
+    ],
+    "summary": "The source reads and writes status M, but the CHECK constraint excludes M. SESSION_MARKED_FOR_TERMNTN is never set to Y by the shown marked path.",
+    "impact": "ORA-00031 can lead to a rejected update and a request left in X. The handler suppresses the update error, so terminal feedback can hide the inconsistency.",
+    "trace": "eject_session returns result 1 for ORA-00031. terminate_session calls set_trm_status(..., M). The table allows X,E,O,K,C,R,D,T,G only.",
+    "question": "Is M pending execution completion or a terminal request result?",
+    "answer": "Recommended: MARKED is a pending engine outcome and needs reconciliation. It must not mean that disappearance or lock release has been observed.",
+    "solution": "Define one state contract shared by table, API, reporting and housekeeping. Include MARKED and update its flag consistently, or remove redundant flags and derive them from explicit outcomes.",
+    "reason": "One outcome model prevents contradictory status and boolean columns.",
+    "consequence": "Existing X rows may need investigation; the original outcome cannot be reconstructed from status alone.",
+    "test": "Simulate ORA-00031 with a worker test double, then test a real managed test session where possible. Verify M is stored, no killed claim is emitted, and reconciliation can advance it.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-15",
+    "title": "Confirmation maps marked-for-kill to a denial message",
+    "priority": "P1",
+    "category": "State machine",
+    "anchors": [
+      [
+        "B",
+        717,
+        720,
+        "engine result 1"
+      ],
+      [
+        "B",
+        838,
+        876,
+        "confirmation result mapping"
+      ]
+    ],
+    "refs": [
+      "ALTER"
+    ],
+    "summary": "eject_session defines result 1 as marked for kill. terminate_confirm interprets result 1 as a SYS/background denial. Other result meanings differ too.",
+    "impact": "Approval and direct execution report different outcomes for the same engine result. The confirmation marked path does not move X to M.",
+    "trace": "In confirmation CASE 1, the message says REQUEST DENIED and updates metadata. It does not call set_trm_status(M). The public p_trm_result_num is not consistently assigned.",
+    "question": "Which outcomes must callers distinguish?",
+    "answer": "Proposed: command accepted, marked, target absent, rejected by policy, invalid input, engine failure, and outcome unknown.",
+    "solution": "Use one typed engine outcome mapping for both entry points. Assign all public outputs on every path. Use one exception name per Oracle error code; validate the repeated EXCEPTION_INIT declarations during compile repair.",
+    "reason": "A shared result contract removes duplicated branch logic and incorrect success messages.",
+    "consequence": "This changes public result semantics. Publish a compatibility mapping rather than relying on existing numeric comments.",
+    "test": "Feed each engine outcome into direct and confirmation paths. Require identical domain classification. Test unexpected engine error and inspect all returned outputs and persisted states.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-16",
+    "title": "Status updates can fail while execution continues",
+    "priority": "P1",
+    "category": "Error handling",
+    "anchors": [
+      [
+        "B",
+        500,
+        525,
+        "set_trm_status"
+      ],
+      [
+        "B",
+        707,
+        710,
+        "execution after status update"
+      ],
+      [
+        "B",
+        582,
+        590,
+        "get_details handlers"
+      ],
+      [
+        "B",
+        1272,
+        1275,
+        "detail-result acceptance"
+      ]
+    ],
+    "refs": [],
+    "summary": "Several catch-all handlers only write DBMS_OUTPUT. set_trm_status neither raises unexpected errors nor assigns a failure result in its catch-all branch. The worker ignores its result before the kill.",
+    "impact": "The engine action can occur without a successful recorded transition to X. Callers can receive apparent success or incomplete outputs after a failed query or update.",
+    "trace": "eject_session calls set_trm_status and immediately executes the command. There is no SQL%ROWCOUNT check for the ID update and no check of v_result_num. terminate_session rejects get_details results only when >1, although result 1 means no session found. It must require explicit success instead.",
+    "question": "Which errors must stop the engine action?",
+    "answer": "Any failed request claim, stale policy check, or missing required audit evidence must stop before execution. Diagnostic logging failures need a separate policy.",
+    "solution": "Make domain persistence errors propagate. Require exactly one affected row and a valid transition. Capture SQLCODE, error stack and backtrace before calling the logger, then preserve the original error.",
+    "reason": "The dangerous operation must depend on successful workflow validation, not terminal output.",
+    "consequence": "Existing clients may start receiving real exceptions. Document this correction and provide explicit outcomes for expected business denials.",
+    "test": "Force a constraint error, invalid trigger, missing row, and denied dictionary access. Gate: no engine invocation; original error remains available even when the logger also fails.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-17",
+    "title": "Request creation and execution are not claimed atomically",
+    "priority": "P1",
+    "category": "Concurrency",
+    "anchors": [
+      [
+        "B",
+        416,
+        470,
+        "duplicate request lookup"
+      ],
+      [
+        "B",
+        704,
+        710,
+        "read then update"
+      ],
+      [
+        "B",
+        1259,
+        1266,
+        "pre-insert check"
+      ],
+      [
+        "B",
+        1319,
+        1353,
+        "insert and commit"
+      ]
+    ],
+    "refs": [
+      "TX"
+    ],
+    "summary": "Duplicate detection is a read before insert. There is no active-target unique constraint. Confirmation, cancellation and worker execution read a status and later update by ID only.",
+    "impact": "Concurrent callers can create duplicate requests or overwrite a state based on an old read. Two approvals can both pass the initial check and reach execution.",
+    "trace": "Two workers read C. Worker A writes X and commits. Worker B still holds its earlier C value and updates ID to X again; the update has no expected-state predicate.",
+    "question": "What is the required behavior under repeated approval?",
+    "answer": "Recommended: one worker claims a request; later calls return the recorded outcome. They do not repeat the engine operation.",
+    "solution": "Use a durable claim with UPDATE ... WHERE id=:id AND status=:expected, require rowcount=1, and commit the claim in an explicitly owned worker transaction. Serialize duplicate creation by a typed active-target key.",
+    "reason": "A durable claim persists across the engine boundary; a row lock alone held before a commit is insufficient.",
+    "consequence": "Define claim token, attempt ID and crash recovery. An ambiguous crash after kill must be reconciled, never blindly retried. Do not promise exactly-once external effects.",
+    "test": "Run two simultaneous requests, two approvals, approval versus cancellation, and crash points before/after claim and command. Gate: one claim, no blind repeat, and visible uncertain outcomes.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-18",
+    "title": "Hidden COMMITs include the caller transaction",
+    "priority": "P1",
+    "category": "Transactions",
+    "anchors": [
+      [
+        "B",
+        516,
+        516,
+        "set_trm_status commit"
+      ],
+      [
+        "B",
+        1353,
+        1353,
+        "request commit"
+      ],
+      [
+        "B",
+        1156,
+        1157,
+        "cancel commit"
+      ],
+      [
+        "B",
+        356,
+        393,
+        "autonomous housekeeping"
+      ]
+    ],
+    "refs": [
+      "TX",
+      "AUTO"
+    ],
+    "summary": "Request, cancellation and helper routines issue COMMIT without an autonomous boundary. grace and expire are explicitly autonomous. The module therefore has mixed transaction ownership.",
+    "impact": "A caller can have unrelated uncommitted work committed by a session-management call. Logger autonomy would not correct these domain commits.",
+    "trace": "An application updates its own table, calls terminate_session, and the module commits before returning. Rolling back the caller no longer reverses that earlier update.",
+    "question": "Should request submission be transactional with the calling application?",
+    "answer": "The contract is unspecified. Proposed: separate submission from an independently owned privileged worker; document whether submission commits independently or follows the caller.",
+    "solution": "Assign each operation one transaction owner. Pure getters do not commit. A worker owns claim/outcome commits. If submission is autonomous by design, restrict it to module tables and handle errors with rollback.",
+    "reason": "Explicit ownership prevents unrelated business data from being committed accidentally.",
+    "consequence": "Do not merely delete COMMITs: command effects cannot be undone by rolling back the request. Test engine transaction behavior and isolation on the real 19c environment.",
+    "test": "Create an unrelated uncommitted sentinel update, call each API, then rollback. Verify the stated contract. Test autonomous code against caller-held workflow locks for deadlocks.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-19",
+    "title": "Denied requests conflict with the terminal-status trigger",
+    "priority": "P1",
+    "category": "State machine",
+    "anchors": [
+      [
+        "T",
+        1,
+        13,
+        "terminal guard"
+      ],
+      [
+        "B",
+        1282,
+        1287,
+        "initial D status"
+      ],
+      [
+        "B",
+        1406,
+        1412,
+        "denial handler"
+      ]
+    ],
+    "refs": [],
+    "summary": "A protected-target request is inserted directly with D and committed. Its req_denied handler then calls set_trm_status(D) again. The trigger rejects any status-column update when OLD status is D.",
+    "impact": "The normal denial path attempts an update that the module itself forbids. The same trigger also blocks harmless status=D to status=D updates.",
+    "trace": "The trigger protects K,R,D,T only. It does not validate all transitions or protect non-status metadata updates on terminal requests.",
+    "question": "Should terminal requests be immutable?",
+    "answer": "Recommended: immutable final outcome, with separate append-only events for later observations. Any allowed metadata correction must be explicit.",
+    "solution": "Define expected-state transitions in the package and table design. Avoid repeat writes to the same terminal status. Either remove the trigger after enforcing restricted DML access or redesign it around the documented invariant.",
+    "reason": "A transition model is clearer than a partial list of locked old values.",
+    "consequence": "Keep a table guard if direct DML remains supported. Restrict unauthorized table access before removing a trigger.",
+    "test": "Exercise initial denial, repeated denial, each terminal transition, and direct metadata updates. Verify no hidden trigger error and no unauthorized terminal outcome change.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-20",
+    "title": "Housekeeping can expire an executing operation",
+    "priority": "P1",
+    "category": "Lifecycle",
+    "anchors": [
+      [
+        "B",
+        356,
+        393,
+        "grace and expire"
+      ],
+      [
+        "J",
+        8,
+        43,
+        "same scheduled hour"
+      ]
+    ],
+    "refs": [
+      "AUTO",
+      "TX"
+    ],
+    "summary": "grace changes old X,E,O,C rows to G using LOG_DATE. expire changes G to T. Both jobs run at the same nominal daily hour, with no declared dependency.",
+    "impact": "An old executing request can lose its executing state. On very old rows, final status can depend on job order. Daily scheduling also gives poor precision for a short grace period.",
+    "trace": "Age is measured from request creation, not latest transition or approval expiry. expire before grace sees no G; grace before expire can mark the same old row T in one cycle.",
+    "question": "Does grace mean approval delay, command timeout, or retention?",
+    "answer": "The source conflates these. Recommended: approval_expires_at, claim_started_at, last_transition_at and archive_after are separate concepts.",
+    "solution": "Use one deterministic housekeeping job with ordered steps. Expire only unclaimed pending requests. Reconcile stale X and M through identity/outcome checks; classify uncertainty explicitly.",
+    "reason": "Expiry must not erase evidence that a command might have executed.",
+    "consequence": "Do not implement automatic retries of X/M. Set schedule frequency from the approved duration and measure workload.",
+    "test": "Test exact cutoff, old C, old O, active X, marked M, old E, concurrent approval, and both historical job orders. Gate: no executing request becomes a normal expired request.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-21",
+    "title": "Status reporting leaks cursors and changes caller NLS state",
+    "priority": "P2",
+    "category": "Reporting",
+    "anchors": [
+      [
+        "B",
+        684,
+        684,
+        "unused cursor in worker"
+      ],
+      [
+        "B",
+        977,
+        978,
+        "two status cursors"
+      ],
+      [
+        "B",
+        1016,
+        1016,
+        "ALTER SESSION"
+      ],
+      [
+        "B",
+        1030,
+        1083,
+        "report execution"
+      ]
+    ],
+    "refs": [
+      "CURSOR"
+    ],
+    "summary": "eject_session opens an unused DBMS_SQL cursor. terminate_status opens two and closes neither. Status reporting changes NLS_DATE_FORMAT without restoring it and omits M,G,T from its usable status mapping.",
+    "impact": "Repeated calls consume open cursors and can eventually fail. A report call also changes subsequent caller behavior and hides legitimate workflow states.",
+    "trace": "The complete routines contain no DBMS_SQL.CLOSE_CURSOR calls. The queries already explicitly format dates, so the NLS mutation is unnecessary.",
+    "question": "Should the public output remain DBMS_OUTPUT or become a query API?",
+    "answer": "Recommended: a typed ref cursor for programmatic use, with a small compatibility formatter for terminal use.",
+    "solution": "Remove the unused cursor. Open only the selected report cursor and close it on all exits. Remove ALTER SESSION. Include all states and validate filters consistently.",
+    "reason": "Presentation code should have no persistent session side effects.",
+    "consequence": "Keep explicit formatting for the existing terminal display. Define row visibility by caller scope rather than exposing every request by ID.",
+    "test": "Repeat each report and worker path many times, including exceptions. Inspect open-cursor counts and NLS settings. Query every defined state and verify labels and access rules.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-22",
+    "title": "Legacy helper does not stop sessions and payload sizes are brittle",
+    "priority": "P2",
+    "category": "Maintenance",
+    "anchors": [
+      [
+        "P",
+        1,
+        83,
+        "KILL_SESSION"
+      ],
+      [
+        "B",
+        1325,
+        1352,
+        "JSON and SQL insert"
+      ],
+      [
+        "D",
+        7,
+        27,
+        "payload columns"
+      ]
+    ],
+    "refs": [],
+    "summary": "The standalone file named stop_sessie creates KILL_SESSION but only finds and prints a matching active session. It never invokes termination. JSON details are limited to VARCHAR2(128), and SQL text to VARCHAR2(1000).",
+    "impact": "The helper name implies an action that it does not perform. Long identifiers, process IDs, role lists or SQL text can exceed local/table limits and fail request creation.",
+    "trace": "get_details uses a caller SQL-text variable of 1000 bytes. JSON includes keys plus numeric values and SPID. Role lists can exceed their 2000-byte working strings or 1000-byte table columns.",
+    "question": "Is this standalone procedure a supported entry point?",
+    "answer": "No deployment or caller contract is supplied. Treat it as a diagnostic prototype until the owner confirms otherwise.",
+    "solution": "Remove the prototype from production installation or rename and document it. Store identity in typed columns, use JSON for additional metadata, and make SQL text capture optional CLOB with retention/redaction policy.",
+    "reason": "Typed identity supports indexes and validation. Optional large diagnostics should not prevent a required request record.",
+    "consequence": "Do not silently truncate identity or reason fields. Return an explicit validation error where limits are intentional. Migrate JSON with error-on-error checks.",
+    "test": "Test long usernames, process IDs, many roles, multibyte reason text and SQL longer than 1000 bytes. Verify explicit outcomes and that the helper cannot be mistaken for successful termination.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-23",
+    "title": "ADMIN_LOGGER needs an adapter and a durable workflow boundary",
+    "priority": "P1",
+    "category": "Logger integration",
+    "anchors": [
+      [
+        "D",
+        1,
+        43,
+        "workflow data"
+      ],
+      [
+        "LS",
+        451,
+        487,
+        "logging procedure interfaces"
+      ],
+      [
+        "LB",
+        967,
+        1103,
+        "VARCHAR2 internal_logging"
+      ],
+      [
+        "LB",
+        1871,
+        1881,
+        "LOG_ERROR_FORCE"
+      ]
+    ],
+    "refs": [
+      "AUTO"
+    ],
+    "summary": "ADMIN_SESSIONS_LOG stores current workflow state and approval evidence. It is not interchangeable with the general logger. The local logger is BODY407/SPEC408; the earlier report reviewed version 500.",
+    "impact": "Replacing domain writes with log calls would remove request lookup and approval state. Unverified logger behavior can also mask errors or lose events.",
+    "trace": "The local logger has autonomous writes, filters, forced calls and session state. Its exception INSERT paths have eight placeholders but seven bind values. FORCE still encounters callstack filtering; it is not a persistence acknowledgement.",
+    "question": "Which logging failures may allow termination to continue?",
+    "answer": "Recommended: required request/approval/claim audit must be durable before execution; optional technical diagnostics may fail without replacing the original domain error.",
+    "solution": "Keep domain request data. Add a small adapter around the existing LOG_INFO/WARNING/ERROR_FORCE procedures. Put request_id and attempt_id in every event. Use a transactional outbox for mandatory state-change events when durable delivery is required.",
+    "reason": "The adapter localizes compatibility; the domain store remains the authority. The outbox separates reliable audit from a configurable diagnostic sink.",
+    "consequence": "The supplied concept adapter reports only call completion, not durable delivery. Repair and certify the actual installed logger before making it a mandatory dependency. No version-500 behavior is assumed.",
+    "test": "Test logger off, filter exclusion, table/screen destination, missing config, failing insert, and logger exception handling. Verify domain audit persists and original failures survive logger failures.",
+    "kind": "Confirmed"
+  },
+  {
+    "id": "AS-24",
+    "title": "Shared instrumentation must preserve caller context and avoid excess work",
+    "priority": "P2",
+    "category": "Logger integration",
+    "anchors": [
+      [
+        "B",
+        294,
+        309,
+        "who_called"
+      ],
+      [
+        "B",
+        1329,
+        1333,
+        "repeated identity calls"
+      ],
+      [
+        "LB",
+        995,
+        1002,
+        "logger changes context"
+      ],
+      [
+        "LB",
+        1091,
+        1092,
+        "logger clears context"
+      ]
+    ],
+    "refs": [
+      "APPINFO"
+    ],
+    "summary": "The module repeats dictionary calls for invoking SID/serial/SPID and uses DBMS_OUTPUT for technical feedback. The local logger overwrites MODULE/ACTION/CLIENT_INFO and clears them instead of restoring the caller values.",
+    "impact": "A direct logger substitution can erase application instrumentation. Frequent low-level log calls add queries, autonomous commits and work in a latency-sensitive administrative path.",
+    "trace": "The insert calls invoking-identity functions repeatedly. Each logger event performs configuration and session lookups; no overhead measurement was supplied.",
+    "question": "What is the shared module pattern?",
+    "answer": "Recommended: one entry snapshot, one policy decision, one claim, one engine outcome, one stable correlation ID. Domain code owns identity and policy; ADMIN_LOGGER owns diagnostics only.",
+    "solution": "Use explicit context strings such as ADMIN_SESSION.terminate_confirm. Cache immutable entry facts for one call, not mutable target or permissions across calls. Save and restore module/action/client info around the logger. Avoid global toggle changes.",
+    "reason": "Small shared adapters reduce copied infrastructure without moving session-specific logic into the logger.",
+    "consequence": "Log only significant boundaries by default; capture SQL text separately and redact sensitive data. Restoration failure is reported by the concept adapter and must be tested.",
+    "test": "Set caller instrumentation, log success and failures, and verify exact restoration. Measure dictionary calls, elapsed latency, autonomous commits and concurrent throughput with logging on/off.",
+    "kind": "Confirmed"
+  }
+]

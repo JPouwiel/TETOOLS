@@ -1,0 +1,70 @@
+{
+  "report_id": "AS-20261014-001",
+  "static_checks": {
+    "three_reports": true,
+    "finding_ids": 24,
+    "relative_links_checked": 827,
+    "source_hashes_checked": 10,
+    "source_lines_verified_in_each_report": 4770,
+    "archive_source_bytes_unchanged": true,
+    "embedded_assets": true
+  },
+  "browser": {
+    "browser": "Headless Microsoft Edge / Playwright",
+    "results": [
+      {
+        "file": "01_analysis.html",
+        "search": true,
+        "priority_filter": true,
+        "topic_filter": true,
+        "evidence_filter": true,
+        "expand_collapse": true,
+        "empty_state": true,
+        "print_events_and_restore": true,
+        "source_and_finding_hash_reveal": true,
+        "mobile_no_overflow": true
+      },
+      {
+        "file": "02_detail.html",
+        "search": true,
+        "priority_filter": true,
+        "topic_filter": true,
+        "evidence_filter": true,
+        "expand_collapse": true,
+        "empty_state": true,
+        "print_events_and_restore": true,
+        "source_and_finding_hash_reveal": true,
+        "mobile_no_overflow": true
+      },
+      {
+        "file": "03_solutions.html",
+        "search": true,
+        "priority_filter": true,
+        "topic_filter": true,
+        "evidence_filter": true,
+        "expand_collapse": true,
+        "empty_state": true,
+        "print_events_and_restore": true,
+        "source_and_finding_hash_reveal": true,
+        "mobile_no_overflow": true
+      }
+    ],
+    "errors": [],
+    "limitation": "Print event logic and CSS checked; no physical printer test. No Oracle test."
+  },
+  "oracle": {
+    "compiled": false,
+    "executed": false,
+    "provider_policy_verified": false,
+    "performance_benchmark": false
+  },
+  "concept": {
+    "kind": "Independent new optional diagnostic adapter",
+    "replacement_or_deletion_diff": false,
+    "compiled": false
+  },
+  "limitations": [
+    "No physical printer verification",
+    "External Oracle documentation links consulted online; offline report reading does not require them"
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "report_id": "AS-20261014-001",
+  "date": "2026-10-14",
+  "scope": "Oracle RDBMS 19c",
+  "archive": "[LOCAL_PATH_REDACTED]",
+  "archive_sha256": "2a6fd94283b99dcb12b06a7d57a3273f4c0993a92f8ce50db0519ec225d1b1b5",
+  "baseline": {
+    "folder": "VERSIE_0.301",
+    "spec_file": "20251216.301",
+    "body_file": "20260921_300",
+    "logger_spec": "408",
+    "logger_body": "407",
+    "prior_logger_report": "500; not the local source baseline"
+  },
+  "files": [
+    {
+      "id": "B",
+      "file": "PCK_ADMIN_SESSION_20260921_300.pkb",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/PCK_ADMIN_SESSION_20260921_300.pkb",
+      "sha256": "331c846fe29bde6be9e970da786f3f664583cfe8276cad8a321106b7c89b713a",
+      "bytes": 84409,
+      "encoding": "utf-8-sig",
+      "line_count": 1454
+    },
+    {
+      "id": "S",
+      "file": "PCK_ADMIN_SESSION_20251216.301.pks",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/PCK_ADMIN_SESSION_20251216.301.pks",
+      "sha256": "d588582212c39177a6298a6f7322df97320d9aa60fd3383d7d1f6fc1bc6cb834",
+      "bytes": 20836,
+      "encoding": "utf-8-sig",
+      "line_count": 339
+    },
+    {
+      "id": "D",
+      "file": "TAB_TETOOLS_ADMIN_SESSIONS_20240530.301.sql",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/TAB_TETOOLS_ADMIN_SESSIONS_20240530.301.sql",
+      "sha256": "76db13255b084311eb2903babc3d12ca9fc7cc08e890de2369d341c90194571a",
+      "bytes": 3898,
+      "encoding": "utf-8-sig",
+      "line_count": 75
+    },
+    {
+      "id": "G",
+      "file": "TETOOLS_grants.sql",
+      "path": "work/sessions/ADMIN_SESSION/TETOOLS_grants.sql",
+      "sha256": "2700387b48cc94499db6fb5f9a8a7eb3e5ee5c958c8c79f2641fe8a44b4cb42d",
+      "bytes": 2288,
+      "encoding": "utf-8-sig",
+      "line_count": 38
+    },
+    {
+      "id": "J",
+      "file": "JOB_TETOOLS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/JOB_TETOOLS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "sha256": "18145817f53b165c5ccef2492773c4720d2fdcdbb6a5bf0993e2eefb9c10f444",
+      "bytes": 1332,
+      "encoding": "utf-8-sig",
+      "line_count": 46
+    },
+    {
+      "id": "T",
+      "file": "TRG_ADMIN_SESSIONS_LOG_20260824.301.sql",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/TRG_ADMIN_SESSIONS_LOG_20260824.301.sql",
+      "sha256": "a1baeffeb896608180f565ec4fdfcd5904a52a85ca144dd00ab80da6b79b1b99",
+      "bytes": 322,
+      "encoding": "utf-8-sig",
+      "line_count": 13
+    },
+    {
+      "id": "P",
+      "file": "PROC_TETOOLS.stop_sessie__20251103__300.prc",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/PROC_TETOOLS.stop_sessie__20251103__300.prc",
+      "sha256": "a9bd89d3334bd12e490c2c5f05d18cde1c30d2761170f0d6bfd2e66a6ed22b81",
+      "bytes": 3063,
+      "encoding": "utf-8-sig",
+      "line_count": 83
+    },
+    {
+      "id": "V",
+      "file": "VIEWS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "path": "work/sessions/ADMIN_SESSION/VERSIE_0.301/VIEWS_ADMIN_SESSIONS_LOG_20240530.301.sql",
+      "sha256": "de15811f54855c59d3aa590777f7716e79d839aebc3c1b27c972fedd78dd3aba",
+      "bytes": 1419,
+      "encoding": "utf-8-sig",
+      "line_count": 23
+    },
+    {
+      "id": "LS",
+      "file": "PACKAGE_TETOOLS_ADMIN_LOGGER__20260930_408.pks",
+      "path": "work/logger/TETOOLS.ADMIN_LOGGER/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20260930_408.pks",
+      "sha256": "d3dfad76fdec7ca46593d4793f28afb658fcd4f299ca4f0347ef6a80bf1c6a2f",
+      "bytes": 31119,
+      "encoding": "utf-8-sig",
+      "line_count": 501
+    },
+    {
+      "id": "LB",
+      "file": "PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261005_407.pkb",
+      "path": "work/logger/TETOOLS.ADMIN_LOGGER/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261005_407.pkb",
+      "sha256": "ce530040da600ab13c0e0ba00a018628674f4ed326ccc1168ec3c78db5e415be",
+      "bytes": 92686,
+      "encoding": "utf-8-sig",
+      "line_count": 2198
+    }
+  ],
+  "limitations": [
+    "No Oracle compilation or execution",
+    "Installed source versions, managed-provider privileges, topology and actual grants unknown",
+    "No performance benchmark",
+    "Refactoring concept only; original files unchanged"
+  ],
+  "output_agreement": "Recovered from Analyse ADMIN_LOGGER; local ADMIN_OBJECTS report presentation reused. Historical start approval template does not override the current authorized analysis request."
+}

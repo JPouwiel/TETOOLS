@@ -1,0 +1,43 @@
+{
+  "browser": "Headless Microsoft Edge / Playwright",
+  "results": [
+    {
+      "file": "01_analysis.html",
+      "search": true,
+      "priority_filter": true,
+      "topic_filter": true,
+      "evidence_filter": true,
+      "expand_collapse": true,
+      "empty_state": true,
+      "print_events_and_restore": true,
+      "source_and_finding_hash_reveal": true,
+      "mobile_no_overflow": true
+    },
+    {
+      "file": "02_detail.html",
+      "search": true,
+      "priority_filter": true,
+      "topic_filter": true,
+      "evidence_filter": true,
+      "expand_collapse": true,
+      "empty_state": true,
+      "print_events_and_restore": true,
+      "source_and_finding_hash_reveal": true,
+      "mobile_no_overflow": true
+    },
+    {
+      "file": "03_solutions.html",
+      "search": true,
+      "priority_filter": true,
+      "topic_filter": true,
+      "evidence_filter": true,
+      "expand_collapse": true,
+      "empty_state": true,
+      "print_events_and_restore": true,
+      "source_and_finding_hash_reveal": true,
+      "mobile_no_overflow": true
+    }
+  ],
+  "errors": [],
+  "limitation": "Print event logic and CSS checked; no physical printer test. No Oracle test."
+}

@@ -1,0 +1,174 @@
+{
+  "scope": "Oracle Database 19c",
+  "status": "NOT_EXECUTED",
+  "tests": [
+    {
+      "id": "AS-T01",
+      "finding": "AS-01",
+      "protocol": "Compile spec and body in an isolated 19c schema. Inspect USER_ERRORS and warnings. Gate: no duplicate declaration errors and no unrelated error declarations.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T02",
+      "finding": "AS-02",
+      "protocol": "Compile both declarations and definitions. Call the legacy routine and the new overload with named notation. Test approval and denial and inspect both outputs.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T03",
+      "finding": "AS-03",
+      "protocol": "Install in an empty 19c test schema, verify job actions, run each once, inspect USER_SCHEDULER_JOB_RUN_DETAILS, then repeat the upgrade with deliberately stale attributes.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T04",
+      "finding": "AS-04",
+      "protocol": "Test absent keys, 0, negative, decimal comma, decimal point, expression text, NULL, and normal values. Verify boundary times against a fixed clock fixture.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T05",
+      "finding": "AS-05",
+      "protocol": "Install with only declared prerequisites. Verify compilation and authorized execution. Verify that an unapproved account cannot invoke the worker or read the workflow tables.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T06",
+      "finding": "AS-06",
+      "protocol": "Test own session, another ordinary account, protected operator, nested role, NOT_DBA, revoked permission, and proxy access. Gate: every allowed and denied action matches an explicit matrix.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T07",
+      "finding": "AS-07",
+      "protocol": "Test direct calls for SYS, an Oracle-maintained non-SYS account, a background session, the caller session, and a protected service; confirm that no engine command is issued.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T08",
+      "finding": "AS-08",
+      "protocol": "Use two RAC instances with overlapping SID values and process addresses. Verify exactly one selected identity, correct process, and explicit rejection of incomplete legacy rows.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T09",
+      "finding": "AS-09",
+      "protocol": "On RAC, select a remote target and verify the command contains its instance. Test a same-pair local fixture, fractional input, NULL, and a local compatibility call.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T10",
+      "finding": "AS-10",
+      "protocol": "Request approval, end the target, create a replacement, then approve. Change eligibility and permissions before approval. Gate: stale or no-longer-allowed targets never reach the engine.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T11",
+      "finding": "AS-11",
+      "protocol": "Test several child cursors, idle target, NULL SQL_ID, aged-out cursor and changing SQL. Gate: one target record, nullable diagnostics, deterministic result status.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T12",
+      "finding": "AS-12",
+      "protocol": "Execute the same SQL from two sessions, sample its child cursor, and confirm the report labels cumulative cursor values and microseconds rather than target-session elapsed time.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T13",
+      "finding": "AS-13",
+      "protocol": "Test IDs 999, 1000, and a larger generated value; inspect returned references. Verify the primary-key constraint and migrate only after duplicate/NULL diagnostics pass.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T14",
+      "finding": "AS-14",
+      "protocol": "Simulate ORA-00031 with a worker test double, then test a real managed test session where possible. Verify M is stored, no killed claim is emitted, and reconciliation can advance it.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T15",
+      "finding": "AS-15",
+      "protocol": "Feed each engine outcome into direct and confirmation paths. Require identical domain classification. Test unexpected engine error and inspect all returned outputs and persisted states.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T16",
+      "finding": "AS-16",
+      "protocol": "Force a constraint error, invalid trigger, missing row, and denied dictionary access. Gate: no engine invocation; original error remains available even when the logger also fails.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T17",
+      "finding": "AS-17",
+      "protocol": "Run two simultaneous requests, two approvals, approval versus cancellation, and crash points before/after claim and command. Gate: one claim, no blind repeat, and visible uncertain outcomes.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T18",
+      "finding": "AS-18",
+      "protocol": "Create an unrelated uncommitted sentinel update, call each API, then rollback. Verify the stated contract. Test autonomous code against caller-held workflow locks for deadlocks.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T19",
+      "finding": "AS-19",
+      "protocol": "Exercise initial denial, repeated denial, each terminal transition, and direct metadata updates. Verify no hidden trigger error and no unauthorized terminal outcome change.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T20",
+      "finding": "AS-20",
+      "protocol": "Test exact cutoff, old C, old O, active X, marked M, old E, concurrent approval, and both historical job orders. Gate: no executing request becomes a normal expired request.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T21",
+      "finding": "AS-21",
+      "protocol": "Repeat each report and worker path many times, including exceptions. Inspect open-cursor counts and NLS settings. Query every defined state and verify labels and access rules.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T22",
+      "finding": "AS-22",
+      "protocol": "Test long usernames, process IDs, many roles, multibyte reason text and SQL longer than 1000 bytes. Verify explicit outcomes and that the helper cannot be mistaken for successful termination.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T23",
+      "finding": "AS-23",
+      "protocol": "Test logger off, filter exclusion, table/screen destination, missing config, failing insert, and logger exception handling. Verify domain audit persists and original failures survive logger failures.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    },
+    {
+      "id": "AS-T24",
+      "finding": "AS-24",
+      "protocol": "Set caller instrumentation, log success and failures, and verify exact restoration. Measure dictionary calls, elapsed latency, autonomous commits and concurrent throughput with logging on/off.",
+      "status": "NOT_EXECUTED",
+      "actual_result": null
+    }
+  ]
+}

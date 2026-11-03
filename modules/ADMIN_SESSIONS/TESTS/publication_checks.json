@@ -1,0 +1,35 @@
+{
+  "revision": "AS-PUB-20261103-001",
+  "date": "2026-11-03",
+  "source_baseline": "Eight retained extraction hashes match historical manifest; no later repaired source found",
+  "source_checks": "PASS",
+  "sanitization": "Line order preserved; personal author/local paths removed in copies only",
+  "privacy_scan": {
+    "status": "PASS_TARGETED_SCAN",
+    "patterns": [
+      "private_key",
+      "github_token",
+      "assigned_password",
+      "personal_author",
+      "local_personal_path",
+      "email",
+      "internal_domain"
+    ],
+    "limitations": "Targeted patterns and source inspection; not a mathematical guarantee of absence of sensitive data"
+  },
+  "original_archive": "NOT_AVAILABLE on publication day; historical hash retained",
+  "historical_browser_tests": "Recorded 2026-10-14 evidence retained; not rerun for publication derivatives",
+  "oracle_compilation": "NOT_EXECUTED",
+  "oracle_runtime": "NOT_EXECUTED",
+  "oracle_rac_concurrency_recovery": "NOT_EXECUTED",
+  "performance": "NOT_EXECUTED",
+  "logger_500_compatibility": "NOT_EXECUTED",
+  "repository_preflight": {
+    "identity": "JPouwiel",
+    "access": "admin/push/pull confirmed",
+    "open_pull_requests": 0,
+    "module_path_preexisting": false,
+    "session_branch_matches": "Only unrelated relay/session-ledger-provenance-20261103 branch found",
+    "other_session_work": "No other ADMIN_SESSIONS entry in available relay/chat inventory; not full historical coverage"
+  }
+}

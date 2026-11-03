@@ -1,0 +1,3 @@
+# PM-001 004 installatiecorrectie (niet-bevroren werkexemplaar)
+
+Dit is de actuele uitvoeringsset met DBA-/schema-aanduidingen en een begrensd quota-voorbeeld. De oorspronkelijke release 004 blijft bytegelijk en historisch controleerbaar. Gebruik voor installatie en tests de scripts en RUNBOOK.md uit **deze** map, niet de oude release-scripts. De onderlinge relatieve SQL-verwijzingen zijn behouden. Er zijn geen functionele PL/SQL-wijzigingen aangebracht, alleen commentaar en runbooktekst. Het quota 100M is een voorbeeld; de DBA kiest de echte waarde en het juiste default tablespace. De Oracle 19c-runtimevalidatie blijft NOT_EXECUTED.

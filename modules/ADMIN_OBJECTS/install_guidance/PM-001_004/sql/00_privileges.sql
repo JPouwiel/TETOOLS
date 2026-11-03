@@ -1,0 +1,34 @@
+-- EXECUTION ROLE: local PDB DBA / security administrator in the TARGET test PDB.
+-- DO NOT execute this template as AO4_POC_<suffix>.
+-- Example preparation (review and replace identifiers/password via secure DBA process):
+-- CREATE USER AO4_POC_PM001004 IDENTIFIED BY <secure_password>
+--   DEFAULT TABLESPACE <test_tablespace> TEMPORARY TABLESPACE <temp_tablespace>;
+-- ALTER USER AO4_POC_PM001004 QUOTA 100M ON <test_tablespace>;
+-- 100M is an illustrative bounded quota, NOT a verified capacity requirement.
+-- The quota must apply to the user's actual DEFAULT TABLESPACE.
+-- Verify DBA_USERS.DEFAULT_TABLESPACE and DBA_TS_QUOTAS before installation.
+-- DBA REVIEW TEMPLATE ONLY. Execute selected grants manually in TARGET PDB.
+-- Replace <AO4_POC_SUFFIX> with a NEW empty disposable local user, not TETOOLS.
+-- Schema creation, password policy, quota and test tablespace are DBA responsibilities.
+-- GRANT CREATE SESSION, CREATE TABLE, CREATE PROCEDURE, CREATE VIEW TO <AO4_POC_SUFFIX>;
+-- GRANT EXECUTE ON SYS.DBMS_CRYPTO TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.GV_$INSTANCE TO <AO4_POC_SUFFIX>;
+-- PUBLIC normally supplies EXECUTE on DBMS_SQL, DBMS_LOB, UTL_RAW, UTL_I18N.
+-- If revoked, grant those four packages directly as well.
+-- Prefer CDB views. DBA view grants are needed only for the explicit DBA route.
+-- Stored definer-rights code needs direct grants; a role alone is insufficient.
+-- GRANT SELECT ON SYS.CDB_TABLES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_EXTERNAL_TABLES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_TAB_COLS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_CONSTRAINTS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_CONS_COLUMNS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_INDEXES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.CDB_IND_COLUMNS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_TABLES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_EXTERNAL_TABLES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_TAB_COLS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_CONSTRAINTS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_CONS_COLUMNS TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_INDEXES TO <AO4_POC_SUFFIX>;
+-- GRANT SELECT ON SYS.DBA_IND_COLUMNS TO <AO4_POC_SUFFIX>;
+-- No common user, SET CONTAINER, ALTER SYSTEM or production write privilege is needed.

@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Connect to a NEW EMPTY AO4_POC_<suffix> schema in the target PDB first.
 -- DBA grants/quota are a separate reviewed action; this driver grants nothing.
 whenever oserror exit failure rollback

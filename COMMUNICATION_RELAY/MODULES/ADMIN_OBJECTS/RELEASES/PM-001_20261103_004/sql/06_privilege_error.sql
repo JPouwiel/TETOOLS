@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> (after DBA revoke; new connection) in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- After 04_verify_persistence, BEFORE cleanup. DBA first revokes only
 -- SELECT ON SYS.CDB_TABLES from this disposable user in the target PDB.
 -- Run as the disposable user in a NEW session. DBA restores that direct grant after.

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "policy": "registration_is_explicit_not_presence_detection",
+  "sessions": [
+    {
+      "session_id": "01a1a002-714e-7123-9778-8c26d79d0d72",
+      "role": "REGIE",
+      "module": "ADMIN_OBJECTS",
+      "subject": "PM-001",
+      "revision": "004",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "SESSIONS/REGIE/20261103.md",
+      "deliverables": [
+        "MODULES/ADMIN_OBJECTS/REVIEW/REGIE_004.md"
+      ],
+      "open_dependencies": [
+        "HIST-01",
+        "HIST-02"
+      ],
+      "recorded_by": "relay implementation 2026-11-03",
+      "note": "Status is documented historical work, not proof that the chat is currently running; no deletion approval."
+    },
+    {
+      "session_id": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "role": "WORK_IMPLEMENTATION",
+      "module": "ADMIN_OBJECTS",
+      "subject": "PM-001",
+      "revision": "004",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-03",
+      "closed_at": null,
+      "source_reference": "MODULES/ADMIN_OBJECTS/README.md",
+      "deliverables": [
+        "MODULES/ADMIN_OBJECTS/RELEASES/PM-001_20261103_004/"
+      ],
+      "open_dependencies": [
+        "VAL-01"
+      ],
+      "recorded_by": "relay implementation 2026-11-03",
+      "note": "Work completion recorded in repository; no claim that original session has been deleted or archived."
+    }
+  ]
+}

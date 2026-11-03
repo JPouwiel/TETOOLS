@@ -36,3 +36,7 @@ installatiehashes voor Oracle-objecten.
 - MODULE_REGISTRY.md registreert de modules van het project.
 - SESSIONS/REGIE/20261103.md is historische verantwoording, geen actuele status.
 - De module ADMIN_OBJECTS in het bestaande manifest is de focus van de eerste publicatie; de relay is projectbreed.
+
+## Sessies en herkomst
+
+Lees RELAY_CONTRACT.md voor de verplichte werkwijze. SESSION_REGISTRY.json registreert sessies en bewaarbeoordelingen; CHANGE_REGISTER.json legt wijzigingen aan afspraken, besluiten en open punten herleidbaar vast. Gebruik tools/validate_relay.py voor structurele validatie. Registratie is expliciet, niet automatisch.

@@ -12,3 +12,7 @@ Project: PLSQL_TETOOLS. Datum: 2026-11-03.
 | Retourtest tussen verschillende sessies | Nog niet uitgevoerd; lagere prioriteit |
 
 Historische gebeurtenissen en eerdere toegangsproblemen staan in SESSIONS/REGIE/20261103.md. Gebruik dat verslag niet als actuele statusbron. Wijzigingen aan deze status en de module-index worden via branches en pull requests voorgesteld.
+
+## Relay-functionaliteit
+
+Sessieregistratie: SESSION_REGISTRY.json. Herkomst en wijzigingshistorie: CHANGE_REGISTER.json, aangevuld met module-registers en Git-commits. Gebruik RELAY_CONTRACT.md en tools/validate_relay.py. De eerste registratie is een conservatieve inventarisatie; niet alle bestaande chats zijn geïnventariseerd. De functionaliteit vereist dat elke sessie haar wijzigingen daadwerkelijk publiceert.

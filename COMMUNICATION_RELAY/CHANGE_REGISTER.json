@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "description": "Append-only logical change ledger; corrections add new records rather than rewriting historical assertions. Git commits provide physical history.",
+  "records": [
+    {
+      "change_id": "RELAY-20261103-001",
+      "record_type": "RELAY_POLICY",
+      "module": null,
+      "subject": "Central status and module registry",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/2",
+      "origin_session": "01a1a002-714e-7123-9778-8c26d79d0d72",
+      "recorded_by_session": "current regie chat; exact thread ID not exposed",
+      "approved_by": "user request in current chat",
+      "recorded_at": "2026-11-03",
+      "supersedes": null,
+      "artifact_refs": [
+        "CURRENT_STATUS.md",
+        "MODULE_REGISTRY.md"
+      ]
+    },
+    {
+      "change_id": "RELAY-20261103-002",
+      "record_type": "RELAY_POLICY",
+      "module": null,
+      "subject": "Session lifecycle and provenance registry",
+      "status": "IMPLEMENTED",
+      "source_reference": "user approval in current conversation on 2026-11-03",
+      "origin_session": "current regie chat; exact thread ID not exposed",
+      "recorded_by_session": "current regie chat; exact thread ID not exposed",
+      "approved_by": "user request in current chat",
+      "recorded_at": "2026-11-03",
+      "supersedes": null,
+      "artifact_refs": [
+        "SESSION_REGISTRY.json",
+        "RELAY_CONTRACT.md"
+      ]
+    }
+  ]
+}

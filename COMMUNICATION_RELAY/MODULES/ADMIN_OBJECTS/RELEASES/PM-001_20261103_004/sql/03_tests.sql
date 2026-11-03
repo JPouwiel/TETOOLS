@@ -1,3 +1,5 @@
+-- EXECUTION ROLE: AO4_POC_<suffix> in the target disposable Oracle 19c test PDB.
+-- DBA preparation (user/default tablespace/quota/direct grants) must finish first.
 -- Run once after 01_setup.sql and 02_package.sql, in the same disposable PDB schema.
 whenever oserror exit failure rollback
 whenever sqlerror exit failure rollback

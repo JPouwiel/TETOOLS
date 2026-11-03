@@ -10,7 +10,17 @@
 -- DBA REVIEW TEMPLATE ONLY. Execute selected grants manually in TARGET PDB.
 -- Replace <AO4_POC_SUFFIX> with a NEW empty disposable local user, not TETOOLS.
 -- Schema creation, password policy, quota and test tablespace are DBA responsibilities.
--- GRANT CREATE SESSION, CREATE TABLE, CREATE PROCEDURE, CREATE VIEW TO <AO4_POC_SUFFIX>;
+-- GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE PROCEDURE, CREATE VIEW TO <AO4_POC_SUFFIX>;
+-- CREATE SEQUENCE permits explicit sequences in the user's own schema.
+-- Identity columns use an Oracle-managed sequence; do not assume that this
+--   alone proves CREATE SEQUENCE is required for an identity column.
+-- No CREATE INDEX system privilege exists for this same-schema use case:
+--   the owner may create an index on its own table, including PK indexes.
+-- Do NOT grant CREATE ANY INDEX or CREATE ANY SEQUENCE for this PoC.
+-- Oracle 19c sources:
+-- https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html
+-- https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html
+-- https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html
 -- GRANT EXECUTE ON SYS.DBMS_CRYPTO TO <AO4_POC_SUFFIX>;
 -- GRANT SELECT ON SYS.GV_$INSTANCE TO <AO4_POC_SUFFIX>;
 -- PUBLIC normally supplies EXECUTE on DBMS_SQL, DBMS_LOB, UTL_RAW, UTL_I18N.

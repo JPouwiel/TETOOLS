@@ -37,9 +37,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 2185,
-      "sha256": "7b5d08959f7ad95c444bf8669773c42b34e3e768d60ad97db86d3ea68e0958ea",
-      "git_blob_sha": "f6edb09836fd90d58ea1908bec87368bd4e498d8"
+      "bytes": 6483,
+      "sha256": "0f800d4b473dbea415385e7c5109e01fdef21e821da51eb44469aa6588966cff",
+      "git_blob_sha": "0de320e974b1ffbabec92491d0ca66e3d3c750f9"
     },
     {
       "path": "RELEASES/ATN-20261028-001_SANITIZED/20261028__TETOOLS__ADMIN_TNSNAMES__analyse__20260921_301_STE_001.html",
@@ -233,5 +233,7 @@
       "sha256": "8b458c999402967aa48a1e93d0569c459018b96a54b5c20083909997a66bfb09",
       "git_blob_sha": "830125d0c5a43e42b3804376b5b0b5c921ad57ff"
     }
-  ]
+  ],
+  "documentation_revision": "README-20261103-001",
+  "documentation_base_commit": "2c51f99cfde2d3773ed83e610f6169b4f9df9b55"
 }

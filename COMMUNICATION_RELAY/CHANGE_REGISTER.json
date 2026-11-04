@@ -258,6 +258,28 @@
         "SUITE_ARCHITECTURE.md"
       ],
       "disposition": "INVESTIGATE"
+    },
+    {
+      "change_id": "CFG-20261104-001",
+      "record_type": "DOCUMENTATION_PUBLICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Consolidate TETOOLS configuration guides with Windows steps and cumulative PDF",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; user request in current session 2026-11-04",
+      "origin_session": "6ae9e9eb-6400-83eb-859c-580027d25466",
+      "recorded_by_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "approval_actor": "user (documentation publication scope)",
+      "approved_by": "user request 2026-11-04; not merge or architecture approval",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-04",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "844208c31ad98b7ba646ada5b58539c599f665b5",
+      "artifact_refs": [
+        "../docs/CONFIGURATION/README.md",
+        "../docs/CONFIGURATION/MANIFEST.json"
+      ],
+      "note": "Branch/PR proposal only; no IMPLEMENTED claim before merge and main readback."
     }
   ]
 }

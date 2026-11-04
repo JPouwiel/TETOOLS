@@ -1,0 +1,54 @@
+{
+  "AGENTS_GUIDE.md": {
+    "sha256": "a958562791f88fd884258261cbe3001440ae59e4ee39504ac8af51e373f12f2f",
+    "bytes": 1668
+  },
+  "CHATGPT_CUSTOM_INSTRUCTIONS.md": {
+    "sha256": "ae7662667d784d4837b4f74b47bacb70cf235346c8a62ca7a52e94821abc353e",
+    "bytes": 1572
+  },
+  "CHATGPT_PROJECT_INSTRUCTIONS.md": {
+    "sha256": "18ff689a76072eb6bd23c57b6056c19c5f8416ff625e759e27ba01994ba51be1",
+    "bytes": 2308
+  },
+  "CODEX_CUSTOM_INSTRUCTIONS.md": {
+    "sha256": "698869b17d7229a998c1ddacc05ea0f29942f6b0921b022163a8a2eb84f91d45",
+    "bytes": 1677
+  },
+  "CODEX_VERIFICATION.md": {
+    "sha256": "f76931f25c6b8b61c7520bfbff354fb92802098bfe357401d3963fa90b5886c3",
+    "bytes": 1824
+  },
+  "GITHUB_SETUP.md": {
+    "sha256": "6667b43de404eebe9ff887b142334f733d531fa8147c9ad6f5e1770b807a38e4",
+    "bytes": 2529
+  },
+  "INVENTORY_AND_SOURCES.md": {
+    "sha256": "c7b168f65aff928c062aef53d4d9ad5b96e9d3a4ede7f2e3dc7cb0aeb0658fe6",
+    "bytes": 4149
+  },
+  "LOCAL_GIT_WINDOWS_SETUP.md": {
+    "sha256": "41c0816fc99c021a06462edf6d1641d414d7e269809e8fb4752273a9d46a0414",
+    "bytes": 2495
+  },
+  "PROJECT_INSTRUCTIONS.txt": {
+    "sha256": "7947f95985fdb0efdca477427f86ac071a418317ba088776d0dccfde7fcb98ce",
+    "bytes": 1569
+  },
+  "README.md": {
+    "sha256": "7719683dfb541e6cbb5ba8877ca7c8252e04179ba7cff40ced56ed4ce10b1a4b",
+    "bytes": 1771
+  },
+  "RELAY_WORKFLOW.md": {
+    "sha256": "47e679e04e65a55b3fd71378cd794ca374084fd9e014e56c0d3d4fe56a470e70",
+    "bytes": 2694
+  },
+  "TETOOLS_CONFIGURATION.pdf": {
+    "sha256": "d007d8baa2d18784456ee57ecd598459306d8e1cf0e1cef6b4fdcd3b78a7ccef",
+    "bytes": 61747
+  },
+  "VALIDATION.json": {
+    "sha256": "882df20fe8485989b4c36cf21c482332227377e0bb4196aa356b12352c19d89f",
+    "bytes": 826
+  }
+}

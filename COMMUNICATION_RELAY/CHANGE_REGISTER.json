@@ -280,6 +280,29 @@
       "test_only": true,
       "revision": "001",
       "supersedes": null
+    },
+    {
+      "change_id": "LOGGER-RELAY-ACTIVITY-20261104-001",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "source_reference": "ADMIN_LOGGER__REGIE conversation 2026-11-04; user approved implementation of central session activity tracking; exact thread URL UNVERIFIED",
+      "subject": "Project-wide current activity field for registered relay sessions",
+      "observed_facts": "User explicitly requests each registered session to show its current task and clear it on completion; rejects separate RAC-specific progress files.",
+      "potential_cross_module_impact": "Changes session registry schema, relay contract, activity lifecycle and display for all module and central sessions.",
+      "affected_modules": "ALL_REGISTERED_SESSIONS",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-04",
+      "recorded_by_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "artifact_refs": [
+        "SESSION_REGISTRY.json",
+        "RELAY_CONTRACT.md"
+      ],
+      "revision": "001",
+      "supersedes": null,
+      "note": "Central TETOOLS__REGIE disposition requested before project-wide contract implementation. Proposed semantics: current_activity with status and last_confirmed_at; clear on completion while retaining deliverable evidence; no implicit automatic heartbeat or session closure. User approved work, central architectural decision pending."
     }
   ]
 }

@@ -334,6 +334,35 @@
         "RELAY_CONTRACT.md",
         "https://github.com/JPouwiel/TETOOLS/issues/23"
       ]
+    },
+    {
+      "change_id": "REGIE-RETENTION-20261104-001",
+      "record_type": "SUITE_GOVERNANCE_DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Option A: read-only session inventory and retention review",
+      "status": "APPROVED",
+      "source_reference": "TETOOLS__REGIE owner approval on 2026-11-04; exact chat message URL UNVERIFIED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "user",
+      "approved_by": "user explicitly requested Option A implementation and repository publication",
+      "recorded_at": "2026-11-04",
+      "revision": "001",
+      "supersedes": null,
+      "related_change_id": "REGIE-ACTIVITY-20261104-001",
+      "impact": "Project-wide read-only review for registered sessions; no schema or ChatGPT deletion capability",
+      "artifact_refs": [
+        "SESSION_RETENTION_REVIEW.md",
+        "tools/session_retention_review.py",
+        "RELAY_CONTRACT.md"
+      ],
+      "limitations": [
+        "Only registered sessions",
+        "No automatic proof of chat inactivity, context preservation, or deletion",
+        "No current_activity implementation",
+        "No automatic deletion"
+      ]
     }
   ]
 }

@@ -303,6 +303,37 @@
       "revision": "001",
       "supersedes": null,
       "note": "Central TETOOLS__REGIE disposition requested before project-wide contract implementation. Proposed semantics: current_activity with status and last_confirmed_at; clear on completion while retaining deliverable evidence; no implicit automatic heartbeat or session closure. User approved work, central architectural decision pending."
+    },
+    {
+      "change_id": "REGIE-ACTIVITY-20261104-001",
+      "record_type": "SUITE_IMPACT_DISPOSITION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
+      "subject": "Central review of session current_activity tracking",
+      "status": "PROPOSED",
+      "disposition": "INVESTIGATE",
+      "recorded_at": "2026-11-04",
+      "revision": "001",
+      "supersedes": null,
+      "related_change_id": "LOGGER-RELAY-ACTIVITY-20261104-001",
+      "approval_actor": "TETOOLS__REGIE (triage only; no owner architecture approval)",
+      "rationale": "Need for one visible current task per registered session is accepted for investigation. No final schema or lifecycle standard approved; manual updates only. Existing session status and task state must not be conflated.",
+      "proposed_design": "Optional current_activity object in SESSION_REGISTRY, with task_reference (GitHub Issue or change ID), summary, state (WORKING, WAITING, BLOCKED), started_at, last_updated_at; null/absent means no declared current task, not chat inactivity. Clear after completion while preserving evidence in deliverables/Issue. Do not change existing session status, closed_at, last_confirmed_at semantics. No automatic heartbeat, cross-chat updates, or inferred presence.",
+      "open_decisions": [
+        "Owner approval of exact schema and task-state values",
+        "Define write ownership, concurrency and stale-entry presentation",
+        "Validate existing registry compatibility and validator migration before implementation"
+      ],
+      "implementation_status": "NOT_AUTHORIZED",
+      "artifact_refs": [
+        "SESSION_REGISTRY.json",
+        "RELAY_CONTRACT.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/23"
+      ]
     }
   ]
 }

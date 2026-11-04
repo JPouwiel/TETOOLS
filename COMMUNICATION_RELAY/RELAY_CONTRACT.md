@@ -41,3 +41,7 @@ Signalering is **geen automatische notificatie of chatsynchronisatie**. TETOOLS_
 ## Handmatige overdracht tussen sessies (2026-11-04)
 
 De goedgekeurde procedure staat in [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). De verzender registreert een uitvoerbaar verzoek in een GitHub Issue en levert een volledig ingevuld kopieerbaar bericht. De ontvanger leest het Issue en de bronnen zelfstandig, verwerkt binnen de bevoegdheden en legt resultaat en bewijs vast. Het doorgeven door de gebruiker is geen goedkeuring. Issues vervangen geen formele besluitenregisters. Geen hooks of automatische activering.
+
+## Sessiebeoordeling en opruimadvies — optie A (goedgekeurd 2026-11-04)
+
+Gebruik [SESSION_RETENTION_REVIEW.md](SESSION_RETENTION_REVIEW.md) en de read-only tool `tools/session_retention_review.py` voor een inventarisatie van geregistreerde sessies. De tool toont lifecycle, retention-status, open afhankelijkheden en redenen voor nadere beoordeling. De tool kan niet zelfstandig vaststellen of een ChatGPT-chat bestaat, of unieke context volledig is veiliggesteld, of een chat verwijderd is. Verouderde tijdstempels zijn alleen een onderzoekssignaal. Er worden geen automatische verwijderadviezen of acties uitgevoerd; expliciete toestemming en afzonderlijke verificatie blijven vereist. De huidige betekenis van `current_activity` en `SESSION_REGISTRY.json` blijft ongewijzigd.

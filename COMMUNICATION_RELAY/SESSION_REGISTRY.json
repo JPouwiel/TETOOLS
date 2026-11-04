@@ -209,6 +209,33 @@
         "RAC-ARCH-03"
       ],
       "note": "Registration performed by this session. User-approved governance; RAC technical effects not validated."
+    },
+    {
+      "session_id": "ADMIN_LOGGER-REGIE-20261104-01",
+      "session_id_origin": "LOCALLY_ASSIGNED_KEY_NOT_CHAT_THREAD_ID",
+      "role": "REGIE",
+      "module": "ADMIN_LOGGER",
+      "subject": "Module governance; RELAY-E2E-20261104-001 KT-01 applicability and KT-02 session registration",
+      "revision": "relay-v1 / 2026-11-04",
+      "status": "REGISTERED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-04",
+      "last_confirmed_at": "2026-11-04",
+      "closed_at": null,
+      "source_reference": "Current ADMIN_LOGGER__REGIE conversation 2026-11-04; exact thread ID unavailable",
+      "recorded_by": "ADMIN_LOGGER-REGIE-20261104-01",
+      "deliverables": [
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json"
+      ],
+      "open_dependencies": [
+        "LOG-OPEN-01",
+        "LOG-OPEN-02",
+        "LOG-OPEN-03",
+        "LOG-OPEN-04",
+        "LOG-OPEN-05",
+        "RELAY-E2E-20261104-001 KT-03 awaiting separate user confirmation"
+      ],
+      "note": "KT-02 registration attempt; KT-03 not authorized. Acceptance protocol text not located on main via search; KT-01 criteria cannot be fully verified."
     }
   ]
 }

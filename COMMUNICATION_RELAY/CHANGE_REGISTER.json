@@ -258,6 +258,28 @@
         "SUITE_ARCHITECTURE.md"
       ],
       "disposition": "INVESTIGATE"
+    },
+    {
+      "change_id": "LOGGER-KT03-20261104-001",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "source_reference": "ADMIN_LOGGER__REGIE 2026-11-04 user approval for KT-03; exact message link UNVERIFIED",
+      "subject": "HYPOTHETICAL TEST ONLY: RAC instance-context session correlation",
+      "observed_facts": "No actual defect observed; purely hypothetical test record.",
+      "potential_cross_module_impact": "HYPOTHESIS ONLY: RAC instance identity may matter for correlation across modules.",
+      "affected_modules": "UNKNOWN",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-04",
+      "recorded_by_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/OPEN_POINTS.md"
+      ],
+      "test_only": true,
+      "revision": "001",
+      "supersedes": null
     }
   ]
 }

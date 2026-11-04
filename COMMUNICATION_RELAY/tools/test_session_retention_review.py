@@ -14,7 +14,7 @@ class ReviewTests(unittest.TestCase):
     def test_conservative_even_without_open_dependencies(self):
         rows = assess(dict(project="PLSQL_TETOOLS", sessions=[entry()]), dt.date(2026, 11, 4))
         self.assertEqual(rows[0]["recommendation"], "REVIEW")
-        self.assertIn("Independent preservation/dependency verification required", rows[0]["reasons"])
+        self.assertIn("Work completed, chat closure not evidenced", rows[0]["reasons"])
 
     def test_keep_never_overridden(self):
         rows = assess(dict(project="PLSQL_TETOOLS", sessions=[entry(retention_status="KEEP")]), dt.date(2026, 11, 4))

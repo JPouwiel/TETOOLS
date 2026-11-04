@@ -258,6 +258,32 @@
         "SUITE_ARCHITECTURE.md"
       ],
       "disposition": "INVESTIGATE"
+    },
+    {
+      "change_id": "LOGGER-KT03-20261104-001",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "source_reference": "ADMIN_LOGGER__REGIE conversation 2026-11-04; explicit user approval 'KT-03 is akkoord'; exact message URL UNVERIFIED",
+      "subject": "KT-03 HYPOTHETICAL TESTSIGNALERING - RAC session identity and logger correlation",
+      "observed_facts": "HYPOTHETICAL TEST DATA ONLY. No actual defect or cross-module impact observed. Project start protocol documents a three-node RAC target; no Oracle runtime verification.",
+      "potential_cross_module_impact": "HYPOTHESIS ONLY: instance-specific session identifiers may require explicit instance context when correlating ADMIN_LOGGER events with other ADMIN_* modules in a three-node RAC deployment.",
+      "affected_modules": "UNKNOWN",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-04",
+      "recorded_by_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "approval_actor": "user (authorization to execute hypothetical KT-03 test only; NOT approval of technical claim)",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/OPEN_POINTS.md",
+        "START_HERE_TETOOLS_REGIE.md"
+      ],
+      "test_protocol": "RELAY-E2E-20261104-001 / KT-03",
+      "test_only": true,
+      "note": "SIMULATED/HYPOTHETICAL; no real issue, implementation, or architecture decision. Central regie should classify as test and must not treat as genuine suite-impact signal."
     }
   ]
 }

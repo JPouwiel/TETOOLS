@@ -790,6 +790,35 @@
         "../modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_FINDINGS.json"
       ],
       "verification": "Five source blobs checked; static links and 13 JS harness checks pass. Oracle NOT_EXECUTED; real-browser layout NOT_EXECUTED. Merge/main readback follows publication."
+    },
+    {
+      "change_id": "LOGGER-RAC-A-20261105-002",
+      "record_type": "ANALYSIS_PUBLICATION_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Report A main-readback verification and cumulative dossier handover",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/50",
+      "origin_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "recorded_by_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "recorded_at": "2026-11-05",
+      "revision": "002",
+      "supersedes": "LOGGER-RAC-A-20261105-001",
+      "approval_actor": "user",
+      "approved_by": "Issue #47 and explicit current-chat handoff authorize report A/dossier publication, registration, merge/readback; no source changes",
+      "merge_commit": "e4d9668b741a3f2a2b67d76b7539fc8975028591",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/50",
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_dossier_cumulatief_034.pdf",
+        "../modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_VERIFICATION.json"
+      ],
+      "verification": "5 report-publication files fetched from main and exact text matched; 382 other blobs unchanged. Five source identities matched; static links and 13 script harness checks passed. PDF: 23 rendered pages visually inspected. This record confirms HTML publication; own dossier-PR merge/readback audit follows in Issue #47.",
+      "dependencies": [
+        "Issue #47: module-regie receipt/ownership pending",
+        "LOGGER-RAC-20261105-001: central assessment pending"
+      ],
+      "note": "IMPLEMENTED refers to publication/verification, not a code fix, architecture acceptance or Oracle runtime. KEEP. LOG-OPEN-01 broader review and LOG-OPEN-02..05 remain open."
     }
   ]
 }

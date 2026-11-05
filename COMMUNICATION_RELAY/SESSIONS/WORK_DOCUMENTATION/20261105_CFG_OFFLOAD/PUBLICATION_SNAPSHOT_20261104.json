@@ -1,0 +1,20 @@
+{
+  "commit": "6801dc1704101379524bcdd663c59633c3864b1a",
+  "expected_files": 16,
+  "mismatches": [],
+  "unrelated_blobs_checked": 306,
+  "unrelated_changes": [],
+  "truncated": false,
+  "pr": "https://github.com/JPouwiel/TETOOLS/pull/17",
+  "pr_state": "open",
+  "merged": false,
+  "mergeable": true,
+  "library": {
+    "status": "UPLOADED_UI_VERIFIED",
+    "folder": "https://chatgpt.com/library/d/6ac491ebe49c819186ec0e9b97914339?tab=all",
+    "count": 14
+  },
+  "main_registration": "NOT_REGISTERED_ON_MAIN_PENDING_MERGE",
+  "baseline_validator": "FAIL: same three existing approved_by omissions",
+  "windows_setup": "DOCUMENTED_NOT_APPLIED"
+}

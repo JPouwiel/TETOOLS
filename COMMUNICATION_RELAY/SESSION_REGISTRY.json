@@ -266,6 +266,31 @@
       "open_dependencies": [],
       "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466.",
       "result": "Issue #23 minimal activity management implemented; 16 tests PASS; main implementation readback verified. Own activity removed with completion. Final delivery publication verified via linked PR and Issue; retention KEEP, no chat closure/deletion claim."
+    },
+    {
+      "session_id": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "session_id_origin": "CODEX_SESSION_KEY_NOT_INDEPENDENTLY_VERIFIED_CHATGPT_THREAD_ID",
+      "role": "WORK_DOCUMENTATION",
+      "module": null,
+      "subject": "TETOOLS configuration documentation and verified session offload",
+      "revision": "CFG-20261104-001 / OFFLOAD-20261105-001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+      "recorded_by": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "deliverables": [
+        "../docs/CONFIGURATION/",
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+        "https://github.com/JPouwiel/TETOOLS/pull/17",
+        "https://github.com/JPouwiel/TETOOLS/issues/30"
+      ],
+      "open_dependencies": [
+        "OFFLOAD-MAIN-READBACK"
+      ],
+      "note": "Original work 2026-11-04; registration proposed in PR17 then absent on main. Current offload retains existing key without claiming a verified ChatGPT thread ID. Windows follow-up handed to Issue30; KEEP until main readback and preservation review."
     }
   ]
 }

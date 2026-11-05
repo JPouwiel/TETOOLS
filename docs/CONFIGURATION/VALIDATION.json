@@ -1,0 +1,19 @@
+{
+  "revision": "CFG-20261104-001",
+  "base_commit": "844208c31ad98b7ba646ada5b58539c599f665b5",
+  "checks": {
+    "markdown": "10 guides plus project instruction text",
+    "pdf": "13 pages rendered and visually inspected; Courier New 11 code",
+    "relay_validator": "FAIL: three pre-existing missing approved_by fields; identical baseline/staged output",
+    "new_records": "Unique IDs; allowed statuses; provenance and artifact references supplied",
+    "windows_execution": "NOT_EXECUTED: documentation only",
+    "oracle": "NOT_APPLICABLE",
+    "library": "Upload to existing PLSQL folder in progress",
+    "merge": "NOT_PERFORMED"
+  },
+  "pre_existing_validator_errors": [
+    "REGIE-20261103-002: missing approved_by",
+    "REGIE-20261103-003: missing approved_by",
+    "REGIE-20261103-004: missing approved_by"
+  ]
+}

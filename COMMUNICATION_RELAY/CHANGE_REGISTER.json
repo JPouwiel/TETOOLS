@@ -445,6 +445,50 @@
       "base_commit": "3281f99211b4e10de8c395ce70be819da28fe279",
       "artifact_refs": [],
       "note": "Task started; not yet a claim of successful offload or deletion eligibility. Frozen releases and all module decisions remain unchanged."
+    },
+    {
+      "change_id": "CFG-20261104-001",
+      "record_type": "DOCUMENTATION_PUBLICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Original CFG-20261104-001 guides and PDF preserved byte-identically from PR17",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/17",
+      "origin_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "recorded_by_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "approval_actor": "user (original documentation publication assignment)",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-04",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "../docs/CONFIGURATION/MANIFEST.json"
+      ],
+      "note": "Original date/revision retained; archive and context explain current status. No retroactive approval of unrelated records."
+    },
+    {
+      "change_id": "CFG-OFFLOAD-20261105-001",
+      "record_type": "SESSION_OFFLOAD",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Preserve configuration session context, register provenance and hand off Windows verification",
+      "source_reference": "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/OFFLOAD_REQUEST_20261105.txt",
+      "origin_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "recorded_by_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "approval_actor": "user",
+      "approved_by": "User supplied universal session offload assignment 2026-11-05; authorized documentation preservation and merge within existing governance",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "3281f99211b4e10de8c395ce70be819da28fe279",
+      "artifact_refs": [
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/30"
+      ],
+      "dependencies": [
+        "OFFLOAD-MAIN-READBACK"
+      ],
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/17"
     }
   ]
 }

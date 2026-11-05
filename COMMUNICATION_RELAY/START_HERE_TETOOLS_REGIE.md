@@ -58,3 +58,7 @@ Lees [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md). Houd tijdens de opdracht zelf d
 en schrijver. Verwijder de activiteit bij afronding samen met de resultaatregistratie.
 De gebruiker hoeft taakstatus niet handmatig over te typen; de uitvoerende sessie publiceert
 de update via de bestaande branch/PR/merge/readback-procedure. Geen automatische chatdetectie.
+
+## Standaard afronden en terug naar regie (2026-11-05)
+
+Elke uitvoerende sessie sluit een opdracht af door ontbrekende relevante context, versies, besluiten, resultaten, tests en open punten in de juiste bestaande GitHub-bronnen vast te leggen; branch/PR/merge en teruglezing op main zijn vereist voor een geverifieerde publicatie. Draag resterend modulewerk met bronverwijzing over aan de **bestaande module-regie** en laat ontvangst bevestigen. Alleen suitebrede gevolgen gaan naar TETOOLS__REGIE via SUITE_IMPACT_SIGNAL. Werk de eigen sessie-/taakstatus en onderbouwde bewaarbeoordeling bij. Bij blokkade: registreer open afhankelijkheden en claim geen afsluiting. Hergebruik bestaande sessies als standaard; de regie levert één ingevulde kopieerbare prompt voor hervatting, zonder onnodig nieuwe Work/Codex-sessies te starten. Zie [RELAY_CONTRACT.md](RELAY_CONTRACT.md).

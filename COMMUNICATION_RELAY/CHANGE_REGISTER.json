@@ -428,6 +428,25 @@
       ]
     },
     {
+      "change_id": "OBJECTS-OFFLOAD-20261105-001",
+      "record_type": "SESSION_OFFLOAD",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Preserve remaining PM-001 revision 004 implementation-session context without development changes",
+      "status": "PROPOSED",
+      "source_reference": "codex://thread/01a19ff0-f2d2-7723-9520-d6f8b84ec55c; user offload attachment Pasted text.txt 2026-11-05; exact message URL UNVERIFIED",
+      "origin_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "recorded_by_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "approval_actor": "user",
+      "approved_by": "Explicit session-offload request 2026-11-05; inventory, missing-context publication, permitted merge/readback and retention assessment only",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "3281f99211b4e10de8c395ce70be819da28fe279",
+      "artifact_refs": [],
+      "note": "Task started; not yet a claim of successful offload or deletion eligibility. Frozen releases and all module decisions remain unchanged."
+    },
+    {
       "change_id": "CFG-20261104-001",
       "record_type": "DOCUMENTATION_PUBLICATION",
       "project": "PLSQL_TETOOLS",

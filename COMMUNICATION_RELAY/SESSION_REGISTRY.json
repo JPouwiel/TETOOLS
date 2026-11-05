@@ -31,10 +31,10 @@
       "module": "ADMIN_OBJECTS",
       "subject": "PM-001",
       "revision": "004",
-      "status": "COMPLETED",
+      "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
-      "last_confirmed_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-05",
       "closed_at": null,
       "source_reference": "MODULES/ADMIN_OBJECTS/README.md",
       "deliverables": [
@@ -43,8 +43,13 @@
       "open_dependencies": [
         "VAL-01"
       ],
-      "recorded_by": "relay implementation 2026-11-03",
-      "note": "Work completion recorded in repository; no claim that original session has been deleted or archived."
+      "recorded_by": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "note": "Work completion recorded in repository; no claim that original session has been deleted or archived.",
+      "current_activity": {
+        "task_reference": "OBJECTS-OFFLOAD-20261105-001",
+        "summary": "Beschikbare sessiecontext en bestaande PM-001-resultaten vergelijken, ontbrekende context veiligstellen en bewaring beoordelen",
+        "state": "WORKING"
+      }
     },
     {
       "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",

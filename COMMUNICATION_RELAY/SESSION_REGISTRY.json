@@ -353,8 +353,8 @@
       "module": "ADMIN_OBJECTS",
       "subject": "Independent PM-001 revision 003 completeness review and session offload",
       "revision": "review 20261103 / offload 20261105",
-      "status": "ACTIVE",
-      "retention_status": "KEEP",
+      "status": "COMPLETED",
+      "retention_status": "ELIGIBLE_FOR_DELETION",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
@@ -362,17 +362,17 @@
       "recorded_by": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
       "deliverables": [
         "../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.md",
-        "../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.pdf"
+        "../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.pdf",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/PRESERVATION_MANIFEST.json",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/VERIFICATION_20261105.json",
+        "https://github.com/JPouwiel/TETOOLS/pull/42"
       ],
-      "open_dependencies": [
-        "REVIEW003-OFFLOAD-MAIN-READBACK"
-      ],
-      "current_activity": {
-        "task_reference": "OBJECTS-REVIEW003-OFFLOAD-20261105-001",
-        "summary": "Ontbrekende context van revisie-003-review veiligstellen en publicatie op main verifiëren",
-        "state": "WORKING"
-      },
-      "note": "Own Work/Codex review session; actual ChatGPT thread ID unavailable. External regie 6ae1c678-2a98-83ed-99b0-c8895440f708 is a source, not this session. No Oracle runtime or revision-004 authorship claimed."
+      "open_dependencies": [],
+      "note": "Local relay UUID, not ChatGPT-thread-ID. Own Work review identified by original report outputs, not external regie or revision004 authorship. Manual evidence-based eligibility for this chat only; no other session status changed, no actual deletion or full upstream regie-history claim.",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/42",
+      "merge_commit": "868a4594847732e1af4822d654ba499b70a9b9d2",
+      "result": "Complete offload of relevant available review003-session context; 8/8 changed files read back on main; original report Markdown/PDF and ZIP blob identities matched; 165 frozen and 374 unrelated existing blobs unchanged. Module open points transferred; no chat-exclusive dependency."
     }
   ]
 }

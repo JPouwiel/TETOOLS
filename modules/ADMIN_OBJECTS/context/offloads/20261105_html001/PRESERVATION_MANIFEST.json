@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "session_id": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+  "actual_chatgpt_thread_id": null,
+  "original_artifact_date": "2026-10-29",
+  "offload_date": "2026-11-05",
+  "base_commit": "fc2ef83e66f5522bc5e19d1eb28d681e40c13b7d",
+  "initial_registration_pr": "https://github.com/JPouwiel/TETOOLS/pull/32",
+  "initial_registration_merge": "6d54139452e4d90f65ba09b0c7fe29b7a845f5f8",
+  "classification": "Historical design and evidence preservation only; no new development or design approval",
+  "files": [
+    {
+      "path": "output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "bytes": 112554,
+      "sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc",
+      "blob": "79db55ea6c3151c18f73a28c1eb612102e3bf4fd",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html"
+      ],
+      "action": "ALREADY_PRESERVED_BYTE_IDENTICAL"
+    },
+    {
+      "path": "output/PM-001_20261029/manifest.json",
+      "bytes": 1406,
+      "sha256": "cda9b459e4c9660661b145bbe3ed50b73e284f0ef159416e8bf3bc9ae656e52d",
+      "blob": "351ad20a31f6e0f3e0fd48e63aecdf77fc33a17a",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/manifest.json"
+      ],
+      "action": "ALREADY_PRESERVED_BYTE_IDENTICAL"
+    },
+    {
+      "path": "output/PM-001_20261029/validation.json",
+      "bytes": 1348,
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3",
+      "blob": "1043c30fef3ec6d5664b581bad1cdead30b54bf7",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/validation.json"
+      ],
+      "action": "ALREADY_PRESERVED_BYTE_IDENTICAL"
+    },
+    {
+      "path": "output/PM-001_20261029/README.txt",
+      "bytes": 314,
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4",
+      "blob": "781b2aae35ca1fcf8e9a4a3badfa650e3e3521f7",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/README.txt"
+      ],
+      "action": "ALREADY_PRESERVED_BYTE_IDENTICAL"
+    },
+    {
+      "path": "work/build_pm001.py",
+      "bytes": 71420,
+      "sha256": "15a1c5ae81ef6ed555bc6af3bbcf25350aabce1d2fb02467f6a056ddb58f6db5",
+      "blob": "ebad014eccb84c3ccef3c8e42638aeb4b8d6b594",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/build_pm001.py"
+      ],
+      "action": "PRESERVE_ORIGINAL_BYTES"
+    },
+    {
+      "path": "work/check_pm001.cjs",
+      "bytes": 5244,
+      "sha256": "93bb464b9ff608b92fefeccb4e04bf6c6fa035a878f589b594310a784542f98c",
+      "blob": "97e7aaf9ce712e313b24f81f3ed3edcd671c28ca",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/check_pm001.cjs"
+      ],
+      "action": "PRESERVE_ORIGINAL_BYTES"
+    },
+    {
+      "path": "work/package_pm001.py",
+      "bytes": 1723,
+      "sha256": "255c22be0b361ec05f285b5901540d615dbf9f44ec2d936ed579622f52d52c39",
+      "blob": "defe207e25f975414d0d61df1dcf91bc01c7a00c",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/package_pm001.py"
+      ],
+      "action": "PRESERVE_ORIGINAL_BYTES"
+    },
+    {
+      "path": "work/pm001_thread_excerpt.json",
+      "bytes": 42774,
+      "sha256": "eb4e75458e9da3706e7ac70d9c302c2e775e6d7a74b941f3f25bb51a2ef52b8b",
+      "blob": "5e12d7786ae18c5231089de322fcac992d80f664",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/pm001_thread_excerpt.json"
+      ],
+      "action": "PRESERVE_ORIGINAL_BYTES"
+    },
+    {
+      "path": "output/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.zip",
+      "bytes": 35991,
+      "sha256": "8cf463434a2b3188c67310a580d2abc988f635057de68d24578bea20ee3befab",
+      "blob": "1b4b007bc279607affe1b27d3837d41e30c05458",
+      "repository_paths": [
+        "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_delivery/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.zip"
+      ],
+      "action": "PRESERVE_ORIGINAL_BYTES"
+    },
+    {
+      "path": "work/logger_503_delivery/reference/20261013__PLSQL__TETOOLS_ADMIN_LOGGER__analyse_20261013_500_STE_025.html",
+      "bytes": 537010,
+      "sha256": "b2d7bcbc3d327246cdcf48b9f56f36a0e8ac1d7af6403f98a89d5d5ac9eaa86c",
+      "blob": "bf2ab61e3f46d331c21b32e0ca9b4a29ea3ac440",
+      "repository_paths": [],
+      "action": "IDENTITY_ONLY_STYLE_REFERENCE_NOT_IMPORTED"
+    }
+  ],
+  "existing_main_readback": [
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "blob": "79db55ea6c3151c18f73a28c1eb612102e3bf4fd"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/manifest.json",
+      "blob": "351ad20a31f6e0f3e0fd48e63aecdf77fc33a17a"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/validation.json",
+      "blob": "1043c30fef3ec6d5664b581bad1cdead30b54bf7"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/README.txt",
+      "blob": "781b2aae35ca1fcf8e9a4a3badfa650e3e3521f7"
+    }
+  ],
+  "inherited_gaps": [
+    "PDF-only early source-chat responses were not available; no fabricated text.",
+    "Existing release HIST-01, HIST-02, HIST-03 and VAL-01 not resolved."
+  ],
+  "excluded_derivatives": [
+    "Temporary browser screenshots, diagnostic renders, print PDF/contact sheets: derived QA, not user deliverables or unique decision evidence"
+  ],
+  "upstream_open_points": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/OPEN_POINTS.md",
+  "oracle_execution": "NOT_EXECUTED"
+}

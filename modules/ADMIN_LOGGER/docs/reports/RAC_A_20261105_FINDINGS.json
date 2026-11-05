@@ -1,0 +1,623 @@
+{
+  "report": "20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+  "base_commit": "40f0692906c52f576d03c76ea128fb10d3da04db",
+  "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",
+  "issue": "https://github.com/JPouwiel/TETOOLS/issues/47",
+  "scope": "Oracle 19c EE, 3-node RAC, report A only",
+  "oracle_status": "NOT_EXECUTED",
+  "source_manifest": [
+    {
+      "path": "modules/ADMIN_LOGGER/src/20261015_500/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
+      "bytes": 86854,
+      "lines": 1927,
+      "sha256": "3ed2278be65ab8a27737ffc868b14419ee469da23b150d2eb2de5c9e607328d8",
+      "git_blob": "febb57c5aebe3ce5d23799f60c6c38f793681d00"
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/src/20261015_500/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks",
+      "bytes": 29128,
+      "lines": 500,
+      "sha256": "77f93871f1c838508071decc7479eb235ed2615de71ad9459bbbaebb51eb7c7b",
+      "git_blob": "9331a2756b1c2196280cda3f10bf1643285f61ab"
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/src/20261015_500/PROCEDURES/20260527__ADMIN_LOGGER__001.prc",
+      "bytes": 1260,
+      "lines": 38,
+      "sha256": "f7dbb9710c98c9ff4ae5489496c6d0f47ba02dcf68b526030cc425b362c7dd62",
+      "git_blob": "5a5e4e3181816aa520f5067f2b8c0abd3fef63f1"
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/src/20261015_500/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql",
+      "bytes": 119,
+      "lines": 5,
+      "sha256": "eded04ad72f51733a8cf29a701fdbd883fc4d85199b017f72339a91fa0c8b4a2",
+      "git_blob": "47416ff9583c32bc14cbe49007cd277f2449682b"
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/src/20261015_500/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql",
+      "bytes": 12337,
+      "lines": 204,
+      "sha256": "b684c443ef70815a9453782eb5e044fa32e889e768fc863d26fb2ab1ce3e6649",
+      "git_blob": "240b6516fcfd7e9a99ae7d47bb18433f77a8686f"
+    }
+  ],
+  "references": {
+    "D1": [
+      "Oracle 19c Database Reference, About Dynamic Performance Views",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/about-dynamic-performance-views.html"
+    ],
+    "D2": [
+      "Oracle 19c Database Reference, V$SESSION",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-SESSION.html"
+    ],
+    "D3": [
+      "Oracle 19c Security Guide, Definer rights; roles in named blocks",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/definers-rights-and-invokers-rights.html"
+    ],
+    "D4": [
+      "Oracle 19c SQL Reference, SELECT, FOR UPDATE WAIT and exclusive-table-lock exception",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/SELECT.html"
+    ],
+    "D5": [
+      "Oracle 19c SQL Reference, Automatic Locks in DML Operations",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Automatic-Locks-in-DML-Operations.html"
+    ],
+    "D6": [
+      "Oracle 19c PL/SQL Reference, Autonomous Transactions",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/autonomous-transactions.html"
+    ],
+    "D7": [
+      "Oracle 19c SQL Reference, CREATE SEQUENCE",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html"
+    ],
+    "D8": [
+      "Oracle 19c RAC Guide, Ensuring Application Continuity; replay side effects and TAC rules",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/racad/ensuring-application-continuity.html"
+    ],
+    "D9": [
+      "Oracle 19c PL/SQL Reference, Package State; 19.23+ session-exit option",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/package-state.html"
+    ],
+    "D10": [
+      "Oracle 19c SQL Reference, SYSTIMESTAMP",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/SYSTIMESTAMP.html"
+    ],
+    "D11": [
+      "Oracle 19c SQL Reference, SYSDATE",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/SYSDATE.html"
+    ],
+    "D12": [
+      "Oracle 19c SQL Reference, CREATE INDEX",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html"
+    ],
+    "D13": [
+      "Oracle 19c SQL Reference, CREATE TABLE syntax",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html"
+    ],
+    "D14": [
+      "Oracle 19c Security Guide, Roles Used in Named Blocks with Definer Rights",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/user-roles.html"
+    ]
+  },
+  "findings": [
+    {
+      "id": "RAC-A-001",
+      "priority": "P1",
+      "topic": "Correctness",
+      "status": "SOURCE_CONFIRMED_CONDITIONAL_FAILURE",
+      "title": "Local session purge can remove live remote registrations",
+      "evidence": "clear_session_entries subtracts local V$SESSION from the shared ADMIN_LOGGER_SESSIONS inventory. It then deletes matching config and registration rows. The age filter is TRUNC(LOGON_TIME) < TRUNC(before_in) - 3.",
+      "condition": "Assumption for the failure scenario: the same TETOOLS schema serves all three RAC instances; a live remote session is older than the cutoff; its full stored tuple is absent from the purge node's local session view.",
+      "impact": "The remote session's registration and configuration can be deleted while that session is alive. Its next logger lookup can repair the missing row with OFF defaults and a new registration. An active backup then becomes invalid. Log rows are not deleted by this routine, but their original registration mapping is lost.",
+      "assessment": "This is a source-derived destructive path, not an observed database incident. A cluster guard serializes writers but does not make a local session inventory global. A global view alone also requires instance/container identity and complete visibility; missing rows during a node/visibility fault must not automatically prove session death.",
+      "decision": "Module regie must define a cluster-wide, visibility-aware liveness contract before approving session purge in RAC. Keep investigation module-owned; central regie must assess common identity/liveness rules.",
+      "test": "In an isolated test database, keep eligible-age logger sessions alive on nodes 2 and 3. From node 1 preview purge candidates using a read-only copy of the cursor, then run the unchanged purge only against disposable test data. Capture INST_ID, CON_ID, full tuples, config, batch and backup before/after. Acceptance: no live remote registration/config is deleted; unavailable visibility causes no destructive inference. Repeat in the opposite node directions.",
+      "refs": [
+        [
+          "BODY",
+          1716,
+          1778
+        ],
+        [
+          "BODY",
+          714,
+          723
+        ],
+        [
+          "BODY",
+          886,
+          890
+        ]
+      ],
+      "docs": [
+        "D1"
+      ],
+      "related": [
+        "RAC-A-002",
+        "RAC-A-003",
+        "RAC-A-008"
+      ]
+    },
+    {
+      "id": "RAC-A-002",
+      "priority": "P1",
+      "topic": "Identity",
+      "status": "SOURCE_CONFIRMED_DESIGN_GAP",
+      "title": "Stored physical identity has no instance or container provenance",
+      "evidence": "session_rt and the sessions/incident tables store SID, SERIAL#, AUDSID, user and logon time, but no instance or container identifier. Registration lookup and repair match that tuple. Public get_audsid/get_logon_time accept SID and serial only and query local V$SESSION.",
+      "condition": "The provenance gap applies when rows from more than one RAC instance share the tables. A separate local installation per PDB implicitly isolates that PDB's data. Root-wide or common-object storage is not established.",
+      "impact": "An operator cannot reliably recover the originating instance from these persisted fields alone after the session disappears. The full tuple may reduce collision risk; this review does not prove that two complete tuples collide, or that AUDSID is non-unique in the target configuration.",
+      "assessment": "Keep the logger's logical logsession_id distinct from a physical database session key and an application request key. The two local lookup helpers are valid for the current local session; blindly replacing every V$SESSION with GV$SESSION would introduce ambiguity without an instance predicate.",
+      "decision": "Agree the required scope of identity and retained provenance centrally. Any later column, key, public-helper or migration change requires a separately approved implementation; report A makes no schema change.",
+      "test": "Capture tuples plus instance and container on all three nodes, with repeated connect/disconnect cycles and node restart. Verify attribution of every persisted registration and incident, and test helper semantics for a SID on a different node. Acceptance: documented uniqueness scope, unambiguous attribution and no cross-node misassociation. Do not claim proof from a small collision-free sample.",
+      "refs": [
+        [
+          "BODY",
+          56,
+          65
+        ],
+        [
+          "BODY",
+          175,
+          201
+        ],
+        [
+          "BODY",
+          803,
+          832
+        ],
+        [
+          "TABLE",
+          18,
+          34
+        ],
+        [
+          "TABLE",
+          141,
+          165
+        ]
+      ],
+      "docs": [
+        "D1",
+        "D2"
+      ],
+      "related": [
+        "RAC-A-001",
+        "RAC-A-003"
+      ]
+    },
+    {
+      "id": "RAC-A-003",
+      "priority": "P1",
+      "topic": "Deployment",
+      "status": "ENVIRONMENT_UNVERIFIED",
+      "title": "Privileges and container visibility are not deployment evidence",
+      "evidence": "SPEC uses AUTHID DEFINER. The body queries V$SESSION and DBA_SOURCE and calls DBMS_DEBUG_JDWP. The separate installer reference lists direct SYS.V_$SESSION and SYS.GV_$SESSION grants; a listed grant does not establish that it ran. That installer is a previously reviewed, redacted reference, not the five-file source baseline.",
+      "condition": "Exact Oracle 19c RU, CDB/non-CDB layout, PDB/root location, direct grants, actual synonym targets and visibility on all three instances are not supplied.",
+      "impact": "Compilation, lookup or future cluster-wide purge may fail or see an incomplete inventory. Root queries depend on the user's CONTAINER_DATA attribute; a row absent because of visibility is not evidence of a terminated session.",
+      "assessment": "The owner's execution privileges must be verified; a successful anonymous query through a role is insufficient evidence for this definer-rights package. Audit actual deployment rather than enabling broad ANY privileges. Do not confuse the user CONTAINER_DATA attribute with the separately named initialization parameter.",
+      "decision": "Module regie and the DBA must record the concrete 19c RU, service, container and minimum privilege/visibility matrix before RAC acceptance. Root-wide monitoring is a separate design choice, not an assumption.",
+      "test": "Compile and inspect USER_ERRORS in the intended owner/container; test session, source and JDWP access through the package with normal caller rights and with roles disabled where applicable. On each instance reconcile permitted GV$SESSION rows with a DBA-provided test-session inventory. Acceptance: valid package and complete intended visibility with explicit least-privilege evidence.",
+      "refs": [
+        [
+          "SPEC",
+          1,
+          3
+        ],
+        [
+          "BODY",
+          163,
+          198
+        ],
+        [
+          "BODY",
+          362,
+          369
+        ],
+        [
+          "BODY",
+          446,
+          453
+        ]
+      ],
+      "docs": [
+        "D1",
+        "D3",
+        "D14"
+      ],
+      "related": [
+        "RAC-A-001",
+        "RAC-A-012"
+      ]
+    },
+    {
+      "id": "RAC-A-004",
+      "priority": "P2",
+      "topic": "Concurrency",
+      "status": "SOURCE_CONFIRMED_UNMEASURED_RISK",
+      "title": "One guard serializes registration, config changes and purge",
+      "evidence": "save_logger_config, repair, both purge routines and initialize lock guard_id=1 with FOR UPDATE WAIT 5. The log writer and audit helper do not take that guard. clear_log_entries keeps it through the full delete; clear_session_entries keeps it through its row loop.",
+      "condition": "Contention depends on overlapping callers, purge size, transaction duration and three-node scheduling. No workload or lock timing was measured.",
+      "impact": "A long purge can delay configuration changes and first package use. The row wait clause is not a universal five-second bound: Oracle documents a table-exclusive-lock exception, and it does not bound the rest of the routine.",
+      "assessment": "The shared row is a valid cooperative serialization mechanism across RAC, not an instance-local mutex. It protects only participants. l_count is an output receiver for this lock query, not a dead-code candidate merely because the fetched value is not read. Removing the guard to gain speed would remove protection.",
+      "decision": "Measure lock hold time and agree maintenance/startup latency budgets. Any change in lock granularity, timeout policy or purge scheduling belongs in a later design decision.",
+      "test": "On node 1 hold the guard row in a disposable test transaction. On nodes 2/3 exercise initialize and toggles, capture elapsed time/errors, then release or roll back. Repeat with purge volumes and an instance failure. Acceptance: understood timeout/failure handling, no partial repair/config and agreed latency budgets. Record row-lock versus table-lock cases separately.",
+      "refs": [
+        [
+          "BODY",
+          514,
+          549
+        ],
+        [
+          "BODY",
+          680,
+          688
+        ],
+        [
+          "BODY",
+          1763,
+          1769
+        ],
+        [
+          "BODY",
+          1803,
+          1806
+        ],
+        [
+          "BODY",
+          1893,
+          1919
+        ],
+        [
+          "TABLE",
+          196,
+          204
+        ]
+      ],
+      "docs": [
+        "D4",
+        "D5"
+      ],
+      "related": [
+        "RAC-A-005",
+        "RAC-A-006"
+      ]
+    },
+    {
+      "id": "RAC-A-005",
+      "priority": "P2",
+      "topic": "Concurrency",
+      "status": "CONDITIONAL_FAILURE_NOT_EXECUTED",
+      "title": "Autonomous logging needs an explicit caller-lock contract",
+      "evidence": "Configuration save, incident persistence, repair, log writes, purge and initialize are autonomous. Normal toggle callers do not acquire the guard before calling the autonomous saver. Repair's audit helper avoids the guard and commits independently before repair completes.",
+      "condition": "A caller or administrative tool can hold an uncommitted lock on the guard or logger rows and then call an autonomous routine that needs that resource. This is a conditional scenario; no inherent deadlock in the normal call path is asserted.",
+      "impact": "An autonomous call can conflict with locks held by its suspended parent. A caller rollback does not undo committed logger/audit work. A submitted/open incident can legitimately survive a failed repair; that is not an atomicity bug by itself.",
+      "assessment": "RAC does not remove transaction boundaries or transfer parent locks to autonomous calls. Successful repair commits registration, configuration and CLOSED mapping together; that positive property must be preserved.",
+      "decision": "Document allowed administrative DML and call ordering. Preserve independent audit evidence. Do not introduce an outer guard around autonomous saver/repair calls without a reviewed transaction design.",
+      "test": "In isolation, lock the guard or one config row in a parent transaction, call the relevant logger operation, and record error, rollback and incident state. Separately roll back caller business DML after successful logging. Acceptance: no indefinite wait/partial repair, caller business work remains independent, and persistent log/incident outcomes match the approved contract.",
+      "refs": [
+        [
+          "BODY",
+          514,
+          548
+        ],
+        [
+          "BODY",
+          553,
+          628
+        ],
+        [
+          "BODY",
+          761,
+          779
+        ],
+        [
+          "BODY",
+          1111,
+          1128
+        ],
+        [
+          "BODY",
+          1243,
+          1262
+        ]
+      ],
+      "docs": [
+        "D6"
+      ],
+      "related": [
+        "RAC-A-004",
+        "RAC-A-008"
+      ]
+    },
+    {
+      "id": "RAC-A-006",
+      "priority": "P2",
+      "topic": "Performance",
+      "status": "SOURCE_CONFIRMED_NO_BENCHMARK",
+      "title": "Each log call reloads metadata and table writes commit per message",
+      "evidence": "Both internal_logging overloads call session_details before evaluating whether output is enabled. Its normal load path queries local session metadata, counts registration rows, and fetches session/config rows. Enabled output builds a call stack. Each table insert commits; the routine also has a trailing COMMIT.",
+      "condition": "Cost depends on message rate, output mode, CLOB size, network/storage and concurrent callers. Both disabled-output and active table-output paths must be measured. A second COMMIT without pending work is not counted here as a second durable write.",
+      "impact": "Frequent calls can add SQL, stack-formatting, redo and commit latency. On RAC, shared table/index blocks may add coordination cost. No contention, slowdown or improvement percentage has been measured.",
+      "assessment": "Fresh reloads support external configuration changes and missing-row recovery; caching or buffering changes those guarantees. Batch mode groups log identity and line numbers; it is not transactional bulk insertion. Dynamic SQL readability is an existing project preference, so dynamic SQL is not labelled a defect by itself.",
+      "decision": "Benchmark first. Compare only approved alternatives that preserve recovery, temporary targets and log durability. Do not remove reload/commit behavior in report A.",
+      "test": "Measure caller elapsed p50/p95/p99, calls/sec, SQL executions, user commits, redo and waits for logging OFF, SCREEN, TABLE-single and TABLE-batch; test VARCHAR2/CLOB and 1 versus 3 nodes at matched total load. Use authorized GV$ session/system counters or SQL trace; no assumed OEM/AWR/ASH access. Acceptance: agreed budgets, exact expected rows, preserved rollback independence and no lost/duplicate batch lines.",
+      "refs": [
+        [
+          "BODY",
+          784,
+          895
+        ],
+        [
+          "BODY",
+          1287,
+          1346
+        ],
+        [
+          "BODY",
+          1391,
+          1446
+        ]
+      ],
+      "docs": [
+        "D6"
+      ],
+      "related": [
+        "RAC-A-004",
+        "RAC-A-007"
+      ]
+    },
+    {
+      "id": "RAC-A-007",
+      "priority": "P2",
+      "topic": "Performance",
+      "status": "SOURCE_CONFIRMED_OPTION_TO_MEASURE",
+      "title": "Batch sequence requests global ordering without a documented need",
+      "evidence": "admin_logger_logbatch_seq explicitly specifies ORDER and omits CACHE/NOCACHE. toggle_batch takes NEXTVAL only when a valid batch is absent, not for every log line. Oracle's documented omitted-cache default is 20 values.",
+      "condition": "The source uses batch IDs for grouping. A business requirement for global sequence request order is not established. Existing deployed sequence properties may differ from the script and must be inspected.",
+      "impact": "An ordered sequence is supported in RAC and is not a duplicate-ID bug. It may carry unnecessary coordination cost at high batch-creation rates. Request order is not commit order or a gap-free history.",
+      "assessment": "A cached NOORDER alternative is a candidate only if ordering is not required. Identity-column internal sequences are separate objects; do not assume they use this explicit batch sequence or share its settings.",
+      "decision": "Confirm ordering requirements and inspect actual sequence/identity settings. Measure a separate approved test variant before proposing any DDL change.",
+      "test": "Collect actual sequence cache/order settings. Create batches concurrently on all three nodes, recording unique IDs and time spent in NEXTVAL separately from log insert time. Compare permitted variants at identical load. Acceptance: uniqueness and grouping retained; ordering requirement explicitly accepted or rejected; gains reported only from measured results.",
+      "refs": [
+        [
+          "SEQUENCE",
+          1,
+          5
+        ],
+        [
+          "BODY",
+          1205,
+          1223
+        ],
+        [
+          "TABLE",
+          20,
+          21
+        ],
+        [
+          "TABLE",
+          108,
+          112
+        ]
+      ],
+      "docs": [
+        "D7"
+      ],
+      "related": [
+        "RAC-A-006",
+        "RAC-A-009"
+      ]
+    },
+    {
+      "id": "RAC-A-008",
+      "priority": "P1",
+      "topic": "Failover",
+      "status": "DEPLOYMENT_DEPENDENT_NOT_TESTED",
+      "title": "Reconnect, replay and backup restoration have no verified contract",
+      "evidence": "Backup state is stored in package memory. load_session_details invalidates a backup when the registration changes. Repair creates OFF/default config. Table logging commits autonomously. No application request/idempotency identifier is stored in the log schema.",
+      "condition": "Plain reconnect, pool reuse, AC and TAC are different conditions. Exact driver, request boundaries, service failover/replay settings and Oracle 19c RU are unknown. Automatic migration of package state is not assumed.",
+      "impact": "A new physical session can lose temporary backup state and create a different registration. If replay repeats independently committed logging, duplicate semantic messages are possible. TAC can instead disable replay for autonomous work depending on rules. Neither guaranteed replay nor exactly-once logging is established.",
+      "assessment": "Preserve the public backup/restore API as intentional behavior. Ordinary in-session backup/toggle/restore is different from failover recovery. The documentation also describes state invalidation after package recompilation; 19.23+ adds a configurable session-exit behavior, so exact RU/settings matter.",
+      "decision": "Module regie must define expected log multiplicity and configuration recovery per supported connection mode. No blanket claim of RAC failover readiness is appropriate from static code.",
+      "test": "Test BACKUP, temporary debug target, an interrupted call and RESTORE for plain reconnect, supported pool reuse, AC and TAC separately. Inject failure only in an approved test environment. Record original/replacement instance, registration, driver/RU, replay eligibility, persistent row count, backup outcome and caller error. Acceptance: documented behavior per mode, no silent cross-session restore and explicit duplicate/lost-message policy.",
+      "refs": [
+        [
+          "BODY",
+          75,
+          93
+        ],
+        [
+          "BODY",
+          722,
+          723
+        ],
+        [
+          "BODY",
+          886,
+          890
+        ],
+        [
+          "BODY",
+          948,
+          1011
+        ],
+        [
+          "BODY",
+          1333,
+          1338
+        ],
+        [
+          "TABLE",
+          108,
+          122
+        ]
+      ],
+      "docs": [
+        "D8",
+        "D9"
+      ],
+      "related": [
+        "RAC-A-001",
+        "RAC-A-002",
+        "RAC-A-005"
+      ]
+    },
+    {
+      "id": "RAC-A-009",
+      "priority": "P2",
+      "topic": "Retention",
+      "status": "SOURCE_CONFIRMED_POLICY_UNVERIFIED",
+      "title": "Retention and event order need a shared time policy",
+      "evidence": "Log timestamps use SYSTIMESTAMP inserted into TIMESTAMP(3); sessions use DATE. Purge defaults use TRUNC(SYSDATE), and even a supplied 19-character before_in is truncated to a day. clear_log_entries uses <= the boundary and preserves the currently configured active batch.",
+      "condition": "A shared timezone, node clock discipline, desired retention-day definition and exact-cutoff behavior have not been supplied. Clock skew or timezone mismatch is a conditional risk, not an observed target defect.",
+      "impact": "Cross-node wall-clock ordering is not a causal ordering guarantee. The stored TIMESTAMP lacks timezone attribution. A caller supplying a time-of-day cutoff receives day-boundary behavior instead; whether this is a bug depends on the approved API contract.",
+      "assessment": "Batch ID request order and identity values do not prove commit order. The current active-batch exclusion is positive, but its protective config can disappear through RAC-A-001. Do not reinterpret historical timestamps without recording a migration decision.",
+      "decision": "Agree UTC/local time, day boundaries, age semantics and event correlation requirements before changing types or purge predicates.",
+      "test": "Use disposable rows immediately before, exactly at and after midnight; compare date-only and datetime parameters, active batch and older restored backup batch. Record node clocks/timezones and compare all three nodes. Acceptance: documented boundary behavior, consistent retention outcome and no dependence on numeric IDs as a global event clock.",
+      "refs": [
+        [
+          "BODY",
+          1720,
+          1746
+        ],
+        [
+          "BODY",
+          1755,
+          1760
+        ],
+        [
+          "BODY",
+          1782,
+          1806
+        ],
+        [
+          "TABLE",
+          20,
+          21
+        ],
+        [
+          "TABLE",
+          108,
+          111
+        ]
+      ],
+      "docs": [
+        "D10",
+        "D11"
+      ],
+      "related": [
+        "RAC-A-001",
+        "RAC-A-007",
+        "RAC-A-008"
+      ]
+    },
+    {
+      "id": "RAC-A-010",
+      "priority": "P1",
+      "topic": "Installation",
+      "status": "SOURCE_CONFIRMED_CLEAN_INSTALL_BLOCKER",
+      "title": "Position index is created before its log table",
+      "evidence": "The table script creates admin_logger_position_uk on ADMIN_LOGGER_LOG at lines 86-91. ADMIN_LOGGER_LOG is created later at lines 108-126.",
+      "condition": "A clean schema executes this script in file order and the log table does not already exist. A pre-existing table can hide the ordering failure and is not proof of a valid fresh installation.",
+      "impact": "Index creation fails. If the client continues on error, the later table may exist without the expected unique batch-position index. RAC testing on such an installation would not test the intended integrity constraints.",
+      "assessment": "This is an installation-order defect found in the current source, not an Oracle execution result. The reviewed user/privilege installer is a separate script; this module-object defect does not change that installation boundary.",
+      "decision": "Resolve module object order in a separately authorized change before clean-install acceptance. Inspect the actual deployed index rather than assuming it exists.",
+      "test": "Run the exact unmodified object script in a disposable clean 19c schema with stop-on-error and spool output. Separately inspect constraint/index presence in an existing test installation. Acceptance for a later corrected revision: every required object exists and an intentional duplicate batch position is rejected; no ignored DDL failures.",
+      "refs": [
+        [
+          "TABLE",
+          83,
+          91
+        ],
+        [
+          "TABLE",
+          108,
+          126
+        ]
+      ],
+      "docs": [
+        "D12"
+      ],
+      "related": [
+        "RAC-A-011",
+        "RAC-A-006"
+      ]
+    },
+    {
+      "id": "RAC-A-011",
+      "priority": "P1",
+      "topic": "Installation",
+      "status": "SOURCE_CONFIRMED_SYNTAX_DEFECT",
+      "title": "Incident DDL lacks a separator before its table constraint",
+      "evidence": "config_snapshot CLOB at table-script line 163 is not followed by a comma before CONSTRAINT admin_logger_incident_pk PRIMARY KEY (incident_id) at line 164.",
+      "condition": "The current table script is parsed as supplied. The actual deployed incident table may come from a different script; its existence does not validate this text.",
+      "impact": "This is not valid separation of a column definition and the following table-level primary-key constraint. A clean installation cannot reliably create the incident object from this statement; recovery/audit dependencies and package compilation are then not established.",
+      "assessment": "The defect is visible in the source grammar. No specific ORA error number or successful Oracle parser run is claimed. It is independent of RAC but blocks a reproducible RAC validation baseline.",
+      "decision": "Record and correct only through a later authorized source change. Report A retains the original file bytes.",
+      "test": "Execute the unmodified CREATE TABLE statement in a disposable schema and retain the exact parser error. For a later corrected revision verify the primary key targets incident_id, all snapshot CLOBs exist, and repair can persist an OPEN/CLOSED incident. Acceptance: DDL and dependent package compile, then recovery tests pass with captured evidence.",
+      "refs": [
+        [
+          "TABLE",
+          141,
+          167
+        ],
+        [
+          "BODY",
+          553,
+          628
+        ]
+      ],
+      "docs": [
+        "D13"
+      ],
+      "related": [
+        "RAC-A-010",
+        "RAC-A-005"
+      ]
+    },
+    {
+      "id": "RAC-A-012",
+      "priority": "P1",
+      "topic": "Authorization",
+      "status": "SOURCE_CONFIRMED_CONDITIONAL_EXPOSURE",
+      "title": "Package execution also exposes global maintenance procedures",
+      "evidence": "clear_session_entries and clear_log_entries are public in the same AUTHID DEFINER package as normal logging. Their bodies do not check a separate caller authorization and operate across the logger tables.",
+      "condition": "Risk applies if users who should only log receive package EXECUTE. Actual grants/roles and the intended administrator-only boundary have not been verified. No unauthorized target access is asserted.",
+      "impact": "A normal package consumer could invoke global retention routines under the owner's rights, including the local-inventory purge in RAC-A-001. CDB/PDB and role assumptions must be explicit for a shared service.",
+      "assessment": "Separate role intentions alone are not a per-subprogram permission boundary inside this specification. Application UI hiding is not an authorization test. This may affect other ADMIN_* package API conventions, but their code was not reviewed here.",
+      "decision": "Regie must confirm allowed callers and choose an explicit maintenance authorization contract before wider grants. No interface split, privilege change or implementation is made by report A.",
+      "test": "As owner, intended maintenance operator and ordinary logging-only caller, test ordinary log and both maintenance entry points on disposable data. Capture effective principal, grants and results. Acceptance: permitted maintenance succeeds and prohibited maintenance is rejected by a documented control without blocking ordinary logging.",
+      "refs": [
+        [
+          "SPEC",
+          1,
+          3
+        ],
+        [
+          "SPEC",
+          430,
+          448
+        ],
+        [
+          "BODY",
+          1716,
+          1778
+        ],
+        [
+          "BODY",
+          1782,
+          1819
+        ]
+      ],
+      "docs": [
+        "D3"
+      ],
+      "related": [
+        "RAC-A-001",
+        "RAC-A-003"
+      ]
+    }
+  ]
+}

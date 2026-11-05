@@ -744,6 +744,52 @@
       "dependencies": [],
       "chat_deleted": false,
       "note": "Only own review003 Work chat assessed; unknown ChatGPT thread ID explicitly retained; no other chat mapping or upstream historical completeness inferred."
+    },
+    {
+      "change_id": "LOGGER-RAC-20261105-001",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "recorded_by_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/47",
+      "subject": "RAC session liveness/provenance and public maintenance authority require suite review",
+      "observed_facts": "RAC-A-001: shared registration purge subtracts local V$SESSION; RAC-A-002: no persisted instance/container columns; RAC-A-012: maintenance public within AUTHID DEFINER logger API. Source-confirmed paths, no Oracle runtime.",
+      "potential_cross_module_impact": "Shared physical-session attribution/liveness conventions and package-maintenance access may affect ADMIN_* consumers. Actual behavior of other modules not reviewed; no shared solution imposed.",
+      "affected_modules": "UNKNOWN",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+        "../modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_FINDINGS.json"
+      ],
+      "assumptions": "Shared tables across RAC instances assumed for failure scenario; actual grants, deployment container, target RU and replay modes unverified.",
+      "approval_actor": "user authorized bounded review/publication via Issue #47; no architecture disposition"
+    },
+    {
+      "change_id": "LOGGER-RAC-A-20261105-001",
+      "record_type": "ANALYSIS_REPORT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Report A static review of unchanged 20261015_500, Oracle 19c EE three-node RAC",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/47",
+      "origin_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "recorded_by_session": "ADMIN_LOGGER-IMPORT-20261103-01",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "approval_actor": "user",
+      "approved_by": "Explicit handoff request: report A, registration, GitHub publication and cumulative PDF; no B/C or source modifications",
+      "base_commit": "40f0692906c52f576d03c76ea128fb10d3da04db",
+      "artifact_refs": [
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+        "../modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_FINDINGS.json"
+      ],
+      "verification": "Five source blobs checked; static links and 13 JS harness checks pass. Oracle NOT_EXECUTED; real-browser layout NOT_EXECUTED. Merge/main readback follows publication."
     }
   ]
 }

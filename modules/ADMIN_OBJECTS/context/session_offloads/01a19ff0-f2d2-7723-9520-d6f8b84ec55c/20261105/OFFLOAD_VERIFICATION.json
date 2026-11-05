@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_OBJECTS",
+  "session_id": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+  "offload_date": "2026-11-05",
+  "original_release_date": "2026-11-03",
+  "original_revision": "PM-001-004",
+  "status": "PAYLOAD_VERIFIED_ON_MAIN",
+  "offload_scope": "All relevant available information from this implementation session; no completeness claim for missing external REGIE history",
+  "source_user_message": "01a1ab3b-db5b-75b1-88e9-99874ecaa0dc",
+  "source_request": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+  "activity_pr": "https://github.com/JPouwiel/TETOOLS/pull/31",
+  "activity_merge_commit": "fc2ef83e66f5522bc5e19d1eb28d681e40c13b7d",
+  "publication_pr": "https://github.com/JPouwiel/TETOOLS/pull/35",
+  "publication_merge_commit": "194f04021642b0a093a9427f67f1caafad41eef3",
+  "checked_payload_head": "bbc0053f1da3a6667093e43b8ddc728bae0bf3e0",
+  "publication_base_commit": "0a8056772acf1e10c62e33cd396102522ba611f1",
+  "main_readback": {
+    "payload_merge": "194f04021642b0a093a9427f67f1caafad41eef3",
+    "payload_blobs": [
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "sha": "6d15f9f04eecb479968f162f3128f2e67ea3c3a8"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.sha256.txt",
+        "sha": "8dedbe44a3b6137e6eb5f32846bbf5b27e71f427"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.zip",
+        "sha": "d99f8df25c274e1a122516254ed7948a6aefa133"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.sha256.txt",
+        "sha": "18940c64317d3d2d4fcc28815db040c8f3e67817"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.zip",
+        "sha": "b6d10ad99b459daea7f8bad9643c85031f5d55db"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_build.py",
+        "sha": "ae6a70213775f34718879b5d69ac1bd7099d382d"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_docs.py",
+        "sha": "b615729ccd9a9108ff778ddefb22043364fbac25"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_package.py",
+        "sha": "179041136f1cd683b8c60c467d84f40b2f6a0c6d"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_pdf.py",
+        "sha": "c2ae7256c5f18e10aecb7c12372947aeb874143c"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_reference.py",
+        "sha": "2b24c3bf6c3fc4d27ed69312cd48c42ed571af3b"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_selftest.py",
+        "sha": "f97b429f82166363b9e4139caadad71ab55bed2c"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_static.py",
+        "sha": "8fd5e4af29c5e24e97587786c225ff15849011ea"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_verify_build.py",
+        "sha": "60825ef0c2c9ac33bffe7eacad8987722e471eef"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_MANIFEST.json",
+        "sha": "183bf65a9e47501532f52b7588618b42df7bf824"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+        "sha": "12eb06457f282cb14ea8ed60f3049cd5c3e8db48"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/RELEASE_COMPARISON.json",
+        "sha": "00b5913cbd38a2840545be96c7547f2b5b8c1dcd"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+        "sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/VISIBLE_MESSAGES.json",
+        "sha": "40f577220693bb190804f01ae77ccc57e28a888a"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "sha": "2b3dcd3ed195e5799d83a9a9e5c94366857433a5"
+      }
+    ],
+    "text_files_read": [
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "git_blob_sha": "6d15f9f04eecb479968f162f3128f2e67ea3c3a8",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.sha256.txt",
+        "git_blob_sha": "8dedbe44a3b6137e6eb5f32846bbf5b27e71f427",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.sha256.txt",
+        "git_blob_sha": "18940c64317d3d2d4fcc28815db040c8f3e67817",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_build.py",
+        "git_blob_sha": "ae6a70213775f34718879b5d69ac1bd7099d382d",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_docs.py",
+        "git_blob_sha": "b615729ccd9a9108ff778ddefb22043364fbac25",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_package.py",
+        "git_blob_sha": "179041136f1cd683b8c60c467d84f40b2f6a0c6d",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_pdf.py",
+        "git_blob_sha": "c2ae7256c5f18e10aecb7c12372947aeb874143c",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_reference.py",
+        "git_blob_sha": "2b24c3bf6c3fc4d27ed69312cd48c42ed571af3b",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_selftest.py",
+        "git_blob_sha": "f97b429f82166363b9e4139caadad71ab55bed2c",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_static.py",
+        "git_blob_sha": "8fd5e4af29c5e24e97587786c225ff15849011ea",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_verify_build.py",
+        "git_blob_sha": "60825ef0c2c9ac33bffe7eacad8987722e471eef",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_MANIFEST.json",
+        "git_blob_sha": "183bf65a9e47501532f52b7588618b42df7bf824",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+        "git_blob_sha": "12eb06457f282cb14ea8ed60f3049cd5c3e8db48",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/RELEASE_COMPARISON.json",
+        "git_blob_sha": "00b5913cbd38a2840545be96c7547f2b5b8c1dcd",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+        "git_blob_sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/VISIBLE_MESSAGES.json",
+        "git_blob_sha": "40f577220693bb190804f01ae77ccc57e28a888a",
+        "read_from": "main"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "git_blob_sha": "2b3dcd3ed195e5799d83a9a9e5c94366857433a5",
+        "read_from": "main"
+      }
+    ],
+    "frozen_release_files": 71,
+    "all_frozen_hashes_match": true
+  },
+  "version_preservation": {
+    "canonical_release_files": 71,
+    "all_match_original_final_delivery": true,
+    "original_archives": 2,
+    "original_build_helpers": 8,
+    "source_and_release_dates_unchanged": true,
+    "frozen_release_git_tree": "649a5889749126523fd379e8034fe48f86a31a67",
+    "no_new_development": true
+  },
+  "remaining_points": {
+    "total_existing_release_points": 18,
+    "ids": [
+      "OP-01",
+      "OP-02",
+      "OP-03",
+      "OP-04",
+      "OP-05",
+      "OP-06",
+      "OP-07",
+      "OP-08",
+      "OP-09",
+      "OP-10",
+      "OP-11",
+      "OP-12",
+      "OP-13",
+      "HIST-01",
+      "HIST-02",
+      "HIST-03",
+      "VAL-01",
+      "M4-01"
+    ],
+    "location": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/OPEN_POINTS.md",
+    "owner": "ADMIN_OBJECTS__REGIE / TETOOLS__REGIE within existing roles",
+    "none_closed_by_offload": true
+  },
+  "retention": {
+    "assessment": "KEEP",
+    "chat_deletion": "NOT_AUTHORIZED_OR_PERFORMED",
+    "unique_available_development_context_transferred": true,
+    "reason": "Current relay contract prohibits ELIGIBLE_FOR_DELETION with missing history or open dependencies. HIST-01..03 and VAL-01 remain explicitly open; no policy amendment authorized.",
+    "source": "COMMUNICATION_RELAY/RELAY_CONTRACT.md"
+  },
+  "oracle_compilation": "NOT_EXECUTED",
+  "oracle_runtime": "NOT_EXECUTED",
+  "coverage_boundary": [
+    "Visible completed user/assistant messages retrieved with no older cursor; current offload instruction preserved separately",
+    "Private reasoning/tool internals excluded",
+    "No temporary renders or synthetic Oracle test logs published",
+    "The later user question whether this is a Work session was answered yes; identity and WORK_IMPLEMENTATION role are already preserved, without a new technical decision",
+    "Completion publication is evidenced by its subsequent Git/PR/main readback, not by a circular self-hash"
+  ],
+  "regie_handoff": {
+    "issue": "https://github.com/JPouwiel/TETOOLS/issues/45",
+    "handoff_id": "RELAY-HANDOFF-20261105-002",
+    "receiver_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+    "receiver_role": "ADMIN_OBJECTS__REGIE",
+    "status": "WAITING_RECEIPT",
+    "acknowledgement_verified": false,
+    "basis": "REGIE-HANDOFF-20261105-001; current relay/manual handoff contract",
+    "activation_prompt": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/ACTIVATION_PROMPT.txt"
+  }
+}

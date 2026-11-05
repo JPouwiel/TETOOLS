@@ -65,3 +65,7 @@ No approval by the user is implied by forwarding this message.
 
 ## Source
 Approved in TETOOLS__REGIE conversation, 2026-11-04; exact chat URL unavailable (UNVERIFIED).
+
+## Afsluitoverdracht en sessiehergebruik (2026-11-05)
+
+Een uitvoerende sessie publiceert ontbrekende resultaten en open punten in bestaande module- en relaybronnen met versie, datum, PR, merge en verificatie op main. De bestaande module-regie bevestigt ontvangst en neemt resterend modulewerk over. Alleen mogelijke suitebrede gevolgen worden aan TETOOLS__REGIE gemeld. Hergebruik een bestaand Issue voor dezelfde overdracht. Kies eerst een bestaande doelsessie en geef de gebruiker een volledig ingevulde activeringsprompt. Nieuwe Work/Codex-sessies alleen indien noodzakelijk. Bij ontbrekende ontvangst blijft de overdracht open.

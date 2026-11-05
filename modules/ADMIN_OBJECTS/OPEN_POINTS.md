@@ -15,3 +15,7 @@ De [sessieoverdracht](context/offloads/20261105_html001/SESSION_HANDOFF.md#open-
 ## Sessieoverdracht revisie 002 (2026-11-05)
 
 - **PM002-ID-01 — ONBEKEND:** werkelijke thread-ID en onafhankelijke koppeling aan de daadwerkelijk te verwijderen chat niet betrouwbaar beschikbaar. Relay-ID `f21b235f-2680-4490-8bd4-adf5c60dda65` is expliciet lokaal gegenereerd. Bewaarstatus KEEP volgens onzekerheidsregel; geen chatverwijdering uitgevoerd. [Context en bewijs](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md). De overgedragen moduleontwikkelpunten blijven bij release 004 en vereisen deze chat niet automatisch.
+
+## Overgedragen reviewcontext revisie 003 — 2026-11-05
+
+[Reviewoverdracht](context/offloads/20261105_review003/SESSION_HANDOFF.md) koppelt de historische bevindingen B01–B08 aan de bestaande opvolging in revisie 004. De acht reviewbevindingen worden niet als acht nieuwe actuele bugs verdubbeld: B03/B04/B07 zijn statisch opgevolgd, runtime blijft VAL-01; historische leemten blijven HIST-01..03; installercontract blijft M4-01. OP-01..13 en de overige bestaande punten blijven open. Geen ontwikkelafhankelijkheid vereist uitsluitend deze reviewchat; bewaarbeoordeling volgt individueel na geverifieerde offload.

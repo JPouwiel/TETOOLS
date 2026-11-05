@@ -1,0 +1,56 @@
+{
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_OBJECTS",
+  "session_id": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+  "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+  "recorded_at": "2026-11-05",
+  "original_review_date": "2026-11-03",
+  "base_commit": "0a8056772acf1e10c62e33cd396102522ba611f1",
+  "existing_artifacts": [
+    {
+      "local": "output/PM001_review_20261103/PM001_003_review.md",
+      "bytes": 26521,
+      "sha256": "6e956355c3a6d69b2ec323cee1c8af8f86b2584560af0e304d2602dd6ca04a87",
+      "git_blob": "3cda8e5be6872eb905c5f5f3770a6c852ceaedce",
+      "repository_path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.md",
+      "comparison": "EXACT_GIT_BLOB_MATCH_NO_DUPLICATION"
+    },
+    {
+      "local": "output/PM001_review_20261103/PM001_003_review.pdf",
+      "bytes": 30106,
+      "sha256": "d2324f140c3986bceb0eeb68ca0599c976f04cbc180d6ecb428787c81c722f0a",
+      "git_blob": "a4efad199337d75717496e573ef5db9ac9295cb8",
+      "repository_path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.pdf",
+      "comparison": "EXACT_GIT_BLOB_MATCH_NO_DUPLICATION"
+    },
+    {
+      "local": "output/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_003.zip",
+      "bytes": 134862,
+      "sha256": "ac7b6d2bb084c87326eaf2cd9b5e8c49296759d73b743217a15ad9fe6dcde85d",
+      "git_blob": "5bd3983a398fd0faafa0a478bfb9ea52cca37c5c",
+      "repository_path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_003.zip",
+      "comparison": "EXACT_GIT_BLOB_MATCH_NO_DUPLICATION"
+    }
+  ],
+  "missing_artifacts_preserved": [
+    {
+      "local": "work/pm003_review/build_review.py",
+      "bytes": 29106,
+      "sha256": "9b6de4ab4caeb6343413c2a833b0ddd6d8281c6caa865d705746bb20b55d73a0",
+      "git_blob": "3e795698253329901297daf784e42f4de304c509",
+      "repository_path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/historical/build_review.py",
+      "classification": "historical authoring script; original bytes; not new development"
+    },
+    {
+      "repository_path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/USER_OFFLOAD_REQUEST_20261105.txt",
+      "classification": "exact user request; publication authority"
+    }
+  ],
+  "excluded_derivatives": "Intermediate text extractions and page PNGs/montages are reproducible from the preserved PDF/ZIP; contain no unique design decisions. Original final PDF already preserved.",
+  "not_executed": [
+    "Oracle compilation",
+    "Oracle runtime",
+    "performance benchmark"
+  ],
+  "historical_completeness": "Only available regie context; no full original transcript claim"
+}

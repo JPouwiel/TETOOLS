@@ -86,3 +86,7 @@ This file is a repository entry point, not a replacement for the relay contract.
 For detailed procedures, registration formats, lifecycle rules and verification requirements, use the current documents under `COMMUNICATION_RELAY/`.
 
 If instructions conflict or the required source is missing, report the conflict before making consequential changes.
+
+## Completion and reuse default (2026-11-05)
+
+At task completion, publish missing relevant results, decisions, source versions, dates, tests and open dependencies in existing canonical GitHub module and relay records. Verify branch, PR, merge and main readback. Return remaining module work to the existing module REGIE with acknowledged handoff; escalate potential suite-wide impact to TETOOLS__REGIE. Update existing session/activity and evidence-based retention records. Prefer existing sessions; supply one filled copy-ready activation prompt. Start new Work/Codex sessions only when necessary. No extra infrastructure or fields. See RELAY_CONTRACT.md.

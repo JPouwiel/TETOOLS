@@ -81,3 +81,11 @@ geen schrijversidentiteit of GitHub-rechten. Geen nieuwe infrastructuur of achte
 Uitvoerbaar voorbeeld en verificatie: [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md).
 Dit besluit vervangt uitsluitend de onderzoeksstatus van REGIE-ACTIVITY-20261104-001;
 de historische oorspronkelijke signalen en retentionbesluiten blijven bewaard.
+
+## Verplichte taakafronding, regieoverdracht en sessiehergebruik — REGIE-HANDOFF-20261105-001
+
+Bij afronding van **iedere** uitvoeringsopdracht (Work, Codex, import of module-uitvoering) stelt de uitvoerende sessie de relevante, nog niet duurzaam vastgelegde resultaten veilig in de **bestaande** canonieke module- en relaybestanden. Behoud originele bronversies, revisies, datums, besluitstatussen en verwijzingen; voeg geen dubbele actuele registers toe en wijzig geen bevroren releases. Documenteer geverifieerde resultaten, niet-uitgevoerde tests, besluiten met goedkeuring, open punten en opvolgende eigenaar. Publiceer via branch/PR/merge en lees de gewijzigde bestanden terug op main; bij ontbrekende toegang rapporteer BLOCKED en draag een concreet publicatiepakket over, zonder publicatie te claimen.
+
+Na geverifieerde publicatie draagt de uitvoerende sessie het **eigenaarschap van resterend modulewerk terug aan de bestaande module-regie**. De module-regie bevestigt ontvangst via de bestaande GitHub Issue of modulebron; bij niet-bevestigde ontvangst blijft de overdracht open. Alleen mogelijke moduleoverstijgende impact gaat via het bestaande SUITE_IMPACT_SIGNAL naar TETOOLS__REGIE. Een open technisch ontwikkelpunt kan bij de opvolgende regie blijven zonder de oude uitvoeringschat als eigenaar aan te houden, mits overdracht en contextbehoud zijn geverifieerd.
+
+Werk sessieregistratie en eventuele current_activity bij volgens het bestaande lifecycle-contract; beoordeel retention apart op basis van bewijs. Geen automatische vrijgave bij taakafronding. **Herbruik eerst een geschikte bestaande sessie**; de regie levert voor een overdracht één volledig ingevulde kopieerbare activeringsprompt. Start een nieuwe Work/Codex-sessie uitsluitend als geen bruikbare bestaande sessie beschikbaar is of de bestaande sessie technisch ontoereikend is; leg de reden kort vast in de bestaande taakbron. Deze regels vereisen geen nieuwe velden, diensten, dashboards of aparte beheerprocedure.

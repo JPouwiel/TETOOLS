@@ -33,3 +33,11 @@ Sanitized source and analysis import proposed under ../modules/ADMIN_TNSNAMES/, 
 ## ADMIN_SESSIONS publication proposal
 
 Canonical path: [../modules/ADMIN_SESSIONS/](../modules/ADMIN_SESSIONS/), publication AS-PUB-20261103-001. Original source import plus independent C01 proposal; not a repaired/validated release. Review pending, no automatic merge. Oracle NOT_EXECUTED. See module OPEN_POINTS.md.
+
+## Actuele taakregistratie - Issue #23 (2026-11-05)
+
+Minimale uitvoering op branch: zie [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md), contract en
+REGIE-ACTIVITY-20261105-001. Optionele taak met verwijzing, omschrijving en WORKING/WAITING/BLOCKED;
+sessie werkt zelf handmatig bij en wist bij afronding. Geen extra taakdatums of aanwezigheidsschatting.
+Retention review toont de taak en blijft conservatief. Publicatiebewijs wordt pas na merge/readback
+vastgelegd in opvolgend change-record en ISSUE23_VERIFICATION.json. Geen module-/releasewijzigingen.

@@ -40,3 +40,13 @@ No Oracle connection, third-party dependency, GitHub token, or ChatGPT account a
 - `current_activity` schema and task lifecycle are still under Issue #23 and **not** implemented here.
 
 **Sources:** `RELAY_CONTRACT.md`, `SESSION_REGISTRY.json`, Issue #23, and the owner approval of Option A in TETOOLS__REGIE on 2026-11-04 (exact chat URL unavailable).
+
+## Uitbreiding current_activity (2026-11-05)
+
+Issue #23 voegt optionele activiteit toe volgens RELAY_CONTRACT.md en CURRENT_ACTIVITY.md.
+De tabel toont de laatst verklaarde taak, taakstatus, verwijzing en bestaande bevestigingsdatum.
+Geen verklaarde taak betekent geen uitspraak over chatinactiviteit. Een taak geeft conservatief
+KEEP, ook bij retention REVIEW. ELIGIBLE_FOR_DELETION samen met een taak faalt validatie.
+Leeftijd wist niets; de bestaande context-/afhankelijkheidscontrole blijft verplicht.
+De eerdere passage dat current_activity niet is geimplementeerd beschrijft de baseline van 2026-11-04;
+deze uitbreiding vervangt die actuele beperking, niet het historische testverslag.

@@ -50,3 +50,11 @@ Meld gelezen main-commit, sessie-ID en rol, registratiebewijs (PR/commit), relev
 ## Overdracht tussen sessies (2026-11-04)
 
 Lees [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). Bij een verzoek aan een andere sessie: maak een GitHub Issue, controleer de URL en lever een volledig ingevuld kopieerbaar bericht. Als ontvanger: lees het Issue en de bronverwijzingen zelfstandig en registreer uitkomst en bewijs. De gebruiker is uitsluitend transporteur, geen impliciete goedkeurder. Zonder toegang: gebruik de expliciete fallback. Geen automatische sessieactivatie.
+
+## Actuele taak bijhouden (2026-11-05)
+
+Lees [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md). Houd tijdens de opdracht zelf de ene
+`current_activity` bij in je eigen SESSION_REGISTRY-entry, inclusief bestaande bevestigingsdatum
+en schrijver. Verwijder de activiteit bij afronding samen met de resultaatregistratie.
+De gebruiker hoeft taakstatus niet handmatig over te typen; de uitvoerende sessie publiceert
+de update via de bestaande branch/PR/merge/readback-procedure. Geen automatische chatdetectie.

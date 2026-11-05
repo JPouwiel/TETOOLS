@@ -255,7 +255,12 @@
       "open_dependencies": [
         "Issue #23 implementation, tests and verified publication"
       ],
-      "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466."
+      "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466.",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
+        "summary": "Minimale activiteitregistratie implementeren en toetsen",
+        "state": "WORKING"
+      }
     }
   ]
 }

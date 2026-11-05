@@ -3,6 +3,7 @@
 import json
 import pathlib
 import sys
+from session_retention_review import validate_activity
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SESSION_STATES = {"REGISTERED", "ACTIVE", "BLOCKED", "COMPLETED", "CLOSED", "ARCHIVED"}
@@ -28,6 +29,10 @@ for item in sessions:
     if not sid or sid in seen:
         errors.append(f"duplicate/missing session ID: {sid}")
     seen.add(sid)
+    try:
+        validate_activity(item)
+    except ValueError as exc:
+        errors.append(f"{sid}: {exc}")
     if item.get("status") not in SESSION_STATES:
         errors.append(f"{sid}: invalid status")
     if item.get("retention_status") not in RETENTION:
@@ -46,9 +51,11 @@ for item in changes:
     seen.add(cid)
     if item.get("status") not in CHANGE_STATES:
         errors.append(f"{cid}: invalid change status")
-    for field in ("source_reference", "origin_session", "recorded_by_session", "approved_by", "recorded_at"):
+    for field in ("source_reference", "origin_session", "recorded_by_session", "recorded_at"):
         if not item.get(field):
             errors.append(f"{cid}: missing {field}")
+    if item.get("status") in {"APPROVED", "IMPLEMENTED"} and not (item.get("approved_by") or item.get("approval_actor")):
+        errors.append(f"{cid}: missing approval provenance")
 for name in ("PROJECT.md", "CURRENT_STATUS.md", "MODULE_REGISTRY.md", "RELAY_CONTRACT.md"):
     if not (ROOT / name).is_file():
         errors.append(f"missing {name}")

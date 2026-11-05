@@ -45,3 +45,39 @@ De goedgekeurde procedure staat in [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). De ve
 ## Sessiebeoordeling en opruimadvies — optie A (goedgekeurd 2026-11-04)
 
 Gebruik [SESSION_RETENTION_REVIEW.md](SESSION_RETENTION_REVIEW.md) en de read-only tool `tools/session_retention_review.py` voor een inventarisatie van geregistreerde sessies. De tool toont lifecycle, retention-status, open afhankelijkheden en redenen voor nadere beoordeling. De tool kan niet zelfstandig vaststellen of een ChatGPT-chat bestaat, of unieke context volledig is veiliggesteld, of een chat verwijderd is. Verouderde tijdstempels zijn alleen een onderzoekssignaal. Er worden geen automatische verwijderadviezen of acties uitgevoerd; expliciete toestemming en afzonderlijke verificatie blijven vereist. De huidige betekenis van `current_activity` en `SESSION_REGISTRY.json` blijft ongewijzigd.
+
+## Actuele taak - REGIE-ACTIVITY-20261105-001
+
+Een sessie mag optioneel precies een `current_activity` object vastleggen met uitsluitend
+`task_reference` (Issue-URL of bestaand change-ID), `summary` (korte niet-lege taakomschrijving)
+en `state` (`WORKING`, `WAITING`, `BLOCKED`). Afwezig of null betekent geen verklaarde taak;
+het bewijst geen inactiviteit of einde van een chat. Schema_version blijft 1: bestaande entries blijven geldig.
+
+De uitvoerende sessie werkt dit handmatig bij bij taakstart, betekenisvolle taak-/statuswijziging
+en hervatting. Zij bevestigt tegelijk de bestaande `last_confirmed_at` en `recorded_by`.
+Dit zijn de datum van de laatste handmatige sessiebevestiging en de schrijver, geen heartbeat
+of afzonderlijke taakstartdatum. Git/PR levert de wijzigingshistorie. Een andere sessie wijzigt
+dit alleen met aantoonbare machtiging en bronverwijzing in de PR. Geen automatische updates.
+
+`WORKING` is verklaarde uitvoering; `WAITING` is wachten op gebruikersantwoord of externe
+afhankelijkheid; `BLOCKED` is niet kunnen doorgaan. Leg de reden/volgende actie vast in summary
+en open_dependencies. Taakstatus en bestaande sessielifecycle blijven afzonderlijk; WAITING
+sluit de sessie niet. Bij afronding of annulering: leg resultaat, deliverables en resterende
+afhankelijkheden vast en verwijder current_activity in dezelfde wijziging (null is ook geldig).
+COMPLETED, CLOSED en ARCHIVED mogen geen actuele taak hebben. CLOSED behoudt alle bestaande overdrachtseisen.
+
+Oude bevestigingen blijven zichtbaar als laatste verklaring, nooit als live status. De bestaande
+30-dagenhint in retention review blijft uitsluitend een onderzoekssignaal. Activiteit wordt niet
+automatisch gewist bij ouderdom. Een verklaarde taak blokkeert ELIGIBLE_FOR_DELETION; de review
+adviseert KEEP zolang deze taak bestaat. Geen taak geeft geen recht op opruimen.
+
+Publicatie: lees de actuele main-versie; wijzig alleen de eigen entry op een branch; valideer;
+review de PR-diff; controleer vlak voor merge dat de basis en geraakte entries niet zijn veranderd.
+Bij gelijktijdige wijzigingen: opnieuw vanaf actuele main samenvoegen en opnieuw toetsen;
+overschrijf nooit andermans entry met een oude volledige kopie. Merge uitsluitend het gecontroleerde
+PR-head en lees de gewijzigde entry op main terug. De lokale validator controleert inhoud,
+geen schrijversidentiteit of GitHub-rechten. Geen nieuwe infrastructuur of achtergronddienst.
+
+Uitvoerbaar voorbeeld en verificatie: [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md).
+Dit besluit vervangt uitsluitend de onderzoeksstatus van REGIE-ACTIVITY-20261104-001;
+de historische oorspronkelijke signalen en retentionbesluiten blijven bewaard.

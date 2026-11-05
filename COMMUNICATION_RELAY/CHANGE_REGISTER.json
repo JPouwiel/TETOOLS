@@ -363,6 +363,38 @@
         "No current_activity implementation",
         "No automatic deletion"
       ]
+    },
+    {
+      "change_id": "REGIE-ACTIVITY-20261105-001",
+      "record_type": "SUITE_IMPACT_DISPOSITION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
+      "subject": "Minimal manually declared current activity in existing session registry",
+      "status": "PROPOSED",
+      "disposition": "SUITE_STANDARD",
+      "approval_actor": "user",
+      "approved_by": "Explicit current Codex assignment 2026-11-05: design and implement minimal current_activity within scope; exact message URL UNVERIFIED",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": "REGIE-ACTIVITY-20261104-001",
+      "related_change_id": "LOGGER-RELAY-ACTIVITY-20261104-001",
+      "base_commit": "6c3f64ba6a1db9ef902cdee18939c0cef3836d11",
+      "rationale": "One optional object with task_reference, summary, state; reuse last_confirmed_at and recorded_by. No extra infrastructure or duplicated timestamps. Owner explicitly authorized bounded implementation; final publication status follows verified merge/readback.",
+      "artifact_refs": [
+        "CURRENT_ACTIVITY.md",
+        "RELAY_CONTRACT.md",
+        "tools/session_retention_review.py",
+        "tools/validate_relay.py"
+      ],
+      "dependencies": [],
+      "limitations": [
+        "Manual declaration only; no heartbeat, chat detection or deletion",
+        "No module or frozen-release changes"
+      ]
     }
   ]
 }

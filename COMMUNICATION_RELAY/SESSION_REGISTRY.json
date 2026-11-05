@@ -236,6 +236,26 @@
         "RELAY-E2E-20261104-001 KT-03 awaiting separate user confirmation"
       ],
       "note": "KT-02 registration attempt; KT-03 not authorized. Acceptance protocol text not located on main via search; KT-01 criteria cannot be fully verified."
+    },
+    {
+      "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+      "role": "CODEX_IMPLEMENTATION",
+      "module": null,
+      "subject": "Issue #23 minimal current_activity implementation",
+      "revision": "001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
+      "recorded_by": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "deliverables": [],
+      "open_dependencies": [
+        "Issue #23 implementation, tests and verified publication"
+      ],
+      "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466."
     }
   ]
 }

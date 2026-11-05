@@ -607,6 +607,32 @@
       "retention_status": "ELIGIBLE_FOR_DELETION",
       "chat_deleted": false,
       "note": "Only this local-UUID documentation session assessed; upstream module issues and other session retention remain unchanged."
+    },
+    {
+      "change_id": "OBJECTS-PM002-OFFLOAD-20261105-002",
+      "record_type": "IMPLEMENTATION_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Verified revision 002 historical session offload; retain chat pending identity mapping",
+      "status": "IMPLEMENTED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/MAIN_READBACK_VERIFICATION.json",
+      "origin_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+      "recorded_by_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+      "approval_actor": "user",
+      "approved_by": "Explicit universal session-offload assignment 2026-11-05; preservation/publication/verification only",
+      "recorded_at": "2026-11-05",
+      "revision": "002",
+      "supersedes": "OBJECTS-PM002-OFFLOAD-20261105-001",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/36",
+      "merge_commit": "f1bb7067b4c174744e91ba618ff0c357657523c8",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/MAIN_READBACK_VERIFICATION.json"
+      ],
+      "dependencies": [
+        "PM002-ID-01"
+      ],
+      "note": "Read back published text and complete changed-file Git blob identities on main; existing input/deliverable blob matches and frozen releases verified. No Oracle PASS, historical gap closure, chat closure or deletion eligibility."
     }
   ]
 }

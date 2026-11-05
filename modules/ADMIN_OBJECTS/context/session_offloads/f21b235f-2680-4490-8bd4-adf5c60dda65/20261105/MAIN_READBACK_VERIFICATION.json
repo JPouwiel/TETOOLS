@@ -1,0 +1,108 @@
+{
+  "verified_at": "2026-11-05",
+  "relay_session_id": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+  "actual_chat_thread_id": null,
+  "offload": "COMPLETE_FOR_AVAILABLE_RELEVANT_SESSION_CONTENT",
+  "registration": {
+    "pr": 33,
+    "merge": "c521b2c68ce4801fd548d43b20377558ca78e09a",
+    "main_entry_read_back": true
+  },
+  "publication": {
+    "pr": 36,
+    "merge": "f1bb7067b4c174744e91ba618ff0c357657523c8",
+    "head": "36233034980ab8f3dd6848348c95e1cb4b994dd6",
+    "readback_main_commit": "f1bb7067b4c174744e91ba618ff0c357657523c8",
+    "files": [
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/build.py",
+        "git_blob_sha": "9b41741859d4fcf6aaa521757cb75b3528e2a0f7"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/document.py",
+        "git_blob_sha": "e98502fdb027ac42013df4ed33718e4ccdb24f19"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/check.cjs",
+        "git_blob_sha": "80d2cada6cc6f3987db5172386c1bf04784f5f4f"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/desktop.png",
+        "git_blob_sha": "ab26118bc3a84b8f2f44f86e60e49931a0431ec5"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/mobile.png",
+        "git_blob_sha": "55cd74211954f89f04fc69dc0c90045da38e5f9f"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/print-style.png",
+        "git_blob_sha": "8da65a8ab9cb3b9592a66cb185269d0eb09200e9"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/print-check.pdf",
+        "git_blob_sha": "ca46777af5bb8d6c9715592a98baa28966d92c60"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+        "git_blob_sha": "57946ec702cdb29254dd0cdb15cd8e90f43e90a3"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+        "git_blob_sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ORIGINAL_SCOPE_20261102.md",
+        "git_blob_sha": "445f9345dd60bee197ce666a891dd13b3b106ea0"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+        "git_blob_sha": "a0129eb37b005f5b194be29b974ec696105b2fb9"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json",
+        "git_blob_sha": "7988fccfecd19f65a214bdca14573c4c45724f4f"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "git_blob_sha": "9a8faa292417e496d896e97c48b64aa5c9befc32"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "git_blob_sha": "8155caa478ab84169d452d959a181f03a7d5de9b"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "git_blob_sha": "ef79a9fda84a42891a1bf21124e610e88af3b307"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/OPEN_POINTS.md",
+        "git_blob_sha": "65613e4fcf4d1420c1a80c948fe78c7026c9dbfc"
+      }
+    ]
+  },
+  "checks": {
+    "published_texts_retrieved_from_main": 5,
+    "all_16_changed_blob_identities_match": true,
+    "original_4_inputs_and_8_deliverables_already_preserved_byte_identically": true,
+    "original_zip_all_8_members_equal": true,
+    "frozen_admin_objects_release_paths_unchanged": 160,
+    "relay_validator": "PASS: 13 sessions; 24 changes; required files present (before concurrent additions; latest registry revalidated separately)",
+    "other_session_entries_preserved": true,
+    "oracle_compilation": "NOT_EXECUTED",
+    "oracle_runtime": "NOT_EXECUTED"
+  },
+  "retention": {
+    "status": "KEEP",
+    "open_dependencies": [
+      "PM002-ID-01"
+    ],
+    "reason": "Actual chat thread identity and independent mapping to the chat to delete are unavailable; relay uncertainty rule applies. Module development work has durable handoff and does not itself require this chat."
+  },
+  "limitations": [
+    "Structured relevant-context preservation, not a verbatim complete conversation export",
+    "No global closure of HIST-01/HIST-02/HIST-03",
+    "Receipt publication is verified by the final response; this file does not self-certify its own merge"
+  ],
+  "no_development_changes": true,
+  "no_chat_deletion": true
+}

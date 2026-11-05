@@ -325,7 +325,7 @@
       "module": "ADMIN_OBJECTS",
       "subject": "PM-001 revision 002 offline HTML and bounded Oracle 19c PoC; historical session offload",
       "revision": "002 / offload 20261105",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
@@ -335,18 +335,16 @@
       "deliverables": [
         "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
         "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
-        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json"
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json",
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/MAIN_READBACK_VERIFICATION.json"
       ],
       "open_dependencies": [
-        "PM002-OFFLOAD-MAIN-READBACK",
         "PM002-ID-01"
       ],
-      "current_activity": {
-        "task_reference": "OBJECTS-PM002-OFFLOAD-20261105-001",
-        "summary": "Preserved context and exact historical evidence prepared; awaiting main publication/readback",
-        "state": "WORKING"
-      },
-      "note": "Actual chat thread ID unavailable. Source predecessor 6ae1c678-2a98-83ed-99b0-c8895440f708 is not this session. Registration key newly generated under relay contract."
+      "note": "Actual chat thread ID unavailable. Source predecessor 6ae1c678-2a98-83ed-99b0-c8895440f708 is not this session. Registration key newly generated under relay contract.",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/36",
+      "merge_commit": "f1bb7067b4c174744e91ba618ff0c357657523c8",
+      "result": "Relevant revision 002 session context and missing historical QA evidence preserved on main; 16 changed blob identities read back; 160 frozen-release paths unchanged. Oracle NOT_EXECUTED. Actual chat identity mapping remains unknown; KEEP, no deletion."
     }
   ]
 }

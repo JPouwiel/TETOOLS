@@ -1,0 +1,106 @@
+{
+  "recorded_at": "2026-11-05",
+  "session_id": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+  "chatgpt_thread_id": null,
+  "chatgpt_thread_id_status": "NOT_RELIABLY_AVAILABLE",
+  "scope": "Own Work/Codex independent PM001 revision003 review; relevant available context only",
+  "authority": "USER_OFFLOAD_REQUEST_20261105.txt",
+  "publication": {
+    "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/42",
+    "merge_commit": "868a4594847732e1af4822d654ba499b70a9b9d2",
+    "readback_ref": "main",
+    "readback_observed_commit": "868a4594847732e1af4822d654ba499b70a9b9d2",
+    "changed_files": [
+      {
+        "path": "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "git_blob": "6223a19219684897c06425b8eb96db5692182320",
+        "content_equal": true
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/historical/build_review.py",
+        "git_blob": "3e795698253329901297daf784e42f4de304c509",
+        "content_equal": true
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "git_blob": "5f91e9a8903248280367a21ccb1f2244c8e58d6a",
+        "content_equal": true
+      },
+      {
+        "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "git_blob": "1f54eb7fe1daa9b4ff8b33de4ff86604b7472bf1",
+        "content_equal": true
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/OPEN_POINTS.md",
+        "git_blob": "57e86af5919b1773b8a37b4e3f30429dfb356dee",
+        "content_equal": true
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/USER_OFFLOAD_REQUEST_20261105.txt",
+        "git_blob": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2",
+        "content_equal": true
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/PRESERVATION_MANIFEST.json",
+        "git_blob": "5e7bb2f07239f0c4058d6c1e7b6a4a444e80d81e",
+        "content_equal": true
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md",
+        "git_blob": "93deb38ec012e0208e43250d4547a1b855dcb409",
+        "content_equal": true
+      }
+    ]
+  },
+  "original_artifacts_readback": [
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.md",
+      "git_blob": "3cda8e5be6872eb905c5f5f3770a6c852ceaedce",
+      "base64_readback": true,
+      "local_sha256": "6e956355c3a6d69b2ec323cee1c8af8f86b2584560af0e304d2602dd6ca04a87"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.pdf",
+      "git_blob": "a4efad199337d75717496e573ef5db9ac9295cb8",
+      "base64_readback": true,
+      "local_sha256": "d2324f140c3986bceb0eeb68ca0599c976f04cbc180d6ecb428787c81c722f0a"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_003.zip",
+      "git_blob": "5bd3983a398fd0faafa0a478bfb9ea52cca37c5c",
+      "base64_readback": true,
+      "local_sha256": "ac7b6d2bb084c87326eaf2cd9b5e8c49296759d73b743217a15ad9fe6dcde85d"
+    }
+  ],
+  "preservation": {
+    "frozen_count": 165,
+    "frozen_unchanged": true,
+    "unrelated_count": 374,
+    "unrelated_unchanged": true
+  },
+  "validation": {
+    "relay_validator": "PASS: 14 sessions; 29 changes; required files present",
+    "validation_scope": "publication payload before PR42 merge; final state revalidated separately",
+    "no_oracle_execution": true
+  },
+  "retention_assessment": {
+    "decision": "ELIGIBLE_FOR_DELETION",
+    "manual": true,
+    "relevant_unique_context_preserved": true,
+    "original_reports_and_source_archive_preserved": true,
+    "source_and_status_limits_preserved": true,
+    "development_open_points": "18 existing release004 points remain transferred: OP-01..13, HIST-01..03, VAL-01, M4-01; no need for this reviewchat",
+    "chat_exclusive_dependencies": [],
+    "dependent_sessions": "No outgoing handoff or response depends exclusively on this chat; source regie and revision004 implementation are separately registered and not assessed here",
+    "unknown_id_handling": "Explicit local UUID plus verified unique own review outputs; actual ChatGPT-thread-ID remains unknown. Eligibility applies only to this visible source chat; user performs any deletion manually.",
+    "chat_deleted": false
+  },
+  "limitations": [
+    "No full original upstream regie-history claim",
+    "No Oracle compilation/runtime/performance PASS",
+    "No new technical design approval",
+    "Derived temporary renders omitted; final PDF and buildscript preserved"
+  ],
+  "final_status_publication": "This evidence records PR42 readback; completion/retention update published in a follow-up PR whose Git history is the final readback anchor."
+}

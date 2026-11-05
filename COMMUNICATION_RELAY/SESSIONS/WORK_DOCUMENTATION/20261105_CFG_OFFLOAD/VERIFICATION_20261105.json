@@ -1,0 +1,151 @@
+{
+  "project": "PLSQL_TETOOLS",
+  "revision": "CFG-OFFLOAD-20261105-002",
+  "recorded_at": "2026-11-05",
+  "session_id": "01a1a556-0286-7f51-a088-26a43cd10806",
+  "session_id_kind": "CODEX_SESSION_KEY_NOT_VERIFIED_CHATGPT_THREAD_ID",
+  "source_pr": "https://github.com/JPouwiel/TETOOLS/pull/17",
+  "merge_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+  "main_readback_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+  "readback_files": [
+    {
+      "path": "docs/CONFIGURATION/AGENTS_GUIDE.md",
+      "sha": "f95ad39f825cf32f3f1a8ed6e10bff48b86be243",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/CHATGPT_CUSTOM_INSTRUCTIONS.md",
+      "sha": "a566849a8082767d738d4d3a6013cfd000cb6029",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/CHATGPT_PROJECT_INSTRUCTIONS.md",
+      "sha": "27058fcd31ef0fa1e03f6ceecc50d955823feadf",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/CODEX_CUSTOM_INSTRUCTIONS.md",
+      "sha": "8336f364b53d853b8145e011de78c65efa7c0ec0",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/CODEX_VERIFICATION.md",
+      "sha": "e3353346d69073bca7a917780de042c87fe0b686",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/GITHUB_SETUP.md",
+      "sha": "98319b4652e106887cdac3146bf362e9a52fed65",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/INVENTORY_AND_SOURCES.md",
+      "sha": "a80fabae92ab76495e1c404b17e0e25f44290b35",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/LOCAL_GIT_WINDOWS_SETUP.md",
+      "sha": "bcabf934b01c3373157fb9a2a871c260a562925d",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/MANIFEST.json",
+      "sha": "900ba60ab1210fe61a6f102a247b41150bb8cf4c",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/PROJECT_INSTRUCTIONS.txt",
+      "sha": "1284218dedea64b7b58bce73d81a86640a1ae416",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/README.md",
+      "sha": "97cd34e8cee554a93a2f2317ef92761fb28ee370",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/RELAY_WORKFLOW.md",
+      "sha": "28db78c2f3980679496e1a69bc599cc3828b2fc7",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/TETOOLS_CONFIGURATION.pdf",
+      "sha": "bccc4cf9962c23f6ecfcfdfab744e983b12fad88",
+      "content_received": true
+    },
+    {
+      "path": "docs/CONFIGURATION/VALIDATION.json",
+      "sha": "dbae61a68e8f86b695e6d7e8eb1dd80bbf46a53a",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/OFFLOAD_REQUEST_20261105.txt",
+      "sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/LIBRARY_UPLOAD_PROOF_20261104.png",
+      "sha": "aee69044d0be370cc7105b99709db7175326bed2",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/PUBLICATION_SNAPSHOT_20261104.json",
+      "sha": "3e00373bd6b50f7199694288ac68039c4573f80a",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/HISTORICAL_BUILD_SCRIPT.py",
+      "sha": "5083bd437ad54d3e0e3d9bd83d4e74516a8fe394",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+      "sha": "b44bb9bc4887a5d9a051b8536281f5b7c41410b8",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+      "sha": "af44852e87c1c8bcba17e80090285d7a377fa8f6",
+      "content_received": true
+    },
+    {
+      "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+      "sha": "8b9a469664e177222798891c7fa4bef6b2a28a21",
+      "content_received": true
+    }
+  ],
+  "preservation": {
+    "original_cfg_revision": "CFG-20261104-001",
+    "original_payload_commit": "6801dc1704101379524bcdd663c59633c3864b1a",
+    "original_document_blobs_unchanged": 14,
+    "original_manifest_hashes_passed": 13,
+    "other_main_blobs_preserved": 317,
+    "existing_registry_records_retained": true,
+    "existing_docs_acceptance_protocol_retained": true,
+    "module_and_frozen_release_changes": false
+  },
+  "checks": {
+    "relay_validator": "PASS: 11 sessions; 21 changes before verification record",
+    "full_available_relevant_context_reviewed": true,
+    "offload_request_preserved": true,
+    "bibliography_and_source_relations_preserved": true,
+    "library_ui_evidence_preserved": true,
+    "settings_applied": false,
+    "oracle": "NOT_APPLICABLE",
+    "chat_deleted": false
+  },
+  "handoff": {
+    "issue": "https://github.com/JPouwiel/TETOOLS/issues/30",
+    "status": "OPEN_NOT_ACKNOWLEDGED",
+    "owner": "TETOOLS__REGIE / owner-authorized local configuration session",
+    "scope": "Windows checkout/primary-folder/new-session read-only verification",
+    "requires_originating_chat": false
+  },
+  "retention_assessment": {
+    "recommendation": "ELIGIBLE_FOR_DELETION",
+    "basis": "Relevant unique context, original artifacts, sources, provenance, limitations and follow-up are preserved and read back on main. No session-dependent work remains. This is a manual evidence-based assessment authorized by the offload request, not automated deletion.",
+    "chat_thread_id_verified": false,
+    "chat_deletion": "NOT_PERFORMED; owner may decide separately",
+    "limitations": "No full platform transcript export claimed; original source chat remains separate. Historical library upload was UI-verified, not byte-downloaded. Those limitations are preserved and do not hide missing development context."
+  }
+}

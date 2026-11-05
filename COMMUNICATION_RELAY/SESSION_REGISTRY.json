@@ -275,7 +275,7 @@
       "subject": "TETOOLS configuration documentation and verified session offload",
       "revision": "CFG-20261104-001 / OFFLOAD-20261105-001",
       "status": "COMPLETED",
-      "retention_status": "KEEP",
+      "retention_status": "ELIGIBLE_FOR_DELETION",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
@@ -285,12 +285,13 @@
         "../docs/CONFIGURATION/",
         "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
         "https://github.com/JPouwiel/TETOOLS/pull/17",
-        "https://github.com/JPouwiel/TETOOLS/issues/30"
+        "https://github.com/JPouwiel/TETOOLS/issues/30",
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/VERIFICATION_20261105.json"
       ],
-      "open_dependencies": [
-        "OFFLOAD-MAIN-READBACK"
-      ],
-      "note": "Original work 2026-11-04; registration proposed in PR17 then absent on main. Current offload retains existing key without claiming a verified ChatGPT thread ID. Windows follow-up handed to Issue30; KEEP until main readback and preservation review."
+      "open_dependencies": [],
+      "note": "Offload and original 14 CFG files merged via PR17 and all 21 changed files read back on main; 317 existing other blobs preserved. Relevant unique context and limitations preserved. Windows follow-up is transferred to Issue30 with no dependency on this chat. Manual evidence-based eligibility assessment under user offload assignment; no chat deletion or verified ChatGPT-thread-ID claim. Lifecycle COMPLETED, not CLOSED/ARCHIVED.",
+      "merge_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/17"
     },
     {
       "session_id": "884ffcf0-031f-43c2-94c3-adc8294c6490",

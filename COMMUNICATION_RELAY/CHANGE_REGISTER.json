@@ -529,6 +529,33 @@
         "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md"
       ],
       "note": "Start registration; no completion or deletion eligibility claimed."
+    },
+    {
+      "change_id": "CFG-OFFLOAD-20261105-002",
+      "record_type": "SESSION_OFFLOAD_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Verified main preservation and manual retention assessment for CFG documentation session",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/17",
+      "origin_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "recorded_by_session": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "approval_actor": "user",
+      "approved_by": "Explicit universal offload request 2026-11-05, including preservation, merge/readback and evidence-based retention assessment; no deletion authorization exercised",
+      "recorded_at": "2026-11-05",
+      "revision": "002",
+      "supersedes": "CFG-OFFLOAD-20261105-001",
+      "related_change_id": "CFG-20261104-001",
+      "merge_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+      "artifact_refs": [
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD/VERIFICATION_20261105.json",
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/30"
+      ],
+      "dependencies": [],
+      "verification": "21/21 changed files fetched on main at 920a23a3f9286cdbc6626571473f464292fdc0f9; original 14 CFG blobs retained; 317 other existing blobs unchanged; Windows follow-up transferred; no unique session-dependent context remains.",
+      "retention_status": "ELIGIBLE_FOR_DELETION",
+      "chat_deleted": false
     }
   ]
 }

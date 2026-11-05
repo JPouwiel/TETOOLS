@@ -394,20 +394,24 @@
       "module": null,
       "subject": "Work-sessie registreren bij het TETOOLS relayprotocol; geen moduleopdracht toegewezen",
       "revision": "relay-v1 / 2026-11-05",
-      "status": "REGISTERED",
+      "status": "CLOSED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
-      "closed_at": null,
+      "closed_at": "2026-11-05",
       "source_reference": "Current Codex Work conversation 2026-11-05; user: Probeer als work sessie je te registreren bij het relay protocol. Exact chat/message URL UNVERIFIED.",
       "recorded_by": "e6848875-0061-4364-97f5-302b27bc6b48",
       "deliverables": [
-        "SESSION_REGISTRY.json"
+        "SESSION_REGISTRY.json",
+        "https://github.com/JPouwiel/TETOOLS/pull/46",
+        "https://github.com/JPouwiel/TETOOLS/issues/47",
+        "https://github.com/JPouwiel/TETOOLS/issues/47#issuecomment-6665086776",
+        "https://github.com/JPouwiel/TETOOLS/pull/48"
       ],
       "open_dependencies": [],
       "base_commit": "36a864cc8369661080af4bb7c5840d52768eb87d",
-      "result": "Registration-only scope. No module development, architectural decision or Oracle execution. No current module task declared.",
-      "note": "Own session registration under explicit user request. Local UUID is not a verified chat thread ID. Existing session reused; no new chat created. Open suite signals read: REGIE-20261103-004, LOGGER-KT03-20261104-001 (hypothetical test), LOGGER-RELAY-ACTIVITY-20261104-001 (subsequent activity implementation recorded). Module investigations remain with existing regie."
+      "result": "Own registration completed via PR46 merge 40f0692906c52f576d03c76ea128fb10d3da04db and exact main readback. Forwarded ADMIN_LOGGER RAC report-A request durably published as Issue47 using unique RELAY-HANDOFF-20261105-LOGGER-A because original ID collided with unrelated Issue45. Existing receiver ADMIN_LOGGER-IMPORT-20261103-01 acknowledged AVAILABLE in Issue47 comment 6665086776 and reported own ACTIVE/WORKING registration via PR48 merge b69adc3860593b9025e08ef06d05b18cb82c5037. Own registration/routing work complete; report A/HTML/PDF, source analysis and further module handover remain with receiver and ADMIN_LOGGER__REGIE. No module source edits or Oracle execution by this session.",
+      "note": "User requested completion and saving on 2026-11-05. Retain local relay UUID and registration origin; app inventory identified this existing Codex chat as Work ADMIN_LOGGER 01, thread 01a1acbe-8416-74c3-8521-4cb93bbd015b. Distinct from Analyse ADMIN_LOGGER, target thread 6ac49be1-ed20-83ed-9641-3b609ff795f4. Closure concerns this routing session only, not Issue47 or recipient work. KEEP; no deletion/archival. Receiver acknowledgement verified through GitHub comments. Source request and full actionable scope preserved in Issue47; exact original approval URL UNVERIFIED. LOG-OPEN-01 task-reference mismatch recorded there: use Issue47 URL under current contract. No new architecture decisions."
     }
   ]
 }

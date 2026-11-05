@@ -59,12 +59,12 @@
       "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",
       "role": "WORK_IMPORT",
       "module": "ADMIN_LOGGER",
-      "subject": "Source and context import into suite repository",
+      "subject": "LOG-OPEN-01: Oracle 19c three-node RAC report A; source 20261015_500",
       "revision": "20261015_500",
-      "status": "COMPLETED",
+      "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
-      "last_confirmed_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-05",
       "closed_at": null,
       "source_reference": "../modules/ADMIN_LOGGER/DECISIONS.md",
       "deliverables": [
@@ -77,10 +77,15 @@
         "LOG-OPEN-04",
         "LOG-OPEN-05"
       ],
-      "recorded_by": "current ADMIN_LOGGER conversation; exact thread ID not exposed",
+      "recorded_by": "ADMIN_LOGGER-IMPORT-20261103-01",
       "note": "Import completed via PR #4 and main readback; exact ChatGPT thread ID not exposed. Local registration key only. Oracle review/runtime and LOG-OPEN-01 through LOG-OPEN-05 remain open; retain chat context.",
       "merge_commit": "e741ae9e2b8d82d25acf778690ff60b9476c6bc1",
-      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/4"
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/4",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/47",
+        "summary": "LOG-OPEN-01: RAC rapport A analyseren en publiceren; feitelijke uitvoerder",
+        "state": "WORKING"
+      }
     },
     {
       "session_id": "01a138d4-ee43-7930-aea2-4ec084041013",
@@ -226,13 +231,13 @@
       "module": "ADMIN_LOGGER",
       "subject": "Module governance; RELAY-E2E-20261104-001 KT-01 applicability and KT-02 session registration",
       "revision": "relay-v1 / 2026-11-04",
-      "status": "REGISTERED",
+      "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-04",
-      "last_confirmed_at": "2026-11-04",
+      "last_confirmed_at": "2026-11-05",
       "closed_at": null,
       "source_reference": "Current ADMIN_LOGGER__REGIE conversation 2026-11-04; exact thread ID unavailable",
-      "recorded_by": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by": "ADMIN_LOGGER-IMPORT-20261103-01",
       "deliverables": [
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json"
       ],
@@ -241,10 +246,14 @@
         "LOG-OPEN-02",
         "LOG-OPEN-03",
         "LOG-OPEN-04",
-        "LOG-OPEN-05",
-        "RELAY-E2E-20261104-001 KT-03 awaiting separate user confirmation"
+        "LOG-OPEN-05"
       ],
-      "note": "KT-02 registration attempt; KT-03 not authorized. Acceptance protocol text not located on main via search; KT-01 criteria cannot be fully verified."
+      "note": "KT-03 permission verified in LOGGER-KT03-20261104-001 and module OPEN_POINTS; hypothetical test, no confirmed defect. Issue #47 explicitly authorizes this correction by ADMIN_LOGGER-IMPORT-20261103-01. Report A execution belongs to the import session; this entry represents module governance.",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/47",
+        "summary": "LOG-OPEN-01: RAC rapport A gedelegeerd aan ADMIN_LOGGER-IMPORT-20261103-01; regie wacht op resultaat",
+        "state": "WAITING"
+      }
     },
     {
       "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",

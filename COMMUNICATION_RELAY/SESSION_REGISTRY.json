@@ -59,33 +59,34 @@
       "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",
       "role": "WORK_IMPORT",
       "module": "ADMIN_LOGGER",
-      "subject": "LOG-OPEN-01: Oracle 19c three-node RAC report A; source 20261015_500",
+      "subject": "LOG-OPEN-01: static RAC report A and cumulative dossier delivered",
       "revision": "20261015_500",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
       "source_reference": "../modules/ADMIN_LOGGER/DECISIONS.md",
       "deliverables": [
-        "../modules/ADMIN_LOGGER/"
+        "../modules/ADMIN_LOGGER/",
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+        "../modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_dossier_cumulatief_034.pdf",
+        "../modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_VERIFICATION.json"
       ],
       "open_dependencies": [
         "LOG-OPEN-01",
         "LOG-OPEN-02",
         "LOG-OPEN-03",
         "LOG-OPEN-04",
-        "LOG-OPEN-05"
+        "LOG-OPEN-05",
+        "https://github.com/JPouwiel/TETOOLS/issues/47 — existing ADMIN_LOGGER__REGIE receipt/remaining-work ownership pending",
+        "LOGGER-RAC-20261105-001 — central suite assessment pending"
       ],
       "recorded_by": "ADMIN_LOGGER-IMPORT-20261103-01",
-      "note": "Import completed via PR #4 and main readback; exact ChatGPT thread ID not exposed. Local registration key only. Oracle review/runtime and LOG-OPEN-01 through LOG-OPEN-05 remain open; retain chat context.",
+      "note": "Original import PR #4/merge retained as provenance. Current bounded report-A task completed; no automatic chat closure/deletion. Wider LOG-OPEN-01..05 remain open. This session has no declared current_activity; regie receipt is not inferred.",
       "merge_commit": "e741ae9e2b8d82d25acf778690ff60b9476c6bc1",
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/4",
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/47",
-        "summary": "LOG-OPEN-01: RAC rapport A analyseren en publiceren; feitelijke uitvoerder",
-        "state": "WORKING"
-      }
+      "result": "Report A published/verified via PR #50 merge e4d9668b741a3f2a2b67d76b7539fc8975028591 (5 exact main text matches; 382 other blobs unchanged). 12 findings, 23-page cumulative PDF and verification record delivered in follow-up PR; their final merge/readback audit follows in Issue #47. Oracle NOT_EXECUTED. No source/frozen-release edits or B/C. Remaining work returned to existing module regie, receipt pending; KEEP."
     },
     {
       "session_id": "01a138d4-ee43-7930-aea2-4ec084041013",

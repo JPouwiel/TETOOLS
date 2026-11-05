@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_LOGGER",
+  "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",
+  "task": "https://github.com/JPouwiel/TETOOLS/issues/47",
+  "recorded_at": "2026-11-05",
+  "source_baseline": "40f0692906c52f576d03c76ea128fb10d3da04db",
+  "registration": {
+    "pr": 48,
+    "merge": "b69adc3860593b9025e08ef06d05b18cb82c5037",
+    "exact_main_text_match": true
+  },
+  "report_publication": {
+    "pr": 50,
+    "merge": "e4d9668b741a3f2a2b67d76b7539fc8975028591",
+    "readback": [
+      {
+        "path": "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+        "sha": "e3902cc8807c0c51e32bed43678ea7ecd2d35231",
+        "exact_content_match": true
+      },
+      {
+        "path": "modules/ADMIN_LOGGER/CURRENT_STATUS.md",
+        "sha": "ebdec48ccd2e85cb24d9001a07a6ea8ebafbe284",
+        "exact_content_match": true
+      },
+      {
+        "path": "modules/ADMIN_LOGGER/docs/reports/RAC_A_20261105_FINDINGS.json",
+        "sha": "0332cb409d3732ff02e5dec284e6c452ce9089cc",
+        "exact_content_match": true
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "sha": "0b39256f8fa80df0f12293e42da6c841e13567cd",
+        "exact_content_match": true
+      },
+      {
+        "path": "modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
+        "sha": "dbf7860d935edc102196c1d9d2e5fabad657a256",
+        "exact_content_match": true
+      }
+    ],
+    "all_other_existing_blobs_unchanged": 382
+  },
+  "qa": {
+    "static": {
+      "checks": {
+        "unique_ids": true,
+        "local_links_resolve": true,
+        "12_findings": true,
+        "no_external_assets": true,
+        "logical_purge_fixture": true
+      },
+      "fixture_description": "Set-difference model: live node-2 session from 30 Oct is selected by local-only inventory at 5 Nov; global fixture retains it. Model only, no Oracle execution.",
+      "oracle_status": "NOT_EXECUTED",
+      "browser_layout": "NOT_EXECUTED: no installed binary; attempted download failed"
+    },
+    "script": {
+      "method": "Actual embedded script executed with a minimal DOM/storage harness; not a real-browser or layout test",
+      "checks": {
+        "initial_count": true,
+        "priority_filter": true,
+        "topic_filter": true,
+        "text_filter": true,
+        "close_all": true,
+        "open_all": true,
+        "save_state": true,
+        "export_state": true,
+        "import_roundtrip": true,
+        "invalid_import_rejected": true,
+        "hash_opens_detail": true,
+        "print_opens_details": true,
+        "print_restores_state": true
+      },
+      "oracle_status": "NOT_EXECUTED"
+    }
+  },
+  "pdf": {
+    "path": "modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_dossier_cumulatief_034.pdf",
+    "bytes": 304764,
+    "sha256": "532d8358824d82d39fd0ae304109fdffc1e9d8275f25d71ecbb1d0ecde3088b6",
+    "git_blob": "305a6d58466925cdfdaad3c513f77ce86fa19351",
+    "pages": 23,
+    "visual_review": "23 final rendered pages inspected as contact sheet; dense source/evidence pages inspected separately. Embedded fonts; no clipping/overlap observed.",
+    "cumulative_appendix": "4 historical pages from dossier 032; marked historical. Current section 19 pages.",
+    "publication_evidence": "This record and the PDF are published together. Their own resulting merge and main readback are recorded in Issue #47 after merge; not asserted here before that event."
+  },
+  "scope_limits": [
+    "Oracle compile/runtime/load/failover NOT_EXECUTED",
+    "Real browser rendering NOT_EXECUTED; browser unavailable, download failed; actual script harness is explicitly distinguished",
+    "No source/frozen-release changes; no B/C implementation"
+  ],
+  "handover": {
+    "target_session": "ADMIN_LOGGER-REGIE-20261104-01",
+    "issue": "https://github.com/JPouwiel/TETOOLS/issues/47",
+    "receipt": "PENDING",
+    "remaining_owner": "existing ADMIN_LOGGER__REGIE; central TETOOLS__REGIE decides suite signal disposition",
+    "open_points": [
+      "LOG-OPEN-01 broader review",
+      "LOG-OPEN-02 Oracle evidence",
+      "LOG-OPEN-03 installer",
+      "LOG-OPEN-04 older proposals comparison",
+      "LOG-OPEN-05 consumers/release map",
+      "RAC-A-001 through RAC-A-012 decisions/tests",
+      "LOGGER-RAC-20261105-001 central disposition"
+    ]
+  },
+  "retention_status": "KEEP",
+  "chat_closed": false
+}

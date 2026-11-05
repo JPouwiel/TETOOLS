@@ -69,3 +69,15 @@ Approved in TETOOLS__REGIE conversation, 2026-11-04; exact chat URL unavailable 
 ## Afsluitoverdracht en sessiehergebruik (2026-11-05)
 
 Een uitvoerende sessie publiceert ontbrekende resultaten en open punten in bestaande module- en relaybronnen met versie, datum, PR, merge en verificatie op main. De bestaande module-regie bevestigt ontvangst en neemt resterend modulewerk over. Alleen mogelijke suitebrede gevolgen worden aan TETOOLS__REGIE gemeld. Hergebruik een bestaand Issue voor dezelfde overdracht. Kies eerst een bestaande doelsessie en geef de gebruiker een volledig ingevulde activeringsprompt. Nieuwe Work/Codex-sessies alleen indien noodzakelijk. Bij ontbrekende ontvangst blijft de overdracht open.
+
+## Bestaande Work/Codex-sessie en niet-geaccepteerde nieuwe overdracht (2026-11-05)
+
+Bij Work/Codex-opdrachten kiest de verzender eerst een aantoonbaar bestaande, passende uitvoeringssessie. Controleer sessieregister, taak/Issue, module-eigenaarschap en bronverwijzing. Een bestaande sessie wordt niet vervangen enkel omdat een nieuwe Work-overdracht wordt aangeboden.
+
+1. **Bestaande sessie bekend en bereikbaar:** hergebruik het bestaande Issue voor dezelfde taak, of maak een gekoppeld Issue. Lever één volledig ingevulde activeringsprompt met doelsessie, Issue, bevoegdheid, bronversie, acceptatiecriteria en verificatie. De eigenaar plakt dit in de bestaande sessie. GitHub activeert geen chat.
+2. **Doelsessie niet verifieerbaar of niet bereikbaar:** rapporteer TARGET_SESSION_UNVERIFIED of TARGET_SESSION_UNAVAILABLE. Verzin geen sessie-ID of chat-URL; registreer afhankelijkheid en vraag uitsluitend de minimaal benodigde identificatie.
+3. **Nieuwe Work-handoff niet geaccepteerd:** rapporteer NEW_WORK_HANDOFF_NOT_ACCEPTED, niet 'gebruiker weigert inhoudelijke opdracht'. Controleer bestaande uitvoeringssessie en volg stap 1 of 2. Dwing geen herhaalde nieuwe overdracht af.
+4. **Directe uitvoering beschikbaar:** de bevoegde huidige sessie mag een geautoriseerde afgebakende taak zelf uitvoeren als dit geen noodzakelijke overdracht omzeilt. Publiceer met branch/PR/merge/readback en identificeer de feitelijke uitvoerder. Een geweigerde Work-handoff is op zichzelf geen GitHub-blokkade.
+5. **Ontvangst:** doelsessie leest bronnen zelfstandig, bevestigt ontvangst in Issue en publiceert resultaat. Zonder ontvangst blijft overdracht open.
+
+Geen nieuwe registervelden, automatische agent, chatdetectie of achtergrondactivatie. Dit verduidelijkt de bestaande handmatige relayprocedure.

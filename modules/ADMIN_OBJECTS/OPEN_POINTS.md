@@ -7,3 +7,7 @@ Belangrijk: OP-01 CAN-001-acceptatie, OP-02 profielkeuzes/DATA_LENGTH, OP-03 ide
 Algemene ontwerpverkenning: [open punten voor hervatting](context/20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md#open-punten-voor-hervatting). Dat zijn beleids-/ontwerpvragen buiten de begrensde PoC; geen nieuwe implementatieopdracht.
 
 REGIE noemt daarnaast een volledige retourtest tussen verschillende sessies. De onderhavige sessie leest bestaande regie-informatie en publiceert een import, maar presenteert dat niet als een gecoördineerde DEV/REVIEW-retourtest of Oracle-test. Bewaar oorspronkelijke chats bij onzekerheid.
+
+## Overgedragen context van de oorspronkelijke HTML-001-sessie
+
+De [sessieoverdracht](context/offloads/20261105_html001/SESSION_HANDOFF.md#open-punten-en-overdracht-van-eigenaarschap) koppelt de twaalf historische HTML-OPs aan de bestaande release-004 OPs. De gebruiker heeft in die documentatiesessie geen antwoorden op de twaalf punten gegeven. Deze offload sluit geen OP, HIST- of VAL-punt en wijzigt geen eigenaarschap van inhoudelijke ontwikkeling. Afhandeling kan vanuit GitHub plaatsvinden; de persoonlijke bewaarbeoordeling van de bron-REGIE- en implementatiesessies blijft afzonderlijk.

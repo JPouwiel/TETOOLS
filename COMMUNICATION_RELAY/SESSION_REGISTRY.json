@@ -305,15 +305,18 @@
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
-      "source_reference": "Current PM-001 standalone HTML design conversation; user offload attachment 2026-11-05; exact ChatGPT thread ID UNVERIFIED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/SESSION_HANDOFF.md",
       "recorded_by": "884ffcf0-031f-43c2-94c3-adc8294c6490",
-      "deliverables": [],
+      "deliverables": [
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/SESSION_HANDOFF.md",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/PRESERVATION_MANIFEST.json"
+      ],
       "open_dependencies": [
-        "Verify missing session context and artifacts on main before retention assessment"
+        "HTML001-OFFLOAD-MAIN-READBACK"
       ],
       "current_activity": {
         "task_reference": "OBJECTS-HTML-OFFLOAD-20261105-001",
-        "summary": "Oorspronkelijke HTML-001-sessie vergelijken met gepubliceerde bronnen, ontbrekend bewijs bewaren en bewaring beoordelen",
+        "summary": "Ontbrekende historische broncontext en scripts publiceren; main-teruglezing en bewaarbeoordeling afronden",
         "state": "WORKING"
       },
       "note": "Separate from source REGIE chat 6ae1c678-2a98-83ed-99b0-c8895440f708 and implementation-004 session; local UUID is not a verified ChatGPT thread ID."

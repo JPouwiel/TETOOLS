@@ -211,27 +211,81 @@
       "note": "Registration performed by this session. User-approved governance; RAC technical effects not validated."
     },
     {
-      "session_id": "01a1a556-0286-7f51-a088-26a43cd10806",
-      "role": "WORK_DOCUMENTATION",
-      "module": null,
-      "subject": "TETOOLS configuration documentation",
-      "revision": "CFG-20261104-001",
-      "status": "COMPLETED",
+      "session_id": "ADMIN_LOGGER-REGIE-20261104-01",
+      "session_id_origin": "LOCALLY_ASSIGNED_KEY_NOT_CHAT_THREAD_ID",
+      "role": "REGIE",
+      "module": "ADMIN_LOGGER",
+      "subject": "Module governance; RELAY-E2E-20261104-001 KT-01 applicability and KT-02 session registration",
+      "revision": "relay-v1 / 2026-11-04",
+      "status": "REGISTERED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-04",
       "last_confirmed_at": "2026-11-04",
       "closed_at": null,
-      "source_reference": "../docs/CONFIGURATION/INVENTORY_AND_SOURCES.md",
-      "recorded_by": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "source_reference": "Current ADMIN_LOGGER__REGIE conversation 2026-11-04; exact thread ID unavailable",
+      "recorded_by": "ADMIN_LOGGER-REGIE-20261104-01",
       "deliverables": [
-        "../docs/CONFIGURATION/"
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json"
       ],
       "open_dependencies": [
-        "CFG-REVIEW-MERGE",
-        "CFG-MAIN-READBACK",
-        "CFG-WINDOWS-VERIFICATION"
+        "LOG-OPEN-01",
+        "LOG-OPEN-02",
+        "LOG-OPEN-03",
+        "LOG-OPEN-04",
+        "LOG-OPEN-05",
+        "RELAY-E2E-20261104-001 KT-03 awaiting separate user confirmation"
       ],
-      "note": "Documentation prepared for branch/PR publication. Registration remains proposed until merge and main readback. No settings, module code or frozen releases changed."
+      "note": "KT-02 registration attempt; KT-03 not authorized. Acceptance protocol text not located on main via search; KT-01 criteria cannot be fully verified."
+    },
+    {
+      "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+      "role": "CODEX_IMPLEMENTATION",
+      "module": null,
+      "subject": "Issue #23 minimal current_activity implementation",
+      "revision": "002",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
+      "recorded_by": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "deliverables": [
+        "https://github.com/JPouwiel/TETOOLS/pull/28",
+        "CURRENT_ACTIVITY.md",
+        "ISSUE23_TEST_RESULTS.json",
+        "ISSUE23_VERIFICATION.json",
+        "reports/ISSUE23_RESULTAAT_20261105.pdf"
+      ],
+      "open_dependencies": [],
+      "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466.",
+      "result": "Issue #23 minimal activity management implemented; 16 tests PASS; main implementation readback verified. Own activity removed with completion. Final delivery publication verified via linked PR and Issue; retention KEEP, no chat closure/deletion claim."
+    },
+    {
+      "session_id": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "session_id_origin": "CODEX_SESSION_KEY_NOT_INDEPENDENTLY_VERIFIED_CHATGPT_THREAD_ID",
+      "role": "WORK_DOCUMENTATION",
+      "module": null,
+      "subject": "TETOOLS configuration documentation and verified session offload",
+      "revision": "CFG-20261104-001 / OFFLOAD-20261105-001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+      "recorded_by": "01a1a556-0286-7f51-a088-26a43cd10806",
+      "deliverables": [
+        "../docs/CONFIGURATION/",
+        "SESSIONS/WORK_DOCUMENTATION/20261105_CFG_OFFLOAD.md",
+        "https://github.com/JPouwiel/TETOOLS/pull/17",
+        "https://github.com/JPouwiel/TETOOLS/issues/30"
+      ],
+      "open_dependencies": [
+        "OFFLOAD-MAIN-READBACK"
+      ],
+      "note": "Original work 2026-11-04; registration proposed in PR17 then absent on main. Current offload retains existing key without claiming a verified ChatGPT thread ID. Windows follow-up handed to Issue30; KEEP until main readback and preservation review."
     }
   ]
 }

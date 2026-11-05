@@ -1,0 +1,166 @@
+{
+  "project": "PLSQL_TETOOLS",
+  "issue": 23,
+  "base_commit": "6c3f64ba6a1db9ef902cdee18939c0cef3836d11",
+  "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+  "status": "TESTED_NOT_YET_MERGED",
+  "source_method": "Full UTF-8 GitHub connector content; Git blob identities compared to pinned GitHub tree, no normalized projection",
+  "source_files": [
+    {
+      "path": "COMMUNICATION_RELAY/.github/pull_request_template.md",
+      "blob_sha": "21b19f9fb2847d94035da94a31a61bf100f21c49"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/.gitignore",
+      "blob_sha": "d657b156008c57392a5a501509833f886d069623"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+      "blob_sha": "099b5478bff1491bab297b9cfcd2dfe346c6cdce"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+      "blob_sha": "c5522e1994bbbdb202ecabc4dea87346d7dbb391"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/DECISIONS.md",
+      "blob_sha": "9072d37c93956a712bab51510988bc0135a5b819"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/MANUAL_HANDOFF.md",
+      "blob_sha": "492f04cb8be6598e09058af07661261d948311a7"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/MODULE_REGISTRY.md",
+      "blob_sha": "e6e9f8e4828b4b3c6a6f658fb885e5778a387451"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/PROJECT.md",
+      "blob_sha": "447f1ad2e1dcd50ae80354bade028631b08db07f"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+      "blob_sha": "c71b15e2f9bcea39743cd065ac83f9d2dcd2402b"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+      "blob_sha": "64e0f23288afd91aa2f77fd3cc9e1070f9303c56"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_RETENTION_INVENTORY_20261104.md",
+      "blob_sha": "438633d5d45a9ffc68e82e4bb768e26f0a9bb14f"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_RETENTION_REVIEW.md",
+      "blob_sha": "bd3746c120bf78a61c925bb4f343ff865c268534"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/START_HERE_TETOOLS_REGIE.md",
+      "blob_sha": "dbb287efda8f879321c0877c0bde57b42d8523ab"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SUITE_ARCHITECTURE.md",
+      "blob_sha": "a59b049e8bd3e225226b0826ee2734317ebdb8a6"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/manifest.json",
+      "blob_sha": "c2d7563eae4fa3cc175c16bf75024360a670ccd4"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/session_retention_review.py",
+      "blob_sha": "b34bc49098e13ada70858b46f01d43a1f0946abc"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/test_session_retention_review.py",
+      "blob_sha": "d1e4116ca69a5dbefebebfc52f8f6ebb366a3939"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/validate_relay.py",
+      "blob_sha": "f8f7aa52abf0e2db19e93c9345c4d4d33485f6d5"
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+      "blob_sha": "654ee5a3bf476f922f9bdb8da1f3c5a6e0d3b76d"
+    }
+  ],
+  "tested_files": [
+    {
+      "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+      "blob_sha": "99ca5365f7dc574b36296b74880bb1c53c50c8c5",
+      "sha256": "e80d9e568828b4eefc1fd377faf2f5159e07dacfbe89e75c6a3cc8e474500570"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/CURRENT_ACTIVITY.md",
+      "blob_sha": "88bb6f285e804cb252791b6e061e47cc35e9800c",
+      "sha256": "f91d4872e59dcbea5ed13f4f3f7f2b44e8994d9d5833713ead2e905ccf0d2b0d"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+      "blob_sha": "641fd0aed23f7188b326a5e63f3abc2475c23dbf",
+      "sha256": "511ad46c7d186d870c8281f5f4b28c6275c5877dc386db96e318e448e7f96dc3"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+      "blob_sha": "e5bc1ad7660218f0de8fbf026eb3a54f3ed667f6",
+      "sha256": "cda89a46291efdacf55f97a93a66ef4b96bffa90b7cbbb44e8fad7edfcefa1c3"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+      "blob_sha": "41e27e673dc8e2f7106af3418d7bccb68675fbe2",
+      "sha256": "ace28b3813de7e8badfa55341095d85cd1f85002682809ca859ab874b03836d7"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_RETENTION_REVIEW.md",
+      "blob_sha": "9b0151d04b07716021964c6f2799c0917aea1fb9",
+      "sha256": "7a208ba96df3cd43041303e12a2d23157de71a85e3567e1628cec2011ff250d3"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/START_HERE_TETOOLS_REGIE.md",
+      "blob_sha": "aa5a50de729bf37560567e1097e11bda1c09a05d",
+      "sha256": "07544b5d33b1f962bf88235b4b67f0238431f83b0de91b762b6a46071c861e59"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/session_retention_review.py",
+      "blob_sha": "158664922adccc0c1aae37418df4c4527c8999e6",
+      "sha256": "148ae2e170c11e2e52f865213308d81fa94ee344d385f708a8ea0f92b24d4be9"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/test_current_activity.py",
+      "blob_sha": "51f72aa1fa4f0faa30417d907599dde92f8a2cb6",
+      "sha256": "55a72eda8f547d77ab8e8cb955d621afbf40c59fd8d83b00ecff82fd2c0c28ed"
+    },
+    {
+      "path": "COMMUNICATION_RELAY/tools/validate_relay.py",
+      "blob_sha": "32d9bd6d301cac51d1b222680de6497e8900222e",
+      "sha256": "4cbcd527162e6e271984bb642a12b634eb9277eeb93a53abe3747f73bb48c93a"
+    }
+  ],
+  "commands": [
+    {
+      "command": "COMMUNICATION_RELAY/tools/validate_relay.py",
+      "exit_code": 0,
+      "stdout": "PASS: 10 sessions; 17 changes; required files present\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "-m unittest discover -s COMMUNICATION_RELAY/tools -p test_*.py -v",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_activity_cannot_be_eligible_for_deletion (test_current_activity.ActivityTests) ... ok\r\ntest_actual_registry_cli_is_read_only_and_repeatable (test_current_activity.ActivityTests) ... ok\r\ntest_confirmation_and_recorder_required (test_current_activity.ActivityTests) ... ok\r\ntest_invalid_and_extra_fields_rejected (test_current_activity.ActivityTests) ... ok\r\ntest_malformed_objects_rejected (test_current_activity.ActivityTests) ... ok\r\ntest_old_entries_absent_or_null_remain_valid (test_current_activity.ActivityTests) ... ok\r\ntest_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger (test_current_activity.ActivityTests) ... ok\r\ntest_report_shows_activity_and_escapes_table_content (test_current_activity.ActivityTests) ... ok\r\ntest_stale_activity_is_not_deleted_or_inferred_inactive (test_current_activity.ActivityTests) ... ok\r\ntest_terminal_states_require_clear (test_current_activity.ActivityTests) ... ok\r\ntest_work_wait_block_resume_clear_and_new_task (test_current_activity.ActivityTests) ... ok\r\ntest_conservative_even_without_open_dependencies (test_session_retention_review.ReviewTests) ... ok\r\ntest_duplicate_id_fails (test_session_retention_review.ReviewTests) ... ok\r\ntest_keep_never_overridden (test_session_retention_review.ReviewTests) ... ok\r\ntest_old_confirmation_not_deletion (test_session_retention_review.ReviewTests) ... ok\r\ntest_report_has_safety_steps (test_session_retention_review.ReviewTests) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 16 tests in 0.842s\r\n\r\nOK\r\n"
+    },
+    {
+      "command": "COMMUNICATION_RELAY/tools/session_retention_review.py --as-of 2026-11-05",
+      "exit_code": 0,
+      "stdout": "# TETOOLS — Session retention inventory\r\n\r\nGenerated for: 2026-11-05\r\n\r\n**Scope:** registered sessions only. Read-only advisory; no deletion or archive action.\r\n**Activity:** last manual declaration, not live chat presence. No declared task does not mean inactivity.\r\n**Evidence:** registry metadata only; no chat transcript or independent context preservation check.\r\n**Policy:** no session is automatically eligible for deletion; age is a review hint, not proof.\r\n\r\n| Session | Module | Lifecycle | Retention | Advice | Declared activity | Confirmed |\r\n|---|---|---|---|---|---|---|\r\n| `01a1a002-714e-7123-9778-8c26d79d0d72` | ADMIN_OBJECTS | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `01a19ff0-f2d2-7723-9520-d6f8b84ec55c` | ADMIN_OBJECTS | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `ADMIN_LOGGER-IMPORT-20261103-01` | ADMIN_LOGGER | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `01a138d4-ee43-7930-aea2-4ec084041013` | ADMIN_OBJECTS | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `6ae1c678-2a98-83ed-99b0-c8895440f708` | ADMIN_OBJECTS | REGISTERED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `01a184a4-b6f6-76d3-be6a-38608571155a` | ADMIN_TNSNAMES | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `01a138df-aece-73c1-a082-32fa2d835303` | ADMIN_SESSIONS | COMPLETED | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `67c27cf6-aa30-4b97-b4e2-753c195f277c` | SUITE | ACTIVE | KEEP | KEEP | No declared task | 2026-11-03 |\r\n| `ADMIN_LOGGER-REGIE-20261104-01` | ADMIN_LOGGER | REGISTERED | KEEP | KEEP | No declared task | 2026-11-04 |\r\n| `9b9d1f65-4737-4956-8ed1-100b8c2e53da` | SUITE | ACTIVE | KEEP | KEEP | WORKING: Minimale activiteitregistratie implementeren en toetsen (https://github.com/JPouwiel/TETOOLS/issues/23) | 2026-11-05 |\r\n\r\n## Reasons and next checks\r\n\r\n### 01a1a002-714e-7123-9778-8c26d79d0d72\r\n- Open dependencies: 2; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### 01a19ff0-f2d2-7723-9520-d6f8b84ec55c\r\n- Open dependencies: 1; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### ADMIN_LOGGER-IMPORT-20261103-01\r\n- Open dependencies: 5; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### 01a138d4-ee43-7930-aea2-4ec084041013\r\n- Open dependencies: 4; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### 6ae1c678-2a98-83ed-99b0-c8895440f708\r\n- Open dependencies: 4; Session lifecycle not completed; Explicit retention KEEP\r\n### 01a184a4-b6f6-76d3-be6a-38608571155a\r\n- Open dependencies: 9; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### 01a138df-aece-73c1-a082-32fa2d835303\r\n- Open dependencies: 10; Work completed, chat closure not evidenced; Explicit retention KEEP\r\n### 67c27cf6-aa30-4b97-b4e2-753c195f277c\r\n- Open dependencies: 3; Session lifecycle not completed; Explicit retention KEEP\r\n### ADMIN_LOGGER-REGIE-20261104-01\r\n- Open dependencies: 6; Session lifecycle not completed; Explicit retention KEEP\r\n### 9b9d1f65-4737-4956-8ed1-100b8c2e53da\r\n- Declared current activity; retain pending work review; Open dependencies: 1; Session lifecycle not completed; No recorded deliverables\r\n\r\n## Before any cleanup\r\n\r\n1. Confirm actual chat identity and whether the chat still exists.\r\n2. Check unique decisions, files, messages and dependencies outside the registry.\r\n3. Preserve required information in canonical GitHub records and verify links.\r\n4. Obtain explicit owner authorization for each proposed deletion.\r\n5. Perform chat deletion separately using supported ChatGPT controls.\r\n6. Record evidence of actual deletion; never equate ARCHIVED with deletion.\r\n\r\n",
+      "stderr": ""
+    }
+  ],
+  "baseline_validator": "FAIL: six historical records lack approved_by; corrected approval validation by status and existing approval_actor, without rewriting ledger history",
+  "baseline_retention_tests": "5/5 PASS against exact source",
+  "oracle": "NOT_EXECUTED: no SQL/PLSQL/database changes; Oracle not required for this relay feature",
+  "module_changes": "NONE; frozen releases untouched",
+  "remaining_dependencies": [
+    "Merge and main readback, then append implementation evidence and clear executing activity"
+  ],
+  "manifest_correction": "Removed stale self-entry from tested_files; test evidence is not tested source. Original commands/results and all implementation code hashes preserved. Correction published with REGIE-ACTIVITY-20261105-002."
+}

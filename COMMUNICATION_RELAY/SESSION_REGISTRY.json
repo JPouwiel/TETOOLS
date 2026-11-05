@@ -300,8 +300,8 @@
       "module": "ADMIN_OBJECTS",
       "subject": "PM-001 original offline HTML design 001: session preservation and provenance",
       "revision": "20261029_001 / offload-20261105-001",
-      "status": "ACTIVE",
-      "retention_status": "KEEP",
+      "status": "COMPLETED",
+      "retention_status": "ELIGIBLE_FOR_DELETION",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
@@ -309,17 +309,14 @@
       "recorded_by": "884ffcf0-031f-43c2-94c3-adc8294c6490",
       "deliverables": [
         "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/SESSION_HANDOFF.md",
-        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/PRESERVATION_MANIFEST.json"
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/PRESERVATION_MANIFEST.json",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/VERIFICATION.json"
       ],
-      "open_dependencies": [
-        "HTML001-OFFLOAD-MAIN-READBACK"
-      ],
-      "current_activity": {
-        "task_reference": "OBJECTS-HTML-OFFLOAD-20261105-001",
-        "summary": "Ontbrekende historische broncontext en scripts publiceren; main-teruglezing en bewaarbeoordeling afronden",
-        "state": "WORKING"
-      },
-      "note": "Separate from source REGIE chat 6ae1c678-2a98-83ed-99b0-c8895440f708 and implementation-004 session; local UUID is not a verified ChatGPT thread ID."
+      "open_dependencies": [],
+      "note": "Original HTML-001 session only. PR37 merged and all 13 changed/new files read back on main at 36533f501d7bdc06d24d7f016aea0b8de2fe6333; four original files retained byte-identically. Unique relevant available context preserved; twelve original choices routed to existing module list. Local UUID is not a ChatGPT thread ID. No other chat eligibility or actual deletion claimed.",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/37",
+      "merge_commit": "36533f501d7bdc06d24d7f016aea0b8de2fe6333",
+      "result": "Complete preservation of relevant available original documentation-session context; no development changes or new design approval."
     },
     {
       "session_id": "f21b235f-2680-4490-8bd4-adf5c60dda65",

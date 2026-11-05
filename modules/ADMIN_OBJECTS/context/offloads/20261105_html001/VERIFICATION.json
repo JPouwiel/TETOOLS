@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "session_id": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+  "actual_chatgpt_thread_id": null,
+  "original_revision": "20261029_001",
+  "verified_at": "2026-11-05",
+  "repository": "JPouwiel/TETOOLS",
+  "scope": "Original HTML-001 documentation session only; not predecessor REGIE or PoC-004 implementation",
+  "registration": {
+    "pull_request": 32,
+    "merge_commit": "6d54139452e4d90f65ba09b0c7fe29b7a845f5f8"
+  },
+  "publication": {
+    "pull_request": 37,
+    "head": "0016ed0b6b29ec125fea9559b17d0f927cbfb1c3",
+    "merge_commit": "36533f501d7bdc06d24d7f016aea0b8de2fe6333",
+    "main_readback_commit": "36533f501d7bdc06d24d7f016aea0b8de2fe6333",
+    "readback": [
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/build_pm001.py",
+        "sha": "ebad014eccb84c3ccef3c8e42638aeb4b8d6b594",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/check_pm001.cjs",
+        "sha": "97e7aaf9ce712e313b24f81f3ed3edcd671c28ca",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/package_pm001.py",
+        "sha": "defe207e25f975414d0d61df1dcf91bc01c7a00c",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_work/pm001_thread_excerpt.json",
+        "sha": "5e12d7786ae18c5231089de322fcac992d80f664",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/original_delivery/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.zip",
+        "sha": "1b4b007bc279607affe1b27d3837d41e30c05458",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/SESSION_HANDOFF.md",
+        "sha": "6c674fbfc6ba6b35cd4e7cf11b863c15da365aae",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/PRESERVATION_MANIFEST.json",
+        "sha": "0b328cdbf6a7491c746bbdde0c7b2ed345e76452",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/context/offloads/20261105_html001/USER_OFFLOAD_REQUEST_20261105.txt",
+        "sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2",
+        "status": "PASS_BASE64_BYTES_READ_BACK"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "sha": "65dab3022a7d9e32d15d11d69b9ca522bde2088e",
+        "status": "PASS_TEXT_BYTES_READ_BACK"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "sha": "24ba44dbbc5466892afc47bbaa50644ecfb256bc",
+        "status": "PASS_TEXT_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "sha": "d46999075591db5ba8e3bbcf39463c071cc38caa",
+        "status": "PASS_TEXT_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/DECISIONS.md",
+        "sha": "b359fb0da4a98567359ed56521fefb8378af7b23",
+        "status": "PASS_TEXT_BYTES_READ_BACK"
+      },
+      {
+        "path": "modules/ADMIN_OBJECTS/OPEN_POINTS.md",
+        "sha": "084838c7747d93db6d7fb1d709fd968cf5ce5c06",
+        "status": "PASS_TEXT_BYTES_READ_BACK"
+      }
+    ]
+  },
+  "already_preserved": [
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "blob": "79db55ea6c3151c18f73a28c1eb612102e3bf4fd"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/manifest.json",
+      "blob": "351ad20a31f6e0f3e0fd48e63aecdf77fc33a17a"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/validation.json",
+      "blob": "1043c30fef3ec6d5664b581bad1cdead30b54bf7"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/README.txt",
+      "blob": "781b2aae35ca1fcf8e9a4a3badfa650e3e3521f7"
+    }
+  ],
+  "checks": {
+    "original_zip_integrity": "PASS",
+    "four_zip_members_equal_original_files": "PASS",
+    "original_html_embedded_digest": "PASS",
+    "relay_validator": "PASS: 13 sessions; 25 changes",
+    "other_session_entries_unchanged": "PASS",
+    "frozen_release_blobs_unchanged": 165,
+    "original_browser_and_print_evidence": "PRESERVED_NOT_RERUN",
+    "oracle_execution": "NOT_EXECUTED",
+    "exact_current_thread_id": "UNAVAILABLE_NOT_INFERRED"
+  },
+  "preservation_assessment": {
+    "unique_relevant_context_remaining_in_this_session": false,
+    "basis": [
+      "Original HTML and its four-file delivery already retained byte-identically under frozen 004 historical references.",
+      "Missing three historical scripts, five-turn source excerpt and original ZIP now read back on main with exact bytes.",
+      "Owner offload request and session handoff preserve scope, approvals, proposals, rejected/superseded directions, limitations and version relationships.",
+      "No user answers to the original twelve open design choices occurred in the available session; existing module ownership and release-004 open list retained.",
+      "Temporary QA renders are derivative; original machine-readable results retained; no dependency requires exclusive access to this chat."
+    ],
+    "own_open_dependencies": [],
+    "upstream_work": "Twelve historical choices mapped to existing OP-01 through OP-12; OP-13, HIST-01 through HIST-03, VAL-01 and M4-01 remain module work. This review does not close those issues or release other chats.",
+    "retention_status": "ELIGIBLE_FOR_DELETION",
+    "chat_deleted": false,
+    "decision_authority": "Owner explicitly requested independent evidence-based retention assessment in preserved USER_OFFLOAD_REQUEST_20261105.txt; relay permits eligibility after verification."
+  },
+  "self_reference_note": "This verification file records already completed payload readback. Its own final publication is verified by the follow-up PR and final response; no self-hash or future merge claim."
+}

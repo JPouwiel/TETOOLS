@@ -23,3 +23,8 @@ De nieuwe REGIE-opvraag levert geen ontbrekende oudere woordelijke reviewrondes 
 ## Revisie 002 — afzonderlijke sessieoverdracht (2026-11-05)
 
 [Context en statusonderscheid](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md), [bytevergelijking](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json) en [overdrachtsmanifest](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json). De vier oorspronkelijke invoerbestanden en acht revisie-002-resultaten zijn reeds exact in release 004 behouden; geen duplicaatrelease toegevoegd. Ontbrekende historische auteur-/browser-/printbewijzen staan bij de context. Oorspronkelijke datums/revisies blijven behouden. De nieuwe relay-ID is expliciet lokaal; het werkelijke chat-ID blijft onbekend. Dit sluit HIST-01–HIST-03 of VAL-01 niet. Zie eigen open punt PM002-ID-01.
+
+## Offload implementatiesessie - 2026-11-05
+
+[Gecontroleerde sessieoverdracht](context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md) bewaart nog ontbrekende zichtbare gesprekscontext, de acht oorspronkelijke bouw-/controlehelpers en de originele downloadcontainers uit 2026-11-03. Alle 71 canonieke releasebestanden zijn opnieuw op Git-blobidentiteit met de lokale oplevering vergeleken: exact gelijk. De bevroren release is niet gewijzigd. Zie RELEASE_COMPARISON.json en OFFLOAD_MANIFEST.json onder de overdracht; publicatie-/terugleesbewijs volgt in het gekoppelde relay-change-record. Oracle blijft NOT_EXECUTED; HIST-01..03 en VAL-01 blijven open. De nieuwe overdrachtsdatum wijzigt geen oorspronkelijke bron- of releasedatum.
+

@@ -447,6 +447,31 @@
       "note": "Task started; not yet a claim of successful offload or deletion eligibility. Frozen releases and all module decisions remain unchanged."
     },
     {
+      "change_id": "OBJECTS-OFFLOAD-20261105-002",
+      "record_type": "SESSION_OFFLOAD_PUBLICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Preserve original PM-001 delivery archives, build helpers and visible implementation-session context",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+      "origin_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "recorded_by_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "approval_actor": "user",
+      "approved_by": "Explicit offload request 2026-11-05; no development changes or contract revision authorized",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "related_change_id": "OBJECTS-OFFLOAD-20261105-001",
+      "base_commit": "3281f99211b4e10de8c395ce70be819da28fe279",
+      "activity_merge": "fc2ef83e66f5522bc5e19d1eb28d681e40c13b7d",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_MANIFEST.json",
+        "../modules/ADMIN_OBJECTS/archives/20261103/"
+      ],
+      "note": "71 canonical release files match local final delivery exactly; 8 existing historical helpers and 2 original ZIP containers were absent and are preserved. Oracle NOT_EXECUTED. Publication is PROPOSED until verified merge/readback. KEEP under current relay contract; no deletion or historical completeness claim."
+    },
+    {
       "change_id": "CFG-20261104-001",
       "record_type": "DOCUMENTATION_PUBLICATION",
       "project": "PLSQL_TETOOLS",

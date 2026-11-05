@@ -489,6 +489,27 @@
         "OFFLOAD-MAIN-READBACK"
       ],
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/17"
+    },
+    {
+      "change_id": "OBJECTS-PM002-OFFLOAD-20261105-001",
+      "record_type": "SESSION_OFFLOAD",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Register and preserve revision 002 implementation session, without development changes",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+      "origin_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+      "recorded_by_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+      "approval_actor": "user",
+      "approved_by": "Explicit universal session-offload request 2026-11-05; bounded documentation, permitted publication and verification only",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md"
+      ],
+      "note": "Start registration; no completion or deletion eligibility claimed."
     }
   ]
 }

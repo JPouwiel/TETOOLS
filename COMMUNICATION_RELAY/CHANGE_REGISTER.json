@@ -395,6 +395,37 @@
         "Manual declaration only; no heartbeat, chat detection or deletion",
         "No module or frozen-release changes"
       ]
+    },
+    {
+      "change_id": "REGIE-ACTIVITY-20261105-002",
+      "record_type": "IMPLEMENTATION_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "origin_module": "ADMIN_LOGGER",
+      "origin_session": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "recorded_by_session": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/pull/28",
+      "subject": "Verified minimal current_activity suite standard and implementation",
+      "status": "IMPLEMENTED",
+      "disposition": "SUITE_STANDARD",
+      "approval_actor": "user",
+      "approved_by": "Explicit owner design/implementation/publication assignment 2026-11-05; exact message URL UNVERIFIED",
+      "recorded_at": "2026-11-05",
+      "revision": "002",
+      "supersedes": "REGIE-ACTIVITY-20261105-001",
+      "related_change_id": "LOGGER-RELAY-ACTIVITY-20261104-001",
+      "merge_commit": "4114710b228fe8f23eeb190c35d01266d21fd2e8",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/28",
+      "rationale": "Bounded owner-authorized design now published and read back: task_reference, summary, state; reuse session confirmation/provenance; clear on completion; preserve conservative retention. Supersedes investigation; original signal/history retained.",
+      "verification": "11/11 implementation file blob identities verified on main against tested bytes; 16 tests PASS; baseline 19 source identities matched; no module/release changes.",
+      "dependencies": [],
+      "artifact_refs": [
+        "CURRENT_ACTIVITY.md",
+        "RELAY_CONTRACT.md",
+        "ISSUE23_TEST_RESULTS.json",
+        "ISSUE23_VERIFICATION.json",
+        "reports/ISSUE23_RESULTAAT_20261105.pdf"
+      ]
     }
   ]
 }

@@ -36,8 +36,15 @@ Canonical path: [../modules/ADMIN_SESSIONS/](../modules/ADMIN_SESSIONS/), public
 
 ## Actuele taakregistratie - Issue #23 (2026-11-05)
 
-Minimale uitvoering op branch: zie [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md), contract en
-REGIE-ACTIVITY-20261105-001. Optionele taak met verwijzing, omschrijving en WORKING/WAITING/BLOCKED;
-sessie werkt zelf handmatig bij en wist bij afronding. Geen extra taakdatums of aanwezigheidsschatting.
-Retention review toont de taak en blijft conservatief. Publicatiebewijs wordt pas na merge/readback
-vastgelegd in opvolgend change-record en ISSUE23_VERIFICATION.json. Geen module-/releasewijzigingen.
+IMPLEMENTED: [PR #28](https://github.com/JPouwiel/TETOOLS/pull/28), merge
+`4114710b228fe8f23eeb190c35d01266d21fd2e8`; alle 11 gewijzigde bestanden op main
+teruggelezen en gelijk aan geteste blobidentiteiten. 16/16 tests PASS; validator PASS.
+Besluit en opvolgend implementatiebewijs: REGIE-ACTIVITY-20261105-001 / -002.
+Zie [gebruik](CURRENT_ACTIVITY.md), [testbewijs](ISSUE23_TEST_RESULTS.json) en
+[verificatie](ISSUE23_VERIFICATION.json). Eigen sessie COMPLETED; activiteit verwijderd;
+geen open afhankelijkheden voor deze opdracht; retention KEEP. Geen chat sluiting/verwijdering.
+
+Direct bruikbaar via bestaand sessieprotocol, optionele taak en bestaande read-only retentionreview.
+Geen modulewijzigingen, bevroren releases ongewijzigd, Oracle NOT_EXECUTED (geen databasewijziging).
+PM-001/RAC en hypothetische KT-03 blijven buiten deze opdracht en afzonderlijk open.
+Cumulatief zelfstandig resultaat: [PDF](reports/ISSUE23_RESULTAAT_20261105.pdf).

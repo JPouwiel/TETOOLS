@@ -100,11 +100,6 @@
       "sha256": "511ad46c7d186d870c8281f5f4b28c6275c5877dc386db96e318e448e7f96dc3"
     },
     {
-      "path": "COMMUNICATION_RELAY/ISSUE23_TEST_RESULTS.json",
-      "blob_sha": "e6d702a7b58f5e6e1fe624467a8c2217b88fbb12",
-      "sha256": "ef138954cdcda3ff3945752c297d346e0d9215dca47765151ef651d5c7b4e1a4"
-    },
-    {
       "path": "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
       "blob_sha": "e5bc1ad7660218f0de8fbf026eb3a54f3ed667f6",
       "sha256": "cda89a46291efdacf55f97a93a66ef4b96bffa90b7cbbb44e8fad7edfcefa1c3"
@@ -166,5 +161,6 @@
   "module_changes": "NONE; frozen releases untouched",
   "remaining_dependencies": [
     "Merge and main readback, then append implementation evidence and clear executing activity"
-  ]
+  ],
+  "manifest_correction": "Removed stale self-entry from tested_files; test evidence is not tested source. Original commands/results and all implementation code hashes preserved. Correction published with REGIE-ACTIVITY-20261105-002."
 }

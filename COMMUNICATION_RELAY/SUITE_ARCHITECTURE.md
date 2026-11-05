@@ -35,3 +35,11 @@ Module-regie identifies, investigates and proposes technical measures. TETOOLS__
 ### Initial signal: PM-001 / SEARCH_CONDITION_VC — REGIE-20261103-004
 
 Origin: ADMIN_OBJECTS__REGIE. Potential relevance: Oracle 19c data dictionary metadata extraction, datatype limits and normalization patterns used by other ADMIN_* modules. This is a hypothesis requiring assessment, **not** a confirmed cross-module defect. Source: user's clarification in TETOOLS__REGIE conversation, 2026-11-03 (exact thread ID unavailable). Status: PROPOSED / assessment OPEN. Technical investigation stays with ADMIN_OBJECTS__REGIE; suite-wide assessment belongs to TETOOLS__REGIE.
+
+## Current activity - REGIE-ACTIVITY-20261105-001 / -002
+
+Minimale suitebrede relayregel gepubliceerd en op main geverifieerd via PR #28, merge
+4114710b228fe8f23eeb190c35d01266d21fd2e8. Normatieve definitie: RELAY_CONTRACT.md;
+gebruik: CURRENT_ACTIVITY.md; canonieke besluit-/bewijsrecords: CHANGE_REGISTER.json.
+Een optionele handmatig bijgewerkte taak per sessie; afronden wist de taak en behoudt bewijs.
+Geen modulearchitectuurwijziging of automatische chataanwezigheid/verwijdering.

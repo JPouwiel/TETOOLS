@@ -243,24 +243,24 @@
       "role": "CODEX_IMPLEMENTATION",
       "module": null,
       "subject": "Issue #23 minimal current_activity implementation",
-      "revision": "001",
-      "status": "ACTIVE",
+      "revision": "002",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-05",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
       "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
       "recorded_by": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",
-      "deliverables": [],
-      "open_dependencies": [
-        "Issue #23 implementation, tests and verified publication"
+      "deliverables": [
+        "https://github.com/JPouwiel/TETOOLS/pull/28",
+        "CURRENT_ACTIVITY.md",
+        "ISSUE23_TEST_RESULTS.json",
+        "ISSUE23_VERIFICATION.json",
+        "reports/ISSUE23_RESULTAAT_20261105.pdf"
       ],
+      "open_dependencies": [],
       "note": "Explicit owner request in current Codex conversation 2026-11-05; exact message URL UNVERIFIED. Predecessor: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466.",
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/23",
-        "summary": "Minimale activiteitregistratie implementeren en toetsen",
-        "state": "WORKING"
-      }
+      "result": "Issue #23 minimal activity management implemented; 16 tests PASS; main implementation readback verified. Own activity removed with completion. Final delivery publication verified via linked PR and Issue; retention KEEP, no chat closure/deletion claim."
     }
   ]
 }

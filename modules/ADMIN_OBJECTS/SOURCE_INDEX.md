@@ -15,3 +15,7 @@
 Oorspronkelijke sessie analyse: `01a138d4-ee43-7930-aea2-4ec084041013`. REGIE: `6ae1c678-2a98-83ed-99b0-c8895440f708`. PM-001-uitvoering: `01a19ff0-f2d2-7723-9520-d6f8b84ec55c`. De lokale bron-/releasehashes en de Git-basiscommit staan in PROVENANCE.json en SOURCE_MANIFEST.json.
 
 De nieuwe REGIE-opvraag levert geen ontbrekende oudere woordelijke reviewrondes op. Daarom blijven bestaande HIST-punten open. Het ontbreken van nieuwe Oracle-logs betekent NOT_EXECUTED, niet PASS.
+
+## Aanvullende herkomst HTML-001 — 5 november 2026
+
+[Oorspronkelijke documentatiesessie](context/offloads/20261105_html001/SESSION_HANDOFF.md), relay-ID `884ffcf0-031f-43c2-94c3-adc8294c6490` (lokale UUID; werkelijke ChatGPT-thread-ID onbekend). De vier HTML-001-opleverbestanden zijn al bytegelijk bewaard in de historische bronmap van 004. Alleen ontbrekende scripts, een begrensde oorspronkelijke REGIE-excerpt, de originele ZIP en het overdrachtsverzoek zijn toegevoegd. [Identiteiten en mapping](context/offloads/20261105_html001/PRESERVATION_MANIFEST.json). Geen bevroren release gewijzigd, geen nieuwe ontwerpacceptatie of Oracle-test. Deze bronexcerpt is geen volledig chatarchief.

@@ -9,3 +9,7 @@ Dit bestand is een index, geen tweede handmatig onderhouden kopie van de bevrore
 - Repositorylocatie: expliciete gebruikersopdracht in analysechat `01a138d4-ee43-7930-aea2-4ec084041013`, 3 november 2026: laatste versie en relevante ADMIN_OBJECTS__REGIE-data toevoegen aan `JPouwiel/TETOOLS/modules/ADMIN_OBJECTS`.
 
 Deze import verandert geen profiel, canonieke bytes, uitvoeringsbeleid of inhoudelijk besluit. Er is geen samengestelde installatiehash toegevoegd; bestandschecksums dienen uitsluitend integriteitscontrole. Nieuwe besluiten/wijzigingen krijgen herkomst en status volgens het [relaycontract](../../COMMUNICATION_RELAY/RELAY_CONTRACT.md).
+
+## Historische ontwerpdocumentatie HTML-001
+
+[Offload oorspronkelijke documentatiesessie](context/offloads/20261105_html001/SESSION_HANDOFF.md), 2026-11-05. Bewaart de oorspronkelijke 2026-10-29 statusonderscheidingen en verwijst naar de al gepubliceerde HTML. Dit is bronbehoud, geen tweede actuele besluitenlijst; revisie 004 en haar besluitstatussen blijven leidend. Publicatiegoedkeuring is geen inhoudelijke acceptatie van de historische voorstellen.

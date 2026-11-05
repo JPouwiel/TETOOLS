@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "project": "PLSQL_TETOOLS",
+  "module": "ADMIN_OBJECTS",
+  "session_id": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+  "original_revision": "PM-001-004",
+  "original_date": "2026-11-03",
+  "offload_date": "2026-11-05",
+  "base_commit": "3281f99211b4e10de8c395ce70be819da28fe279",
+  "activity_pr": 31,
+  "activity_merge": "fc2ef83e66f5522bc5e19d1eb28d681e40c13b7d",
+  "canonical_release": "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004",
+  "canonical_release_files_verified": 71,
+  "oracle_runtime": "NOT_EXECUTED",
+  "external_source_history_complete": false,
+  "retention_assessment": "KEEP under current relay contract; see README",
+  "helpers": [
+    {
+      "original_path": "work/pm004_build.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_build.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 25844,
+      "sha256": "87ea21b61e2175780fd9419759829bd28cf5dbc27bcd39faac1d870df0634527",
+      "git_blob_sha": "ae6a70213775f34718879b5d69ac1bd7099d382d"
+    },
+    {
+      "original_path": "work/pm004_docs.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_docs.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 19542,
+      "sha256": "714607218fa9dae91cb3c184e1fa66b47367e450c9d8e320b73f36dc59255a08",
+      "git_blob_sha": "b615729ccd9a9108ff778ddefb22043364fbac25"
+    },
+    {
+      "original_path": "work/pm004_package.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_package.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 5602,
+      "sha256": "0d724fe24d01c251a19cbc2e5ed1c6f4e5ab4be3081aabd3d2b19d0f872a950a",
+      "git_blob_sha": "179041136f1cd683b8c60c467d84f40b2f6a0c6d"
+    },
+    {
+      "original_path": "work/pm004_pdf.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_pdf.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 3419,
+      "sha256": "cc9bd0ee8318be37b616fce38472ee51588badd71d2d0f80efe7fb13c0d601b2",
+      "git_blob_sha": "c2ae7256c5f18e10aecb7c12372947aeb874143c"
+    },
+    {
+      "original_path": "work/pm004_reference.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_reference.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 18329,
+      "sha256": "0cd2f8f257292b1eba65044bad754a0cf3d46a14c4d1d0c31afb07af3a9c6eba",
+      "git_blob_sha": "2b24c3bf6c3fc4d27ed69312cd48c42ed571af3b"
+    },
+    {
+      "original_path": "work/pm004_selftest.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_selftest.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 2607,
+      "sha256": "966bc17f912af1092598fe01f4be7daf96f7a665b5a6d256dbf54e7c1ba70607",
+      "git_blob_sha": "f97b429f82166363b9e4139caadad71ab55bed2c"
+    },
+    {
+      "original_path": "work/pm004_static.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_static.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 3647,
+      "sha256": "4d0b9c3c519267ee9a610ebb04d4e182d332c23bdef14e1faf1839ea3eb73973",
+      "git_blob_sha": "8fd5e4af29c5e24e97587786c225ff15849011ea"
+    },
+    {
+      "original_path": "work/pm004_verify_build.py",
+      "preserved_path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_verify_build.py",
+      "original_session_date": "2026-11-03",
+      "bytes": 7016,
+      "sha256": "aa78aaaa7fbdf6fd670ce129e5f10cce6a4c9045a0639c925f3d46cde3d78ec8",
+      "git_blob_sha": "60825ef0c2c9ac33bffe7eacad8987722e471eef"
+    }
+  ],
+  "archives": [
+    {
+      "original_path": "output/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.zip",
+      "preserved_path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.zip",
+      "original_date": "2026-11-03",
+      "bytes": 640605,
+      "sha256": "0311f5426342f843f009f98f3086bd2100049164a4811f9a1112976caf4fe8a0",
+      "git_blob_sha": "d99f8df25c274e1a122516254ed7948a6aefa133",
+      "note": "Original delivery container, not a new or competing release; canonical extracted content already preserved."
+    },
+    {
+      "original_path": "output/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.zip",
+      "preserved_path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.zip",
+      "original_date": "2026-11-03",
+      "bytes": 411582,
+      "sha256": "bf4bbedc699663d50c023b574241ac11e9d3926f00b2bcd4a451e9eaf7489173",
+      "git_blob_sha": "b6d10ad99b459daea7f8bad9643c85031f5d55db",
+      "note": "Original delivery container, not a new or competing release; canonical extracted content already preserved."
+    }
+  ],
+  "files": [
+    {
+      "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.sha256.txt",
+      "bytes": 125,
+      "sha256": "49a0da34d3b57a94d9f4aa9b7e8c3b474d308142cc853145c886be04c0c7315f",
+      "git_blob_sha": "8dedbe44a3b6137e6eb5f32846bbf5b27e71f427"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_004.zip",
+      "bytes": 640605,
+      "sha256": "0311f5426342f843f009f98f3086bd2100049164a4811f9a1112976caf4fe8a0",
+      "git_blob_sha": "d99f8df25c274e1a122516254ed7948a6aefa133"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.sha256.txt",
+      "bytes": 125,
+      "sha256": "574f531508ce5ce9c90ce8ac618ed16918c034af05e4787c3dae7a013beb8b6d",
+      "git_blob_sha": "18940c64317d3d2d4fcc28815db040c8f3e67817"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/archives/20261103/20261103__PLSQL__TETOOLS_ADMIN_OBJECTS__REFERENCE_004.zip",
+      "bytes": 411582,
+      "sha256": "bf4bbedc699663d50c023b574241ac11e9d3926f00b2bcd4a451e9eaf7489173",
+      "git_blob_sha": "b6d10ad99b459daea7f8bad9643c85031f5d55db"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_build.py",
+      "bytes": 25844,
+      "sha256": "87ea21b61e2175780fd9419759829bd28cf5dbc27bcd39faac1d870df0634527",
+      "git_blob_sha": "ae6a70213775f34718879b5d69ac1bd7099d382d"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_docs.py",
+      "bytes": 19542,
+      "sha256": "714607218fa9dae91cb3c184e1fa66b47367e450c9d8e320b73f36dc59255a08",
+      "git_blob_sha": "b615729ccd9a9108ff778ddefb22043364fbac25"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_package.py",
+      "bytes": 5602,
+      "sha256": "0d724fe24d01c251a19cbc2e5ed1c6f4e5ab4be3081aabd3d2b19d0f872a950a",
+      "git_blob_sha": "179041136f1cd683b8c60c467d84f40b2f6a0c6d"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_pdf.py",
+      "bytes": 3419,
+      "sha256": "cc9bd0ee8318be37b616fce38472ee51588badd71d2d0f80efe7fb13c0d601b2",
+      "git_blob_sha": "c2ae7256c5f18e10aecb7c12372947aeb874143c"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_reference.py",
+      "bytes": 18329,
+      "sha256": "0cd2f8f257292b1eba65044bad754a0cf3d46a14c4d1d0c31afb07af3a9c6eba",
+      "git_blob_sha": "2b24c3bf6c3fc4d27ed69312cd48c42ed571af3b"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_selftest.py",
+      "bytes": 2607,
+      "sha256": "966bc17f912af1092598fe01f4be7daf96f7a665b5a6d256dbf54e7c1ba70607",
+      "git_blob_sha": "f97b429f82166363b9e4139caadad71ab55bed2c"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_static.py",
+      "bytes": 3647,
+      "sha256": "4d0b9c3c519267ee9a610ebb04d4e182d332c23bdef14e1faf1839ea3eb73973",
+      "git_blob_sha": "8fd5e4af29c5e24e97587786c225ff15849011ea"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/build_sources/pm004_verify_build.py",
+      "bytes": 7016,
+      "sha256": "aa78aaaa7fbdf6fd670ce129e5f10cce6a4c9045a0639c925f3d46cde3d78ec8",
+      "git_blob_sha": "60825ef0c2c9ac33bffe7eacad8987722e471eef"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+      "bytes": 8468,
+      "sha256": "e01d11aaed37545d8f58168cd9c572dab52da49c3525fdebb159e20fb8756f3f",
+      "git_blob_sha": "12eb06457f282cb14ea8ed60f3049cd5c3e8db48"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/RELEASE_COMPARISON.json",
+      "bytes": 28540,
+      "sha256": "b9a71d77dc9da359bf3903346b545b044c52dc301fa686e39a9fdcaca5b559aa",
+      "git_blob_sha": "00b5913cbd38a2840545be96c7547f2b5b8c1dcd"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+      "bytes": 5168,
+      "sha256": "3586d5aa58750365a49eab9db3375a3f377c63b004e48a5a02352cded82944f9",
+      "git_blob_sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/VISIBLE_MESSAGES.json",
+      "bytes": 14363,
+      "sha256": "6bb35d6fc283f551b14897e5bb4071d0677c071c11064a8cd175d63813044676",
+      "git_blob_sha": "40f577220693bb190804f01ae77ccc57e28a888a"
+    }
+  ],
+  "exclusions": [
+    "Private reasoning and tool internals",
+    "Temporary renders and synthetic checker self-test logs",
+    "Duplicate existing frozen release content",
+    "Unrelated project information"
+  ],
+  "self_hash_policy": "OFFLOAD_MANIFEST.json is excluded from its own list; Git tree/commit preserves its identity"
+}

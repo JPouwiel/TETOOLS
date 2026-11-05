@@ -332,13 +332,18 @@
       "closed_at": null,
       "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
       "recorded_by": "f21b235f-2680-4490-8bd4-adf5c60dda65",
-      "deliverables": [],
+      "deliverables": [
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json"
+      ],
       "open_dependencies": [
-        "PM002-OFFLOAD-MAIN-READBACK"
+        "PM002-OFFLOAD-MAIN-READBACK",
+        "PM002-ID-01"
       ],
       "current_activity": {
         "task_reference": "OBJECTS-PM002-OFFLOAD-20261105-001",
-        "summary": "Preserve missing revision 002 session context and verify existing artifact publication",
+        "summary": "Preserved context and exact historical evidence prepared; awaiting main publication/readback",
         "state": "WORKING"
       },
       "note": "Actual chat thread ID unavailable. Source predecessor 6ae1c678-2a98-83ed-99b0-c8895440f708 is not this session. Registration key newly generated under relay contract."

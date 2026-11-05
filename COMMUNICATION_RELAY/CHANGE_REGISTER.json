@@ -526,9 +526,13 @@
       "supersedes": null,
       "base_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
       "artifact_refs": [
-        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md"
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ORIGINAL_SCOPE_20261102.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json"
       ],
-      "note": "Start registration; no completion or deletion eligibility claimed."
+      "note": "Registration PR #33 merged and read back; missing context/evidence prepared. Twelve original input/deliverable files already match existing main blobs. Main publication/readback of new context still required. No frozen-release or development changes."
     },
     {
       "change_id": "CFG-OFFLOAD-20261105-002",

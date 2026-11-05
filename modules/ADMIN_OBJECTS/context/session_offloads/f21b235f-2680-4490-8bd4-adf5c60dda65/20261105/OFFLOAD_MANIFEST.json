@@ -1,0 +1,83 @@
+{
+  "offload_date": "2026-11-05",
+  "original_revision": "002",
+  "original_delivery_date": "2026-11-02",
+  "relay_session_id": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+  "actual_chat_thread_id": null,
+  "predecessor_chat_id": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+  "registration_pr": 33,
+  "registration_merge": "c521b2c68ce4801fd548d43b20377558ca78e09a",
+  "scope": "Preserve existing work only; no development changes",
+  "retention_status": "KEEP",
+  "open_dependencies": [
+    "PM002-ID-01"
+  ],
+  "files": [
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/build.py",
+      "bytes": 13689,
+      "git_blob_sha": "9b41741859d4fcf6aaa521757cb75b3528e2a0f7",
+      "sha256": "3b138f63c55d9d6c07abf84b90458625254d90e7798389c14ca4342189db104e"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/document.py",
+      "bytes": 15605,
+      "git_blob_sha": "e98502fdb027ac42013df4ed33718e4ccdb24f19",
+      "sha256": "709ee573957aaabbc6c420c6ac9dda5d088fd505801f111446a069edfa0103ed"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/check.cjs",
+      "bytes": 5248,
+      "git_blob_sha": "80d2cada6cc6f3987db5172386c1bf04784f5f4f",
+      "sha256": "e53fb9bb8be164d25a8ad87d448fbcb3dfe09e2b01a4eef9b488bf840507f67f"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/desktop.png",
+      "bytes": 117090,
+      "git_blob_sha": "ab26118bc3a84b8f2f44f86e60e49931a0431ec5",
+      "sha256": "9e1b382ecf442819279ce48329d4606bdbb3651bc41492b7b749b4028a11295a"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/mobile.png",
+      "bytes": 36400,
+      "git_blob_sha": "55cd74211954f89f04fc69dc0c90045da38e5f9f",
+      "sha256": "997584cb8409980880632f9dff755efd28bdf430c08307dc5332af2b2c1b1cab"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/print-style.png",
+      "bytes": 99629,
+      "git_blob_sha": "8da65a8ab9cb3b9592a66cb185269d0eb09200e9",
+      "sha256": "68e51f30e14f3537e5d2bf80056288c7c539c15dbbb02f30946057211979f9d4"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/historical_evidence/print-check.pdf",
+      "bytes": 379214,
+      "git_blob_sha": "ca46777af5bb8d6c9715592a98baa28966d92c60",
+      "sha256": "5f6c5ccf7c22d72cabcc2089219d74759ab168bca646afc653ce068b2354d920"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+      "bytes": 10598,
+      "git_blob_sha": "57946ec702cdb29254dd0cdb15cd8e90f43e90a3",
+      "sha256": "212a38da4dccd32b25e62714a2f33349670d7b07899eccb46f9dcd694176c0fa"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+      "bytes": 5168,
+      "git_blob_sha": "2b4d6e152d41f1fcdf279dc3abfd647d47f6cde2",
+      "sha256": "3586d5aa58750365a49eab9db3375a3f377c63b004e48a5a02352cded82944f9"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ORIGINAL_SCOPE_20261102.md",
+      "bytes": 2116,
+      "git_blob_sha": "445f9345dd60bee197ce666a891dd13b3b106ea0",
+      "sha256": "2a10d25cafbd4a51edfa861a0bf9523b79dd7e32f1019d55143f8056daf03dad"
+    },
+    {
+      "path": "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+      "bytes": 8700,
+      "git_blob_sha": "a0129eb37b005f5b194be29b974ec696105b2fb9",
+      "sha256": "8ca0076db8fb340cb7390c8cd5f866269d30fb4379c5b89da34925d862077f40"
+    }
+  ]
+}

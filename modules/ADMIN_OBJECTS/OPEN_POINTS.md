@@ -11,3 +11,7 @@ REGIE noemt daarnaast een volledige retourtest tussen verschillende sessies. De 
 ## Overgedragen context van de oorspronkelijke HTML-001-sessie
 
 De [sessieoverdracht](context/offloads/20261105_html001/SESSION_HANDOFF.md#open-punten-en-overdracht-van-eigenaarschap) koppelt de twaalf historische HTML-OPs aan de bestaande release-004 OPs. De gebruiker heeft in die documentatiesessie geen antwoorden op de twaalf punten gegeven. Deze offload sluit geen OP, HIST- of VAL-punt en wijzigt geen eigenaarschap van inhoudelijke ontwikkeling. Afhandeling kan vanuit GitHub plaatsvinden; de persoonlijke bewaarbeoordeling van de bron-REGIE- en implementatiesessies blijft afzonderlijk.
+
+## Sessieoverdracht revisie 002 (2026-11-05)
+
+- **PM002-ID-01 — ONBEKEND:** werkelijke thread-ID en onafhankelijke koppeling aan de daadwerkelijk te verwijderen chat niet betrouwbaar beschikbaar. Relay-ID `f21b235f-2680-4490-8bd4-adf5c60dda65` is expliciet lokaal gegenereerd. Bewaarstatus KEEP volgens onzekerheidsregel; geen chatverwijdering uitgevoerd. [Context en bewijs](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md). De overgedragen moduleontwikkelpunten blijven bij release 004 en vereisen deze chat niet automatisch.

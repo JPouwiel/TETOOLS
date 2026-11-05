@@ -577,6 +577,32 @@
         "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/PRESERVATION_MANIFEST.json"
       ],
       "note": "Four original delivery files already on main byte-identical; do not duplicate or modify frozen releases. Full publication and retention assessment require subsequent main readback."
+    },
+    {
+      "change_id": "OBJECTS-HTML-OFFLOAD-20261105-003",
+      "record_type": "SESSION_OFFLOAD_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Verified original HTML-001 session preservation and individual retention assessment",
+      "status": "IMPLEMENTED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/VERIFICATION.json",
+      "origin_session": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "recorded_by_session": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "approval_actor": "user",
+      "approved_by": "Owner-authorized offload and evidence-based retention assessment; see preserved user request",
+      "recorded_at": "2026-11-05",
+      "revision": "003",
+      "supersedes": "OBJECTS-HTML-OFFLOAD-20261105-002",
+      "merge_commit": "36533f501d7bdc06d24d7f016aea0b8de2fe6333",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/37",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/SESSION_HANDOFF.md",
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_html001/VERIFICATION.json"
+      ],
+      "verification": "13/13 changed/new payload files fetched from main and exact bytes checked; 4 existing delivery identities checked; 165 frozen blobs unchanged; no unique relevant available session context remains.",
+      "retention_status": "ELIGIBLE_FOR_DELETION",
+      "chat_deleted": false,
+      "note": "Only this local-UUID documentation session assessed; upstream module issues and other session retention remain unchanged."
     }
   ]
 }

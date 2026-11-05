@@ -1,0 +1,232 @@
+{
+  "verified_at": "2026-11-05",
+  "main_baseline": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+  "method": "Git blob identity over exact local bytes versus recursive main tree; original ZIP members additionally read and compared",
+  "files": [
+    {
+      "local_path": "output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html",
+      "bytes": 112554,
+      "sha256": "dc34463db6d5e882bc3abaa82f7abb2116bf08a71a7e4ed8e4b1c82de570e4cc",
+      "git_blob_sha": "79db55ea6c3151c18f73a28c1eb612102e3bf4fd",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/20261029__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_001.html"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261029/manifest.json",
+      "bytes": 1406,
+      "sha256": "cda9b459e4c9660661b145bbe3ed50b73e284f0ef159416e8bf3bc9ae656e52d",
+      "git_blob_sha": "351ad20a31f6e0f3e0fd48e63aecdf77fc33a17a",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/manifest.json"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261029/README.txt",
+      "bytes": 314,
+      "sha256": "9c17eea4c279b5ce229819589fae7c25fcc6c922ea4ee08bc726e5f5b6896fd4",
+      "git_blob_sha": "781b2aae35ca1fcf8e9a4a3badfa650e3e3521f7",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/README.txt"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261029/validation.json",
+      "bytes": 1348,
+      "sha256": "2300c2eafb85e1bdada0e413d3cb370cfe2d104db5cd9d9050909a84b3e5d7d3",
+      "git_blob_sha": "1043c30fef3ec6d5664b581bad1cdead30b54bf7",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261029/validation.json"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql",
+      "bytes": 2732,
+      "sha256": "11511977896d83bf23a2b3b9a84283df94cd60627c2ea8a56ade7859400b98ad",
+      "git_blob_sha": "d45285aae85ff7639fb95709566da3082a3007a8",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql",
+      "bytes": 7066,
+      "sha256": "43984788615025d676d6f2a5f1f111f93089ec397e4210058248321c329abc23",
+      "git_blob_sha": "7791fabfca93bd5429ffc9818f448277efe598e3",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql",
+      "bytes": 3508,
+      "sha256": "b1dd6b3b59cbc9ae68ec76638073e5f55d737f9c17eb1e5c71e71514d53b1cb2",
+      "git_blob_sha": "885abc525c912178360e064edc8be14b6143e45b",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql",
+      "bytes": 527,
+      "sha256": "daf9818d11b0f53b31d12e7b023b142498bd541f1a98e66fd9a3f451254cc401",
+      "git_blob_sha": "da764e5e2c93bffa2f0f59cee198bea0fdc55c11",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+      "bytes": 146958,
+      "sha256": "e04f7bccfdc4b816b04c7801688723f1e1036b8bf536ea11b45b55e09dc35679",
+      "git_blob_sha": "f57eb337140570661765abcc468eab3b1c423101",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/manifest.json",
+      "bytes": 2249,
+      "sha256": "7bc05bf4e92c42248c1bfa393327767dac875f6d4516a9ec562c30fcf8697a04",
+      "git_blob_sha": "00f26e3a90069dfb673372c612f3c61b7e2f84c5",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/manifest.json"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/README.txt",
+      "bytes": 1745,
+      "sha256": "c5a3fd787af795617187810abc421011dd620b90a8a79d43926e5a3dc1e5636f",
+      "git_blob_sha": "b538a9b8efd505979b963397bdc21bc7434f5de0",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/README.txt"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "output/PM-001_20261102_002/validation.json",
+      "bytes": 1708,
+      "sha256": "1a4ac3106d2cd0ebf75e5f7c446cdd28b1fe2c55e844085cda1231257605471d",
+      "git_blob_sha": "d13e38acb6577cd58ccde6722b743ff8c55af656",
+      "existing_main_paths": [
+        "modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/historical/output/PM-001_20261102_002/validation.json"
+      ],
+      "action": "REFERENCE_EXISTING"
+    },
+    {
+      "local_path": "work/pm002/build.py",
+      "bytes": 13689,
+      "sha256": "3b138f63c55d9d6c07abf84b90458625254d90e7798389c14ca4342189db104e",
+      "git_blob_sha": "9b41741859d4fcf6aaa521757cb75b3528e2a0f7",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/document.py",
+      "bytes": 15605,
+      "sha256": "709ee573957aaabbc6c420c6ac9dda5d088fd505801f111446a069edfa0103ed",
+      "git_blob_sha": "e98502fdb027ac42013df4ed33718e4ccdb24f19",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/check.cjs",
+      "bytes": 5248,
+      "sha256": "e53fb9bb8be164d25a8ad87d448fbcb3dfe09e2b01a4eef9b488bf840507f67f",
+      "git_blob_sha": "80d2cada6cc6f3987db5172386c1bf04784f5f4f",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/qa/desktop.png",
+      "bytes": 117090,
+      "sha256": "9e1b382ecf442819279ce48329d4606bdbb3651bc41492b7b749b4028a11295a",
+      "git_blob_sha": "ab26118bc3a84b8f2f44f86e60e49931a0431ec5",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/qa/mobile.png",
+      "bytes": 36400,
+      "sha256": "997584cb8409980880632f9dff755efd28bdf430c08307dc5332af2b2c1b1cab",
+      "git_blob_sha": "55cd74211954f89f04fc69dc0c90045da38e5f9f",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/qa/print-style.png",
+      "bytes": 99629,
+      "sha256": "68e51f30e14f3537e5d2bf80056288c7c539c15dbbb02f30946057211979f9d4",
+      "git_blob_sha": "8da65a8ab9cb3b9592a66cb185269d0eb09200e9",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    },
+    {
+      "local_path": "work/pm002/qa/print-check.pdf",
+      "bytes": 379214,
+      "sha256": "5f6c5ccf7c22d72cabcc2089219d74759ab168bca646afc653ce068b2354d920",
+      "git_blob_sha": "ca46777af5bb8d6c9715592a98baa28966d92c60",
+      "existing_main_paths": [],
+      "action": "PRESERVE_MISSING"
+    }
+  ],
+  "original_zip": {
+    "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__PM001_PoC_002.zip",
+    "sha256": "df6e76dc7a621c4b6bcd7c10f6995b3c44cd6f8e0f978a867926c36b19b63666",
+    "bytes": 52688,
+    "member_verification": "ALL_8_EXACT_MATCH",
+    "members": [
+      {
+        "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__01_install_002.sql",
+        "sha256": "11511977896d83bf23a2b3b9a84283df94cd60627c2ea8a56ade7859400b98ad",
+        "git_blob_sha": "d45285aae85ff7639fb95709566da3082a3007a8"
+      },
+      {
+        "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__02_package_002.sql",
+        "sha256": "43984788615025d676d6f2a5f1f111f93089ec397e4210058248321c329abc23",
+        "git_blob_sha": "7791fabfca93bd5429ffc9818f448277efe598e3"
+      },
+      {
+        "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__03_tests_002.sql",
+        "sha256": "b1dd6b3b59cbc9ae68ec76638073e5f55d737f9c17eb1e5c71e71514d53b1cb2",
+        "git_blob_sha": "885abc525c912178360e064edc8be14b6143e45b"
+      },
+      {
+        "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__04_cleanup_002.sql",
+        "sha256": "daf9818d11b0f53b31d12e7b023b142498bd541f1a98e66fd9a3f451254cc401",
+        "git_blob_sha": "da764e5e2c93bffa2f0f59cee198bea0fdc55c11"
+      },
+      {
+        "name": "20261102__PLSQL__TETOOLS_ADMIN_OBJECTS__ontwerp_profielmanifest_001_STE_002.html",
+        "sha256": "e04f7bccfdc4b816b04c7801688723f1e1036b8bf536ea11b45b55e09dc35679",
+        "git_blob_sha": "f57eb337140570661765abcc468eab3b1c423101"
+      },
+      {
+        "name": "manifest.json",
+        "sha256": "7bc05bf4e92c42248c1bfa393327767dac875f6d4516a9ec562c30fcf8697a04",
+        "git_blob_sha": "00f26e3a90069dfb673372c612f3c61b7e2f84c5"
+      },
+      {
+        "name": "README.txt",
+        "sha256": "c5a3fd787af795617187810abc421011dd620b90a8a79d43926e5a3dc1e5636f",
+        "git_blob_sha": "b538a9b8efd505979b963397bdc21bc7434f5de0"
+      },
+      {
+        "name": "validation.json",
+        "sha256": "1a4ac3106d2cd0ebf75e5f7c446cdd28b1fe2c55e844085cda1231257605471d",
+        "git_blob_sha": "d13e38acb6577cd58ccde6722b743ff8c55af656"
+      }
+    ],
+    "publication": "No duplicate ZIP: existing individual members referenced; ZIP hash retained for original-download identification."
+  }
+}

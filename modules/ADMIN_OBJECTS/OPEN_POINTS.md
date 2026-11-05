@@ -7,3 +7,7 @@ Belangrijk: OP-01 CAN-001-acceptatie, OP-02 profielkeuzes/DATA_LENGTH, OP-03 ide
 Algemene ontwerpverkenning: [open punten voor hervatting](context/20261028__ADMIN_OBJECTS__ontwerpafspraken_en_hervatting.md#open-punten-voor-hervatting). Dat zijn beleids-/ontwerpvragen buiten de begrensde PoC; geen nieuwe implementatieopdracht.
 
 REGIE noemt daarnaast een volledige retourtest tussen verschillende sessies. De onderhavige sessie leest bestaande regie-informatie en publiceert een import, maar presenteert dat niet als een gecoördineerde DEV/REVIEW-retourtest of Oracle-test. Bewaar oorspronkelijke chats bij onzekerheid.
+
+## Sessieoverdracht revisie 002 (2026-11-05)
+
+- **PM002-ID-01 — ONBEKEND:** werkelijke thread-ID en onafhankelijke koppeling aan de daadwerkelijk te verwijderen chat niet betrouwbaar beschikbaar. Relay-ID `f21b235f-2680-4490-8bd4-adf5c60dda65` is expliciet lokaal gegenereerd. Bewaarstatus KEEP volgens onzekerheidsregel; geen chatverwijdering uitgevoerd. [Context en bewijs](context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md). De overgedragen moduleontwikkelpunten blijven bij release 004 en vereisen deze chat niet automatisch.

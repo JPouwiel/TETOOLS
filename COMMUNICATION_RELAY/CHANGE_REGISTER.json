@@ -491,6 +491,25 @@
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/17"
     },
     {
+      "change_id": "OBJECTS-HTML-OFFLOAD-20261105-001",
+      "record_type": "SESSION_OFFLOAD",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Preserve original PM-001 HTML-001 documentation session without development or policy changes",
+      "status": "PROPOSED",
+      "source_reference": "Current PM-001 standalone HTML design conversation; user offload attachment 2026-11-05; exact ChatGPT thread ID UNVERIFIED",
+      "origin_session": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "recorded_by_session": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "approval_actor": "user",
+      "approved_by": "Explicit universal session offload request, pasted attachment 2026-11-05; publication and permitted merge/readback only",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "fc2ef83e66f5522bc5e19d1eb28d681e40c13b7d",
+      "artifact_refs": [],
+      "note": "Task declaration only; no publication completion or deletion eligibility claimed."
+    },
+    {
       "change_id": "OBJECTS-PM002-OFFLOAD-20261105-001",
       "record_type": "SESSION_OFFLOAD",
       "project": "PLSQL_TETOOLS",

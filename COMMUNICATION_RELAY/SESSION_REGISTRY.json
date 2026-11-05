@@ -293,6 +293,31 @@
       "note": "Original work 2026-11-04; registration proposed in PR17 then absent on main. Current offload retains existing key without claiming a verified ChatGPT thread ID. Windows follow-up handed to Issue30; KEEP until main readback and preservation review."
     },
     {
+      "session_id": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+      "role": "WORK_DOCUMENTATION",
+      "module": "ADMIN_OBJECTS",
+      "subject": "PM-001 original offline HTML design 001: session preservation and provenance",
+      "revision": "20261029_001 / offload-20261105-001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "Current PM-001 standalone HTML design conversation; user offload attachment 2026-11-05; exact ChatGPT thread ID UNVERIFIED",
+      "recorded_by": "884ffcf0-031f-43c2-94c3-adc8294c6490",
+      "deliverables": [],
+      "open_dependencies": [
+        "Verify missing session context and artifacts on main before retention assessment"
+      ],
+      "current_activity": {
+        "task_reference": "OBJECTS-HTML-OFFLOAD-20261105-001",
+        "summary": "Oorspronkelijke HTML-001-sessie vergelijken met gepubliceerde bronnen, ontbrekend bewijs bewaren en bewaring beoordelen",
+        "state": "WORKING"
+      },
+      "note": "Separate from source REGIE chat 6ae1c678-2a98-83ed-99b0-c8895440f708 and implementation-004 session; local UUID is not a verified ChatGPT thread ID."
+    },
+    {
       "session_id": "f21b235f-2680-4490-8bd4-adf5c60dda65",
       "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
       "role": "WORK_IMPLEMENTATION",

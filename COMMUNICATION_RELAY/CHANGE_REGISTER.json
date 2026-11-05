@@ -658,6 +658,27 @@
         "PM002-ID-01"
       ],
       "note": "Read back published text and complete changed-file Git blob identities on main; existing input/deliverable blob matches and frozen releases verified. No Oracle PASS, historical gap closure, chat closure or deletion eligibility."
+    },
+    {
+      "change_id": "OBJECTS-REVIEW003-OFFLOAD-20261105-001",
+      "record_type": "SESSION_OFFLOAD",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Preserve independent revision-003 review context; existing report/archive retained without duplication",
+      "status": "PROPOSED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/USER_OFFLOAD_REQUEST_20261105.txt",
+      "origin_session": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+      "recorded_by_session": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+      "approval_actor": "user",
+      "approved_by": "Explicit universal offload request in current Work chat 2026-11-05; documentation preservation, permitted merge/readback and retention assessment only",
+      "recorded_at": "2026-11-05",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "0a8056772acf1e10c62e33cd396102522ba611f1",
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md"
+      ],
+      "note": "Publication scope approved; no design acceptance, new development, chat deletion or successful main readback yet."
     }
   ]
 }

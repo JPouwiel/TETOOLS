@@ -28,3 +28,7 @@ De nieuwe REGIE-opvraag levert geen ontbrekende oudere woordelijke reviewrondes 
 
 [Gecontroleerde sessieoverdracht](context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md) bewaart nog ontbrekende zichtbare gesprekscontext, de acht oorspronkelijke bouw-/controlehelpers en de originele downloadcontainers uit 2026-11-03. Alle 71 canonieke releasebestanden zijn opnieuw op Git-blobidentiteit met de lokale oplevering vergeleken: exact gelijk. De bevroren release is niet gewijzigd. Zie RELEASE_COMPARISON.json en OFFLOAD_MANIFEST.json onder de overdracht; publicatie-/terugleesbewijs volgt in het gekoppelde relay-change-record. Oracle blijft NOT_EXECUTED; HIST-01..03 en VAL-01 blijven open. De nieuwe overdrachtsdatum wijzigt geen oorspronkelijke bron- of releasedatum.
 
+
+## Onafhankelijke review van revisie 003 — offload 2026-11-05
+
+[Eigen sessiecontext](context/offloads/20261105_review003/SESSION_HANDOFF.md), relay-ID `d58c7999-a8ba-4534-ab08-1c8c87181b64` (lokale UUID, werkelijk ChatGPT-thread-ID onbekend). De bestaande reviewtekst, PDF en 003-ZIP onder release 004/reference zijn byte-identiek; geen duplicaten toegevoegd. Alleen ontbrekend historisch buildscript, het offloadverzoek en herleidbaar bewaar-/publicatiebewijs worden aangevuld. Zie [manifest](context/offloads/20261105_review003/PRESERVATION_MANIFEST.json). B03/B04/B07 zijn in de afzonderlijke opvolgende regiereview van 004 statisch behandeld; Oracle blijft NOT_EXECUTED. Geen nieuwe inhoudelijke goedkeuring of wijziging van een bevroren release.

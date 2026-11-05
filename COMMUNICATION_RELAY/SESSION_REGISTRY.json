@@ -345,6 +345,34 @@
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/36",
       "merge_commit": "f1bb7067b4c174744e91ba618ff0c357657523c8",
       "result": "Relevant revision 002 session context and missing historical QA evidence preserved on main; 16 changed blob identities read back; 160 frozen-release paths unchanged. Oracle NOT_EXECUTED. Actual chat identity mapping remains unknown; KEEP, no deletion."
+    },
+    {
+      "session_id": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+      "session_id_origin": "LOCALLY_GENERATED_UUID_NOT_CHAT_THREAD_ID",
+      "role": "WORK_REVIEW",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Independent PM-001 revision 003 completeness review and session offload",
+      "revision": "review 20261103 / offload 20261105",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-05",
+      "closed_at": null,
+      "source_reference": "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md",
+      "recorded_by": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+      "deliverables": [
+        "../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.md",
+        "../modules/ADMIN_OBJECTS/releases/PM-001_20261103_004/reference/PM001_003_review.pdf"
+      ],
+      "open_dependencies": [
+        "REVIEW003-OFFLOAD-MAIN-READBACK"
+      ],
+      "current_activity": {
+        "task_reference": "OBJECTS-REVIEW003-OFFLOAD-20261105-001",
+        "summary": "Ontbrekende context van revisie-003-review veiligstellen en publicatie op main verifiëren",
+        "state": "WORKING"
+      },
+      "note": "Own Work/Codex review session; actual ChatGPT thread ID unavailable. External regie 6ae1c678-2a98-83ed-99b0-c8895440f708 is a source, not this session. No Oracle runtime or revision-004 authorship claimed."
     }
   ]
 }

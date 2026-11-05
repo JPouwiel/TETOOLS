@@ -31,25 +31,29 @@
       "module": "ADMIN_OBJECTS",
       "subject": "PM-001",
       "revision": "004",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
       "last_confirmed_at": "2026-11-05",
       "closed_at": null,
-      "source_reference": "MODULES/ADMIN_OBJECTS/README.md",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
       "deliverables": [
-        "MODULES/ADMIN_OBJECTS/RELEASES/PM-001_20261103_004/"
+        "MODULES/ADMIN_OBJECTS/RELEASES/PM-001_20261103_004/",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/ACTIVATION_PROMPT.txt",
+        "../modules/ADMIN_OBJECTS/archives/20261103/"
       ],
       "open_dependencies": [
-        "VAL-01"
+        "VAL-01",
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "https://github.com/JPouwiel/TETOOLS/issues/45 — module-regie receipt and ownership confirmation pending"
       ],
       "recorded_by": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
-      "note": "Work completion recorded in repository; no claim that original session has been deleted or archived.",
-      "current_activity": {
-        "task_reference": "OBJECTS-OFFLOAD-20261105-001",
-        "summary": "Beschikbare sessiecontext en bestaande PM-001-resultaten vergelijken, ontbrekende context veiligstellen en bewaring beoordelen",
-        "state": "WORKING"
-      }
+      "note": "Original 2026-11-03 implementation and revision 004 preserved. Offload completed 2026-11-05; current_activity removed. Remaining module development/source gaps are transferred and not closed. Available context preservation does not assert full external REGIE history or deletion eligibility.",
+      "result": "Available implementation-session content offload verified on main after PR #35, merge 194f04021642b0a093a9427f67f1caafad41eef3: 19 payload blob identities and all 71 frozen-release blobs match; 17 text files read from main. Original ZIPs, 8 build helpers, classified handover and visible messages preserved. Regie receipt/ownership requested in Issue #45; not yet confirmed. Oracle NOT_EXECUTED. KEEP; no chat closure/deletion."
     },
     {
       "session_id": "ADMIN_LOGGER-IMPORT-20261103-01",

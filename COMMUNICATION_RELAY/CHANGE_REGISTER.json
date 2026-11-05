@@ -472,6 +472,43 @@
       "note": "71 canonical release files match local final delivery exactly; 8 existing historical helpers and 2 original ZIP containers were absent and are preserved. Oracle NOT_EXECUTED. Publication is PROPOSED until verified merge/readback. KEEP under current relay contract; no deletion or historical completeness claim."
     },
     {
+      "change_id": "OBJECTS-OFFLOAD-20261105-003",
+      "record_type": "SESSION_OFFLOAD_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Verified available implementation-session offload and conservative retention assessment",
+      "status": "IMPLEMENTED",
+      "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/USER_OFFLOAD_REQUEST_20261105.md",
+      "origin_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "recorded_by_session": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
+      "approval_actor": "user",
+      "approved_by": "Explicit 2026-11-05 inventory, preservation, permitted publication/merge/readback and retention-assessment request; no new development or contract amendment",
+      "recorded_at": "2026-11-05",
+      "revision": "002",
+      "supersedes": "OBJECTS-OFFLOAD-20261105-002",
+      "related_change_id": "OBJECTS-OFFLOAD-20261105-001",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/35",
+      "merge_commit": "194f04021642b0a093a9427f67f1caafad41eef3",
+      "verification": "19 payload Git-blob identities and all 71 existing canonical release blobs verified after merge; all 17 published text files read from main. No frozen release/code changes.",
+      "retention_status": "KEEP",
+      "open_dependencies": [
+        "VAL-01",
+        "HIST-01",
+        "HIST-02",
+        "HIST-03",
+        "https://github.com/JPouwiel/TETOOLS/issues/45 — WAITING_RECEIPT"
+      ],
+      "artifact_refs": [
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_MANIFEST.json",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json",
+        "SESSION_REGISTRY.json",
+        "https://github.com/JPouwiel/TETOOLS/issues/45",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/ACTIVATION_PROMPT.txt"
+      ],
+      "note": "Offload covers available relevant context. Original user/assistant messages, 8 original helpers and both original ZIPs preserved. Existing 18 release open points remain at module. No Oracle runtime or chat-deletion claim; own task cleared with completion. Module-regie receipt and ownership confirmation requested through Issue #45 under REGIE-HANDOFF-20261105-001; this remains open until the receiver acknowledges. No new Work session or automatic activation."
+    },
+    {
       "change_id": "CFG-20261104-001",
       "record_type": "DOCUMENTATION_PUBLICATION",
       "project": "PLSQL_TETOOLS",

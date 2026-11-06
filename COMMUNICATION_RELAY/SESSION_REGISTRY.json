@@ -530,6 +530,30 @@
       "base_commit": "9f530faa68e7bc231d10fb2be19f0067b2320259",
       "note": "Gebruiker heft sessieaantalbeperking op. KEEP: bewijs en review nodig; geen automatische cleanup. Onafhankelijke overdracht ontvangen in Issue62. COMPLETED betreft deze uitvoering, niet formele relayacceptatie. KEEP; geen cleanupadvies zolang review/contextbehoud nog vereist zijn.",
       "result": "Afgebakend uitvoeringsonderzoek gepubliceerd via PR63 / 251de22351d4c2fb97ceff3f5ab00bccceaf0fe4; 12/12 teksten exact main-readback. Onafhankelijke regieontvangst Issue62 comment6682712672. 19 tests, schema en huidig append-only gate PASS. Historische afwijkingen geregistreerd; relay NOT_OPERATIONAL, acceptatie en conceptreview blijven regie-eigendom. Finale PDF/afronding wordt in deze PR gepubliceerd; post-merge mainbewijs volgt Issue62. Oracle NOT_EXECUTED."
+    },
+    {
+      "session_id": "01a1b115-ba9d-7603-a9a0-ae3a52f121d3",
+      "session_id_origin": "CODEX_THREAD_ID_FROM_ENVIRONMENT_ARTIFACT_PATH",
+      "role": "WORK_GOVERNANCE",
+      "module": null,
+      "subject": "Cumulatieve registratie goedgekeurde beleidsbesluiten 1-11",
+      "revision": "20261106-001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-06",
+      "last_confirmed_at": "2026-11-06",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; expliciete huidige gebruikersopdracht 2026-11-06",
+      "recorded_by": "01a1b115-ba9d-7603-a9a0-ae3a52f121d3",
+      "deliverables": [],
+      "open_dependencies": [
+        "POLICY-SOURCE-01: exacte opsommingen besluit 2 en 4 ontbreken in beschikbare bron"
+      ],
+      "base_commit": "66aef7ad118f5e89e77a4214bee5acbf80e9f154",
+      "current_activity": {
+        "task_reference": "DEVELOPMENT-STANDARD-20261106-001",
+        "summary": "Elf goedgekeurde beleidsbesluiten registreren; ontbrekende oorspronkelijke categorielijsten expliciet houden; geen technische implementatie",
+        "state": "WORKING"
+      }
     }
   ]
 }

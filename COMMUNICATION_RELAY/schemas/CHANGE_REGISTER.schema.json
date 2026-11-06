@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CHANGE_REGISTER schema_version 1 (existing contract)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project": {
+      "const": "PLSQL_TETOOLS"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "change_id",
+          "record_type",
+          "subject",
+          "status",
+          "source_reference",
+          "origin_session",
+          "recorded_by_session",
+          "recorded_at"
+        ],
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "record_type": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "source_reference": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "origin_session": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "recorded_by_session": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "recorded_at": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "project": {
+            "const": "PLSQL_TETOOLS"
+          },
+          "status": {
+            "enum": [
+              "PROPOSED",
+              "APPROVED",
+              "REJECTED",
+              "SUPERSEDED",
+              "CLOSED",
+              "IMPLEMENTED"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true,
+  "description": "Legacy records may inherit project from registry root; no historical entries rewritten. Cross-record and lifecycle rules remain in validators."
+}

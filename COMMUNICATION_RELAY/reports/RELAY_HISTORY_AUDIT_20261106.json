@@ -1,0 +1,71 @@
+{
+  "baseline": "49bce90420fe210e3ecbe3c7d59fa0147c73be6d",
+  "first_parent_commits": 58,
+  "ledger_snapshots": 54,
+  "history_complete": true,
+  "mutation_count": 1,
+  "mutations": [
+    {
+      "from": "c713a1951034a716dc3aedac475dc8dcaa211992",
+      "to": "f1bb7067b4c174744e91ba618ff0c357657523c8",
+      "id": "OBJECTS-PM002-OFFLOAD-20261105-001",
+      "before": {
+        "change_id": "OBJECTS-PM002-OFFLOAD-20261105-001",
+        "record_type": "SESSION_OFFLOAD",
+        "project": "PLSQL_TETOOLS",
+        "module": "ADMIN_OBJECTS",
+        "subject": "Register and preserve revision 002 implementation session, without development changes",
+        "status": "PROPOSED",
+        "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+        "origin_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+        "recorded_by_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+        "approval_actor": "user",
+        "approved_by": "Explicit universal session-offload request 2026-11-05; bounded documentation, permitted publication and verification only",
+        "recorded_at": "2026-11-05",
+        "revision": "001",
+        "supersedes": null,
+        "base_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+        "artifact_refs": [
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md"
+        ],
+        "note": "Start registration; no completion or deletion eligibility claimed."
+      },
+      "after": {
+        "change_id": "OBJECTS-PM002-OFFLOAD-20261105-001",
+        "record_type": "SESSION_OFFLOAD",
+        "project": "PLSQL_TETOOLS",
+        "module": "ADMIN_OBJECTS",
+        "subject": "Register and preserve revision 002 implementation session, without development changes",
+        "status": "PROPOSED",
+        "source_reference": "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+        "origin_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+        "recorded_by_session": "f21b235f-2680-4490-8bd4-adf5c60dda65",
+        "approval_actor": "user",
+        "approved_by": "Explicit universal session-offload request 2026-11-05; bounded documentation, permitted publication and verification only",
+        "recorded_at": "2026-11-05",
+        "revision": "001",
+        "supersedes": null,
+        "base_commit": "920a23a3f9286cdbc6626571473f464292fdc0f9",
+        "artifact_refs": [
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/USER_OFFLOAD_REQUEST_20261105.txt",
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ORIGINAL_SCOPE_20261102.md",
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/SESSION_CONTEXT.md",
+          "../modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/OFFLOAD_MANIFEST.json"
+        ],
+        "note": "Registration PR #33 merged and read back; missing context/evidence prepared. Twelve original input/deliverable files already match existing main blobs. Main publication/readback of new context still required. No frozen-release or development changes."
+      }
+    }
+  ],
+  "reorders": [
+    {
+      "from": "0a8056772acf1e10c62e33cd396102522ba611f1",
+      "to": "194f04021642b0a093a9427f67f1caafad41eef3"
+    },
+    {
+      "from": "13a24e9c7e34d0228a2b7a0445a1c5128fc878e7",
+      "to": "36a864cc8369661080af4bb7c5840d52768eb87d"
+    }
+  ],
+  "scope": "All 98 reachable commits enumerated, 58 first-parent commits; ledger absent before initial creation; path history 41 commits and page2 empty. Semantic comparison ignores object key order. Record-array reorder reported separately."
+}

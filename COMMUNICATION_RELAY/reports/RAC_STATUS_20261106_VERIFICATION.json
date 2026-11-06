@@ -1,0 +1,46 @@
+{
+  "project": "PLSQL_TETOOLS",
+  "revision": "RAC-STATUS-20261106-001",
+  "session_id": "01a1b00b-dfcc-7eb0-9621-c727cb25f06c",
+  "base_commit": "cde9974ea6113375b252e2a3be7c641fe386d597",
+  "registration": {
+    "pr": 53,
+    "merge": "a104141513f78354bdd9a70f5433f4d491369f39",
+    "exact_main_registry_readback": true
+  },
+  "coordination": {
+    "issue": 47,
+    "comments": [
+      6681017862,
+      6681071946,
+      6681098445,
+      6681098722
+    ],
+    "module_reconciliation_pr": 54,
+    "module_reconciliation_merge": "cde9974ea6113375b252e2a3be7c641fe386d597",
+    "receipt": "PENDING_EXISTING_MODULE_REGIE"
+  },
+  "handoff_issue": 55,
+  "qa": {
+    "relay_validator": "PASS: 17 sessions; 37 changes; required files present",
+    "method": "Current GitHub JSON preserved as UTF-8 validation snapshot; validator and dependency fetched from GitHub, required documents supplied. No schema change.",
+    "pdf": "29 pages; 6 current suite + 23 unchanged source-dossier pages; all rendered contact sheets inspected, current technical page inspected at larger scale; no clipping/overlap observed.",
+    "oracle": "NOT_EXECUTED"
+  },
+  "pdf": {
+    "path": "COMMUNICATION_RELAY/reports/TETOOLS_RAC_CUMULATIEF_20261106.pdf",
+    "bytes": 390685,
+    "pages": 29,
+    "sha256": "82fe2a6e2332ac34f094be5b2d4066a23e9602bde6861e6c01a136d7cac4833e",
+    "git_blob": "bb32ea17515616ea66d9f58ceda561ec3e0b6538",
+    "appendix_sha256": "532d8358824d82d39fd0ae304109fdffc1e9d8275f25d71ecbb1d0ecde3088b6"
+  },
+  "source_scope": "No source/frozen-release/API/datatype/grant/database-object changes. Only relay, one module open-points cross-reference and report/PDF.",
+  "publication": "This package is proposed together. Its resulting PR/merge and exact main readback are recorded after publication in Issues #55/#47, not asserted in advance.",
+  "open_dependencies": [
+    "RAC-ARCH-01..03",
+    "Issue #55 central receipt/assessment",
+    "Issue #47 and #45 module-regie receipt",
+    "Oracle environment/runtime evidence"
+  ]
+}

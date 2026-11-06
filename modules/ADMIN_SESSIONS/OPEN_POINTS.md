@@ -14,3 +14,7 @@ All OPEN, recorded 2026-11-03. No missing proof is treated as success.
 - **AS-OPEN-10**: PR review and post-merge verification pending; do not merge automatically.
 
 Keep this session: KEEP; not CLOSED, ARCHIVED or eligible for deletion.
+
+## Suite-impactmelding — 2026-11-06
+
+`SESSIONS-RAC-20261106-001` (PROPOSED), [centrale beoordeling Issue #55](https://github.com/JPouwiel/TETOOLS/issues/55). Suite-statusuitvoerder `01a1b00b-dfcc-7eb0-9621-c727cb25f06c` bevestigde in het behouden body-snapshot de AS-08/09-bronpaden (globale queries zonder INST_ID, lokaal KILL-commando). Mogelijke gedeelde identiteits-/provenanceafspraken met LOGGER vragen TETOOLS__REGIE-beoordeling. Brononderzoek blijft bij bestaande ADMIN_SESSIONS-regie; geen modulebesluit, API-/migratie-/codewijziging of Oracle-test goedgekeurd. AS-OPEN-01..10 blijven open.

@@ -510,14 +510,18 @@
       "last_confirmed_at": "2026-11-06",
       "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; huidige expliciete gebruikersopdracht 2026-11-06; exact bericht UNVERIFIED",
       "recorded_by": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
-      "deliverables": [],
+      "deliverables": [
+        "https://github.com/JPouwiel/TETOOLS/pull/61",
+        "https://github.com/JPouwiel/TETOOLS/issues/62",
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "TETOOLS_DEVELOPMENT_STANDARD.md"
+      ],
       "open_dependencies": [
-        "Volledige ketentest en acceptatie",
-        "Regiereview ontwikkelstandaard"
+        "TETOOLS__REGIE: historische afwijkingen, eindacceptatie en conceptstandaardreview in Issue62"
       ],
       "current_activity": {
-        "task_reference": "REGIE-HANDOFF-20261105-001",
-        "summary": "Relay baseline en acceptatie toetsen; concept standaard publiceren",
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+        "summary": "Ketentest ontvangen; schema-/historieonderzoek en concept gereed voor publicatie",
         "state": "WORKING"
       },
       "base_commit": "9f530faa68e7bc231d10fb2be19f0067b2320259",

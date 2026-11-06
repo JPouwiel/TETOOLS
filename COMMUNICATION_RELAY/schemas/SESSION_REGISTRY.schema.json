@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SESSION_REGISTRY schema_version 1 (existing contract)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project",
+    "sessions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project": {
+      "const": "PLSQL_TETOOLS"
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "session_id",
+          "role",
+          "module",
+          "subject",
+          "revision",
+          "status",
+          "retention_status",
+          "registered_at",
+          "last_confirmed_at",
+          "source_reference",
+          "recorded_by",
+          "deliverables",
+          "open_dependencies"
+        ],
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "registered_at": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "last_confirmed_at": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "source_reference": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "recorded_by": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "module": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "REGISTERED",
+              "ACTIVE",
+              "BLOCKED",
+              "COMPLETED",
+              "CLOSED",
+              "ARCHIVED"
+            ]
+          },
+          "retention_status": {
+            "enum": [
+              "KEEP",
+              "REVIEW",
+              "ELIGIBLE_FOR_DELETION"
+            ]
+          },
+          "deliverables": {
+            "type": "array"
+          },
+          "open_dependencies": {
+            "type": "array"
+          },
+          "current_activity": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "task_reference",
+                  "summary",
+                  "state"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "task_reference": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "summary": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "state": {
+                    "enum": [
+                      "WORKING",
+                      "WAITING",
+                      "BLOCKED"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,5 +1,14 @@
 # Actuele status COMMUNICATION_RELAY
 
+## Leidende peildatum 6 november 2026 - relayacceptatie
+**ACCEPTANCE_PENDING / NOT_OPERATIONAL.** Zie [acceptatierapport](reports/RELAY_ACCEPTANCE_20261106.md), [historieaudit](reports/RELAY_HISTORY_AUDIT_20261106.json), [beheer/herstel](OPERATIONS.md) en [Issue #62](https://github.com/JPouwiel/TETOOLS/issues/62).
+#45 en #47 administratief CLOSED met echte module-regieontvangst; #55 OPEN met centrale ontvangst/INVESTIGATE en technische/omgevingsafhankelijkheden.
+Oude onderstaande wachtstatussen zijn gedateerde historie en worden door deze samenvatting opgevolgd. Moduletechniek en Oracle NOT_EXECUTED blijven open; RAC-readiness NOT_DEMONSTRATED.
+Nieuwe schema-/append-only gate beschikbaar; historische mutatie in PR36 en herordeningen PR35/44 vragen centrale disposition. OPERATIONAL uitsluitend na geslaagde onafhankelijke acceptatie.
+Hoofdlijn 3: [ontwikkelstandaardconcept](../TETOOLS_DEVELOPMENT_STANDARD.md), PROPOSED; geen implementatiegoedkeuring.
+
+## Eerdere gedateerde statusregistraties
+
 Project: PLSQL_TETOOLS. Datum: 2026-11-03.
 
 | Onderdeel | Status |

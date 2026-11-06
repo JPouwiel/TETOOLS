@@ -1374,6 +1374,33 @@
       ],
       "oracle": "NOT_EXECUTED",
       "rac_readiness": "NOT_DEMONSTRATED"
+    },
+    {
+      "change_id": "REGIE-RELAY-PUBLICATION-READBACK-20261106-001",
+      "record_type": "PUBLICATION_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Administrative successor recording independent PR68 merge and actual main readback",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6683886501",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE under explicit user authorization 2026-11-06; administrative publication only",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": "REGIE-RELAY-ACCEPTANCE-20261106-001",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/68",
+      "merge_commit": "cb55668c1db8d59fe3cb034b4cfe93de5e4a0179",
+      "verification": "PR68 merged; independently retrieved main CURRENT_STATUS, CHANGE_REGISTER, SESSION_REGISTRY, final report and REGIE verification JSON. Issue62 comment 6683886501 documents checked head, six exact text readbacks and 404/404 blobs. This successor records completed administrative readback; no new acceptance decision or retest.",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_REGIE_ACCEPTANCE_VERIFICATION_20261106.json",
+        "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6683886501"
+      ],
+      "open_dependencies": [
+        "Issue55 RAC investigations and Oracle validation separate; development standard remains PROPOSED"
+      ]
     }
   ]
 }

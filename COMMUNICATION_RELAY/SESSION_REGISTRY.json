@@ -48,11 +48,10 @@
         "VAL-01",
         "HIST-01",
         "HIST-02",
-        "HIST-03",
-        "https://github.com/JPouwiel/TETOOLS/issues/45 — module-regie receipt and ownership confirmation pending"
+        "HIST-03"
       ],
       "recorded_by": "01a19ff0-f2d2-7723-9520-d6f8b84ec55c",
-      "note": "Original 2026-11-03 implementation and revision 004 preserved. Offload completed 2026-11-05; current_activity removed. Remaining module development/source gaps are transferred and not closed. Available context preservation does not assert full external REGIE history or deletion eligibility.",
+      "note": "Original 2026-11-03 implementation and revision 004 preserved. Offload completed 2026-11-05; current_activity removed. Remaining module development/source gaps are transferred and not closed. Available context preservation does not assert full external REGIE history or deletion eligibility. 2026-11-06 administrative follow-up: module-regie receipt/ownership acknowledged in Issue #45 comment 6681392605; WAITING_RECEIPT dependency removed after direct evidence. Other original dependencies retained and original result remains historical.",
       "result": "Available implementation-session content offload verified on main after PR #35, merge 194f04021642b0a093a9427f67f1caafad41eef3: 19 payload blob identities and all 71 frozen-release blobs match; 17 text files read from main. Original ZIPs, 8 build helpers, classified handover and visible messages preserved. Regie receipt/ownership requested in Issue #45; not yet confirmed. Oracle NOT_EXECUTED. KEEP; no chat closure/deletion."
     },
     {
@@ -120,24 +119,40 @@
       "module": "ADMIN_OBJECTS",
       "subject": "Design direction and project communication relay",
       "revision": "PM-001-004 / relay v1",
-      "status": "REGISTERED",
+      "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
-      "last_confirmed_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-06",
       "closed_at": null,
       "source_reference": "../modules/ADMIN_OBJECTS/context/ADMIN_OBJECTS_REGIE_recent_20261103.json",
       "deliverables": [
         "RELAY_CONTRACT.md",
-        "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md"
+        "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/45#issuecomment-6681392605",
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json"
       ],
       "open_dependencies": [
+        "OP-01",
+        "OP-02",
+        "OP-03",
+        "OP-04",
+        "OP-05",
+        "OP-06",
+        "OP-07",
+        "OP-08",
+        "OP-09",
+        "OP-10",
+        "OP-11",
+        "OP-12",
+        "OP-13",
         "HIST-01",
         "HIST-02",
         "HIST-03",
-        "VAL-01"
+        "VAL-01",
+        "M4-01"
       ],
-      "recorded_by": "01a138d4-ee43-7930-aea2-4ec084041013",
-      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation."
+      "recorded_by": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation. 2026-11-06: user addressed existing ADMIN_OBJECTS__REGIE; acknowledgement and module ownership recorded in Issue #45 comment 6681392605. Last_confirmed_at is manual role-level confirmation; current ChatGPT thread ID was not independently re-queried. All 18 release items remain open, RAC readiness not demonstrated, Oracle NOT_EXECUTED. No chat closure/deletion."
     },
     {
       "session_id": "01a184a4-b6f6-76d3-be6a-38608571155a",

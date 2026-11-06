@@ -993,6 +993,43 @@
         "https://github.com/JPouwiel/TETOOLS/issues/45",
         "Oracle 19c validation NOT_EXECUTED"
       ]
+    },
+    {
+      "change_id": "OBJECTS-REGIE-RECEIPT-20261106-001",
+      "record_type": "SESSION_HANDOFF_RECEIPT",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "ADMIN_OBJECTS__REGIE acknowledges existing PM-001-004 offload and owns 18 pending module points",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/45#issuecomment-6681392605",
+      "origin_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "recorded_by_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "approval_actor": "User instruction in existing ADMIN_OBJECTS__REGIE chat 2026-11-06; scope strictly administrative",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": null,
+      "related_change_ids": [
+        "OBJECTS-OFFLOAD-20261105-003",
+        "REGIE-HANDOFF-20261105-001"
+      ],
+      "artifact_refs": [
+        "https://github.com/JPouwiel/TETOOLS/issues/45",
+        "modules/ADMIN_OBJECTS/CURRENT_STATUS.md",
+        "modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json"
+      ],
+      "verification": "71/71 release blobs match current main and corresponding relay copies; PR35 and PR44 merged; 19 earlier offload payload paths present (2 mutable administrative files subsequently updated); 18 release open point IDs present. Independent current ChatGPT thread-ID lookup unavailable.",
+      "open_dependencies": [
+        "OP-01..13",
+        "HIST-01..03",
+        "VAL-01",
+        "M4-01",
+        "REGIE-20261103-004 central INVESTIGATE owned by TETOOLS__REGIE"
+      ],
+      "oracle_compilation": "NOT_EXECUTED",
+      "oracle_runtime": "NOT_EXECUTED",
+      "note": "Receipt comment is published; proposed record does not claim merge/readback yet. No frozen release modifications or technical acceptance."
     }
   ]
 }

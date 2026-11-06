@@ -1,3 +1,125 @@
+# Goedgekeurd beleidskader - cumulatieve besluiten 1-12
+
+Status: beleidsmatig APPROVED op expliciete gebruikersopdracht; technische uitwerkingen blijven PROPOSED. Registratie/publicatie wordt pas na merge en main-teruglezing als geverifieerd aangemerkt. Datum: 6 november 2026.
+
+Bronnen: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466. De beschikbare read_thread-teruglezing bevat vijf laatste beurten (besluit 8-11 en voorstel 8); geen volledige oudere gespreksexport. De huidige expliciete gebruikersopdracht bevestigt besluiten 1-11; de gebruikersaanvulling bevestigt de exacte lijsten bij 2/4, categorie 7 en aanvullend besluit 12. Er zijn geen namen of lijsten gereconstrueerd uit het oudere concept. Oudere exacte bericht-ID's bij 1-7 en de huidige aanvullings-ID zijn UNVERIFIED; de beleidsinhoud is door de huidige gebruiker bevestigd. Besluit 12 is na de oorspronkelijke overdracht toegevoegd.
+
+Uitvoerende sessie: 01a1b115-ba9d-7603-a9a0-ae3a52f121d3. Gelezen main-baseline: 66aef7ad118f5e89e77a4214bee5acbf80e9f154. Registratie: PR #70, merge 7bb9ce26ace7482378c6f59c37cc9fa752975191; eigen entry exact op main teruggelezen.
+
+## Besluit 1 - Bestaande code gefaseerd refactoren
+
+ID: REGIE-POLICY-20261106-001. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Bestaande ADMIN_*-code wordt gefaseerd naar de ontwikkelstandaard gebracht. Dit is beleidsrichting, geen opdracht om nu modules te wijzigen. Per fase blijven scope, bestaande functionaliteit, afhankelijkheden en verificatie expliciet.
+
+Bron: huidige expliciete gebruikersopdracht 2026-11-06; oudere exacte goedkeuringsbeurt UNVERIFIED.
+
+## Besluit 2 - Zes technische ontwikkelcategorieën
+
+ID: REGIE-POLICY-20261106-002. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorieën verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.
+
+Bron: expliciete huidige gebruikersaanvulling 2026-11-06; exact bericht-ID UNVERIFIED.
+
+## Besluit 3 - Zeer strikt centraal afwijkingsbeleid
+
+ID: REGIE-POLICY-20261106-003. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Afwijken is uitsluitend mogelijk na expliciete centrale beoordeling en goedkeuring door TETOOLS__REGIE. Een module kan een afwijking onderbouwd aanvragen, maar niet zelfstandig een suitebrede norm buiten werking stellen. Onderbouwing, gevolgen, alternatieven, bron en goedkeurende actor worden herleidbaar vastgelegd. De oudere ruimere formulering verleent geen zelfstandige modulebevoegdheid meer. Exacte oorspronkelijke nadere uitzonderingscriteria: UNVERIFIED; hier worden geen nieuwe uitzonderingsgronden toegevoegd.
+
+Bron: huidige expliciete gebruikersopdracht 2026-11-06; oudere exacte goedkeuringsbeurt UNVERIFIED.
+
+## Besluit 4 - Acht testcategorieën
+
+ID: REGIE-POLICY-20261106-004. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Iedere beoordeling omvat expliciet acht categorieën: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.
+
+Bron: expliciete huidige gebruikersaanvulling 2026-11-06; exact bericht-ID UNVERIFIED.
+
+## Besluit 5 - ADMIN_LOGGER officiële pilot
+
+ID: REGIE-POLICY-20261106-005. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+ADMIN_LOGGER is de officiële eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.
+
+Bron: huidige expliciete gebruikersopdracht 2026-11-06; oudere exacte goedkeuringsbeurt UNVERIFIED.
+
+## Besluit 6 - Integrale herbeoordeling vóór refactoringontwerp
+
+ID: REGIE-POLICY-20261106-006. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Eerst de bestaande module integraal herbeoordelen, met RAC-readiness als hoogste prioriteit. Daarna pas een samenhangend refactoringontwerp. In deze registratie worden geen codewijzigingen uitgevoerd of geautoriseerd. Oracle 19c Enterprise / beoogd drie-node RAC blijft de doelrandvoorwaarde; geschiktheid is niet aangetoond.
+
+Bron: huidige expliciete gebruikersopdracht 2026-11-06; oudere exacte goedkeuringsbeurt UNVERIFIED.
+
+## Besluit 7 - Vier verplichte pilotvoorwaarden
+
+ID: REGIE-POLICY-20261106-007. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+De pilot vereist: (1) vastgelegde architectuurafhankelijkheden; (2) een functionele baseline; (3) meetbare acceptatiecriteria; (4) relayregistratie van scope, besluiten, bewijs en open punten. Deze voorwaarden moeten aantoonbaar zijn ingevuld; deze beleidsregistratie claimt geen vervulling ervan.
+
+Bron: huidige expliciete gebruikersopdracht 2026-11-06; oudere exacte goedkeuringsbeurt UNVERIFIED.
+
+## Besluit 8 - Integrale pilotreview met aanvulling bruikbaarheid
+
+ID: REGIE-POLICY-20261106-008. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Beoordeel de volledige ADMIN_LOGGER-module: RAC-readiness, codekwaliteit, functionele compatibiliteit en afhankelijkheden, samenhangend verbeterplan en testontwerp. Toets dit aan het complete ontwikkelkader; technische consolidatie mag begrijpelijke functionaliteit niet ongemerkt verwijderen. ADMIN_LOGGER__REGIE bezit technische analyse en modulevoorstellen; TETOOLS__REGIE beoordeelt suitearchitectuur, samenhang en afwijkingen. Ontwerp volgt na de verplichte herbeoordeling en functionele baseline.
+
+Bron: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; goedkeurende gebruikersbeurt b850fca2-4020-44ba-ab0d-4a9bce02ae3d.
+
+## Besluit 9 - Mensgerichte bruikbaarheid als zevende categorie
+
+ID: REGIE-POLICY-20261106-009. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorieën, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.
+
+Bron: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; goedkeurende gebruikersbeurt 2bc0f67f-329f-4da5-bd7a-b54ccd2ab01c.
+
+## Besluit 10 - Suitebrede functionele interface- en gebruiksstandaard
+
+ID: REGIE-POLICY-20261106-010. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Er komt een afzonderlijk functioneel onderdeel van de suitebrede ontwikkelstandaard. ADMIN_LOGGER is het eerste praktijkvoorbeeld voor API-catalogus, gebruiksscenario's, naamgeving, configuratie, fouten, aanroepgedrag en wijzigingsbeoordeling. Leid herbruikbare conventies af; verklaar niet de volledige LOGGER-API verplicht voor alle modules. De uitwerking van concrete conventies blijft afzonderlijk te beoordelen.
+
+Bron: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; goedkeurende gebruikersbeurt 44d9fe0a-8015-4896-97ed-cf75f8269eb3.
+
+## Besluit 11 - Functionele baseline vóór ontwerp
+
+ID: REGIE-POLICY-20261106-011. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+Vóór het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.
+
+Bron: chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; goedkeurende gebruikersbeurt be693f26-7ed9-4b27-8627-25758514ea88.
+
+## Besluit 12 - Doelstelling ADMIN_LOGGER-pilot
+
+ID: REGIE-POLICY-20261106-012. Beleidsstatus: APPROVED; technische uitvoering: NOT_AUTHORIZED door deze registratie.
+
+ADMIN_LOGGER wordt integraal herbeoordeeld met RAC-readiness als technische prioriteit. Het primaire doel is een technisch en functioneel operationele module, niet nieuwe functionaliteit. Refactoring en noodzakelijke defectcorrecties mogen gezamenlijk worden gepland en uitgevoerd na goedkeuring van het technische ontwerp. Behoud bestaande functioneel gewenste gebruiksmogelijkheden. Nieuwe functionaliteit is geen eerste prioriteit; voor RAC-compatibiliteit noodzakelijke nieuwe functionaliteit mag worden voorgesteld met onderbouwing, impactbeoordeling en expliciete goedkeuring. Publieke interfacewijzigingen vereisen afzonderlijke goedkeuring. De bevroren bronrelease blijft ongewijzigd. Registreer Oracle-/RAC-readiness uitsluitend op basis van daadwerkelijk uitgevoerde en gedocumenteerde tests. Deze overdracht autoriseert geen broncodewijzigingen.
+
+Bron: expliciete huidige gebruikersaanvulling 2026-11-06; exact bericht-ID UNVERIFIED.
+
+## Samenhang en vervolgeigenaarschap
+
+De actuele volgorde is: architectuurafhankelijkheden en integrale herbeoordeling met RAC-prioriteit; functionele baseline met BEHOUDEN/CORRIGEREN/HEROVERWEGEN; meetbare acceptatiecriteria en herleidbaar testontwerp; daarna refactoringontwerp; afzonderlijke ontwerp- en eventuele interfacegoedkeuring; pas daarna toegestane uitvoering en daadwerkelijk testen. Relayregistratie loopt door alle stappen. Analyse en baseline mogen samen worden opgebouwd; het ontwerp mag de baseline niet voorafgaan.
+
+ADMIN_LOGGER__REGIE bezit de moduleanalyse en voorstellen (LOG-OPEN-01..05 en RAC-A-001..012); TETOOLS__REGIE bezit suitekader, afwijkingsgoedkeuring en functionele conventies. RAC-ARCH-01..03 en Issue #55 blijven open. Geen nieuw technisch suitebesluit, datatype, grant, object, API, toolafhankelijkheid of gedeelde identity-migratie wordt hiermee goedgekeurd. Oracle-compilatie/runtime/performance/failover: NOT_EXECUTED door deze sessie; RAC-readiness: NOT_DEMONSTRATED. Geen code of bevroren release gewijzigd.
+
+## Relatie met ouder concept en afwijkingshistorie
+
+Deze twaalf goedgekeurde beleidsbesluiten zijn leidend boven de onderstaande conceptuitwerking. Alleen het beleid is goedgekeurd; de technische tekst uit concept 001 wordt niet als geheel goedgekeurd of herschreven. De oudere concept-testmatrix is hulpmateriaal en vervangt de acht categorieën niet.
+
+REGIE-POLICY-20261106-003 volgt uitsluitend het ruimere afwijkingsmandaat van REGIE-20261103-001 op. De oorspronkelijke ledgerrecord en architectuurtekst blijven als historie bewaard; centrale goedkeuring is nu verplicht. Ook de oudere slotzin onder REGIE-20261103-003 in SUITE_ARCHITECTURE.md heeft geen zelfstandige module-goedkeuringswerking meer. Overige onderdelen van die besluiten blijven gelden.
+
+---
+
+# Historische technische conceptuitwerking 001 - PROPOSED
+
+Onderstaande oorspronkelijke tekst is behouden als concept en historische momentopname. Verwijzingen naar een nog te beoordelen ontwikkelstandaard gelden voor de concrete uitwerking; zij trekken het bovenstaande goedgekeurde beleidskader niet in.
+
 # TETOOLS Development Standard
 Status: PROPOSED / CONCEPT 001 - 6 november 2026. Eigenaar beoordeling: TETOOLS__REGIE.
 Publicatie is geen technische goedkeuring. Geen automatische toepassing, migratie of modulecodewijziging.

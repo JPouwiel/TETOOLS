@@ -1,3 +1,11 @@
+## Leidende beleidsregistratie 6 november 2026 - besluiten 1-12
+
+Het [cumulatieve beleidskader](../TETOOLS_DEVELOPMENT_STANDARD.md) bevat twaalf expliciet goedgekeurde besluiten: zeven ontwikkelcategorieën, acht test-/acceptatiecategorieën, strikt centraal afwijkingsbeleid, LOGGER-pilot met integrale RAC-prioriteitsreview, vier voorwaarden, functionele standaard en baseline vóór ontwerp. Besluit 12 is aanvullend door de gebruiker aangeleverd na de oorspronkelijke Work-overdracht. Technische uitwerking van concept 001 blijft PROPOSED; geen code-, interface- of deploymentvrijgave. Oudere afwijkingsformuleringen zijn herkenbaar opgevolgd, zonder historische records te wijzigen.
+
+Oracle NOT_EXECUTED; RAC-readiness NOT_DEMONSTRATED. LOGGER-regie bezit moduleonderzoek en ontwerpvoorstellen; TETOOLS__REGIE bezit beleidskader en afwijkingen. Issue #55 / RAC-ARCH-01..03 blijven open. [Cumulatief PDF-overzicht](reports/TETOOLS_BELEID_CUMULATIEF_20261106.pdf). Feitelijk merge-/main-terugleesbewijs wordt na uitvoering in de beleids-PR vastgelegd; deze tekst claimt dat bewijs niet vooraf.
+
+Eerdere hieronder vermelde PROPOSED-status van de gehele standaard is een momentopname: nu is het beleidskader goedgekeurd, de concrete technische uitwerking blijft concept.
+
 # Actuele status COMMUNICATION_RELAY
 
 ## Leidende regiebeoordeling 6 november 2026 - revisie 002

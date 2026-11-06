@@ -1,3 +1,11 @@
+# Actuele aanscherping - 6 november 2026
+
+Het [goedgekeurde beleidskader besluiten 1-12](../TETOOLS_DEVELOPMENT_STANDARD.md) is leidend. REGIE-POLICY-20261106-003 volgt het ruimere afwijkingsmandaat in REGIE-20261103-001 op: modules mogen afwijkingen onderbouwd voorstellen; uitsluitend TETOOLS__REGIE mag die expliciet goedkeuren. Dit geldt ook voor de oudere ruimere slotzin onder REGIE-20261103-003. Reden, impact, alternatieven, goedkeurende actor en bron worden geregistreerd. De oorspronkelijke teksten en ledgerrecords hieronder blijven herkenbare historie; overige bevoegdheidsverdeling blijft gelden. Geen impliciete technische implementatiegoedkeuring.
+
+Zeven ontwikkelcategorieën en acht testcategorieën zijn beleidsmatig vastgesteld; concrete technische conceptuitwerking blijft PROPOSED. LOGGER is officiële pilot; integrale RAC-prioriteitsreview en functionele baseline gaan vóór ontwerp, ontwerpgoedkeuring vóór uitvoering. Geen Oracle-/RAC-readinessclaim.
+
+---
+
 # TETOOLS suite architecture — central REGIE
 
 Project: PLSQL_TETOOLS. Baseline: Oracle Database 19c Enterprise. Date: 2026-11-03.

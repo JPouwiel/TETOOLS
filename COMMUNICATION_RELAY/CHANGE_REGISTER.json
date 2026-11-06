@@ -1146,6 +1146,34 @@
       "open_dependencies": [
         "TETOOLS__REGIE content review and explicit approval; later module assignments"
       ]
+    },
+    {
+      "change_id": "RELAY-ACCEPTANCE-20261106-002",
+      "record_type": "PUBLICATION_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Verified PR63 main publication and actual independent regie receipt; completion/PDF publication",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6682712672",
+      "origin_session": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
+      "recorded_by_session": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
+      "recorded_at": "2026-11-06",
+      "approval_actor": "User explicit scoped execution/publication instruction 2026-11-06; not architecture acceptance",
+      "revision": "002",
+      "supersedes": "RELAY-ACCEPTANCE-20261106-001",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/63",
+      "merge_commit": "251de22351d4c2fb97ceff3f5ab00bccceaf0fe4",
+      "verification": "PR63 merged; all 12 text files fetched from main and exact matched. Every other existing blob unchanged in reviewed tree. Actual regie receipt verified in Issue62. 19 tests PASS. Historical deviation remains OPEN; OPERATIONAL not awarded. Final completion/PDF main readback will be recorded in Issue62 after this publication.",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_VERIFICATION_20261106.json",
+        "COMMUNICATION_RELAY/reports/TETOOLS_RELAY_CUMULATIEF_20261106.pdf",
+        "TETOOLS_DEVELOPMENT_STANDARD.md"
+      ],
+      "open_dependencies": [
+        "TETOOLS__REGIE: RELAY-HISTORY-20261106-001 disposition; independent final acceptance; draft standard review"
+      ],
+      "oracle_compilation": "NOT_EXECUTED",
+      "oracle_runtime": "NOT_EXECUTED"
     }
   ]
 }

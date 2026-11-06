@@ -43,3 +43,6 @@ Herstel/eigenaar: centrale regie beoordeelt auditafwijking, acceptatie en concep
 ## Hoofdlijn 3
 TETOOLS_DEVELOPMENT_STANDARD.md is CONCEPT/PROPOSED: Oracle 19c PL/SQL, LOGGER-contracten, RAC, concurrency/performance, tests en voorgestelde PR-gates. Geen implementatie. Gepubliceerde Oracle-documentatie is ondersteunend; geen doelomgevingsbewijs.
 Cumulatief PDF bundelt dit onderzoek en de conceptstandaard met historische relay-/suite-dossiers. Actuele samenvatting prevaleert; oude wachtstatussen zijn historie. Finale merge/readback wordt pas na uitvoering in Issue62 vastgelegd.
+
+## Gecontroleerde publicatie PR63
+PR63 gemerged als 251de22351d4c2fb97ceff3f5ab00bccceaf0fe4. Alle 12 gewijzigde tekstbestanden exact van main teruggelezen; 389 overige bestaande blobs behouden. Eigen activiteiten-/taakafronding en [cumulatieve PDF (40 pagina's)](TETOOLS_RELAY_CUMULATIEF_20261106.pdf) volgen in de completion-PR. Definitieve main-teruglezing wordt na uitvoering vastgelegd in Issue62. Technische ketentestafronding is geen onafhankelijke eindacceptatie; NOT_OPERATIONAL blijft gelden.

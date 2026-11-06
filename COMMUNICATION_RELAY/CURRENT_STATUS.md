@@ -5,6 +5,8 @@
 #45/#47 administratief gesloten met echte moduleontvangst. #55 blijft OPEN voor bestaand onderzoek bij TETOOLS__REGIE/module-eigenaren/DBA. Oracle NOT_EXECUTED; RAC-readiness NOT_DEMONSTRATED. Ontwikkelstandaard blijft PROPOSED en afzonderlijk te beoordelen. Geen modulecode/frozen release/chatwijziging. Eigen regiesessie ACTIVE/KEEP, activiteit afgerond.
 [Cumulatieve PDF met actuele eindbeoordeling en volledige eerdere 40-pagina-bijlage](reports/TETOOLS_RELAY_CUMULATIEF_20261106.pdf).
 
+**Administratieve opvolging PR68:** merge `cb55668c1db8d59fe3cb034b4cfe93de5e4a0179` en feitelijke main-teruglezing bevestigd in Issue #62 comment 6683886501. Opvolgrecord `REGIE-RELAY-PUBLICATION-READBACK-20261106-001` registreert dit achteraf; geen nieuw inhoudelijk acceptatiebesluit.
+
 ## Eerdere gedateerde statusregistraties - momentopnamen
 
 # Actuele status COMMUNICATION_RELAY

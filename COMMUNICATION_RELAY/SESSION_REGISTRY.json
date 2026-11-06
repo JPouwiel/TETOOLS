@@ -228,7 +228,7 @@
       "registered_at": "2026-11-03",
       "last_confirmed_at": "2026-11-06",
       "closed_at": null,
-      "source_reference": "Current TETOOLS__REGIE conversation, 2026-11-03; exact ChatGPT thread ID unavailable",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; authorized continuation Codex 01a1b08d-e1f3-7360-ad4e-90354dd7e607, 2026-11-06",
       "recorded_by": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
       "deliverables": [
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
@@ -244,7 +244,12 @@
         "REGIE-RAC-DISPOSITION-20261106-001..003 — onderzoek en omgevings-/testbewijs open",
         "RAC-readiness NOT_DEMONSTRATED; Oracle tests NOT_EXECUTED"
       ],
-      "note": "Centrale Issue #55 ontvangst en INVESTIGATE-dispositions voor LOGGER/SESSIONS/OBJECTS op 2026-11-06; geen implementatiegoedkeuring. LOGGER regieontvangst Issue #47 bevestigd via PR57, OBJECTS Issue #45 nog open. RAC NIET AANGETOOND."
+      "note": "Centrale Issue #55 ontvangst en INVESTIGATE-dispositions voor LOGGER/SESSIONS/OBJECTS op 2026-11-06; geen implementatiegoedkeuring. LOGGER regieontvangst Issue #47 bevestigd via PR57, OBJECTS Issue #45 nog open. RAC NIET AANGETOOND.",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+        "summary": "Onafhankelijke relay-eindacceptatie; historische afwijkingen, tests en beheer/herstel toetsen",
+        "state": "WORKING"
+      }
     },
     {
       "session_id": "ADMIN_LOGGER-REGIE-20261104-01",

@@ -152,7 +152,12 @@
         "M4-01"
       ],
       "recorded_by": "6ae1c678-2a98-83ed-99b0-c8895440f708",
-      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation. 2026-11-06: user addressed existing ADMIN_OBJECTS__REGIE; acknowledgement and module ownership recorded in Issue #45 comment 6681392605. Last_confirmed_at is manual role-level confirmation; current ChatGPT thread ID was not independently re-queried. All 18 release items remain open, RAC readiness not demonstrated, Oracle NOT_EXECUTED. No chat closure/deletion."
+      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation. 2026-11-06: user addressed existing ADMIN_OBJECTS__REGIE; acknowledgement and module ownership recorded in Issue #45 comment 6681392605. Last_confirmed_at is manual role-level confirmation; current ChatGPT thread ID was not independently re-queried. All 18 release items remain open, RAC readiness not demonstrated, Oracle NOT_EXECUTED. No chat closure/deletion.",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+        "summary": "Controle historische PM002-offloadmutatie in PR36; bronvergelijking en onafhankelijke modulebeoordeling, zonder technische of centrale acceptatie",
+        "state": "WORKING"
+      }
     },
     {
       "session_id": "01a184a4-b6f6-76d3-be6a-38608571155a",

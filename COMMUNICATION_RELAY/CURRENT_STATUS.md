@@ -1,3 +1,7 @@
+## Publicatiebewijs beleidskader 1-12 - 6 november 2026
+
+[PR #71](https://github.com/JPouwiel/TETOOLS/pull/71) gemerged: `90934cee542bbb61599fadf8012fb27685e0d860`. Vijf gewijzigde tekstbestanden en het zes pagina's tellende PDF-overzicht zijn exact vanaf main teruggelezen; 399 overige bestaande blobidentiteiten behouden. REGIE-POLICY-READBACK-20261106-001..012 zijn de formele APPROVED-opvolgregistraties; de twaalf oorspronkelijke publicatievoorstellen blijven ongewijzigd bewaard. Geen technische implementatievrijgave. Validator, beide schema's en append-only vergelijking PASS met jsonschema 4.26.0. Eigen afgebakende registratietaak COMPLETED/KEEP; overige technische en beleidsuitwerking blijft bij bestaande regies.
+
 ## Leidende beleidsregistratie 6 november 2026 - besluiten 1-12
 
 Het [cumulatieve beleidskader](../TETOOLS_DEVELOPMENT_STANDARD.md) bevat twaalf expliciet goedgekeurde besluiten: zeven ontwikkelcategorieën, acht test-/acceptatiecategorieën, strikt centraal afwijkingsbeleid, LOGGER-pilot met integrale RAC-prioriteitsreview, vier voorwaarden, functionele standaard en baseline vóór ontwerp. Besluit 12 is aanvullend door de gebruiker aangeleverd na de oorspronkelijke Work-overdracht. Technische uitwerking van concept 001 blijft PROPOSED; geen code-, interface- of deploymentvrijgave. Oudere afwijkingsformuleringen zijn herkenbaar opgevolgd, zonder historische records te wijzigen.

@@ -43,3 +43,17 @@ Minimale suitebrede relayregel gepubliceerd en op main geverifieerd via PR #28, 
 gebruik: CURRENT_ACTIVITY.md; canonieke besluit-/bewijsrecords: CHANGE_REGISTER.json.
 Een optionele handmatig bijgewerkte taak per sessie; afronden wist de taak en behoudt bewijs.
 Geen modulearchitectuurwijziging of automatische chataanwezigheid/verwijdering.
+
+## RAC suite-signalen — centrale review 2026-11-06 (Issue #55)
+
+Na lezing van [RAC-statusrapport](reports/RAC_STATUS_20261106.md) en actuele modulebronnen stelt TETOOLS__REGIE voor alle drie signalen de formele onderzoeksdisposition **INVESTIGATE** vast. Dit is uitsluitend goedkeuring van de **beoordelings-/onderzoeksrichting**, niet van ontwerp, implementatie, wijzigingen aan publieke API, datatypes, privileges of bevroren releases. Vervolgrecords zijn append-only in CHANGE_REGISTER.json: REGIE-RAC-DISPOSITION-20261106-001..003. De oorspronkelijke signalen blijven historisch PROPOSED.
+
+| Signaal | Disposition | Afbakening en verantwoordelijke |
+|---|---|---|
+| LOGGER-RAC-20261105-001 | INVESTIGATE | Gemeenschappelijke sessie/provenance, instance-/containerzichtbaarheid en liveness als mogelijke suite-randvoorwaarden. TETOOLS__REGIE beoordeelt conventies; ADMIN_LOGGER__REGIE houdt RAC-A-001..012/LOG-OPEN-01..05 en modulewijzigingen. |
+| SESSIONS-RAC-20261106-001 | INVESTIGATE | Onderzoek volledige fysieke targetidentiteit, selectie/hercontrole en autorisatie bij globale RAC-views. ADMIN_SESSIONS-regie houdt brononderzoek en modulebesluiten. |
+| REGIE-20261103-004 | INVESTIGATE (behouden) | Onderzoek welke andere modules daadwerkelijk metadata/constraints uitlezen; ADMIN_OBJECTS__REGIE behoudt OP-13 en mogelijke SEARCH_CONDITION_VC-truncatie. Geen suitebreed defect vastgesteld. |
+
+**Vereist extern bewijs:** exacte Oracle 19c RU, RAC-instances en services, CDB/PDB/CON_ID, gedeelde schema's, directe grants en zichtbaarheid, werkelijke consumers en client/replay-modus. Daarna afzonderlijk goedgekeurde compile-, node-/concurrency-, load- en failovertests. Huidig oordeel: RAC-readiness **NIET AANGETOOND**, alle Oracle-tests NOT_EXECUTED. Zie [Issue #55](https://github.com/JPouwiel/TETOOLS/issues/55).
+
+**Overdrachten:** ADMIN_LOGGER__REGIE bevestigde ontvangst in [Issue #47](https://github.com/JPouwiel/TETOOLS/issues/47#issuecomment-6681208293), via PR #57 teruggelezen. ADMIN_OBJECTS__REGIE-ontvangst [Issue #45](https://github.com/JPouwiel/TETOOLS/issues/45) nog niet bevestigd. Issue-bevestigingen zijn geen runtimebewijs.

@@ -847,6 +847,56 @@
         "LOGGER-RAC-20261105-001 central assessment pending"
       ],
       "note": "PROPOSED describes this communication publication before its own merge; verified upstream delivery is a fact. Existing PROPOSED suite signal retained; no duplicate or disposition."
+    },
+    {
+      "change_id": "SESSIONS-RAC-20261106-001",
+      "record_type": "SUITE_IMPACT_SIGNAL",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_SESSIONS",
+      "origin_module": "ADMIN_SESSIONS",
+      "origin_session": "01a138df-aece-73c1-a082-32fa2d835303 (historische AS-08/09); bronsteekproef 01a1b00b-dfcc-7eb0-9621-c727cb25f06c",
+      "recorded_by_session": "01a1b00b-dfcc-7eb0-9621-c727cb25f06c",
+      "subject": "Instance-onvolledige globale sessieselectie en lokale uitvoering: mogelijke gezamenlijke identiteitsafspraken",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/55",
+      "observed_facts": "Body-snapshot 20260921_300 op basiscommit 30f8e498d84970a10d85f77731e81681efd7de55 teruggelezen: regels 176/186 globale queries zonder INST_ID; 704-710 statusupdate en KILL SESSION SID,SERIAL zonder instance. Historische AS-08/09 bevestigd; geen Oracle-uitvoering.",
+      "potential_cross_module_impact": "Mogelijk gezamenlijke physical-session/provenance-, selectie- en hercontroleconventies voor ADMIN_SESSIONS en ADMIN_LOGGER. Overlap met LOGGER-RAC-20261105-001 vraagt centrale beoordeling; geen gedeelde implementatie opgelegd.",
+      "affected_modules": [
+        "ADMIN_SESSIONS",
+        "ADMIN_LOGGER"
+      ],
+      "assumptions": "Werkelijke RAC-installatie, gedeeld schema, grants, RU en container onbekend. Geen bewezen targetincident; geen voorgestelde API/migratie goedgekeurd.",
+      "status": "PROPOSED",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": null,
+      "approval_actor": "user authorized status/governance communication only; architecture assessment pending TETOOLS__REGIE",
+      "artifact_refs": [
+        "../modules/ADMIN_SESSIONS/OPEN_POINTS.md",
+        "reports/RAC_STATUS_20261106.md"
+      ]
+    },
+    {
+      "change_id": "RAC-STATUS-20261106-001",
+      "record_type": "STATUS_RECONCILIATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Suitebrede RAC-status, geverifieerde LOGGER-afstemming en cumulatief dossier",
+      "status": "PROPOSED",
+      "origin_session": "01a1b00b-dfcc-7eb0-9621-c727cb25f06c",
+      "recorded_by_session": "01a1b00b-dfcc-7eb0-9621-c727cb25f06c",
+      "approval_actor": "user, 2026-11-06: bounded publication/status; no architecture approval",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; message 160fcdb3-4744-488f-9a6d-0214b07670e2; current user request",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": null,
+      "base_commit": "cde9974ea6113375b252e2a3be7c641fe386d597",
+      "artifact_refs": [
+        "CURRENT_STATUS.md",
+        "reports/RAC_STATUS_20261106.md",
+        "reports/TETOOLS_RAC_CUMULATIEF_20261106.pdf",
+        "https://github.com/JPouwiel/TETOOLS/issues/55"
+      ],
+      "note": "Publication proposal; PR/merge/main readback recorded after event in Issue #55. LOGGER PR54 delta reused; all Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. No new architecture disposition or source/frozen-release change."
     }
   ]
 }

@@ -209,21 +209,25 @@
       "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-03",
-      "last_confirmed_at": "2026-11-03",
+      "last_confirmed_at": "2026-11-06",
       "closed_at": null,
       "source_reference": "Current TETOOLS__REGIE conversation, 2026-11-03; exact ChatGPT thread ID unavailable",
       "recorded_by": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
       "deliverables": [
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
         "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
-        "COMMUNICATION_RELAY/SUITE_ARCHITECTURE.md"
+        "COMMUNICATION_RELAY/SUITE_ARCHITECTURE.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/55"
       ],
       "open_dependencies": [
         "RAC-ARCH-01",
         "RAC-ARCH-02",
-        "RAC-ARCH-03"
+        "RAC-ARCH-03",
+        "https://github.com/JPouwiel/TETOOLS/issues/45 — ADMIN_OBJECTS__REGIE ontvangst vereist",
+        "REGIE-RAC-DISPOSITION-20261106-001..003 — onderzoek en omgevings-/testbewijs open",
+        "RAC-readiness NOT_DEMONSTRATED; Oracle tests NOT_EXECUTED"
       ],
-      "note": "Registration performed by this session. User-approved governance; RAC technical effects not validated."
+      "note": "Centrale Issue #55 ontvangst en INVESTIGATE-dispositions voor LOGGER/SESSIONS/OBJECTS op 2026-11-06; geen implementatiegoedkeuring. LOGGER regieontvangst Issue #47 bevestigd via PR57, OBJECTS Issue #45 nog open. RAC NIET AANGETOOND."
     },
     {
       "session_id": "ADMIN_LOGGER-REGIE-20261104-01",

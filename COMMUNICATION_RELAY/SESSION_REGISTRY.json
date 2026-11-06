@@ -538,7 +538,7 @@
       "module": null,
       "subject": "Cumulatieve registratie goedgekeurde beleidsbesluiten 1-12",
       "revision": "20261106-001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-06",
       "last_confirmed_at": "2026-11-06",
@@ -547,17 +547,16 @@
       "deliverables": [
         "https://github.com/JPouwiel/TETOOLS/pull/70",
         "../TETOOLS_DEVELOPMENT_STANDARD.md",
-        "reports/TETOOLS_BELEID_CUMULATIEF_20261106.pdf"
+        "reports/TETOOLS_BELEID_CUMULATIEF_20261106.pdf",
+        "https://github.com/JPouwiel/TETOOLS/pull/71"
       ],
       "open_dependencies": [
-        "POLICY-PUBLICATION: merge en main-teruglezing; daarna formele opvolgregistratie"
+        "TETOOLS__REGIE: concrete functionele conventies en technische conceptuitwerking beoordelen",
+        "ADMIN_LOGGER__REGIE: integrale review/baseline, ontwerp en testbewijs; LOG-OPEN-01..05 / RAC-A-001..012",
+        "Issue #55 / RAC-ARCH-01..03; Oracle/RAC-validatie"
       ],
       "base_commit": "66aef7ad118f5e89e77a4214bee5acbf80e9f154",
-      "current_activity": {
-        "task_reference": "DEVELOPMENT-STANDARD-20261106-001",
-        "summary": "Twaalf besluiten publiceren inclusief exact aangeleverde categorieën en besluit 12; geen codewijziging",
-        "state": "WORKING"
-      }
+      "result": "Besluiten 1-12 gepubliceerd PR71 / 90934cee542bbb61599fadf8012fb27685e0d860; alle vijf teksten en PDF exact main teruggelezen. Bronhiaat categorieën opgelost met expliciete gebruikersaanvulling; oudere exacte bericht-IDs UNVERIFIED, inhoud door gebruiker bevestigd. Geen code of frozen release gewijzigd; Oracle NOT_EXECUTED. Resterende beleidsuitwerking bij TETOOLS__REGIE; moduleonderzoek bij bestaande LOGGER-regie."
     }
   ]
 }

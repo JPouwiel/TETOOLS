@@ -1,0 +1,106 @@
+{
+  "session": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
+  "registration": {
+    "pr": 61,
+    "merge": "49bce90420fe210e3ecbe3c7d59fa0147c73be6d",
+    "main_entry_exact": true
+  },
+  "publication": {
+    "pr": 63,
+    "head": "d80698f62577015281e92b57533e0a90338efea3",
+    "merge": "251de22351d4c2fb97ceff3f5ab00bccceaf0fe4",
+    "readback": [
+      {
+        "path": "COMMUNICATION_RELAY/schemas/SESSION_REGISTRY.schema.json",
+        "sha": "e9f0e1cd322f99128066f3cf6ff935640fba0a90"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/schemas/CHANGE_REGISTER.schema.json",
+        "sha": "6c6409634123506a272cff6c7d1b4a7254b39627"
+      },
+      {
+        "path": "TETOOLS_DEVELOPMENT_STANDARD.md",
+        "sha": "2b81c6df35f3253ff971e1c23f1e4e05a3b85d99"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/OPERATIONS.md",
+        "sha": "8cfb116741311d81a0ffff3450f596f094ca50f3"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "sha": "0d374a0016169af8be2780a17af105e5f6a366f4"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json",
+        "sha": "28d68d7232ead6789ccc65b5c6b904943935980e"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "sha": "70d5a06a1cd1e26d4bee977852403d16bbdc864f"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+        "sha": "7d1a2d7a4c32872e599f936837013fb6c8254e16"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "sha": "49734a9d518f2f2ba87c24dbd506b5e817a47abb"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/tools/validate_acceptance.py",
+        "sha": "b4bcc71fae5b5111425a3639d3c029e84d3ae01d"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/tools/test_acceptance.py",
+        "sha": "3d6a05596f6aa20c4d761dc2a48a4e6e8e02d68b"
+      },
+      {
+        "path": "COMMUNICATION_RELAY/tools/requirements-acceptance.txt",
+        "sha": "3ee1ea1a4270a73d0a83859fefca415177450121"
+      }
+    ],
+    "unchanged_existing_blobs": 389
+  },
+  "receipt": "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6682712672",
+  "tests": {
+    "existing": 16,
+    "append_only": 3,
+    "total": 19,
+    "result": "PASS",
+    "schema": "PASS",
+    "append_only_current_publication": "PASS",
+    "historical": "DEVIATION_REQUIRES_DISPOSITION"
+  },
+  "acceptance": "NOT_OPERATIONAL / ACCEPTANCE_PENDING",
+  "oracle": "NOT_EXECUTED",
+  "pdf": {
+    "pages": 40,
+    "current_pages": 7,
+    "historical_pages": 33,
+    "bytes": 497850,
+    "sha256": "9cc75e17d5e6d99ade0f3c3031665453b87653fc0187fcfc91ecfcb2e1453264",
+    "blob_sha": "d7f880992e7c6702f460a9e9dec2768a82d0a39f",
+    "visual_review": "All 40 final pages rendered and contact sheets inspected; no clipping/overlap observed",
+    "historical_sources": [
+      {
+        "path": "output/pdf/ISSUE23_RESULTAAT_20261105.pdf",
+        "bytes": 13509,
+        "sha256": "d55114a1c1d896ac201fda0f2d073314f5a7a2fb678c7563e7d1faba2f598e40",
+        "blob": "8312da36ec77fafc7d02e4dc17f934aa42b1b1e9"
+      },
+      {
+        "path": "output/rac_suite_20261106/TETOOLS_RAC_CUMULATIEF_20261106.pdf",
+        "bytes": 390685,
+        "sha256": "82fe2a6e2332ac34f094be5b2d4066a23e9602bde6861e6c01a136d7cac4833e",
+        "blob": "bb32ea17515616ea66d9f58ceda561ec3e0b6538"
+      }
+    ]
+  },
+  "completion": {
+    "status": "COMPLETED",
+    "retention": "KEEP",
+    "current_activity": null,
+    "remaining_owner": "TETOOLS__REGIE, independently received comment6682712672",
+    "final_publication": "PENDING_THIS_PR; final merge/readback evidence in Issue62, not preclaimed"
+  }
+}

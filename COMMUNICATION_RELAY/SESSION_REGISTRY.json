@@ -504,7 +504,7 @@
       "module": null,
       "subject": "Relay acceptatie en concept ontwikkelstandaard",
       "revision": "20261106-001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-06",
       "last_confirmed_at": "2026-11-06",
@@ -514,18 +514,17 @@
         "https://github.com/JPouwiel/TETOOLS/pull/61",
         "https://github.com/JPouwiel/TETOOLS/issues/62",
         "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
-        "TETOOLS_DEVELOPMENT_STANDARD.md"
+        "TETOOLS_DEVELOPMENT_STANDARD.md",
+        "https://github.com/JPouwiel/TETOOLS/pull/63",
+        "COMMUNICATION_RELAY/reports/TETOOLS_RELAY_CUMULATIEF_20261106.pdf",
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_VERIFICATION_20261106.json"
       ],
       "open_dependencies": [
         "TETOOLS__REGIE: historische afwijkingen, eindacceptatie en conceptstandaardreview in Issue62"
       ],
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
-        "summary": "Ketentest ontvangen; schema-/historieonderzoek en concept gereed voor publicatie",
-        "state": "WORKING"
-      },
       "base_commit": "9f530faa68e7bc231d10fb2be19f0067b2320259",
-      "note": "Gebruiker heft sessieaantalbeperking op. KEEP: bewijs en review nodig; geen automatische cleanup."
+      "note": "Gebruiker heft sessieaantalbeperking op. KEEP: bewijs en review nodig; geen automatische cleanup. Onafhankelijke overdracht ontvangen in Issue62. COMPLETED betreft deze uitvoering, niet formele relayacceptatie. KEEP; geen cleanupadvies zolang review/contextbehoud nog vereist zijn.",
+      "result": "Afgebakend uitvoeringsonderzoek gepubliceerd via PR63 / 251de22351d4c2fb97ceff3f5ab00bccceaf0fe4; 12/12 teksten exact main-readback. Onafhankelijke regieontvangst Issue62 comment6682712672. 19 tests, schema en huidig append-only gate PASS. Historische afwijkingen geregistreerd; relay NOT_OPERATIONAL, acceptatie en conceptreview blijven regie-eigendom. Finale PDF/afronding wordt in deze PR gepubliceerd; post-merge mainbewijs volgt Issue62. Oracle NOT_EXECUTED."
     }
   ]
 }

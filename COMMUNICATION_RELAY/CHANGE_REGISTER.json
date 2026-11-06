@@ -1174,6 +1174,50 @@
       ],
       "oracle_compilation": "NOT_EXECUTED",
       "oracle_runtime": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "OBJECTS-PM002-HISTORY-VERIFY-20261106-001",
+      "record_type": "HISTORICAL_SOURCE_VERIFICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Content verification of PR36 revision-002 offload history and PR35/44 insertions",
+      "status": "PROPOSED",
+      "assessment": "BEVESTIGD",
+      "assessment_scope": "Module content accuracy only; historical in-place mutation remains a relay append-only violation requiring central disposition",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "origin_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "recorded_by_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "approval_actor": "User instruction 2026-11-06 authorizes independent ADMIN_OBJECTS source review, not suite-wide relay acceptance",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": null,
+      "reviewed_historical_record": "OBJECTS-PM002-OFFLOAD-20261105-001",
+      "reviewed_change": "PR36 / f1bb7067b4c174744e91ba618ff0c357657523c8",
+      "historical_before_commit": "c713a1951034a716dc3aedac475dc8dcaa211992",
+      "main_baseline": "f41994dbd4b7168a4a0ff271e56a607c515edfac",
+      "verification_details": [
+        "PR36 changed only artifact_refs (one to five) and note in the pre-existing record; ID/status/approval and other fields unchanged. Audit preserves before/after.",
+        "All five reference paths exist in GitHub main and map to revision-002 offload context. At initial commit c713a195 only SESSION_CONTEXT.md existed; the other four were first published through PR36. They are retrospective references to the publishing PR, not evidence that all five existed at initial registration.",
+        "PR33 registration merge c521b2c68ce4801fd548d43b20377558ca78e09a is verified and main-readback is documented in SESSION_CONTEXT.md and MAIN_READBACK_VERIFICATION.json.",
+        "ARTIFACT_COMPARISON.json: 12 of 12 original inputs/deliverables match identical blobs already present at historical baseline 920a23a3f9286cdbc6626571473f464292fdc0f9. Seven additional context/evidence files classified PRESERVE_MISSING. Original ZIP 8 members ALL_8_EXACT_MATCH is recorded; binary hashes independently recalculated here: NOT_EXECUTED.",
+        "PR36 note states prepared context and that its main publication/readback was still required; this is chronologically accurate at PR36 staging. Subsequent MAIN_READBACK_VERIFICATION.json documents PR36 merged f1bb7067b4c174744e91ba618ff0c357657523c8; 16 changed blobs checked then. At latest main 12 historical payload blob identities remain; four mutable administrative files evolved.",
+        "PR35 inserted OBJECTS-OFFLOAD-20261105-002 as PROPOSED (offload publication), PR44 inserted successor OBJECTS-OFFLOAD-20261105-003 as IMPLEMENTED (verified payload receipt after merge). Across both insertions existing record ID relative order was retained and existing record content unchanged; extra array insertions were flagged by suite audit and do not mean lost records."
+      ],
+      "open_dependencies": [
+        "Historical in-place editing violated append-only governance regardless of verified content; TETOOLS__REGIE owns disposition RELAY-HISTORY-20261106-001 and operational acceptance",
+        "PM002-ID-01 actual revision-002 ChatGPT thread identity remains UNVERIFIED; retention KEEP",
+        "Oracle compile/runtime NOT_EXECUTED, RAC-readiness NOT_DEMONSTRATED; module PM-001 release open points unchanged"
+      ],
+      "artifact_refs": [
+        "https://github.com/JPouwiel/TETOOLS/pull/33",
+        "https://github.com/JPouwiel/TETOOLS/pull/36",
+        "https://github.com/JPouwiel/TETOOLS/pull/35",
+        "https://github.com/JPouwiel/TETOOLS/pull/44",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json",
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/ARTIFACT_COMPARISON.json",
+        "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/MAIN_READBACK_VERIFICATION.json"
+      ],
+      "note": "Proposed append-only follow-up; do not edit the original PR36 record. No module-code/frozen-release edits, Oracle verification, suite acceptance, or chat deletion."
     }
   ]
 }

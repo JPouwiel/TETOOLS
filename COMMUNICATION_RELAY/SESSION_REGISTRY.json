@@ -496,6 +496,32 @@
       ],
       "result": "Afgebakende statusinventarisatie en dossier voorbereid voor publicatie in deze PR; merge/readback-bewijs volgt in Issue #55. Geen Oracle-runtime, geen codewijziging. KEEP wegens open ontvangst/afhankelijkheden; niet CLOSED.",
       "base_commit": "cde9974ea6113375b252e2a3be7c641fe386d597"
+    },
+    {
+      "session_id": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
+      "session_id_origin": "CODEX_THREAD_ID_FROM_ENVIRONMENT_ARTIFACT_PATH",
+      "role": "WORK_GOVERNANCE",
+      "module": null,
+      "subject": "Relay acceptatie en concept ontwikkelstandaard",
+      "revision": "20261106-001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-06",
+      "last_confirmed_at": "2026-11-06",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; huidige expliciete gebruikersopdracht 2026-11-06; exact bericht UNVERIFIED",
+      "recorded_by": "01a1b054-46d2-7781-9d7d-a39a7d6beb4b",
+      "deliverables": [],
+      "open_dependencies": [
+        "Volledige ketentest en acceptatie",
+        "Regiereview ontwikkelstandaard"
+      ],
+      "current_activity": {
+        "task_reference": "REGIE-HANDOFF-20261105-001",
+        "summary": "Relay baseline en acceptatie toetsen; concept standaard publiceren",
+        "state": "WORKING"
+      },
+      "base_commit": "9f530faa68e7bc231d10fb2be19f0067b2320259",
+      "note": "Gebruiker heft sessieaantalbeperking op. KEEP: bewijs en review nodig; geen automatische cleanup."
     }
   ]
 }

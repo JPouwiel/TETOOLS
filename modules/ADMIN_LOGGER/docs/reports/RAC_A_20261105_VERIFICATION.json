@@ -107,5 +107,31 @@
     ]
   },
   "retention_status": "KEEP",
-  "chat_closed": false
+  "chat_closed": false,
+  "communication_reconciliation_20261106": {
+    "session_id": "007ab4e7-7243-44c4-9feb-8ac7ee749dcb",
+    "read_main": "30f8e498d84970a10d85f77731e81681efd7de55",
+    "registration_pr": 52,
+    "registration_merge": "1d4d5d8a0767e34e77e87af58792ecd5eefb167c",
+    "upstream_prs_verified_merged": [
+      48,
+      50,
+      51
+    ],
+    "dossier_merge": "30f8e498d84970a10d85f77731e81681efd7de55",
+    "html_blob": "dbf7860d935edc102196c1d9d2e5fabad657a256",
+    "pdf_blob": "305a6d58466925cdfdaad3c513f77ce86fa19351",
+    "decoded_pdf_sha256": "532d8358824d82d39fd0ae304109fdffc1e9d8275f25d71ecbb1d0ecde3088b6",
+    "decoded_pdf_bytes": 304764,
+    "pdfinfo_pages": 23,
+    "branch": "relay/admin-logger-rac-a-20261105",
+    "branch_head": "fac06321d4e767da5e10bcd30c1d201e9cbbb1bc",
+    "branch_comparison": "Fully contained in read main; zero file delta",
+    "oracle": "NOT_EXECUTED",
+    "readiness": "NOT_DEMONSTRATED",
+    "receipt": "PENDING_EXISTING_MODULE_REGIE",
+    "suite_signal": "LOGGER-RAC-20261105-001 PROPOSED; no disposition",
+    "scope": "Independent publication/status checks; earlier static tests and all-page visual review attributed to original executor; no code changes",
+    "own_publication": "Own merge/main readback will be recorded in Issue47 after merge."
+  }
 }

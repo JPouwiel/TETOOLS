@@ -129,7 +129,9 @@
         "RELAY_CONTRACT.md",
         "../modules/ADMIN_OBJECTS/SOURCE_INDEX.md",
         "https://github.com/JPouwiel/TETOOLS/issues/45#issuecomment-6681392605",
-        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json"
+        "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/OFFLOAD_VERIFICATION.json",
+        "https://github.com/JPouwiel/TETOOLS/pull/65",
+        "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6683378749"
       ],
       "open_dependencies": [
         "OP-01",
@@ -152,12 +154,7 @@
         "M4-01"
       ],
       "recorded_by": "6ae1c678-2a98-83ed-99b0-c8895440f708",
-      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation. 2026-11-06: user addressed existing ADMIN_OBJECTS__REGIE; acknowledgement and module ownership recorded in Issue #45 comment 6681392605. Last_confirmed_at is manual role-level confirmation; current ChatGPT thread ID was not independently re-queried. All 18 release items remain open, RAC readiness not demonstrated, Oracle NOT_EXECUTED. No chat closure/deletion.",
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
-        "summary": "Controle historische PM002-offloadmutatie in PR36; bronvergelijking en onafhankelijke modulebeoordeling, zonder technische of centrale acceptatie",
-        "state": "WORKING"
-      }
+      "note": "Actual source chat ID established by read_thread. REGISTERED is an inventory record, not a claim of current activity, completion, closure or full historical preservation. 2026-11-06: user addressed existing ADMIN_OBJECTS__REGIE; acknowledgement and module ownership recorded in Issue #45 comment 6681392605. Last_confirmed_at is manual role-level confirmation; current ChatGPT thread ID was not independently re-queried. All 18 release items remain open, RAC readiness not demonstrated, Oracle NOT_EXECUTED. No chat closure/deletion. 2026-11-06: PR36 historical source verification delivered through PR65, merge 7b680b66f1f9605fa8b78b3310b2c7b251ae9b41, with independent Issue62 comment 6683378749. The specific module review task is complete, current_activity cleared; module REGIE session stays ACTIVE, KEEP and all 18 release dependencies remain open. Relay acceptance/disposition belongs to TETOOLS__REGIE."
     },
     {
       "session_id": "01a184a4-b6f6-76d3-be6a-38608571155a",

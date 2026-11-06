@@ -1218,6 +1218,37 @@
         "modules/ADMIN_OBJECTS/context/session_offloads/f21b235f-2680-4490-8bd4-adf5c60dda65/20261105/MAIN_READBACK_VERIFICATION.json"
       ],
       "note": "Proposed append-only follow-up; do not edit the original PR36 record. No module-code/frozen-release edits, Oracle verification, suite acceptance, or chat deletion."
+    },
+    {
+      "change_id": "OBJECTS-PM002-HISTORY-VERIFY-20261106-002",
+      "record_type": "HISTORICAL_SOURCE_VERIFICATION_READBACK",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_OBJECTS",
+      "subject": "Readback of PR65 source verification for PR36 PM002 history",
+      "status": "IMPLEMENTED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6683378749",
+      "origin_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "recorded_by_session": "6ae1c678-2a98-83ed-99b0-c8895440f708",
+      "approval_actor": "Existing ADMIN_OBJECTS__REGIE performing user's bounded administrative source-review request of 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "supersedes": "OBJECTS-PM002-HISTORY-VERIFY-20261106-001",
+      "assessment": "BEVESTIGD",
+      "assessment_scope": "Accuracy of historical PR36 source/context additions, not append-only compliance of old edit or relay OPERATIONAL acceptance",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/65",
+      "merge_commit": "7b680b66f1f9605fa8b78b3310b2c7b251ae9b41",
+      "verification": "After merge of PR65, GitHub main HEAD 7b680b66f1f9605fa8b78b3310b2c7b251ae9b41, CHANGE_REGISTER.json record OBJECTS-PM002-HISTORY-VERIFY-20261106-001 exists with assessment BEVESTIGD/status PROPOSED, and own SESSION_REGISTRY entry has declared activity WORKING. Issue62 module comment 6683378749 includes source-by-source findings. This successor registers independently verified completion of the source review, not a later technical test.",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "https://github.com/JPouwiel/TETOOLS/pull/65",
+        "https://github.com/JPouwiel/TETOOLS/issues/62#issuecomment-6683378749"
+      ],
+      "open_dependencies": [
+        "RELAY-HISTORY-20261106-001 central disposition and suite relay acceptance remain TETOOLS__REGIE responsibility",
+        "PM002-ID-01 actual chat thread ID mapping unknown; retention KEEP",
+        "Oracle NOT_EXECUTED; release technical open points unchanged"
+      ],
+      "note": "Append-only successor on separate PR. Requires subsequent main readback; does not close Issue62 or replace central review."
     }
   ]
 }

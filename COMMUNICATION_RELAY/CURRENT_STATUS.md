@@ -1,5 +1,14 @@
 # Actuele status COMMUNICATION_RELAY
 
+## Leidende regiebeoordeling 6 november 2026 - revisie 002
+**OPERATIONAL voor de afgebakende handmatige relay, effectief na geverifieerde merge/main-teruglezing van deze beoordeling.** Het feitelijke publicatiebewijs staat na uitvoering in [Issue #62](https://github.com/JPouwiel/TETOOLS/issues/62). [Onafhankelijke eindbeoordeling](reports/RELAY_ACCEPTANCE_20261106.md): 19/19 tests, beide schema's met jsonschema4.26.0, onafhankelijke baselinecontrole, herstelproef en volledige ketentest PASS. PR36-mutatie en PR35/44-tussenvoegingen afzonderlijk als verklaarde historische afwijkingen geaccepteerd; oorspronkelijke records/historie behouden. Nieuwe REGIE-RELAY-HISTORY-20261106-001..003 en REGIE-RELAY-DISPOSITION-20261106-001 zijn leidend; geen bestaande records verplaatst.
+#45/#47 administratief gesloten met echte moduleontvangst. #55 blijft OPEN voor bestaand onderzoek bij TETOOLS__REGIE/module-eigenaren/DBA. Oracle NOT_EXECUTED; RAC-readiness NOT_DEMONSTRATED. Ontwikkelstandaard blijft PROPOSED en afzonderlijk te beoordelen. Geen modulecode/frozen release/chatwijziging. Eigen regiesessie ACTIVE/KEEP, activiteit afgerond.
+[Cumulatieve PDF met actuele eindbeoordeling en volledige eerdere 40-pagina-bijlage](reports/TETOOLS_RELAY_CUMULATIEF_20261106.pdf).
+
+## Eerdere gedateerde statusregistraties - momentopnamen
+
+# Actuele status COMMUNICATION_RELAY
+
 ## Leidende peildatum 6 november 2026 - relayacceptatie
 **ACCEPTANCE_PENDING / NOT_OPERATIONAL.** Zie [acceptatierapport](reports/RELAY_ACCEPTANCE_20261106.md), [historieaudit](reports/RELAY_HISTORY_AUDIT_20261106.json), [beheer/herstel](OPERATIONS.md) en [Issue #62](https://github.com/JPouwiel/TETOOLS/issues/62).
 #45 en #47 administratief CLOSED met echte module-regieontvangst; #55 OPEN met centrale ontvangst/INVESTIGATE en technische/omgevingsafhankelijkheden.

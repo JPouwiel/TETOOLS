@@ -234,22 +234,20 @@
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
         "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
         "COMMUNICATION_RELAY/SUITE_ARCHITECTURE.md",
-        "https://github.com/JPouwiel/TETOOLS/issues/55"
+        "https://github.com/JPouwiel/TETOOLS/issues/55",
+        "https://github.com/JPouwiel/TETOOLS/issues/62",
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/TETOOLS_RELAY_CUMULATIEF_20261106.pdf"
       ],
       "open_dependencies": [
         "RAC-ARCH-01",
         "RAC-ARCH-02",
         "RAC-ARCH-03",
-        "https://github.com/JPouwiel/TETOOLS/issues/45 — ADMIN_OBJECTS__REGIE ontvangst vereist",
         "REGIE-RAC-DISPOSITION-20261106-001..003 — onderzoek en omgevings-/testbewijs open",
-        "RAC-readiness NOT_DEMONSTRATED; Oracle tests NOT_EXECUTED"
+        "RAC-readiness NOT_DEMONSTRATED; Oracle tests NOT_EXECUTED",
+        "TETOOLS_DEVELOPMENT_STANDARD.md PROPOSED: separate central content review"
       ],
-      "note": "Centrale Issue #55 ontvangst en INVESTIGATE-dispositions voor LOGGER/SESSIONS/OBJECTS op 2026-11-06; geen implementatiegoedkeuring. LOGGER regieontvangst Issue #47 bevestigd via PR57, OBJECTS Issue #45 nog open. RAC NIET AANGETOOND.",
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
-        "summary": "Onafhankelijke relay-eindacceptatie; historische afwijkingen, tests en beheer/herstel toetsen",
-        "state": "WORKING"
-      }
+      "note": "Issue62 independent bounded relay acceptance completed; effective OPERATIONAL after own merge/readback. Historical PR36/35/44 deviations accepted with new records, no rewrite. Issue45 receipt confirmed PR59/60, Issue47 receipt PR57. Existing suite investigations remain open; Oracle NOT_EXECUTED and RAC NOT_DEMONSTRATED. ACTIVE/KEEP; no current task, no chat closure/deletion."
     },
     {
       "session_id": "ADMIN_LOGGER-REGIE-20261104-01",

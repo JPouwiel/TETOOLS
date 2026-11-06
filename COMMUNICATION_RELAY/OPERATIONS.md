@@ -25,3 +25,7 @@ Bij onverwacht afgebroken chat: ouderdom is alleen onderzoekshint; gemachtigde r
 
 ## Acceptatie 20261106
 Zie reports/RELAY_ACCEPTANCE_20261106.md en Issue #62. Historische mutatie OBJECTS-PM002-OFFLOAD-20261105-001 en twee herordeningen zijn bewaard in RELAY_HISTORY_AUDIT_20261106.json. Disposition/herstelacceptatie bij TETOOLS__REGIE; OPERATIONAL nog niet toegekend.
+
+## Onafhankelijke eindacceptatie - 6 november 2026
+REGIE-RELAY-ACCEPTANCE-20261106-001: bestaande schema's/gate, handmatige beheerprocedure en lokale herstelproef geaccepteerd. OPERATIONAL geldt voor deze begrensde relay na geverifieerde publicatie; geen automatische enforcement of Oracle/RAC-vrijgave. Zie rapport revisie002 en Issue62 voor werkelijk merge/readbackbewijs. De oude acceptatiepassage hierboven is de historische momentopname vóór regiebeoordeling.
+Voor de aanvullende schemagate: gebruik een Python-versie die jsonschema==4.26.0 ondersteunt (deze toets: gebundelde Python3.12); de stdlibtools behouden hun bestaande Python3.8+-pad. Bewaar een baseline uit de gelezen main-SHA vóór wijzigingen. De onafhankelijke herstelproef wees mutatie af en accepteerde behoud van baseline plus nieuw correctierecord; beide lokale versies bewaard. Geen live herstel of historie-rewrite nodig.

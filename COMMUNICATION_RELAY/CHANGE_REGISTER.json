@@ -1249,6 +1249,131 @@
         "Oracle NOT_EXECUTED; release technical open points unchanged"
       ],
       "note": "Append-only successor on separate PR. Requires subsequent main readback; does not close Issue62 or replace central review."
+    },
+    {
+      "record_type": "HISTORICAL_DEVIATION_ACCEPTANCE",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE; explicit user independent final acceptance assignment 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json"
+      ],
+      "related_signal": "RELAY-HISTORY-20261106-001",
+      "assessment": "ACCEPTED_EXPLAINED_HISTORICAL_DEVIATION",
+      "change_id": "REGIE-RELAY-HISTORY-20261106-001",
+      "subject": "Accept explained historical PR36 deviation",
+      "reviewed_record": "OBJECTS-PM002-OFFLOAD-20261105-001",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/36",
+      "rationale": "Only artifact_refs/note mutated; factual content independently confirmed by ADMIN_OBJECTS PR65/66 and own source review. Retrospective references and interim note explicitly bounded; original versions retained. Historical in-place edit remains violation; no rewrite required."
+    },
+    {
+      "record_type": "HISTORICAL_DEVIATION_ACCEPTANCE",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE; explicit user independent final acceptance assignment 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json"
+      ],
+      "related_signal": "RELAY-HISTORY-20261106-001",
+      "assessment": "ACCEPTED_EXPLAINED_HISTORICAL_DEVIATION",
+      "change_id": "REGIE-RELAY-HISTORY-20261106-002",
+      "subject": "Accept explained historical PR35 deviation",
+      "reviewed_record": "OBJECTS-OFFLOAD-20261105-002",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/35",
+      "rationale": "27 to 28 records; insertion at index19 before eight existing records. Every existing record content and relative order preserved. Strict-prefix deviation, not existing-record reorder. No relocation or rewrite required."
+    },
+    {
+      "record_type": "HISTORICAL_DEVIATION_ACCEPTANCE",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE; explicit user independent final acceptance assignment 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json"
+      ],
+      "related_signal": "RELAY-HISTORY-20261106-001",
+      "assessment": "ACCEPTED_EXPLAINED_HISTORICAL_DEVIATION",
+      "change_id": "REGIE-RELAY-HISTORY-20261106-003",
+      "subject": "Accept explained historical PR44 deviation",
+      "reviewed_record": "OBJECTS-OFFLOAD-20261105-003",
+      "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/44",
+      "rationale": "30 to 31 records; insertion at index20 before ten existing records. Every existing record content and relative order preserved. Strict-prefix deviation, not existing-record reorder. No relocation or rewrite required."
+    },
+    {
+      "record_type": "SUITE_IMPACT_DISPOSITION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE; explicit user independent final acceptance assignment 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "supersedes": "RELAY-HISTORY-20261106-001",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json",
+        "COMMUNICATION_RELAY/OPERATIONS.md"
+      ],
+      "related_signal": "RELAY-HISTORY-20261106-001",
+      "assessment": "Three historical deviations accepted; existing gate and procedure sufficient",
+      "change_id": "REGIE-RELAY-DISPOSITION-20261106-001",
+      "subject": "Historical relay signal disposed using published gate and recovery process",
+      "disposition": "SHARED_SOLUTION",
+      "rationale": "Independent complete history replay reproduced all three events, no lost records. Existing append-only gate and manual preservation/recovery remedy accepted for relay; no new architecture standard or module implementation."
+    },
+    {
+      "record_type": "ACCEPTANCE_REVIEW",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "origin_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "recorded_by_session": "67c27cf6-aa30-4b97-b4e2-753c195f277c",
+      "approval_actor": "Existing TETOOLS__REGIE; explicit user independent final acceptance assignment 2026-11-06",
+      "recorded_at": "2026-11-06",
+      "revision": "001",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/62",
+      "supersedes": "RELAY-ACCEPTANCE-20261106-002",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reports/RELAY_ACCEPTANCE_20261106.md",
+        "COMMUNICATION_RELAY/reports/RELAY_HISTORY_AUDIT_20261106.json"
+      ],
+      "related_signal": "RELAY-HISTORY-20261106-001",
+      "assessment": "ALL_CRITERIA_PASS",
+      "change_id": "REGIE-RELAY-ACCEPTANCE-20261106-001",
+      "subject": "Independent bounded manual relay acceptance",
+      "relay_status": "OPERATIONAL_EFFECTIVE_AFTER_VERIFIED_PUBLICATION",
+      "verification": "19/19 tests; exact jsonschema4.26.0 schema and independent baseline gate PASS; history 98/58/54 reproduced; recovery exercise PASS; genuine receiver and completed chain verified. Own publication/readback recorded after event in Issue62.",
+      "open_dependencies": [
+        "TETOOLS__REGIE draft development standard remains PROPOSED, separate review",
+        "Issue55 and module/DBA Oracle RAC investigations remain open; not relay acceptance blockers"
+      ],
+      "oracle": "NOT_EXECUTED",
+      "rac_readiness": "NOT_DEMONSTRATED"
     }
   ]
 }

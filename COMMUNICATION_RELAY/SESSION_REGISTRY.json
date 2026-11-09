@@ -836,6 +836,32 @@
       ],
       "current_activity": null,
       "note": "Local ID; source issue #47/#55 and PR #92"
+    },
+    {
+      "session_id": "regie-local-20261109-logger-pilot-independent-check",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Independent check of LOGGER pilot communication and authorization",
+      "revision": "001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "ADMIN_LOGGER__REGIE independent verification request in current chat; permalink UNVERIFIED",
+      "recorded_by": "regie-local-20261109-logger-pilot-independent-check",
+      "deliverables": [],
+      "open_dependencies": [
+        "Module regie receipt of PR93",
+        "Code pilot implementation and review",
+        "DBA test environment"
+      ],
+      "current_activity": {
+        "task_reference": "REGIE-LOGGER-PILOT-CHECK-20261109",
+        "summary": "Check authorization, delivery and relay status independently",
+        "state": "WORKING"
+      },
+      "note": "Local ID. No module ownership assumed."
     }
   ]
 }

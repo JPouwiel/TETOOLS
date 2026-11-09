@@ -90,3 +90,7 @@ If instructions conflict or the required source is missing, report the conflict 
 ## Completion and reuse default (2026-11-05)
 
 At task completion, publish missing relevant results, decisions, source versions, dates, tests and open dependencies in existing canonical GitHub module and relay records. Verify branch, PR, merge and main readback. Return remaining module work to the existing module REGIE with acknowledged handoff; escalate potential suite-wide impact to TETOOLS__REGIE. Update existing session/activity and evidence-based retention records. Prefer existing sessions; supply one filled copy-ready activation prompt. Start new Work/Codex sessions only when necessary. No extra infrastructure or fields. See RELAY_CONTRACT.md.
+
+## Canonical development standard
+
+The sole current normative suite-wide development policy is [TETOOLS_DEVELOPMENT_STANDARD.md](COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD.md) (approved revision 002, 2026-11-09). The repository-root file of the same basename is a historical source of decisions 1–12, **not** the current canonical standard. Decisions 13–39 remain in their original historical relay file. Consult the canonical standard for F01–F07 interpretations; do not infer Oracle or RAC validation from policy approval.

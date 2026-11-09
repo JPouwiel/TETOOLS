@@ -1,10 +1,10 @@
 # TETOOLS — canonieke ontwikkelstandaard (besluiten 1–39)
 
-**Status van dit document: APPROVED — canonieke revisie 002.** Expliciete gebruikersgoedkeuring van de inhoud en de controlebeperkingen: 2026-11-09; oorspronkelijke bericht-URL UNVERIFIED. De onderliggende 39 besluiten zijn APPROVED; deze nieuwe samengestelde presentatie is nog niet als leidend beleidsdocument vastgesteld. Geen nieuwe beleidsregels worden zonder gebruikersgoedkeuring ingevoerd. Datum: 2026-11-09. Eigenaar: TETOOLS__REGIE. Scope: Oracle Database 19c Enterprise, beoogd drie-node RAC.
+**Status van dit document: APPROVED — canonieke revisie 002.** Expliciete gebruikersgoedkeuring van de inhoud en de controlebeperkingen: 2026-11-09; oorspronkelijke bericht-URL UNVERIFIED. De onderliggende 39 besluiten zijn APPROVED; deze geconsolideerde versie is als leidend beleidsdocument vastgesteld. Geen nieuwe beleidsregels worden zonder gebruikersgoedkeuring ingevoerd. Datum: 2026-11-09. Eigenaar: TETOOLS__REGIE. Scope: Oracle Database 19c Enterprise, beoogd drie-node RAC.
 
 **Canonieke locatie:** `COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD.md`. Deze versie is normatief na geverifieerde publicatie op main. Bestaande rootbron en 13–39-bron blijven historisch bewaard; de repository-root verwijst naar deze standaard. Zie [F01-goedkeuring](../reviews/POLICY40_F01_APPROVAL_20261109.md).
 
-**Bronnen:** [Besluiten 1–12](../../TETOOLS_DEVELOPMENT_STANDARD.md), [besluiten 13–39](REGIE_DECISIONS_13_39_20261109.md), [review](../reviews/POLICY40_INITIAL_REVIEW_20261109.md), [goedgekeurde interpretaties F02–F04](../reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md). Historische documenten en oorspronkelijke besluit-ID's blijven leidend tot expliciete vaststelling van deze consolidatie. Exacte oorspronkelijke chatbericht-URL's waar aangegeven UNVERIFIED. Oracle-tests NOT_EXECUTED; RAC-readiness NOT_DEMONSTRATED.
+**Bronnen:** [Besluiten 1–12](../../TETOOLS_DEVELOPMENT_STANDARD.md), [besluiten 13–39](REGIE_DECISIONS_13_39_20261109.md), [review](../reviews/POLICY40_INITIAL_REVIEW_20261109.md), [goedgekeurde interpretaties F02–F04](../reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md). Historische documenten en oorspronkelijke besluit-ID's blijven bewaard als herkomstbewijs; bij interpretatie geldt deze vastgestelde consolidatie met expliciet goedgekeurde latere interpretaties. Exacte oorspronkelijke chatbericht-URL's waar aangegeven UNVERIFIED. Oracle-tests NOT_EXECUTED; RAC-readiness NOT_DEMONSTRATED.
 
 ## Normatieve leesregels
 

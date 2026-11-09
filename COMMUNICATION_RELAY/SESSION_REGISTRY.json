@@ -679,23 +679,22 @@
       "module": null,
       "subject": "Point 40 F07 source provenance and traceability",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "Current TETOOLS project chat: 'Laten we F07 starten'; exact thread URL UNVERIFIED",
       "recorded_by": "regie-local-20261109-policy40-f07",
-      "deliverables": [],
-      "open_dependencies": [
-        "F07-USER-DECISION"
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F07_PROVENANCE_20261109.md"
       ],
-      "current_activity": {
-        "task_reference": "POLICY40-F07",
-        "summary": "Audit original approval provenance versus Git publication evidence",
-        "state": "WORKING"
-      },
-      "note": "Locally generated ID, not a ChatGPT thread ID"
+      "open_dependencies": [
+        "F07-USER-APPROVAL",
+        "F01-CONSOLIDATION"
+      ],
+      "current_activity": null,
+      "note": "Locally generated ID, not a ChatGPT thread ID; analysis completed, proposed provenance handling pending approval; no background activity."
     }
   ]
 }

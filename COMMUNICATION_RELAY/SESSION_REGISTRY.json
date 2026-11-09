@@ -695,6 +695,29 @@
       ],
       "current_activity": null,
       "note": "Locally generated ID, not a ChatGPT thread ID; analysis completed, proposed provenance handling pending approval; no background activity."
+    },
+    {
+      "session_id": "regie-local-20261109-policy40-f01",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Point 40 F01 canonical policy standard and historic document status",
+      "revision": "001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "Current project chat: 'Laten we F01 starten'; exact thread ID UNVERIFIED",
+      "recorded_by": "regie-local-20261109-policy40-f01",
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F01_CANONICAL_STANDARD_20261109.md"
+      ],
+      "open_dependencies": [
+        "F01-USER-APPROVAL",
+        "POINT40-FINAL-APPROVAL"
+      ],
+      "current_activity": null,
+      "note": "Locally generated ID; actual chat thread ID UNVERIFIED; F01 analysis completed, location/handling decision pending."
     }
   ]
 }

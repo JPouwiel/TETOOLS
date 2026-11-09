@@ -898,24 +898,22 @@
       "module": null,
       "subject": "Independent static review PR97 ADMIN_LOGGER DDL-only pilot",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
-      "closed_at": null,
+      "closed_at": "2026-11-09",
       "source_reference": "ADMIN_LOGGER__REGIE review request current chat; thread URL UNVERIFIED",
       "recorded_by": "regie-local-20261109-logger-pr97-static-review",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PR97_STATIC_REVIEW_20261109.md"
+      ],
       "open_dependencies": [
         "Formal PR97 review/approval",
         "Module regie merge and main readback",
         "Oracle test authorization"
       ],
-      "current_activity": {
-        "task_reference": "PR97",
-        "summary": "Independently verify source diff and authorization limits",
-        "state": "WORKING"
-      },
+      "current_activity": null,
       "note": "Central static source reviewer; no module source changes."
     }
   ]

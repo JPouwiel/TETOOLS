@@ -657,23 +657,21 @@
       "module": null,
       "subject": "Point 40 F06 internal acceptance versus external handover",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "Current project chat 'Laten we F06 starten'; exact thread URL UNVERIFIED",
       "recorded_by": "regie-local-20261109-policy40-f06",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F06_INTERNAL_EXTERNAL_HANDOVER_20261109.md"
+      ],
       "open_dependencies": [
         "F06-USER-APPROVAL"
       ],
-      "current_activity": {
-        "task_reference": "POLICY40-F06",
-        "summary": "Analyze F06 governance boundary",
-        "state": "WORKING"
-      },
-      "note": "Local session ID; not actual ChatGPT thread ID"
+      "current_activity": null,
+      "note": "Local session ID; not actual ChatGPT thread ID; analysis prepared, approval pending; no background work."
     }
   ]
 }

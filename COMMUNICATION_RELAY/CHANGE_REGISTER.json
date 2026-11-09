@@ -2664,6 +2664,25 @@
         "COMMUNICATION_RELAY/reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md"
       ],
       "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-F05-APPROVAL-20261109",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "F05 conditional release without proven RAC readiness",
+      "status": "APPROVED",
+      "source_reference": "User explicit approval option A in current TETOOLS project chat 2026-11-09; exact message URL UNVERIFIED",
+      "origin_session": "Current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-f05",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F05_APPROVAL_20261109.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
     }
   ]
 }

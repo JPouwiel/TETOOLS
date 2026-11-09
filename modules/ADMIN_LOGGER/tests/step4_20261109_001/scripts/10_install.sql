@@ -4,7 +4,9 @@ WHENEVER OSERROR EXIT FAILURE ROLLBACK
 WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
 SET ECHO ON FEEDBACK ON SERVEROUTPUT ON
 SPOOL step4_install.log
-PROMPT T02 INSTALL: all original source DDL, unchanged; Oracle DDL commits implicitly.
+PROMPT T02 INSTALL: mandatory empty-schema preflight and original source DDL.
+@@00_preflight.sql
+PROMPT Preflight passed; Oracle DDL commits implicitly.
 @@../../../src/20261109_501_DEV/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql
 @@../../../src/20261109_501_DEV/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql
 @@../../../src/20261109_501_DEV/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks

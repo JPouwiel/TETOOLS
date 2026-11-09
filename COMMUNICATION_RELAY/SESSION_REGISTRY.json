@@ -586,23 +586,24 @@
       "module": null,
       "subject": "Point 40 policy completeness and consistency review",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "User instruction to start review, current project chat 2026-11-09; exact thread URL UNVERIFIED",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_INITIAL_REVIEW_20261109.md"
+      ],
       "open_dependencies": [
-        "POLICY40-CONSOLIDATION"
+        "P40-F02-INTERPRETATION",
+        "P40-F03-INTERPRETATION",
+        "P40-F04-BOUNDARY",
+        "POLICY40-FINAL-CONSOLIDATION"
       ],
       "recorded_by": "regie-local-20261109-policy40-review",
-      "note": "Local session identifier; exact ChatGPT thread ID unavailable",
-      "current_activity": {
-        "task_reference": "https://github.com/JPouwiel/TETOOLS/pull/73",
-        "summary": "Review 39 approved policies and report inconsistencies before consolidation",
-        "state": "WORKING"
-      }
+      "note": "Local session identifier; exact ChatGPT thread ID unavailable; initial review completed, final consolidation pending user review; no ongoing background execution.",
+      "current_activity": null
     }
   ]
 }

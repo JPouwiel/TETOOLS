@@ -4,7 +4,7 @@
 
 ## Checks completed on feature branch
 
-- 22 files under `modules/ADMIN_LOGGER/tests/step4_20261109_001/`: 7 non-SQL documents/templates + 15 SQL scripts. GitHub PR #102 also updates existing `COMMUNICATION_RELAY/SESSION_REGISTRY.json` (23 changed files total).
+- 23 files under `modules/ADMIN_LOGGER/tests/step4_20261109_001/`: 8 non-SQL documents/templates + 15 SQL scripts. GitHub PR #102 also updates existing `COMMUNICATION_RELAY/SESSION_REGISTRY.json` (24 changed files total).
 - `casebook.md` contains **28 unique T01–T08 test cases**, with mode, requirement/risk, acceptance, procedure/evidence, cleanup/stop; includes six distinct C01–C06 contract cases.
 - All 14 operational SQL scripts (excluding configuration-only `env.template.sql`) contain `WHENEVER SQLERROR`; no literal `DROP TABLE` or `DROP USER` commands in the scripts. The cleanup script intentionally raises a blocking error.
 - Install harness invokes `00_preflight.sql` first, preserves original TABLE/SEQUENCE/SPEC/BODY files and invokes `20_T02_compile.sql`; SQL*Plus `@@` paths are *statically* derived from the scripts directory. SQL*Plus actual path handling is NOT_TESTED.

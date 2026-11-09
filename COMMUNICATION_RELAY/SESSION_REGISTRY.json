@@ -611,23 +611,22 @@
       "module": null,
       "subject": "Point 40 consolidated normative policy draft",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "Current project chat: user requests start of point 40 consolidation; exact thread URL UNVERIFIED",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD_CONSOLIDATED_DRAFT_20261109.md"
+      ],
       "open_dependencies": [
-        "POLICY40-FINAL-APPROVAL"
+        "USER_APPROVAL_OF_CONSOLIDATED_NORMATIVE_DOCUMENT",
+        "POLICY40-F01-F05-F06-F07-FINAL_DISPOSITION"
       ],
       "recorded_by": "regie-local-20261109-policy40-consolidation",
-      "note": "Locally generated identifier, not ChatGPT thread ID",
-      "current_activity": {
-        "task_reference": "POLICY40-CONSOLIDATION",
-        "summary": "Prepare non-normative consolidated policy draft for user review",
-        "state": "WORKING"
-      }
+      "note": "Locally generated identifier, not ChatGPT thread ID; first draft completed, no ongoing background activity.",
+      "current_activity": null
     }
   ]
 }

@@ -1,0 +1,17 @@
+-- T02-01 read-only assertions after clean install; status NOT_EXECUTED until real run.
+WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
+SET SERVEROUTPUT ON
+DECLARE l_bad NUMBER; l_objects NUMBER; l_indexes NUMBER; l_constraints NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO l_bad FROM USER_ERRORS WHERE NAME = 'ADMIN_LOGGER';
+  SELECT COUNT(*) INTO l_objects FROM USER_OBJECTS WHERE OBJECT_NAME='ADMIN_LOGGER' AND OBJECT_TYPE IN ('PACKAGE','PACKAGE BODY') AND STATUS='VALID';
+  SELECT COUNT(*) INTO l_indexes FROM USER_INDEXES WHERE INDEX_NAME IN ('ADMIN_LOGGER_POSITION_UK','ADMIN_LOGGER_ACTIVE_BATCH_UK') AND UNIQUENESS='UNIQUE';
+  SELECT COUNT(*) INTO l_constraints FROM USER_CONSTRAINTS WHERE CONSTRAINT_NAME IN ('ADMIN_LOGGER_INCIDENT_PK','ADMIN_LOGGER_GUARD_PK') AND STATUS='ENABLED';
+  IF l_bad<>0 OR l_objects<>2 OR l_indexes<>2 OR l_constraints<>2 THEN
+    RAISE_APPLICATION_ERROR(-20102,'T02 FAIL errors='||l_bad||' validpkg='||l_objects||' idx='||l_indexes||' cons='||l_constraints);
+  END IF;
+  DBMS_OUTPUT.PUT_LINE('T02-01 PASS: package VALID, 2 unique indexes, 2 constraints, zero errors');
+END;
+/
+SELECT name,type,line,position,text FROM USER_ERRORS WHERE name='ADMIN_LOGGER' ORDER BY sequence;
+SELECT object_name,object_type,status FROM USER_OBJECTS WHERE object_name LIKE 'ADMIN_LOGGER%' ORDER BY 1,2;

@@ -748,21 +748,21 @@
       "module": null,
       "subject": "Normative publication consolidated standard rev002",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "User explicit approval of contents and review limitations; exact thread URL UNVERIFIED",
       "recorded_by": "regie-local-20261109-policy40-final",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD.md",
+        "AGENTS.md",
+        "COMMUNICATION_RELAY/reviews/POLICY40_FINAL_APPROVAL_20261109.md"
+      ],
       "open_dependencies": [],
-      "current_activity": {
-        "task_reference": "POLICY40-FINAL",
-        "summary": "Publish approved consolidated policy and root pointer",
-        "state": "WORKING"
-      },
-      "note": "Local ID; original ChatGPT thread ID UNVERIFIED"
+      "current_activity": null,
+      "note": "Local ID; original ChatGPT thread ID UNVERIFIED; pending merge/readback verification."
     }
   ]
 }

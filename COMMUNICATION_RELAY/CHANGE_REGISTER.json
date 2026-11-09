@@ -2817,6 +2817,25 @@
         "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_DEVELOPMENT_READINESS_20261109.md"
       ],
       "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-LOGGER-PILOT-20261109-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "CONDITIONAL GO DDL-only code development RAC-A-010 and RAC-A-011",
+      "status": "APPROVED",
+      "source_reference": "ADMIN_LOGGER__REGIE decision request in current chat; original message URL UNVERIFIED; PR #92 merge fab40c1b8181ca1c738c4ec87a474378ccb98735",
+      "origin_session": "Current TETOOLS central regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-logger-pilot-decision",
+      "approval_actor": "TETOOLS__REGIE delegated decision on explicit request",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PILOT_DECISION_20261109.md"
+      ],
+      "implementation_status": "AUTHORIZED_NOT_EXECUTED"
     }
   ]
 }

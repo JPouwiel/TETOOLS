@@ -811,6 +811,31 @@
       ],
       "current_activity": null,
       "note": "Locally generated ID; exact thread ID UNVERIFIED"
+    },
+    {
+      "session_id": "regie-local-20261109-logger-pilot-decision",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Formal conditional GO ADMIN_LOGGER DDL-only pilot",
+      "revision": "001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": "2026-11-09",
+      "source_reference": "ADMIN_LOGGER__REGIE decision request in current conversation; exact permalink UNVERIFIED",
+      "recorded_by": "regie-local-20261109-logger-pilot-decision",
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PILOT_DECISION_20261109.md"
+      ],
+      "open_dependencies": [
+        "ADMIN_LOGGER__REGIE receipt and code review",
+        "Oracle-test authorization",
+        "DBA environment and grants",
+        "RAC readiness"
+      ],
+      "current_activity": null,
+      "note": "Local ID; source issue #47/#55 and PR #92"
     }
   ]
 }

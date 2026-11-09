@@ -1,0 +1,4 @@
+run_id,test_id,category,environment_id,source_commit,script_sha256,operator,started_utc,ended_utc,expected,actual,status,evidence_uri,cleanup_status,reviewer,notes
+UNVERIFIED,T01-01,T01,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNASSIGNED,,,six_source_blobs_match,,NOT_EXECUTED,,NOT_EXECUTED,UNASSIGNED,
+UNVERIFIED,T02-01,T02,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNASSIGNED,,,clean_install_compile_valid,,NOT_EXECUTED,,NOT_EXECUTED,UNASSIGNED,
+UNVERIFIED,T07-01,T07,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNASSIGNED,,,three_nodes_proven,,NOT_EXECUTED,,NOT_EXECUTED,UNASSIGNED,

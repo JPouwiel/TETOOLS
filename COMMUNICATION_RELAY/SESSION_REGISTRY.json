@@ -634,23 +634,22 @@
       "module": null,
       "subject": "Policy40 F05 RAC readiness interpretation",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "Current TETOOLS project chat user 'Laten we F05 starten.' Exact thread ID UNVERIFIED",
       "recorded_by": "regie-local-20261109-policy40-f05",
-      "deliverables": [],
-      "open_dependencies": [
-        "F05-USER-APPROVAL"
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F05_RAC_READINESS_20261109.md"
       ],
-      "current_activity": {
-        "task_reference": "POLICY40-F05",
-        "summary": "RAC readiness policy consistency review",
-        "state": "WORKING"
-      },
-      "note": "Locally generated session ID, not a ChatGPT thread identifier"
+      "open_dependencies": [
+        "F05-USER-DECISION-LIMITED-RELEASE",
+        "F05-FINAL-POLICY-INTERPRETATION"
+      ],
+      "current_activity": null,
+      "note": "Locally generated session ID, not a ChatGPT thread identifier; F05 analysis completed, user decision pending, no background activity."
     }
   ]
 }

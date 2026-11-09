@@ -2721,6 +2721,25 @@
         "COMMUNICATION_RELAY/reviews/POLICY40_F07_APPROVAL_20261109.md"
       ],
       "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-F01-APPROVAL-20261109",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "F01 approved canonical policy location and historical source preservation",
+      "status": "APPROVED",
+      "source_reference": "User 'Ja, optie A' in current TETOOLS chat; exact message URL UNVERIFIED",
+      "origin_session": "Current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-f01",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F01_APPROVAL_20261109.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
     }
   ]
 }

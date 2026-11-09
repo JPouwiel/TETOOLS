@@ -672,6 +672,29 @@
       ],
       "current_activity": null,
       "note": "Local session ID; not actual ChatGPT thread ID; analysis prepared, approval pending; no background work."
+    },
+    {
+      "session_id": "regie-local-20261109-policy40-f07",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Point 40 F07 source provenance and traceability",
+      "revision": "001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "Current TETOOLS project chat: 'Laten we F07 starten'; exact thread URL UNVERIFIED",
+      "recorded_by": "regie-local-20261109-policy40-f07",
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F07_PROVENANCE_20261109.md"
+      ],
+      "open_dependencies": [
+        "F07-USER-APPROVAL",
+        "F01-CONSOLIDATION"
+      ],
+      "current_activity": null,
+      "note": "Locally generated ID, not a ChatGPT thread ID; analysis completed, proposed provenance handling pending approval; no background activity."
     }
   ]
 }

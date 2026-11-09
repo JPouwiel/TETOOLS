@@ -2759,6 +2759,26 @@
         "COMMUNICATION_RELAY/reviews/POLICY40_FINAL_APPROVAL_WORKFLOW_20261109.md"
       ],
       "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-FINAL-APPROVAL-20261109",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Final approval of canonical TETOOLS development standard rev002 with control limitations",
+      "status": "APPROVED",
+      "source_reference": "User 'Akkoord met de inhoud en de aangegeven controlebeperkingen.'; exact ChatGPT permalink UNVERIFIED; approved draft blob d8928440471eb6bfbec8e49dbbdad86085280155",
+      "origin_session": "Current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-final",
+      "approval_actor": "user",
+      "recorded_at": "2026-11-09",
+      "revision": "002",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_FINAL_APPROVAL_20261109.md",
+        "COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
     }
   ]
 }

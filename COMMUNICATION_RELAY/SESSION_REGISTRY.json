@@ -843,24 +843,22 @@
       "module": null,
       "subject": "Independent check of LOGGER pilot communication and authorization",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
-      "closed_at": null,
+      "closed_at": "2026-11-09",
       "source_reference": "ADMIN_LOGGER__REGIE independent verification request in current chat; permalink UNVERIFIED",
       "recorded_by": "regie-local-20261109-logger-pilot-independent-check",
-      "deliverables": [],
-      "open_dependencies": [
-        "Module regie receipt of PR93",
-        "Code pilot implementation and review",
-        "DBA test environment"
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PILOT_INDEPENDENT_CHECK_20261109.md"
       ],
-      "current_activity": {
-        "task_reference": "REGIE-LOGGER-PILOT-CHECK-20261109",
-        "summary": "Check authorization, delivery and relay status independently",
-        "state": "WORKING"
-      },
+      "open_dependencies": [
+        "ADMIN_LOGGER__REGIE must acknowledge PR93 and update own entry",
+        "Code pilot diff/review/merge not evidenced",
+        "Oracle test environment and separate authorization"
+      ],
+      "current_activity": null,
       "note": "Local ID. No module ownership assumed."
     }
   ]

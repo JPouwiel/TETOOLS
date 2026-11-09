@@ -1,26 +1,15 @@
-# Step 4 — preparer static verification (NOT Oracle execution)
+# Corrected package self-verification — independent re-review pending
 
-**Decision:** REGIE-LOGGER-TESTPREP-20261109-001. **PR:** #102. **Review:** SELF_CHECK_ONLY / INDEPENDENT_REVIEW_PENDING. **Oracle:** NOT_EXECUTED. **Readiness:** NOT_READY.
+STATIC_SOURCE_ONLY / G09 NOT_GRANTED / Oracle NOT_EXECUTED. Actual implementer a9edd3a9-d49a-4cb8-a102-868f3808e7bf, delegated by ADMIN_LOGGER__REGIE. This is not an independent PASS or merge authorization.
 
-## Checks completed on feature branch
+39 correction payload files (before correction_matrix.md and static_evidence.json audit records); full per-file Git inventory is read from the exact new PR head. All SQL entries including helpers have the shared source-pinned refusal before any risky action or substitutions. Safety gate has no package reference or writes. Approval flags/private request cannot enable execution.
 
-- 23 files under `modules/ADMIN_LOGGER/tests/step4_20261109_001/`: 8 non-SQL documents/templates + 15 SQL scripts. GitHub PR #102 also updates existing `COMMUNICATION_RELAY/SESSION_REGISTRY.json` (24 changed files total).
-- `casebook.md` contains **28 unique T01–T08 test cases**, with mode, requirement/risk, acceptance, procedure/evidence, cleanup/stop; includes six distinct C01–C06 contract cases.
-- All 14 operational SQL scripts (excluding configuration-only `env.template.sql`) contain `WHENEVER SQLERROR`; no literal `DROP TABLE` or `DROP USER` commands in the scripts. The cleanup script intentionally raises a blocking error.
-- Install harness invokes `00_preflight.sql` first, preserves original TABLE/SEQUENCE/SPEC/BODY files and invokes `20_T02_compile.sql`; SQL*Plus `@@` paths are *statically* derived from the scripts directory. SQL*Plus actual path handling is NOT_TESTED.
-- Static checks of all 15 SQL scripts' file contents performed; **no Oracle SQL parser/compiler execution**, no SQL*Plus session, no DB connection, no Oracle privileges used.
-- Source manifest pins all six Git blob SHA-1 values from independently reviewed PR97/98. Test code did not modify any file under `src/`.
-- Environment values remain UNVERIFIED, test results NOT_EXECUTED, C02–C06 injection fixtures BLOCKED, actual database syntax/compile and RAC semantics NOT_VERIFIED.
+Offline checks:6 sourcepins, unchanged source/frozen trees, full-head diff scope/whitespace, include graph,28 cases/result rows,6 contract mappings,17 canonical risk meanings,70 public declaration/default signatures,45 LOG overload assertions with9 immediate function-return checks, two-sided C01.9 source-level negative regression tests reject missing/late gates, unsafe activation/null checks, pre-denial substitution and missing OS error policy. These are source-invariant tests, not Oracle negative execution.
 
-## Findings / review requests
+Use verify_static.py with --require-material-match against the exact published PR head. Earlier precommit checks may have allow-unpublished material; they are not exact-head evidence. Final readback checks exact Git blobs and current complete diff. Correction matrix records actual code commit and residual BLOCKED cases.
 
-1. **P1**: Oracle 19c SQL*Plus/SQLcl actual parsing, `@@` relative paths and `WHENEVER` behavior require authorized isolated client verification; a static check cannot certify executable runtime.
-2. **P1**: `C02–C06` controlled fault injection and watchdog need separate safe DBA-approved fixtures; no source code modifications allowed.
-3. **P1**: test installation is irreversible by ordinary ROLLBACK because DDL implicitly commits; DBA must approve snapshot/restore and disposable target.
-4. **P1**: exact PDB/CON_ID, RU, privileges and three-node RAC services are missing; T07 cannot be executed in single-instance schema.
-5. **P2**: `T04` overload and failure feedback acceptance requires independent review of expected outputs; static compilation of anonymous blocks not yet established.
-6. **P2**: `T06` performance acceptance needs a measured baseline and approved resource limits.
+Oracle parser/compiler,SQLPlus/SQLcl failure routing,DDL/runtime/locks,transactions,RAC/failover,performance and recovery remain NOT_EXECUTED. C02-C06 safe injection/watchdog/recovery blocked; real incident duplicate-PK method cannot use an identity override; full filter/maintenance/027/consumer and performance/recovery evidence still needs approved fixtures/decisions. No source fix follows from a test failure.
 
-## Gate
+Existing relay baseline REGIE-LOGGER-READINESS-20261109 status ASSESSED is outside allowed schema/validator status values; not changed. Record baseline versus proposed validation separately. JSON Schema NOT_EXECUTED when jsonschema is absent; no green total gate. PR102 stays unmerged, G01-G08 open, G09 NOT_GRANTED. A different independent reviewer is required.
 
-**NOT_READY** for execution authorization review. PR #102 is documentation/test-harness publication for independent review only. Even a merged PR does not authorize Oracle execution. Review required before merge, then main hash readback. Reuse suite signal `LOGGER-RAC-20261105-001` and Issue #55. Do not create duplicate suite-impact records.
+Oracle references: [IF](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/IF-statement.html), [identity](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html), [SPOOL CREATE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/SPOOL.html), [WHENEVER SQLERROR](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/WHENEVER-SQLERROR.html), [autonomous transactions](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/autonomous-transactions.html).

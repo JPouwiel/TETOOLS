@@ -1,16 +1,19 @@
--- T07: same script must be run through three DBA-confirmed distinct RAC services.
--- It does NOT perform failover and cannot establish RAC readiness alone.
+-- PREPARATION ONLY. G09 NOT_GRANTED. Never bypass 00_safety_gate.sql.
+WHENEVER OSERROR EXIT FAILURE ROLLBACK
 WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
-SET SERVEROUTPUT ON
-SELECT SYS_CONTEXT('USERENV','DB_UNIQUE_NAME') AS db_unique_name,
-       SYS_CONTEXT('USERENV','CON_NAME') AS pdb_name,
-       SYS_CONTEXT('USERENV','CON_ID') AS con_id,
-       SYS_CONTEXT('USERENV','INSTANCE_NAME') AS instance_name,
-       SYS_CONTEXT('USERENV','SID') AS sid
-FROM dual;
--- DBA-observer (separate account with explicit grants):
--- SELECT inst_id,instance_name,status FROM gv$instance ORDER BY inst_id;
--- SELECT inst_id,con_id,sid,serial#,audsid,username,service_name
--- FROM gv$session WHERE username='TETOOLS';
--- T07-01..04: run casebook three-node cross-instance matrix;
--- reconnect/failover requires approved service/client test harness and DBA.
+DEFINE STEP4_CASE_IDS = 'T07-01'
+DEFINE STEP4_OPERATION = 'READ'
+@@00_safety_gate.sql
+SET SERVEROUTPUT ON SIZE UNLIMITED
+SET ECHO ON
+SET FEEDBACK ON
+SET VERIFY OFF
+SPOOL &&TEST_RUN_ID._&&TEST_CLIENT_ID._T07_01_identity.log CREATE
+SELECT SYSTIMESTAMP captured_at, SYS_CONTEXT('USERENV','DB_UNIQUE_NAME') db_unique_name,
+ SYS_CONTEXT('USERENV','CON_NAME') pdb_name, SYS_CONTEXT('USERENV','CON_ID') con_id,
+ SYS_CONTEXT('USERENV','INSTANCE') inst_id, SYS_CONTEXT('USERENV','INSTANCE_NAME') instance_name,
+ SYS_CONTEXT('USERENV','SERVICE_NAME') service_name, SYS_CONTEXT('USERENV','SID') sid,
+ SYS_CONTEXT('USERENV','SESSIONID') audsid, SYS_CONTEXT('USERENV','SESSION_USER') principal FROM dual;
+SPOOL OFF
+-- Complete SERIAL#/LOGON_TIME and correlate three clients via authorized observer GV$SESSION.
+-- T07-02..04 are in procedures.md; no purge/failover action is hidden in this identity script.

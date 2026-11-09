@@ -1,40 +1,39 @@
-# ADMIN_LOGGER Step 4 — Oracle 19c executable test preparation
+# ADMIN_LOGGER step 4 — corrected preparation, execution locked
 
-**Decision:** REGIE-LOGGER-TESTPREP-20261109-001. **Authorization:** PREPARATION_ONLY. **All database cases: NOT_EXECUTED.** **Target:** Oracle 19c Enterprise; three-node RAC tests require three actual instances. **Revision:** `20261109_501_DEV` (merged PR #97, commit `81eadafaf575accadddd18e173d4f733359ea4b7`). This directory contains **test tooling**, not changes to production code.
+Correction assignment: Issue #104, LOGGER-STEP4-REVIEW-20261109-001 / REGIE-LOGGER-TESTPREP-20261109-001. Existing module owner ADMIN_LOGGER-REGIE-20261104-01. Actual delegated implementer: Codex session a9edd3a9-d49a-4cb8-a102-868f3808e7bf. This implementer wrote the earlier review and **cannot provide the next independent re-review**. Historical PR106 review/evidence remain unchanged.
 
-## Safety gates and usage
+**TESTPACKAGE_CORRECTION_ONLY / STATIC_VERIFICATION_ONLY. G09 NOT_GRANTED. Every Oracle result NOT_EXECUTED. PR102 NOT MERGED; no release/RAC readiness.**
 
-No SQL here was executed by the preparer. Never connect these scripts to production. Scripts intentionally require `EXECUTION_APPROVED=YES`, `DBA_ENV_APPROVED=YES`, an authorized isolated schema **named TETOOLS** (source SQL hardcodes this owner), a disposable empty PDB/schema, and a DBA-approved snapshot/teardown plan. No test authorization is inferred from preparing or reviewing this repository. `sqlplus` / SQLcl version, wallet/connect string, RU, CON_ID, direct grants, service aliases, backup, restore owner, licensed diagnostics: **UNVERIFIED**. Do not put passwords in files or command arguments.
+## Safety boundary
 
-Before running anything in a future separately authorized session:
-1. DBA fills `environment.template.md` and signs G01–G09; security reviews `privileges.md`.
-2. Operator makes a protected private `env_approved.sql` (not committed), using `env.template.sql`; checks actual target PDB, schema, database identity and grants.
-3. Verify pinned Git blobs using `manifest.md`; compare all six with main; record actual SHA-256 of exported files if the transport changes bytes.
-4. Obtain explicit test-phase GO with test IDs, authorized DDL, environment, maintenance window, rollback owner and stop conditions.
-5. On disposable environment only, invoke `@scripts/00_preflight.sql` with `env_approved.sql` loaded, then `@scripts/10_install.sql` (destructive DDL permission separately confirmed). Run only explicitly approved cases `T02..T08`. **No master script automatically runs all tests.**
-6. Collect spools and `results_template.csv` in approved evidence store, redact identifiers, then DBA signs off recovery.
+Every SQL entry in scripts/ runs `00_safety_gate.sql` before DML, locks, API calls, DDL, source includes or configuration substitution. That shared gate first disables substitution and raises -20909 with source-pinned NOT_GRANTED and a NULL approval reference. It does not reference ADMIN_LOGGER: first-reference initialization can commit autonomously. Stale DEFINE values, YES flags, a previous preflight, an edited private request or reconnect cannot grant execution. Missing includes encounter WHENEVER OSERROR EXIT; client behavior still requires later authorized verification. Do not strip guards or run snippets separately.
 
-## File and execution order
+This is a safety stop for trusted, reviewed test source, not a substitute for Oracle privileges or cryptographic authorization. A principal able to edit scripts or submit arbitrary SQL can bypass client tooling; DBA isolation/privileges remain required. No execution-enabled artifact is supplied. A future GO needs a separate central environment/case/operation-specific decision and independently reviewed authorization artifact with literal identity/scope/reference pins. Changing a flag in env.template.sql never enables this revision.
 
-| Order | File | Mode | Dependency |
-|---|---|---|---|
-| 0 | manifest.md / environment.template.md / privileges.md | Offline | main source hashes and DBA G01–G09 |
-| 1 | env.template.sql -> private env_approved.sql | Configuration | Never commit secrets |
-| 2 | scripts/00_preflight.sql | Read-only | approved variables, verified target PDB, empty object inventory |
-| 3 | scripts/10_install.sql | DDL, high-risk | explicit authorization, snapshot, preflight PASS |
-| 4 | scripts/20_T02_compile.sql | Read-only | installed package and source objects |
-| 5 | scripts/30_T03_functional.sql | DML + API | installation PASS; isolated disposable schema |
-| 6 | scripts/40_T04_regression.sql | API + DML | baseline signature catalogue; settings |
-| 7 | scripts/50_T05_security.sql | Read-only + DML | separate positive/negative principals, DBA |
-| 8 | scripts/60_T06_concurrency.sql | Multi-session | two+ independent SQL clients; DBA lock monitoring |
-| 9 | scripts/70_T07_rac.sql | Three sessions/nodes | three RAC instances and approved service map |
-| 10 | scripts/80_T08_evidence.sql | Read-only | all executed case spools, recovery sign-off |
-| 11 | scripts/90_cleanup.sql | DESTRUCTIVE | DBA confirmation and isolated schema, restore plan |
+`00_preflight.sql` additionally requires an entirely empty TETOOLS owner before installation. `00_post_install.sql` instead checks installed objects without demanding emptiness; it preserves the caller case/operation. All identity/principal/DB/PDB/CON_ID/instance/service values are rechecked against the actual connection and approval pins. Null/blank/UNVERIFIED/invalid numbers and missing run/client markers fail closed. Future consumers/observers need separately pinned principals; no broad owner authorization by inheritance.
 
-`casebook.md` defines each test case and all six contracts C01–C06, with expected results, proof, stop/cleanup, single-instance/RAC applicability. SQL scripts contain runnable core probes and precise manual multi-session orchestration. Some fault-injection cases need DBA-approved reversible fixtures; these are **NOT_READY** until exact fixtures are approved; do not modify package code for injection.
+## What is prepared
 
-## Acceptance gates
+- [28 complete case records](cases.json), [casebook](casebook.md), [28 result rows](results_template.csv).
+- [Exact manual procedures](procedures.md), [fixture designs and blocks](fixtures.md), [known dependencies/principals](privileges.md), [canonical risk trace](traceability.md), [full public declarations/defaults](api_inventory.json).
+- Gated install, compile metadata, functional uniqueness/current-session assertions, 45 LOG overload behavioral checks, config/backup/restore checks, C01 two-sided transaction assertions, four-stage guard contention/release probes and identity/evidence capture.
+- C02-C06 remain BLOCKED. Actual incident duplicate-PK, negative security/failover/performance/clear-scope and DBA restore remain explicitly blocked until their precise outstanding approvals and fixtures are supplied. Prepared core probes do not make an entire category PASS.
 
-T01 static review may be marked STATIC_PASS after independent recheck. T02–T08 and C01–C06 remain NOT_EXECUTED. A prepared script is not evidence of compilation or behavior. Full `READY_FOR_EXECUTION_AUTHORIZATION_REVIEW` requires G01–G08 satisfied, independent review, no unsafe unresolved fault-injection methods, pinned runbook and recovery owner; otherwise NOT_READY. Separate G09 execution GO is mandatory even if preparation READY. For RAC_READY, actual T07 must PASS on all three nodes. See `casebook.md`, `traceability.md` and `results_template.csv`.
+## Offline verification (no Oracle)
 
-**References:** [central preparation](../../../../COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_STEP4_ORACLE_TEST_PREPARATION_20261109.md), [original LDR plan](../../docs/reports/ADMIN_LOGGER_LDR_TESTPLAN_20261109.md), [source manifest](../../src/20261109_501_DEV/REVISION_MANIFEST.md), [Oracle 19c SQL*Plus WHENEVER SQLERROR](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/using-sqlplus.html), [Oracle 19c implicit DDL commits](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/COMMIT.html). Relative paths are from module root and should be checked before invocation.
+Run `python verify_static.py --repo <repository> --ref <exact-full-PR-head> --main <read-main-SHA> --require-material-match --out <new-static-report.json>` from this directory, then `python test_static_guards.py`. Python tools read files/Git only: no Oracle client/network/database API. Do not connect simply to test the gate; negative SQL client tests also require authorization.
+
+The verifier records scope, pins, unchanged source/frozen trees, include graph, case/contract/trace consistency, gate prefix and negative source-mutation tests. JSON Schema is separately reported NOT_EXECUTED when jsonschema is unavailable; the pre-existing relay ASSESSED mismatch is not repaired here. A static check does not prove PL/SQL compilation, SQL*Plus error routing or RAC behavior.
+
+## Future order — only after new separate GO
+
+1. DBA signs G01-G08 in environment.template.md, approval artifact pins all identities/allowed operations/cases and independent reviewer accepts it; central G09 must actually be granted first.
+2. Create a fresh private evidence directory and fresh clean SQL client per fixture/transaction phase. Load a reviewed private request based on env.template.sql; passwords stay outside files/arguments.
+3. Before each stage, record client version/source export hashes and actual connection. Preserve stdout/stderr externally from process start, including gate failures; capture exact nonzero exit and scan SP2/ORA/PLS against per-case allowlist. No automatic continuation.
+4. 00_preflight -> 10_install -> 20; then only explicitly permitted tests. Fixture52 is **after** installation; no fixture/table can exist before the empty-owner check. 41 and42 save/restore config;51 performs all autonomous setup before the business INSERT.
+5. Lock protocol61/62/63/64 requires live coordinated clients and external timing/lock observer. T07 requires three actual instances, not three connections routed to one node.
+6. Check all 28 result rows, expected/actual, hashes, observer and recovery signatures. DBA recovery is independent;90 always refuses cleanup. No master script runs all tests.
+
+SPOOL uses unique run/client/stage names and CREATE (not default REPLACE). Do not nest spools inadvertently; the operator's outer process capture records boundaries and statuses even when an inner script owns its spool. Never reuse a filename. SELECT/SHOW output alone is not acceptance.
+
+[Central preparation](../../../../COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_STEP4_ORACLE_TEST_PREPARATION_20261109.md), [LDR plan](../../docs/reports/ADMIN_LOGGER_LDR_TESTPLAN_20261109.md), [source manifest](../../src/20261109_501_DEV/REVISION_MANIFEST.md), [historical independent review](../../docs/reports/ADMIN_LOGGER_STEP4_INDEPENDENT_REVIEW_20261109.md).

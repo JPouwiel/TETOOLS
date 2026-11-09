@@ -1,0 +1,572 @@
+{
+  "revision": "step4_20261109_001-correction1",
+  "g09": "NOT_GRANTED",
+  "cases": [
+    {
+      "test_id": "T01-01",
+      "category": "T01",
+      "mode": "OFF",
+      "requirements": [
+        "RAC-A-010",
+        "RAC-A-011"
+      ],
+      "procedure": "verify_static.py",
+      "preparation_status": "STATIC_PREPARED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Git read access only; no DB; reviewed full head",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Six exact DEV blobs; baseline/frozen trees preserved; exactly moved identical index plus comma",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; git object comparison and static_report.json; stop on any hash/tree/diff mismatch",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; git object comparison and static_report.json; stop on any hash/tree/diff mismatch",
+      "cleanup": "No DB cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T01-02",
+      "category": "T01",
+      "mode": "OFF",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "api_inventory.json",
+      "preparation_status": "STATIC_PREPARED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Pinned source; consumer inventory still UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Public SPEC/BODY preserved; all declarations/defaults enumerated and 45 LOG variants linked",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Compare API inventory against SPEC; stop on signature/default drift",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Compare API inventory against SPEC; stop on signature/default drift",
+      "cleanup": "No DB cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T02-01",
+      "category": "T02",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-010",
+        "RAC-A-011",
+        "LOG-OPEN-03"
+      ],
+      "procedure": "scripts/10_install.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "G01-G09, empty disposable TETOOLS, snapshot; INSTALL and READ cases separately permitted",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Empty owner; no unexpected SQL/SP2 errors; package VALID; expected unique indexes and enabled/validated PKs",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 00 fresh inventory; source includes; 20 assertions; per-run CREATE spool; stop any error/old object",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 00 fresh inventory; source includes; 20 assertions; per-run CREATE spool; stop any error/old object",
+      "cleanup": "DBA restore after any DDL failure, never ROLLBACK-only recovery",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T02-02",
+      "category": "T02",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-01",
+        "LOG-OPEN-02",
+        "RAC-A-003"
+      ],
+      "procedure": "scripts/20_T02_compile.sql; procedures.md#compile-warnings",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "DBA direct grants; compiler settings and optional recompile GO still UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "No unresolved dependencies; every warning classified/approved; installed source matches approved exports",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; USER_ERRORS ATTRIBUTE and USER_DEPENDENCIES exports; compare warning allowlist, currently empty; no silent warning PASS",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; USER_ERRORS ATTRIBUTE and USER_DEPENDENCIES exports; compare warning allowlist, currently empty; no silent warning PASS",
+      "cleanup": "No recompile without separate DDL authorization",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-01",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-010"
+      ],
+      "procedure": "scripts/30_T03_functional.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Installed source, fresh marker, sequence; dedicated clean client",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "One positive tuple stored, duplicate rejected; two NULL-batch single rows allowed; caller DML rolled back",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Counts and DUP_VAL_ON_INDEX exact handler; fail accepted duplicate/missing singles",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Counts and DUP_VAL_ON_INDEX exact handler; fail accepted duplicate/missing singles",
+      "cleanup": "ROLLBACK own inserts; autonomous registration/sequence consumption persist; DBA reconciliation",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-02",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-011"
+      ],
+      "procedure": "scripts/31_T03_incident.sql; fixtures.md#incident",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "ALWAYS identity; no explicit identity override or source ALTER permitted",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Actual incident PK metadata correct; valid actual insert and NOT NULL failures; real duplicate-PK demonstration requires separate approved method",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 31 proves metadata only; fixture design includes real identity omission and typed clone as separate evidence; stop unsupported/unsafe method",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 31 proves metadata only; fixture design includes real identity omission and typed clone as separate evidence; stop unsupported/unsafe method",
+      "cleanup": "ROLLBACK ordinary incident fixtures; no identity/source changes; DBA clone teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-03",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/30_T03_functional.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Current true SID/SERIAL#/AUDSID/logon_time; no fake session metadata",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Guard row=1 and exactly one current physical-session/config pair",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 30 current-session/config assertion; config toggles also in42; fail 0/multiple pairs",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 30 current-session/config assertion; config toggles also in42; fail 0/multiple pairs",
+      "cleanup": "Retain autonomous session/config until approved teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-04",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/42_T04_configuration.sql; procedures.md#configuration",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Fixture/config owner; full filter/batch expected cases still need sign-off",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "TABLE writes once; SCREEN token visible and no TABLE write; OFF suppresses; context/callstack filters and batch positions match source",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 42 core assertions + per-run spool; manual filter/batch matrix exact in procedures; stop unexpected target",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 42 core assertions + per-run spool; manual filter/batch matrix exact in procedures; stop unexpected target",
+      "cleanup": "BACKUP/RESTORE five-character key; assert configuration; DBA log cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-01",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/40_T04_regression.sql; scripts/41_T04_overloads.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Configured TABLE+debug ON; baseline source/API inventory",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Version/help source tokens reviewed; each ordinary VARCHAR2 procedure/function has correct row/return",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 40 smoke is explicitly not PASS alone;41 individual output/return assertions; help spool comparison",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 40 smoke is explicitly not PASS alone;41 individual output/return assertions; help spool comparison",
+      "cleanup": "Restore original config; retain autonomous proof",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-02",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/41_T04_overloads.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "SOURCE API only; no LOG_DEBUG_FORCE; clean run prefix; TABLE+debug ON",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "36 typed procedures+9 functions each exact category/text/single metadata; every function return=1; DATE default exact",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 45 per-overload row assertions and 9 immediate return assertions; negative missing/duplicate/wrong output stops",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 45 per-overload row assertions and 9 immediate return assertions; negative missing/duplicate/wrong output stops",
+      "cleanup": "RESTORE on success/failure; preserve original error if restore fails; DBA reconcile",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-03",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-04",
+        "LOG-OPEN-05",
+        "RAC-A-008",
+        "RAC-A-009"
+      ],
+      "procedure": "scripts/42_T04_configuration.sql; procedures.md#configuration",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Five-character keys; separate purge authorization; historical proposal027 not production source",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Backup/restore state preserved, nesting/wrong key denied; clear scope/retention and proposal027 comparison explicit",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 42 core restore; remaining manual negative/config/clear/027 protocol; no blanket clear or accepted incompatibility",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 42 core restore; remaining manual negative/config/clear/027 protocol; no blanket clear or accepted incompatibility",
+      "cleanup": "Restore config; DBA recovery for authorized destructive scope probe",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-01",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-003",
+        "RAC-A-012",
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/50_T05_security.sql; scripts/53_T05_positive_consumer.sql; scripts/54_T05_negative_consumer.sql; procedures.md#security",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "OWNER, POSITIVE, NEGATIVE, OBSERVER, RECOVERY identities separately pinned; no ANY grants",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Direct grants/DEFINER proven; positive consumer works; negative principal denied; maintenance authority separately evaluated",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 50 owner assertions; separate-client dynamic SQL denial test and owner-filtered observer exports per protocol; no owner-as-negative; 53 positive return and 54 dynamic exact denial probes supplied; maintenance-scope and actual grant roles remain BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 50 owner assertions; separate-client dynamic SQL denial test and owner-filtered observer exports per protocol; no owner-as-negative",
+      "cleanup": "DBA restores test-only grants only under separate GO",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-02",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C01"
+      ],
+      "procedure": "scripts/52_C01_fixture.sql; scripts/51_C01_caller_rollback.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Separate fixture-DDL approval; clean dedicated client; unique marker; setup before business INSERT",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Business tag absent after rollback AND one correct autonomous log row survives for exact session/tag",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 51 asserts both halves, category/text/session and config restore; independent observer confirms persistence",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 51 asserts both halves, category/text/session and config restore; independent observer confirms persistence",
+      "cleanup": "ROLLBACK business; retain log row until evidence signed; DBA fixture teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-03",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C02",
+        "RAC-A-005"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Exact non-source-edit fault mechanism, observer and recovery not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Atomic session/config management despite approved intermediate failure; guard free after rollback",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Snapshot both tables+guard; exact injection point; independent committed-state and lock probe; no fixture => BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Snapshot both tables+guard; exact injection point; independent committed-state and lock probe; no fixture => BLOCKED",
+      "cleanup": "Disable fault, release locks, approved config restoration then DBA reconcile",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-04",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C03",
+        "RAC-A-005"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Fault mechanism/diagnostic expected ID and fallback observer not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Diagnostic incident/backtrace persists after management rollback; diagnostic failure bounded",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Distinct management rollback and diagnostic failure phases, independent commits and backtrace; no fault approval => BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Distinct management rollback and diagnostic failure phases, independent commits and backtrace; no fault approval => BLOCKED",
+      "cleanup": "Remove fault; reconcile incident/log/config with snapshot",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-05",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C04"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Three reversible fixtures and exact expected SQLCODE/message contracts not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Incidental registration, session-wide and fallback failures have distinct expected classification/feedback",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Separate scenario IDs, SQLCODE/backtrace/stdout/table evidence; no classification by generic ORA presence",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Separate scenario IDs, SQLCODE/backtrace/stdout/table evidence; no classification by generic ORA presence",
+      "cleanup": "Restore each fixture before next class; stop leaked fault",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-06",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C05"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved failure-class x API matrix; normal-callability41 does not satisfy this contract",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Runtime incidental best effort; INFO/WARNING internal handling; ERROR/DEBUG/FORCE user+application feedback; proc+func",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; One outcome assertion for each API/function and fault class; caller may handle error but record it",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; One outcome assertion for each API/function and fault class; caller may handle error but record it",
+      "cleanup": "No source patch to simulate acceptance; restore fixture after each cell",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-07",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C06"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "External watchdog, cancellation principal, resource/time thresholds and recovery approved beforehand",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Logger+diagnostic failure bounded without recursion/resource exhaustion",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Observe stack/error and process resources outside tested logger; watchdog timeout is FAIL",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Observe stack/error and process resources outside tested logger; watchdog timeout is FAIL",
+      "cleanup": "Stop injected fault first; cancel only approved test session; DBA recover",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-01",
+      "category": "T06",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-005"
+      ],
+      "procedure": "scripts/61_T06_guard_client_A.sql; scripts/62_T06_guard_client_B.sql; scripts/63_T06_guard_release_A.sql; scripts/64_T06_guard_reacquire_B.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Two real clients; observer; DBA upper time bound/watchdog and maximum hold window still required",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "A holds; B exact ORA-30006 after WAIT5; no other error; A rollback; B reacquires; all sessions/timing correlated",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; A_HOLD barrier, B exact local handler/timestamps, A_RELEASED, B reacquire; deadlock/unexpected acquire fail",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; A_HOLD barrier, B exact local handler/timestamps, A_RELEASED, B reacquire; deadlock/unexpected acquire fail",
+      "cleanup": "Rollback both original sessions; observer confirms no guard lock",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-02",
+      "category": "T06",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-010"
+      ],
+      "procedure": "procedures.md#uniqueness",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved common tuple allocated once, coordinator timing and marker-cleanup fixture required",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Ten isolated two-client same-positive-key trials: one commit, one ORA-00001; no duplicates",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; First writer inserts/holds; second blocks; first commit; second exact duplicate; swap roles and repeat",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; First writer inserts/holds; second blocks; first commit; second exact duplicate; swap roles and repeat",
+      "cleanup": "One winner commit persists; loser rollback; DBA deletes only approved captured test IDs after evidence",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-03",
+      "category": "T06",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-006",
+        "RAC-A-007"
+      ],
+      "procedure": "procedures.md#performance",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Matched load/clock, baseline, row counts, metric rights/licensing and numeric thresholds UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "p50/p95,throughput,metadata lookups,commits,redo/waits and ORDER-sequence cost within approved baseline thresholds",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 30+ matched trials, normal/force,batch/single,1/2/3 clients; report outliers and transaction costs",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 30+ matched trials, normal/force,batch/single,1/2/3 clients; report outliers and transaction costs",
+      "cleanup": "Stop at approved cap; retain logs; no unapproved performance claim",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-01",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-002",
+        "RAC-A-003"
+      ],
+      "procedure": "scripts/70_T07_rac.sql; procedures.md#rac",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Three service clients, GV$ observer grants, database clock capture",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Three distinct real INST_ID; same approved DB/PDB/CON_ID; service map and complete physical-session keys",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 70 each node + observer GV$SESSION serial/logon/instance map; fewer than3/missing visibility fails",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 70 each node + observer GV$SESSION serial/logon/instance map; fewer than3/missing visibility fails",
+      "cleanup": "Disconnect only after downstream liveness/failover evidence retained",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-02",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-001",
+        "RAC-A-003",
+        "RAC-A-012"
+      ],
+      "procedure": "procedures.md#remote-purge",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Disposable RAC3; approved future before_in cutoff; identity collision excluded; separate purge/negative principal GO",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Nonzero true live remote rows are age-eligible candidates before purge and survive; visibility-denial fails safe",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Exact pre-candidate age predicate and GV$ liveness; count>0 per remote node; explicit cutoff+snapshot; no action without DBA GO",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Exact pre-candidate age predicate and GV$ liveness; count>0 per remote node; explicit cutoff+snapshot; no action without DBA GO",
+      "cleanup": "Stop on any live-row loss; no rerun; DBA restore/reconcile autonomous deletes",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-03",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-002",
+        "RAC-A-008"
+      ],
+      "procedure": "procedures.md#failover",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved service/driver/replay plan and DBA action; no restart commands supplied",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Before/after SID,SERIAL#,AUDSID,INST_ID,CON_ID,logon/service and logical ID traced; restored config/replay behavior explicit",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Separate disconnect,reconnect,failover,replay scenarios; source has no persisted INST_ID; mismatch => FAIL or separate change proposal",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Separate disconnect,reconnect,failover,replay scenarios; source has no persisted INST_ID; mismatch => FAIL or separate change proposal",
+      "cleanup": "DBA returns services and clients; no silent session remapping",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-04",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-010",
+        "RAC-A-011"
+      ],
+      "procedure": "procedures.md#uniqueness",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Shared tuple,three pinned nodes,serialized winner protocol; actual incident duplicate remains BLOCKED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Three-node same tuple: one committed winner and two exact duplicates; incident evidence separately qualified",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Reuse uniqueness protocol with3 clients; capture each outcome and committed count; clone not actual PK proof",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Reuse uniqueness protocol with3 clients; capture each outcome and committed count; clone not actual PK proof",
+      "cleanup": "Rollback losers,DBA cleanup winner; reconcile all3 nodes",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-01",
+      "category": "T08",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "LOG-OPEN-02",
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/80_T08_evidence.sql; procedures.md#evidence",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved evidence directory/run IDs; no existing spool overwrite; reviewer signs",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "28 cases uniquely recorded; all runtime fields actual; artifacts/source/script hashes verified; no unexpected SP2/ORA/PLS",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 80 exports plus results_template.csv and SHA256 bundle; every partial/blocked case remains explicit",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 80 exports plus results_template.csv and SHA256 bundle; every partial/blocked case remains explicit",
+      "cleanup": "Evidence immutable; no secrets/credentials in Git",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-02",
+      "category": "T08",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/90_cleanup.sql; procedures.md#recovery",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "DBA recovery owner/RTO/snapshot and destructive action approval missing",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Approved restore or disposable teardown rehearsed; objects,data,grants,locks reconciled with before inventory",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 90 refuses execution; DBA external runbook with independent observer proves restoration",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 90 refuses execution; DBA external runbook with independent observer proves restoration",
+      "cleanup": "DDL implicit commits/autonomous data cannot be recovered by caller ROLLBACK",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-03",
+      "category": "T08",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-001",
+        "RAC-A-002",
+        "RAC-A-003",
+        "RAC-A-004",
+        "RAC-A-005",
+        "RAC-A-006",
+        "RAC-A-007",
+        "RAC-A-008",
+        "RAC-A-009",
+        "RAC-A-010",
+        "RAC-A-011",
+        "RAC-A-012"
+      ],
+      "procedure": "procedures.md#acceptance",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Different independent reviewer; DBA G01-G08; G09 currently NOT_GRANTED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "All8 categories+6 contracts have reviewed actual evidence; P1 resolved; independent review and central release decisions",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; No full PASS/RAC_READY from static correction or manual design; exact reviewed head is mandatory",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; No full PASS/RAC_READY from static correction or manual design; exact reviewed head is mandatory",
+      "cleanup": "Handover open dependencies; no merge by implementer",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    }
+  ]
+}

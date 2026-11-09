@@ -1,7 +1,13 @@
--- DANGEROUS: NOT AUTOMATED. DO NOT EXECUTE THIS FILE.
--- Destructive cleanup requires DBA-authorized restore/teardown plan, explicit
--- object inventory, approval to DROP in disposable schema, and audit evidence.
-PROMPT STOP: use DBA-approved documented teardown/restore procedure, NOT this file.
+-- PREPARATION ONLY. G09 NOT_GRANTED. Never bypass 00_safety_gate.sql.
+WHENEVER OSERROR EXIT FAILURE ROLLBACK
 WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
-BEGIN RAISE_APPLICATION_ERROR(-20990,'CLEANUP BLOCKED: DBA restore authorization required'); END;
+DEFINE STEP4_CASE_IDS = 'T08-02'
+DEFINE STEP4_OPERATION = 'RECOVERY'
+@@00_safety_gate.sql
+SET SERVEROUTPUT ON SIZE UNLIMITED
+SET ECHO ON
+SET FEEDBACK ON
+SET VERIFY OFF
+BEGIN RAISE_APPLICATION_ERROR(-20990,'CLEANUP BLOCKED: only separately authorized DBA recovery runbook'); END;
 /
+-- No DROP, TRUNCATE, DELETE, privilege change or purported DDL rollback here.

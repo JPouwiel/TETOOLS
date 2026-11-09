@@ -938,6 +938,33 @@
       ],
       "current_activity": null,
       "note": "Central governance; no Oracle actions."
+    },
+    {
+      "session_id": "regie-local-20261109-logger-step4-preparation",
+      "role": "REGIE",
+      "module": null,
+      "subject": "ADMIN_LOGGER step 4 Oracle test preparation governance and handoff",
+      "revision": "001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "User request in current TETOOLS__REGIE chat: Wil je stap 4 uitvoeren?; exact message URL UNVERIFIED",
+      "recorded_by": "regie-local-20261109-logger-step4-preparation",
+      "deliverables": [],
+      "open_dependencies": [
+        "ADMIN_LOGGER__REGIE detailed executable test harness proposal",
+        "DBA: Oracle 19c RU, PDB/CON_ID, privileges, isolated 3-node RAC",
+        "DBA: approved backup/recovery and test environment",
+        "TETOOLS__REGIE: separate Oracle execution GO/NO-GO"
+      ],
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/55",
+        "summary": "Prepare step 4 test readiness dossier and handoff; no Oracle execution",
+        "state": "WORKING"
+      },
+      "note": "Central preparation only; module regie owns technical test implementation."
     }
   ]
 }

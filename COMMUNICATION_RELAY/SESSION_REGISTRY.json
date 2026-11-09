@@ -579,6 +579,30 @@
       ],
       "recorded_by": "regie-chat-local-20261109-policy-13-39",
       "note": "Locally generated session identifier, not a ChatGPT thread ID. One-shot completion registration for policy publication; original chat remains open. No live activity claimed."
+    },
+    {
+      "session_id": "regie-local-20261109-policy40-review",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Point 40 policy completeness and consistency review",
+      "revision": "001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "User instruction to start review, current project chat 2026-11-09; exact thread URL UNVERIFIED",
+      "deliverables": [],
+      "open_dependencies": [
+        "POLICY40-CONSOLIDATION"
+      ],
+      "recorded_by": "regie-local-20261109-policy40-review",
+      "note": "Local session identifier; exact ChatGPT thread ID unavailable",
+      "current_activity": {
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/pull/73",
+        "summary": "Review 39 approved policies and report inconsistencies before consolidation",
+        "state": "WORKING"
+      }
     }
   ]
 }

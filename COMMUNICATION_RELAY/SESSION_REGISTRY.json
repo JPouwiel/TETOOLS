@@ -262,7 +262,7 @@
       "last_confirmed_at": "2026-11-09",
       "closed_at": null,
       "source_reference": "Current ADMIN_LOGGER__REGIE conversation 2026-11-04; exact thread ID unavailable",
-      "recorded_by": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by": "a9edd3a9-d49a-4cb8-a102-868f3808e7bf",
       "deliverables": [
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
         "modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
@@ -290,10 +290,10 @@
         "Oracle test-phase authorization separate and NOT_GRANTED",
         "PR97 merged; Oracle test phase authorization NOT_GRANTED; DBA/test environment UNVERIFIED; eight test categories NOT_EXECUTED"
       ],
-      "note": "2026-11-09: TETOOLS__REGIE LDR-01..06 analysis and pilot preparation delivered as four reports; two DDL blockers RAC-A-010/011 source-confirmed, proposed diff NOT_APPLIED. Code/DB/frozen releases unchanged; Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. At LDR publication, pilot code authorization was pending (historical state, superseded by decision REGIE-LOGGER-PILOT-20261109-001); DBA environment remains UNVERIFIED. Earlier report A handoff receipt Issue #47 remains confirmed. | 2026-11-09: decision REGIE-LOGGER-PILOT-20261109-001 received; PR93 merged 6e97b076fdcab0806ae72c740094040c7b25514d. CONDITIONAL_GO CODE_ONLY for new non-frozen DDL-only revision (RAC-A-010/011). Supersedes prior 'pilot code authorization pending' note only; original analysis and decision history preserved. Oracle DDL/runtime/RAC tests NOT_AUTHORIZED and NOT_EXECUTED; RAC NOT_DEMONSTRATED. | 2026-11-09: PR97 independent STATIC_REVIEW_PASS via PR98; historical reviewgate BLOCKED/UNVERIFIED later superseded by repository-owner confirmation of no branch protection/rulesets and GitHub clean mergeability. PR97 merged 81eadafaf575accadddd18e173d4f733359ea4b7; all 6 DEV file Git blob hashes verified on main, baseline TABLE blob unchanged. No Oracle DDL/runtime/RAC/release. Codepilot Git publication COMPLETE; separate Oracle-test authorization required.",
+      "note": "2026-11-09: TETOOLS__REGIE LDR-01..06 analysis and pilot preparation delivered as four reports; two DDL blockers RAC-A-010/011 source-confirmed, proposed diff NOT_APPLIED. Code/DB/frozen releases unchanged; Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. At LDR publication, pilot code authorization was pending (historical state, superseded by decision REGIE-LOGGER-PILOT-20261109-001); DBA environment remains UNVERIFIED. Earlier report A handoff receipt Issue #47 remains confirmed. | 2026-11-09: decision REGIE-LOGGER-PILOT-20261109-001 received; PR93 merged 6e97b076fdcab0806ae72c740094040c7b25514d. CONDITIONAL_GO CODE_ONLY for new non-frozen DDL-only revision (RAC-A-010/011). Supersedes prior 'pilot code authorization pending' note only; original analysis and decision history preserved. Oracle DDL/runtime/RAC tests NOT_AUTHORIZED and NOT_EXECUTED; RAC NOT_DEMONSTRATED. | 2026-11-09: PR97 independent STATIC_REVIEW_PASS via PR98; historical reviewgate BLOCKED/UNVERIFIED later superseded by repository-owner confirmation of no branch protection/rulesets and GitHub clean mergeability. PR97 merged 81eadafaf575accadddd18e173d4f733359ea4b7; all 6 DEV file Git blob hashes verified on main, baseline TABLE blob unchanged. No Oracle DDL/runtime/RAC/release. Codepilot Git publication COMPLETE; separate Oracle-test authorization required. | 2026-11-09: User-pasted ADMIN_LOGGER__REGIE execution instruction delegates testpackage correction to existing Codex session a9edd3a9-d49a-4cb8-a102-868f3808e7bf. Existing module registration reused by explicit instruction; actual writer recorded separately. Prior reviewer is now correction implementer and cannot provide independent re-review. Central receipt Issue104 comment6750423813.",
       "current_activity": {
-        "task_reference": "REGIE-LOGGER-TESTPREP-20261109-001",
-        "summary": "Stap 4: version-pinned Oracle 19c ADMIN_LOGGER testpakket voorbereiden; PREPARATION_ONLY; Oracle NOT_EXECUTED",
+        "task_reference": "https://github.com/JPouwiel/TETOOLS/issues/104",
+        "summary": "Delegated Codex execution: correct LGR4-01..11 on PR102; STATIC_ONLY, G09 NOT_GRANTED; different independent re-reviewer required",
         "state": "WORKING"
       }
     },
@@ -967,6 +967,33 @@
       ],
       "current_activity": null,
       "note": "Central preparation only; module regie owns technical test implementation."
+    },
+    {
+      "session_id": "a9edd3a9-d49a-4cb8-a102-868f3808e7bf",
+      "role": "REVIEWER",
+      "module": "ADMIN_LOGGER",
+      "subject": "Independent static review PR102 / Issue104",
+      "revision": "20261109_501_DEV / PR102 5c25e83604d8bb0eeb2680a372b3e1b808c320c5",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104",
+      "recorded_by": "a9edd3a9-d49a-4cb8-a102-868f3808e7bf",
+      "deliverables": [
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_STEP4_INDEPENDENT_REVIEW_20261109.md",
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_STEP4_REVIEW_20261109_EVIDENCE.json",
+        "https://github.com/JPouwiel/TETOOLS/issues/104",
+        "https://github.com/JPouwiel/TETOOLS/pull/102"
+      ],
+      "open_dependencies": [
+        "ADMIN_LOGGER-REGIE-20261104-01: acknowledge receipt in Issue104 and correct LGR4-01..11 on PR102; new full-head independent review required",
+        "TETOOLS__REGIE: mergegate assessment; PR102 remains blocked by two P1 findings",
+        "DBA/module: G01-G08; central regie G09 NOT_GRANTED",
+        "Module/central receipt not yet confirmed; session CLOSED not claimed; Issue104 remains open"
+      ],
+      "current_activity": null,
+      "note": "Locally generated UUID, not a verified chat/thread ID. Independent static review COMPLETED with FAIL on 5c25e83604d8bb0eeb2680a372b3e1b808c320c5: 2 P1 and 9 P2. No Oracle connection/execution or test/source changes. KEEP pending acknowledged handover; no CLOSED claim."
     }
   ]
 }

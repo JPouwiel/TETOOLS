@@ -922,24 +922,22 @@
       "module": null,
       "subject": "Review PR97 merge gate, repository rules access and owner handoff",
       "revision": "001",
-      "status": "ACTIVE",
+      "status": "COMPLETED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-09",
       "last_confirmed_at": "2026-11-09",
-      "closed_at": null,
+      "closed_at": "2026-11-09",
       "source_reference": "ADMIN_LOGGER__REGIE PR97 merge blocker handoff in current chat; exact thread URL UNVERIFIED",
       "recorded_by": "regie-local-20261109-logger-pr97-merge-gate",
-      "deliverables": [],
+      "deliverables": [
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PR97_MERGE_GATE_20261109.md"
+      ],
       "open_dependencies": [
         "Repository administrator: branch rules/status checks",
         "Independent formal GitHub review if required",
         "Module regie PR97 merge/main readback"
       ],
-      "current_activity": {
-        "task_reference": "PR97",
-        "summary": "Verify merge gate without bypass or module code changes",
-        "state": "WORKING"
-      },
+      "current_activity": null,
       "note": "Central governance; no Oracle actions."
     }
   ]

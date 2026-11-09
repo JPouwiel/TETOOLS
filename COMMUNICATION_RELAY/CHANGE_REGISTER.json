@@ -2604,6 +2604,66 @@
       ],
       "implementation_status": "NOT_AUTHORIZED",
       "validation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-APPROVAL-20261109-F02",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Point 40 F02 interpretation approved",
+      "status": "APPROVED",
+      "source_reference": "User: Akkoord met voorgestelde interpretaties; current TETOOLS project chat 2026-11-09; exact message URL UNVERIFIED",
+      "origin_session": "current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-review",
+      "approval_actor": "user",
+      "approved_by": "explicit user approval 2026-11-09",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-APPROVAL-20261109-F03",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Point 40 F03 interpretation approved",
+      "status": "APPROVED",
+      "source_reference": "User: Akkoord met voorgestelde interpretaties; current TETOOLS project chat 2026-11-09; exact message URL UNVERIFIED",
+      "origin_session": "current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-review",
+      "approval_actor": "user",
+      "approved_by": "explicit user approval 2026-11-09",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
+    },
+    {
+      "change_id": "REGIE-POLICY40-APPROVAL-20261109-F04",
+      "record_type": "POLICY_INTERPRETATION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Point 40 F04 interpretation approved",
+      "status": "APPROVED",
+      "source_reference": "User: Akkoord met voorgestelde interpretaties; current TETOOLS project chat 2026-11-09; exact message URL UNVERIFIED",
+      "origin_session": "current TETOOLS regie chat; thread ID UNVERIFIED",
+      "recorded_by_session": "regie-local-20261109-policy40-review",
+      "approval_actor": "user",
+      "approved_by": "explicit user approval 2026-11-09",
+      "recorded_at": "2026-11-09",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/reviews/POLICY40_F02_F03_F04_APPROVAL_20261109.md"
+      ],
+      "implementation_status": "NOT_EXECUTED"
     }
   ]
 }

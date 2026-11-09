@@ -718,6 +718,29 @@
       ],
       "current_activity": null,
       "note": "Locally generated ID; actual chat thread ID UNVERIFIED; F01 analysis completed, location/handling decision pending."
+    },
+    {
+      "session_id": "regie-local-20261109-policy40-consolidation-review",
+      "role": "REGIE",
+      "module": null,
+      "subject": "Update and check point40 consolidated standard draft",
+      "revision": "001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-09",
+      "closed_at": null,
+      "source_reference": "User 'Laten we het actualiseren en controleren van het concept starten'; thread URL UNVERIFIED",
+      "recorded_by": "regie-local-20261109-policy40-consolidation-review",
+      "deliverables": [
+        "COMMUNICATION_RELAY/policy/TETOOLS_DEVELOPMENT_STANDARD_CONSOLIDATED_DRAFT_20261109_REV002.md",
+        "COMMUNICATION_RELAY/reviews/POLICY40_CONSOLIDATION_REV002_REVIEW_20261109.md"
+      ],
+      "open_dependencies": [
+        "POINT40-FINAL-CONTENT-APPROVAL"
+      ],
+      "current_activity": null,
+      "note": "Local session ID; original chat ID UNVERIFIED; Draft and structural review completed; final content approval pending."
     }
   ]
 }

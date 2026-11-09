@@ -291,7 +291,11 @@
         "PR97 merged; Oracle test phase authorization NOT_GRANTED; DBA/test environment UNVERIFIED; eight test categories NOT_EXECUTED"
       ],
       "note": "2026-11-09: TETOOLS__REGIE LDR-01..06 analysis and pilot preparation delivered as four reports; two DDL blockers RAC-A-010/011 source-confirmed, proposed diff NOT_APPLIED. Code/DB/frozen releases unchanged; Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. At LDR publication, pilot code authorization was pending (historical state, superseded by decision REGIE-LOGGER-PILOT-20261109-001); DBA environment remains UNVERIFIED. Earlier report A handoff receipt Issue #47 remains confirmed. | 2026-11-09: decision REGIE-LOGGER-PILOT-20261109-001 received; PR93 merged 6e97b076fdcab0806ae72c740094040c7b25514d. CONDITIONAL_GO CODE_ONLY for new non-frozen DDL-only revision (RAC-A-010/011). Supersedes prior 'pilot code authorization pending' note only; original analysis and decision history preserved. Oracle DDL/runtime/RAC tests NOT_AUTHORIZED and NOT_EXECUTED; RAC NOT_DEMONSTRATED. | 2026-11-09: PR97 independent STATIC_REVIEW_PASS via PR98; historical reviewgate BLOCKED/UNVERIFIED later superseded by repository-owner confirmation of no branch protection/rulesets and GitHub clean mergeability. PR97 merged 81eadafaf575accadddd18e173d4f733359ea4b7; all 6 DEV file Git blob hashes verified on main, baseline TABLE blob unchanged. No Oracle DDL/runtime/RAC/release. Codepilot Git publication COMPLETE; separate Oracle-test authorization required.",
-      "current_activity": null
+      "current_activity": {
+        "task_reference": "REGIE-LOGGER-TESTPREP-20261109-001",
+        "summary": "Stap 4: version-pinned Oracle 19c ADMIN_LOGGER testpakket voorbereiden; PREPARATION_ONLY; Oracle NOT_EXECUTED",
+        "state": "WORKING"
+      }
     },
     {
       "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",

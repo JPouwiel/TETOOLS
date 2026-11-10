@@ -1,3 +1,13 @@
+# Optie C - voorstel formele vastlegging bestaand gebruikersbesluit, 10 november 2026
+
+Werkpakket C, bestaande uitvoerder `01a1c472-55b9-7281-882f-53425c5c8937` (WORK_DOCUMENTATION, geen regierol). Gebruikerskeuze optie C en vervolgakkoord zijn onafhankelijk teruggelezen in voorgangerchat6ae9e9eb-6400-83eb-859c-580027d25466, beurten a80bab7e-1a33-48aa-bd9a-dfaec4dc6627 / b94ebd42-7693-4c31-81cb-4d901f0b493e. [Ontvangst6764122808](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6764122808) en [centrale beoordeling6764414199](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6764414199) blijven leidend. Inhoudelijke keuze is gemaakt; dit is uitsluitend de gecontroleerde administratieve publicatievoorbereiding.
+
+Centraal record `REGIE-LOGGER-OPTION-C-PUBLICATION-20261110-001` is PROPOSED als publicatiestatus; [canonieke modulebesluitverwijzing](../modules/ADMIN_LOGGER/DECISIONS.md) en [exacte PR109-matrix](../modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_OPTION_C_ACCEPTANCE_MATRIX_20261110.md) maken deel uit van dit voorstel. F1 STATIC_TEST_PREPARATION, F2 EXECUTION_PREPARATION, F3 ORACLE_RAC_VALIDATION, F4 MODULE_RAC_ACCEPTANCE blijven afzonderlijke acceptatiemomenten. Geen nieuwe functionele norm/drempel of fase-PASS. Geen main-publicatie/IMPLEMENTED-bewijs vooraf: deze branch wordt niet gemerged in deze opdracht.
+
+PR102 blijft op `afb5330ac538cb913e7d5e3eb8d92c7daeddc123` en is door C niet gewijzigd; onafhankelijke herreview heeft [ontvangst/onafhankelijkheid bevestigd6765342751](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6765342751), resultaat wordt afzonderlijk door de reviewer geleverd en niet hier verondersteld. Module-uitwerking van functionele baseline/DBA-voorstellen loopt in werkpakket B; centrale besluiten/mergegate blijven bij huidige TETOOLS__REGIE. PR107/108/109 zijn niet gemerged of integraal overgenomen. LGR4-04/05/10/11, elf dependencies en C02-C06 BLOCKED; G01-G08 OPEN; G09 NOT_GRANTED. Geen Oracle/source/tests/frozen wijziging, geen nieuwe suite-impactmelding. [Vergelijking, bewijs en publicatieroute](reviews/LOGGER_OPTION_C_PUBLICATION_20261110.md).
+
+Onderstaande eerdere statuspassages zijn gedateerde momentopnamen en blijven intact.
+
 # Centrale regieoverdracht — peildatum 10 november 2026
 
 Op expliciet gebruikersverzoek volgt Codex-sessie `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62` de volle TETOOLS__REGIE-chat `6ae9e9eb-6400-83eb-859c-580027d25466` op. [Gecontroleerde inventaris en overdracht](SESSIONS/REGIE/20261110_SUCCESSION.md), basis main `28adcf32d04f6f6e7d0e2551010abb30f1c974c5`. Voorganger en andere sessie-entries blijven ongewijzigd; geen afsluiting of succesvolle afronding daarvan geclaimd.

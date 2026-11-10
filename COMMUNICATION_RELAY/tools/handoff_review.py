@@ -8,6 +8,7 @@ import re
 CAPACITY = {'ONBEKEND', 'AANDACHT', 'OVERDRACHT_AANBEVOLEN', 'LIMIET_BEREIKT'}
 READINESS = {'ONVOLLEDIG', 'VOORBEREID', 'GEPUBLICEERD', 'OVERGENOMEN'}
 KINDS = {'PLATFORMMELDING', 'METING', 'GEBRUIKERSMELDING', 'HEURISTIEK', 'ONBEKEND'}
+LIMIT_KINDS = {'GESPREK', 'ABONNEMENT', 'CONTEXT', 'ONBEKEND'}
 
 
 def text(value):
@@ -31,6 +32,8 @@ def validate_assessment(a, session_ids):
     for name, states in (('capacity', CAPACITY), ('readiness', READINESS)):
         b = a[name]
         fields = 'state meaning rationale assessed_at assessed_by evidence_kind evidence_refs'
+        if name == 'capacity' and 'limit_kind' in b:
+            fields += ' limit_kind'
         if name == 'readiness':
             fields += ' package_ref publication receipt transfer'
         exact(b, fields)
@@ -49,6 +52,16 @@ def validate_assessment(a, session_ids):
         if b['evidence_kind'] != 'ONBEKEND' and not refs:
             raise ValueError('Evidence kind requires source references')
     c, r = a['capacity'], a['readiness']
+    # Preserve immutable legacy unknown assessments; missing kind conveys no warning.
+    limit_kind = c.get('limit_kind', 'ONBEKEND')
+    if not isinstance(limit_kind, str) or limit_kind not in LIMIT_KINDS:
+        raise ValueError('Invalid limit_kind')
+    if 'limit_kind' not in c and (c['state'] != 'ONBEKEND' or c['evidence_kind'] != 'ONBEKEND'):
+        raise ValueError('Legacy assessment without limit_kind must remain wholly unknown')
+    if c['state'] == 'LIMIET_BEREIKT' and limit_kind != 'GESPREK':
+        raise ValueError('Reached conversation limit requires limit_kind GESPREK')
+    if c['state'] == 'OVERDRACHT_AANBEVOLEN' and limit_kind in {'ABONNEMENT', 'CONTEXT'}:
+        raise ValueError('Subscription or context alone cannot recommend conversation succession')
     if c['evidence_kind'] == 'ONBEKEND' and c['state'] != 'ONBEKEND':
         raise ValueError('Unknown evidence cannot establish a capacity warning')
     if c['state'] == 'LIMIET_BEREIKT' and c['evidence_kind'] not in {'PLATFORMMELDING', 'GEBRUIKERSMELDING'}:
@@ -88,6 +101,9 @@ def validate_assessment(a, session_ids):
             raise ValueError('Takeover requires receiver receipt and explicit designation')
         if receipt['received_at'] > r['assessed_at']:
             raise ValueError('Takeover assessment cannot precede receiver receipt')
+        # Compare the calendar day in the explicit effective_at timezone, not host UTC.
+        if stamp.date() > dt.date.fromisoformat(r['assessed_at']):
+            raise ValueError('A future effective date is not an established takeover')
 
 
 def validate_registry(ledger, sessions):

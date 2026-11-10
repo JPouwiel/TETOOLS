@@ -1,8 +1,9 @@
 # COMMUNICATION_RELAY — gebruikscontract v1
 
-> Aanvullend uitvoerbaar voorstel: [REGIE_HANDOFF.md](REGIE_HANDOFF.md), Issue #111.
-> Capaciteit en overdrachtsgereedheid worden afzonderlijk onderbouwd in optionele
-> HANDOVER-gegevens; PROPOSED, geen wijziging van current_activity of bestaand mandaat.
+> Centrale aanvulling revisie002: [REGIE_HANDOFF.md](REGIE_HANDOFF.md), Issue #111 /
+> besluit6769485682. Capaciteit en gereedheid afzonderlijk in optionele HANDOVER-gegevens;
+> normatief na geverifieerde PR112-merge/main-teruglezing (bewijs achteraf in PR/Issue).
+> current_activity en bestaand mandaat blijven gelijk; oorspronkelijke PROPOSED-historie behouden.
 
 Project: PLSQL_TETOOLS. Scope: projectbreed; module-inhoud blijft bij de module. Canonieke actuele status: CURRENT_STATUS.md. Module-index: MODULE_REGISTRY.md. Sessieregister: SESSION_REGISTRY.json. Historie van afspraken/besluiten/open punten: module-DECISIONS.md, REQUIREMENTS.md en OPEN_POINTS.md, met CHANGE_REGISTER.json voor mutaties en Git PR/commits voor bewijs.
 
@@ -25,6 +26,16 @@ Voor elke inhoudelijke mutatie registreer: uniek ID, record_type, project, modul
 5. Bij afmelding: registreer resultaat, open afhankelijkheden en bewaarbeoordeling; sluit pas af na terugleescontrole.
 
 Geen wachtwoorden, tokens of persoonlijke geheimen in de repository. Git-auteur identificeert een GitHub-account, niet noodzakelijk de uitvoerende ChatGPT-sessie; daarom beide identiteiten apart registreren. Automatische chat-export, automatische sessiedetectie en feitelijke chatverwijdering zijn geen functies van deze relay.
+
+### Beoordelingsstatus ASSESSED — centrale contractcorrectie B, 10 november 2026
+
+**ASSESSED** is uitsluitend geldig bij record_type
+**REVIEW** en betekent: beoordeling vastgelegd; geen goedkeuring, implementatie,
+testacceptatie of uitvoeringsautorisatie. DECISION, HANDOVER en ieder ander recordtype
+mogen deze status niet gebruiken. Alle overige statusregels blijven gelden.
+Bron: [centraal besluit B](https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682),
+opvolgrecord REGIE-HANDOFF-CONTRACT-20261110-001. De oorspronkelijke
+REGIE-LOGGER-READINESS-20261109 blijft exact behouden en wordt niet ongeldig verklaard.
 
 ## Controlecriteria
 

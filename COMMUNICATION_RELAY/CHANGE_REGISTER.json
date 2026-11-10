@@ -2920,6 +2920,100 @@
           "transfer": null
         }
       }
+    },
+    {
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "approval_actor": "TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62; explicit user-authorized central disposition in comment6769485682",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "change_id": "REGIE-HANDOFF-DESIGN-20261110-001",
+      "record_type": "DECISION",
+      "subject": "Central conditional approval A of handoff design, limited corrections A1/A2/A3",
+      "supersedes": "RELAY-HANDOFF-READINESS-20261110-001",
+      "conditions": [
+        "A1: limit_kind GESPREK/ABONNEMENT/CONTEXT/ONBEKEND; quota/compaction alone not conversation succession",
+        "A2: effective_at calendar day in explicit timezone not after assessed_at for OVERGENOMEN",
+        "A3: preserve original PROPOSED record; traceable central successor decisions; normative only after verified publication"
+      ],
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/REGIE_HANDOFF.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002.md"
+      ],
+      "note": "Conditional content approval is actual central decision, not advance evidence of main publication; original proposal/FAIL evidence remains unchanged."
+    },
+    {
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "approval_actor": "TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62; explicit user-authorized central disposition in comment6769485682",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "change_id": "REGIE-HANDOFF-CONTRACT-20261110-001",
+      "record_type": "DECISION",
+      "subject": "Approved limited ASSESSED contract correction B: REVIEW only",
+      "supersedes": null,
+      "related_change_ids": [
+        "REGIE-LOGGER-READINESS-20261109"
+      ],
+      "rationale": "REVIEW/ASSESSED describes a recorded assessment, with implementation NOT_EXECUTED. Changing history to APPROVED/IMPLEMENTED would change meaning. Accept only REVIEW/ASSESSED in schema and stdlib, reject all other types and unknown statuses.",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+        "COMMUNICATION_RELAY/schemas/CHANGE_REGISTER.schema.json",
+        "COMMUNICATION_RELAY/tools/validate_relay.py"
+      ],
+      "note": "No historical correction/reordering; no supersedes that invalidates original review. Not a generic FAIL bypass."
+    },
+    {
+      "change_id": "RELAY-HANDOFF-READINESS-20261110-002",
+      "record_type": "HANDOVER",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Revised handoff assessment: subscription interruption is attention only; implementation package prepared",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "supersedes": "RELAY-HANDOFF-READINESS-20261110-001",
+      "handoff_assessment": {
+        "capacity": {
+          "meaning": "Abonnementsgebruik onderbrak de uitvoering volgens gebruiker; geen uitspraak over volle chat",
+          "rationale": "Gebruiker meldt abonnementsgebruikslimiet; bron is gebruikersmelding, geen eigen platformmeting",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "GEBRUIKERSMELDING",
+          "evidence_refs": [
+            "Codex thread 01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3: user report Vanuit het abonnement liep deze sessie tegen het gebruikerslimiet; exact message permalink UNVERIFIED"
+          ],
+          "state": "AANDACHT",
+          "limit_kind": "ABONNEMENT"
+        },
+        "readiness": {
+          "meaning": "Implementation package prepared on PR112; no actual regie succession",
+          "rationale": "Central branch receipt and correction decision recorded; final head gates and main readback required",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "GEBRUIKERSMELDING",
+          "evidence_refs": [
+            "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682"
+          ],
+          "state": "VOORBEREID",
+          "package_ref": "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002.md",
+          "publication": null,
+          "receipt": null,
+          "transfer": null
+        }
+      },
+      "note": "This is not actual central role takeover. Original proposal remains byte/content-identical in prefix; actual publication proof will follow in PR112/Issue111."
     }
   ]
 }

@@ -74,7 +74,8 @@
               "REJECTED",
               "SUPERSEDED",
               "CLOSED",
-              "IMPLEMENTED"
+              "IMPLEMENTED",
+              "ASSESSED"
             ]
           },
           "handoff_assessment": {
@@ -139,9 +140,91 @@
                       "OVERDRACHT_AANBEVOLEN",
                       "LIMIET_BEREIKT"
                     ]
+                  },
+                  "limit_kind": {
+                    "enum": [
+                      "GESPREK",
+                      "ABONNEMENT",
+                      "CONTEXT",
+                      "ONBEKEND"
+                    ]
                   }
                 },
-                "additionalProperties": false
+                "additionalProperties": false,
+                "allOf": [
+                  {
+                    "if": {
+                      "not": {
+                        "required": [
+                          "limit_kind"
+                        ]
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "state": {
+                          "const": "ONBEKEND"
+                        },
+                        "evidence_kind": {
+                          "const": "ONBEKEND"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "state": {
+                          "const": "LIMIET_BEREIKT"
+                        }
+                      },
+                      "required": [
+                        "state"
+                      ]
+                    },
+                    "then": {
+                      "required": [
+                        "limit_kind"
+                      ],
+                      "properties": {
+                        "limit_kind": {
+                          "const": "GESPREK"
+                        },
+                        "evidence_kind": {
+                          "enum": [
+                            "PLATFORMMELDING",
+                            "GEBRUIKERSMELDING"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "limit_kind": {
+                          "enum": [
+                            "ABONNEMENT",
+                            "CONTEXT"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "limit_kind"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "state": {
+                          "enum": [
+                            "ONBEKEND",
+                            "AANDACHT"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               "readiness": {
                 "type": "object",
@@ -343,6 +426,25 @@
               "properties": {
                 "record_type": {
                   "const": "HANDOVER"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "ASSESSED"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "record_type": {
+                  "const": "REVIEW"
                 }
               }
             }

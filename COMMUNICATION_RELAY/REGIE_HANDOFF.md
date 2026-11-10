@@ -1,9 +1,11 @@
-# Regieoverdracht — uitvoerbaar voorstel, revisie 001
+# Regieoverdracht — centraal beoordeelde revisie 002
 
-Status **PROPOSED**, taak [#111](https://github.com/JPouwiel/TETOOLS/issues/111).
-Geen nieuwe norm of main-implementatie geclaimd. Centrale ontwerpbeoordeling en oplossing/
-disposition van de bestaande ASSESSED-gate zijn vereist vóór merge. Bestaande afspraken
-in RELAY_CONTRACT, MANUAL_HANDOFF en OPERATIONS blijven leidend.
+Taak [#111](https://github.com/JPouwiel/TETOOLS/issues/111). Centrale inhoudelijke goedkeuring
+onder voorwaarden A1/A2/A3 en contractcorrectie B: [besluit6769485682](https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682).
+Deze revisie voert die voorwaarden uit. Normatief na gecontroleerde merge en exacte
+main-teruglezing; feitelijk publicatiebewijs wordt achteraf in PR112/Issue111 vastgelegd.
+De vroegere PROPOSED-registratie en revisie001 blijven historisch bewijs, geen actuele norm.
+RELAY_CONTRACT, MANUAL_HANDOFF en OPERATIONS blijven voor hun overige scope leidend.
 
 ## Ontwerp en gegevenslocatie
 
@@ -37,6 +39,16 @@ De statische voorbeeldgegevens staan in tools/test_handoff_review.py en zijn gee
 | GEPUBLICEERD | Pakket op main, exact gecontroleerde PR-head, mergecommit en werkelijke terugleesverwijzing. Ontvangst mag nog ontbreken. |
 | OVERGENOMEN | Tevens zelfstandige broncontrole en expliciete ontvangst opvolger plus bevoegde aanwijzing en exact overdrachtsmoment met tijdzone. |
 
+Elk nieuw capaciteitsoordeel bevat tevens strikt `limit_kind`: GESPREK, ABONNEMENT,
+CONTEXT of ONBEKEND. LIMIET_BEREIKT betekent uitsluitend een gesprekslimiet: GESPREK
+met expliciete platform-/gebruikersbron. ABONNEMENT en CONTEXT mogen uitsluitend ONBEKEND
+of AANDACHT verklaren: een quotaonderbreking of compactie alleen bewijst geen volle chat en
+rechtvaardigt zelfstandig geen OVERDRACHT_AANBEVOLEN. Herstart na quotaherstel kan in dezelfde
+sessie; er wordt geen quota, resetmoment of resterende gesprekstijd voorspeld.
+Voor behoud van het oorspronkelijke onveranderde PROPOSED-record zijn oudere beoordelingen
+zonder limit_kind uitsluitend geldig bij state=ONBEKEND én evidence_kind=ONBEKEND; er wordt
+geen waarschuwing uit afgeleid. Nieuwe beoordelingen schrijven het veld altijd expliciet.
+
 Elk oordeel bevat `state`, `meaning`, `rationale`, `assessed_at` (YYYY-MM-DD), `assessed_by`
 (geregistreerde sessie), `evidence_kind` en `evidence_refs`. Bronsoorten: PLATFORMMELDING,
 METING, GEBRUIKERSMELDING, HEURISTIEK, ONBEKEND. Een meting noemt methode, datum, bereik
@@ -63,6 +75,10 @@ zijn niet zonder meer ChatGPT-producteigenschappen. De geraadpleegde bronnen gev
 betrouwbare algemene voorspeller van het einde van deze chat: capaciteit blijft ONBEKEND.
 Een concrete ChatGPT-limietmelding wordt alleen vastgelegd met haar werkelijke bron;
 geen universeel maximum afleiden uit modelcontext, compacties of chatlengte.
+De [officiële gebruiksdocumentatie](https://learn.chatgpt.com/docs/pricing) beschrijft
+abonnementsgebruik; dit geeft geen resterende gesprekslengte aan. Een gebruikersmelding
+van een abonnementslimiet is bewijssoort GEBRUIKERSMELDING, limit_kind ABONNEMENT,
+hoogstens AANDACHT. De bron wordt niet omgezet in een zelf waargenomen platformmelding.
 
 ## Werkwijze bij geplande overdracht
 
@@ -82,6 +98,9 @@ geen universeel maximum afleiden uit modelcontext, compacties of chatlengte.
    (main en relevante PR-heads). Leg veranderingen/ontbrekende stukken vast; bij materiële
    hiaten geen OVERGENOMEN. Opvolger bevestigt met eigen blijvende identiteit ontvangst,
    gelezen commit/PR-heads, begrepen scope, resterende eigenaren en contextbeperkingen.
+   Ook het effectieve overdrachtsmoment moet op of vóór de beoordelingsdatum vallen,
+   vergeleken als kalenderdatum in de expliciete tijdzone van effective_at. Een toekomstig
+   aanwijzingsmoment mag onder GEPUBLICEERD worden vastgelegd, nog niet als OVERGENOMEN.
 5. Bevoegde gebruiker/centrale regie wijst één opvolger aan; registreer bron van mandaat en
    overdrachtsmoment met tijdzone in een opvolgend HANDOVER-record. Vanaf dat moment bezit
    die opvolger de centrale verantwoordelijkheid. Twee historische ACTIVE-entries bewijzen
@@ -121,5 +140,7 @@ python COMMUNICATION_RELAY/tools/validate_acceptance.py --baseline-ledger baseli
 Gebruik de voorgeschreven aparte Python-omgeving met jsonschema==4.26.0 voor de schemagate.
 baseline.json moet rechtstreeks uit de gelezen main-SHA komen. Een groene aanvullende
 handoffcontrole maakt de bestaande totaalvalidator niet groen. Stop merge bij FAIL conform
-OPERATIONS; geen ASSESSED-historie overschrijven of statuswaarden verruimen als testfix.
-Zie reports/REGIE_HANDOFF_20261110.md voor concrete resultaten, ontwerpbeslissingen en gates.
+OPERATIONS. De centraal goedgekeurde correctie B staat ASSESSED uitsluitend voor REVIEW
+toe; de oorspronkelijke historie blijft gelijk. Andere recordtypes/ongekende statussen
+blijven ongeldig. Zie reports/REGIE_HANDOFF_20261110_REV002.md voor actuele controles;
+reports/REGIE_HANDOFF_20261110.md blijft het oorspronkelijke FAIL-rapport.

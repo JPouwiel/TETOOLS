@@ -1,8 +1,8 @@
 # TETOOLS — startprotocol voor nieuwe sessies (2026-11-03)
 
-> Ontwerpvoorstel voor tijdige regieoverdracht: [REGIE_HANDOFF.md](REGIE_HANDOFF.md),
-> Issue #111. PROPOSED; bestaande norm blijft leidend totdat centrale beoordeling en
-> publicatiegates zijn vervuld. Geen automatische capaciteitsmeting of sessieactivering.
+> Regieoverdracht revisie002: [REGIE_HANDOFF.md](REGIE_HANDOFF.md), Issue #111,
+> centraal besluit6769485682; normatief na geverifieerde PR112-merge/main-teruglezing
+> (feitelijk bewijs achteraf in PR/Issue). Geen automatische meting of sessieactivering.
 
 **Project:** PL/SQL TETOOLS, Oracle Database 19c Enterprise, beoogd 3-node RAC. **Centrale chat:** TETOOLS__REGIE. **Duurzame registratie:** COMMUNICATION_RELAY in deze repository.
 

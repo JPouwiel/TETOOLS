@@ -1,3 +1,9 @@
+# Optie-C-publicatievoorstel - 10 november 2026
+
+Bestaande gebruikerskeuze: vier afzonderlijke fasen F1 STATIC_TEST_PREPARATION, F2 EXECUTION_PREPARATION, F3 ORACLE_RAC_VALIDATION en F4 MODULE_RAC_ACCEPTANCE. [Canonieke besluitverwijzing](DECISIONS.md) `LOG-DEC-OPTION-C-20261110-001` / centraal `REGIE-LOGGER-OPTION-C-PUBLICATION-20261110-001`; [matrix](docs/reports/ADMIN_LOGGER_OPTION_C_ACCEPTANCE_MATRIX_20261110.md) exact uit PR109 en nog steeds documentatievoorstel. Inhoudelijk besluit reeds gekozen; administratieve branchpublicatie PROPOSED, merge/main-readback PENDING. Geen nieuwe norm of uitvoeringstoestemming.
+
+Werkpakket C wijzigt geen PR102/tests/source of andere sessie-entry; onafhankelijke review en module/DBA-uitwerking zijn afzonderlijke opdrachten. LGR4-04/05/10/11 en C02-C06 BLOCKED; G01-G08 OPEN, G09 NOT_GRANTED; Oracle NOT_EXECUTED, RAC_READY NOT_DEMONSTRATED. Centrale regie houdt review/mergegate en concrete besluiten. De eerder gerapporteerde basis/importstatus hieronder blijft historisch intact.
+
 # ADMIN_LOGGER current status
 
 Imported source baseline: 20261015_500. Import date: 2026-11-03.

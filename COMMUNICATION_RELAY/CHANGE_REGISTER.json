@@ -2878,6 +2878,38 @@
         "COMMUNICATION_RELAY/CURRENT_STATUS.md"
       ],
       "note": "Administrative successor to predecessor 67c27cf6-aa30-4b97-b4e2-753c195f277c / actual chat 6ae9e9eb-6400-83eb-859c-580027d25466. Existing entries/history preserved. No duplicated tasks, module decisions, code or frozen changes. Proposed publication; actual merge/readback evidence belongs in PR after execution, not an advance IMPLEMENTED claim."
+    },
+    {
+      "change_id": "REGIE-LOGGER-OPTION-C-PUBLICATION-20261110-001",
+      "record_type": "DECISION_PUBLICATION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Administrative publication proposal for existing user-approved option C: four separate ADMIN_LOGGER acceptance phases",
+      "status": "PROPOSED",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; primary turns a80bab7e-1a33-48aa-bd9a-dfaec4dc6627 and b94ebd42-7693-4c31-81cb-4d901f0b493e; https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6764122808",
+      "origin_session": "6ae9e9eb-6400-83eb-859c-580027d25466",
+      "recorded_by_session": "01a1c472-55b9-7281-882f-53425c5c8937",
+      "approval_actor": "user: existing option-C choice and explicit processing assent, independently read in predecessor chat; this executor grants no new approval",
+      "source_approval_status": "APPROVED_BY_USER_VERIFIED",
+      "recorded_at": "2026-11-10",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "modules/ADMIN_LOGGER/DECISIONS.md",
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_OPTION_C_ACCEPTANCE_MATRIX_20261110.md",
+        "COMMUNICATION_RELAY/reviews/LOGGER_OPTION_C_PUBLICATION_20261110.md",
+        "COMMUNICATION_RELAY/reviews/LOGGER_OPTION_C_PUBLICATION_20261110_EVIDENCE.json",
+        "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6764414199",
+        "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6765310902"
+      ],
+      "acceptance_phases": [
+        "STATIC_TEST_PREPARATION",
+        "EXECUTION_PREPARATION",
+        "ORACLE_RAC_VALIDATION",
+        "MODULE_RAC_ACCEPTANCE"
+      ],
+      "publication_status": "PROPOSED_NOT_MERGED_MAIN_READBACK_PENDING",
+      "note": "PROPOSED is the administrative publication status, not a reopening of the verified user decision. This record preserves the four-phase choice only. PR109 matrix is copied as the exact original proposal blob, not accepted functional norms/thresholds. No stage PASS, code/merge/G09/RAC_READY permission. Technical findings/gates remain with module/DBA; central review and mergegate remain with current TETOOLS__REGIE01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62. Existing LOGGER-RAC-20261105-001/Issue55 and historical FAILs retained."
     }
   ]
 }

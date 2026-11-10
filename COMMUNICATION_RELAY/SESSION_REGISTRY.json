@@ -1020,6 +1020,35 @@
       ],
       "current_activity": null,
       "note": "Actual platform ID verified through list_threads (local host, matching current task/cwd). Central role succeeds predecessor; predecessor entry and every other session left unchanged, no closure or successful completion inferred. Bounded succession/inventory task prepared for publication; ongoing central governance ACTIVE/KEEP, no new execution assignments. Publication requires PR merge and exact main readback; evidence recorded in this PR after execution."
+    },
+    {
+      "session_id": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "session_id_origin": "PLATFORM_ID_VERIFIED_BY_LIST_THREADS_AND_READ_THREAD",
+      "role": "CODEX_IMPLEMENTATION",
+      "module": null,
+      "subject": "Issue111 verbeterde regieoverdracht; bestaande configuratietestsessie hergebruikt",
+      "revision": "002",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-10",
+      "last_confirmed_at": "2026-11-10",
+      "closed_at": null,
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111",
+      "recorded_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "deliverables": [
+        "COMMUNICATION_RELAY/REGIE_HANDOFF.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_EVIDENCE.json",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002_EVIDENCE.json",
+        "https://github.com/JPouwiel/TETOOLS/pull/112"
+      ],
+      "open_dependencies": [
+        "Centrale eindontvangst van finale geverifieerde PR112-publicatie in Issue111"
+      ],
+      "current_activity": null,
+      "note": "Bestaande werkelijke platform-ID; feitelijke uitvoerder zonder centrale regierol. Alleen eigen entry bijgewerkt. Originele FAIL en PROPOSED-record behouden; normatieve publicatie pas na geverifieerde merge/main-readback. KEEP wegens broncontext en finale ontvangst.",
+      "result": "Begrensde implementatie/correcties A1/A2/A3/B gereed; finale geteste materiaalidentiteiten en gates in REV002_EVIDENCE. Werkelijk exact-headmerge/main-readbackbewijs wordt pas na uitvoering in PR112/Issue111 vastgelegd. Centrale ontvangst oorspronkelijke voorstel bevestigd; finale ontvangst afzonderlijk open. Geen chatbeëindiging of verwijderadvies."
     }
   ]
 }

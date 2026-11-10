@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+from handoff_review import validate_registry
 
 
 def append_only(before, after):
@@ -34,6 +35,8 @@ def main():
         Draft202012Validator(schema).validate(data)
     append_only(json.loads(args.baseline_ledger.read_text(encoding='utf-8')),
                 json.loads((args.root / 'CHANGE_REGISTER.json').read_text(encoding='utf-8')))
+    validate_registry(json.loads((args.root / 'CHANGE_REGISTER.json').read_text(encoding='utf-8')),
+                      json.loads((args.root / 'SESSION_REGISTRY.json').read_text(encoding='utf-8')))
     subprocess.run([sys.executable, str(args.root / 'tools' / 'validate_relay.py')], check=True)
     print('PASS: JSON Schema 2020-12 and append-only baseline comparison')
 

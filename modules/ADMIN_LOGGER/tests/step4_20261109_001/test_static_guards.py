@@ -1,4 +1,8 @@
-"""Offline negative regression checks of source safety invariants, never Oracle execution."""
+"""Nine offline methods: 2 positive suites, 6 mutation rejections, 1 prefix analysis.
+
+No Oracle execution or client-input experiments. Seven example values in the
+prefix analysis re-inspect the same source; they are not seven runtime probes.
+"""
 import pathlib,unittest
 from verify_static import check_entry,check_shared_gate
 P=pathlib.Path(__file__).resolve().parent

@@ -36,6 +36,29 @@ def check_entry(s):
     assert not re.search(r'^\s*(?:DECLARE|BEGIN|SELECT|INSERT|UPDATE|DELETE|MERGE|CREATE|ALTER|DROP|TRUNCATE|COMMIT|ROLLBACK|EXEC(?:UTE)?|SPOOL)\b',before,re.M|re.I), 'action before gate'
     assert not re.search(r'^\s*@@',before,re.M),'other include before gate'
 
+EXPECTED_PARENT_PAIRS={
+    ('ADMIN_LOGGER_SESSIONS','TABLE'),('ADMIN_LOGGER_CONFIG','TABLE'),
+    ('ADMIN_LOGGER_LOG','TABLE'),('ADMIN_LOGGER_INCIDENT','TABLE'),
+    ('ADMIN_LOGGER_GUARD','TABLE'),('ADMIN_LOGGER_LOGBATCH_SEQ','SEQUENCE')}
+
+def post_install_parent_query(s):
+    """Extract the actual parent predicate for offline relational-model checks.
+
+    This is source inspection, not an Oracle parser/compiler or client test.
+    """
+    code=sql_code(s)
+    match=re.search(r'SELECT\s+COUNT\(\*\)\s+INTO\s+l_count\s+FROM\s+ALL_OBJECTS\b[^;]*;',code,re.I)
+    assert match,'missing parent query'
+    query=match.group(0)
+    assert re.search(r'\bsubobject_name\s+IS\s+NULL\b',query,re.I),'partition subobjects not excluded'
+    assert re.search(r'\(\s*object_name\s*,\s*object_type\s*\)\s+IN\s*\(',query,re.I),'missing exact name/type pairs'
+    pairs=re.findall(r"\('([A-Z0-9_]+)'\s*,\s*'([A-Z ]+)'\)",query)
+    assert len(pairs)==6 and set(pairs)==EXPECTED_PARENT_PAIRS,'expected five TABLE and one SEQUENCE pairs differ'
+    assert re.search(r"\bowner\s*=\s*'TETOOLS'",query,re.I),'wrong owner predicate'
+    assert re.search(r"\bstatus\s*=\s*'VALID'",query,re.I),'missing VALID predicate'
+    assert re.search(r'IF\s+l_count\s*<>\s*6\s+THEN',code,re.I),'six-parent assertion changed'
+    return re.sub(r'\s+INTO\s+l_count\b','',query,flags=re.I)
+
 def verify(package,repo,ref,main,require_material_match=False):
     checks=[]
     def record(name,fn):
@@ -58,6 +81,7 @@ def verify(package,repo,ref,main,require_material_match=False):
                     out.append({'script':f.name,'line':n,'target':l[2:].strip()})
         return out
     record('include_graph',includes)
+    record('post_install_parent_contract',lambda:post_install_parent_query((package/'scripts/00_post_install.sql').read_text(encoding='utf-8')))
     for path,pin in PINS.items():
         def pincheck(path=path,pin=pin):
             actual=obj(SOURCE_PATH+'/'+path);baseline=obj(SOURCE_PATH+'/'+path,main)

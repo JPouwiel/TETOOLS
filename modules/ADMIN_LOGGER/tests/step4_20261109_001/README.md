@@ -2,6 +2,8 @@
 
 Correction assignment: Issue #104, LOGGER-STEP4-REVIEW-20261109-001 / REGIE-LOGGER-TESTPREP-20261109-001. Existing module owner ADMIN_LOGGER-REGIE-20261104-01. Actual delegated implementer: Codex session a9edd3a9-d49a-4cb8-a102-868f3808e7bf. This implementer wrote the earlier review and **cannot provide the next independent re-review**. Historical PR106 review/evidence remain unchanged.
 
+Second-herreview correction (10 November 2026): actual delegated executor is existing Codex thread 01a1c472-55b9-7281-882f-53425c5c8937. Earlier implementer identity above is historical; no new regie session ID is introduced. Independent PR108 FAIL is retained; RR01/RR02 source/documentation corrections require a new independent full-head review. [Remaining BLOCKED dependencies](blocked_dependencies.md) identify owners, decisions, evidence and technical prerequisites.
+
 **TESTPACKAGE_CORRECTION_ONLY / STATIC_VERIFICATION_ONLY. G09 NOT_GRANTED. Every Oracle result NOT_EXECUTED. PR102 NOT MERGED; no release/RAC readiness.**
 
 ## Safety boundary
@@ -21,7 +23,7 @@ This is a safety stop for trusted, reviewed test source, not a substitute for Or
 
 ## Offline verification (no Oracle)
 
-Run `python verify_static.py --repo <repository> --ref <exact-full-PR-head> --main <read-main-SHA> --require-material-match --out <new-static-report.json>` from this directory, then `python test_static_guards.py`. Python tools read files/Git only: no Oracle client/network/database API. Do not connect simply to test the gate; negative SQL client tests also require authorization.
+Run `python verify_static.py --repo <repository> --ref <exact-full-PR-head> --main <read-main-SHA> --require-material-match --out <new-static-report.json>` from this directory, then `python test_static_guards.py` and `python test_post_install.py`. The original nine source-unittest methods comprise two positive suites, six mutation rejections and one analytical prefixcheck; they are not nine negative Oracle executions. The eight new post-install methods inspect source and evaluate only a synthetic in-memory SQLite metadata model. No Oracle client/network/database connection is used. Do not connect simply to test the gate; negative SQL client tests also require authorization.
 
 The verifier records scope, pins, unchanged source/frozen trees, include graph, case/contract/trace consistency, gate prefix and negative source-mutation tests. JSON Schema is separately reported NOT_EXECUTED when jsonschema is unavailable; the pre-existing relay ASSESSED mismatch is not repaired here. A static check does not prove PL/SQL compilation, SQL*Plus error routing or RAC behavior.
 

@@ -1,7 +1,7 @@
 {
   "verification": "STATIC_SOURCE_ONLY",
   "require_material_match": true,
-  "ref": "61c476eb4e33ed2c7a1e1e1542e5f3954a2e2ff6",
+  "ref": "d2f42960c259d5a4801511b7fd26b8c50dff6665",
   "main": "28adcf32d04f6f6e7d0e2551010abb30f1c974c5",
   "oracle_connection": "NOT_USED",
   "oracle_execution": "NOT_EXECUTED",
@@ -310,6 +310,11 @@
       ]
     },
     {
+      "check": "post_install_parent_contract",
+      "status": "PASS",
+      "detail": "SELECT COUNT(*) FROM ALL_OBJECTS WHERE owner='TETOOLS'\n    AND subobject_name IS NULL\n    AND (object_name, object_type) IN (\n      ('ADMIN_LOGGER_SESSIONS','TABLE'),\n      ('ADMIN_LOGGER_CONFIG','TABLE'),\n      ('ADMIN_LOGGER_LOG','TABLE'),\n      ('ADMIN_LOGGER_INCIDENT','TABLE'),\n      ('ADMIN_LOGGER_GUARD','TABLE'),\n      ('ADMIN_LOGGER_LOGBATCH_SEQ','SEQUENCE'))\n    AND status='VALID';"
+    },
+    {
       "check": "pin:PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
       "status": "PASS",
       "detail": {
@@ -377,12 +382,16 @@
       "check": "full_head_scope",
       "status": "PASS",
       "detail": [
+        "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "modules/ADMIN_LOGGER/OPEN_POINTS.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/api_inventory.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/casebook.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/cases.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/dependencies.json",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/env.template.sql",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/environment.template.md",
@@ -414,6 +423,8 @@
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/70_T07_rac.sql",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/80_T08_evidence.sql",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/90_cleanup.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/traceability.md",
         "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py"
@@ -470,6 +481,13 @@
           "sha256": "2a5cb4d2b4ce83624062f66cf9410c72e7b1e875e35db4649d31dba8c58446f8",
           "git_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
           "ref_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
+          "matches_ref": true
+        },
+        {
+          "path": "blocked_dependencies.md",
+          "sha256": "324971e6b9eb07293f96d95ae29b0847520a3cab9e2474aedd135ab98e930b4a",
+          "git_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+          "ref_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
           "matches_ref": true
         },
         {
@@ -537,9 +555,9 @@
         },
         {
           "path": "README.md",
-          "sha256": "da5033eb143b5d329d0e6856e54b03bc371538a35c042121c42cf004663beb49",
-          "git_blob": "42d3fcb4bc75a5ff16ce729c7cf6614fa0977433",
-          "ref_blob": "42d3fcb4bc75a5ff16ce729c7cf6614fa0977433",
+          "sha256": "18a6714a55d6343fae1d0e4b58f2b34c83b119647cfd5dde57b8714fd1f4dde1",
+          "git_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+          "ref_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
           "matches_ref": true
         },
         {
@@ -551,9 +569,9 @@
         },
         {
           "path": "scripts/00_post_install.sql",
-          "sha256": "b4c6e6670ca5a03b7b39776e1092372d0ff0c6d2a99983feae159808b7de2a58",
-          "git_blob": "3265ee64a4af1eb5bd61087e9cbb3d5702a44d9d",
-          "ref_blob": "3265ee64a4af1eb5bd61087e9cbb3d5702a44d9d",
+          "sha256": "cad8192ea261b695f66031d3bff2ffbf10a5b17046bd43a7dd1e823019e05222",
+          "git_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+          "ref_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
           "matches_ref": true
         },
         {
@@ -712,16 +730,23 @@
         },
         {
           "path": "STATIC_VERIFICATION.md",
-          "sha256": "570588e4442ae46a61ed443975582b61528587e14e9637eaf8721828aec5fb88",
-          "git_blob": "9b706757a8722d09b323b81325e0d685fdfcb93f",
-          "ref_blob": "9b706757a8722d09b323b81325e0d685fdfcb93f",
+          "sha256": "b64a176756d61e858877b7e5597f0f8560d90f0c3e9d3bf96df074000d252d83",
+          "git_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+          "ref_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+          "matches_ref": true
+        },
+        {
+          "path": "test_post_install.py",
+          "sha256": "24883faf4892c1045f9b237434696cd31e82cb5e278e82f3a61f17b28cf07317",
+          "git_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+          "ref_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
           "matches_ref": true
         },
         {
           "path": "test_static_guards.py",
-          "sha256": "d97c95d2cce7c1d326f77f6ffff7f669f9c3ed760877437d32da9dd91fade203",
-          "git_blob": "cbad1e9e4c795643701c9bec79065490dd36b674",
-          "ref_blob": "cbad1e9e4c795643701c9bec79065490dd36b674",
+          "sha256": "a1a2e709b0d021f835132d6e080d43826e94a8d258dcc578b2ea7744b5db1419",
+          "git_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+          "ref_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
           "matches_ref": true
         },
         {
@@ -733,9 +758,9 @@
         },
         {
           "path": "verify_static.py",
-          "sha256": "acaff9ec4f19c92de0ee5bb4d16b55a4788783028be362f701d7fc21902f591c",
-          "git_blob": "3749bc3ac67c80472311d72fb4602acdc29446b9",
-          "ref_blob": "3749bc3ac67c80472311d72fb4602acdc29446b9",
+          "sha256": "93ee0886dcbd3e3a8544c74309b905096ff5dffcceb74cb2e7c546a7747b228f",
+          "git_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
+          "ref_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
           "matches_ref": true
         }
       ]
@@ -747,177 +772,86 @@
     "Future execution-enabled authorization artifact not supplied or approved",
     "Audit output files excluded from their own material comparison; final full-head Git inventory is separate"
   ],
-  "code_commit": "61c476eb4e33ed2c7a1e1e1542e5f3954a2e2ff6",
-  "negative_source_tests": {
-    "tests": 9,
+  "code_commit": "d2f42960c259d5a4801511b7fd26b8c50dff6665",
+  "original_reviewed_head": "613f294cba8242c8fa1ff288b5d86653e52f4830",
+  "actual_executor": "01a1c472-55b9-7281-882f-53425c5c8937",
+  "existing_module_session": "ADMIN_LOGGER-REGIE-20261104-01",
+  "source_unittest_methods": {
+    "file": "test_static_guards.py",
+    "total": 9,
+    "positive_source_suites": 2,
+    "mutation_rejections": 6,
+    "analytical_prefixchecks": 1,
     "result": "PASS",
+    "oracle_execution": "NOT_EXECUTED",
+    "note": "Seven example prefix values inspect the same source, not seven client scenarios"
+  },
+  "post_install_regressions": {
+    "file": "test_post_install.py",
+    "methods": 8,
+    "result": "PASS",
+    "method": "source-contract checks and synthetic in-memory SQLite metadata model only",
+    "scenarios": [
+      "exact six typed parents",
+      "three and fifty extra partitions",
+      "missing parent plus partitions",
+      "wrong type for each of six parents",
+      "INVALID or other-owner parent",
+      "source missing subobject filter",
+      "legacy false rejection9 and false acceptance6",
+      "altered expected pair"
+    ],
     "oracle_execution": "NOT_EXECUTED"
   },
   "github_readback": {
     "files": [
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/api_inventory.json",
-        "sha": "4ef196c18498a050021c2b24ed9f8b24d6b623a6"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/casebook.md",
-        "sha": "82620dfe51a5993186f77725736a5ea9601fbd9c"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/cases.json",
-        "sha": "8be96a9988b3964f5686ea435653e30f924fded4"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/dependencies.json",
-        "sha": "2e3c1b47725d09f3868cf1a0b2244c2cda461062"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/env.template.sql",
-        "sha": "fa3365833bf0e88c36a8113a617d2dc8eb07d789"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/environment.template.md",
-        "sha": "9b3650aa0c992f8fec6ce9b7f09c716c7cc9377d"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/fixtures.md",
-        "sha": "cb2f4a9f0be2f3f70dcc5f76bee620d886c7ab2e"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/manifest.md",
-        "sha": "1df8b3334d4aca22923d86b0fbcb31c791eb8b99"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/privileges.md",
-        "sha": "82d08e4e86ddad5019ef912f2708b2c563ba030a"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/procedures.md",
-        "sha": "cdc1d7a2c3b0aa10b972ea8ebac26244bc80af83"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
-        "sha": "42d3fcb4bc75a5ff16ce729c7cf6614fa0977433"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/results_template.csv",
-        "sha": "47479e8b4d031efecad0f905482690d16c2f71df"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
-        "sha": "9b706757a8722d09b323b81325e0d685fdfcb93f"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
-        "sha": "cbad1e9e4c795643701c9bec79065490dd36b674"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/traceability.md",
-        "sha": "0cbfc4c3c15de2ba1b135d8f63cee2db688b4503"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+        "sha": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+        "exact": true
       },
       {
         "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py",
-        "sha": "3749bc3ac67c80472311d72fb4602acdc29446b9"
+        "sha": "c378957737503b3a63c3995e7b08c080b0e32024",
+        "exact": true
       },
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
-        "sha": "3265ee64a4af1eb5bd61087e9cbb3d5702a44d9d"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
+        "sha": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+        "exact": true
       },
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_preflight.sql",
-        "sha": "03b62bad7511fca9cc421000431b1555b31a7e8a"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
+        "sha": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+        "exact": true
       },
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
-        "sha": "4fcc0f9ccb8d612f0794dde6a625e046676acc03"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
+        "sha": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+        "exact": true
       },
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/10_install.sql",
-        "sha": "11579aebb24ed58dba66ca2dc3a5b74e3e7db901"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+        "sha": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+        "exact": true
       },
       {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/20_T02_compile.sql",
-        "sha": "c8dd19ba709a3a00248747a93031cedf9b6ed575"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/30_T03_functional.sql",
-        "sha": "63afdaf0d9b83e8bb286b9bc0ddf8b6c59758b09"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/31_T03_incident.sql",
-        "sha": "f4fa661f27c5c7d6309322434057352ce77241db"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/40_T04_regression.sql",
-        "sha": "ef57f557947d2ffb19de01d96acb5d07bae5cb71"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/41_T04_overloads.sql",
-        "sha": "7716a5a39529bf011860eef939c4157953e8ef74"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/42_T04_configuration.sql",
-        "sha": "1efb7c6159ff8ceab74b8baa344a1051d80ddf5d"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/50_T05_security.sql",
-        "sha": "13d4cc128b93e5ee15dabe21cf25771ce57b7082"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/51_C01_caller_rollback.sql",
-        "sha": "7d737c84e664acbb85129e2ccc743093c2aa5f28"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/52_C01_fixture.sql",
-        "sha": "0396452fba96aed167549c365bd3e99ae10c8f72"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/53_T05_positive_consumer.sql",
-        "sha": "b38f62fa375c2d5b54d7e972b377204b2417e8aa"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/54_T05_negative_consumer.sql",
-        "sha": "840cbcde499be8461845dd8b3e5f7dcb1832ef3c"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/60_T06_concurrency.sql",
-        "sha": "7b0e1838e0b38933b53aceea58f8d36db2792047"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/61_T06_guard_client_A.sql",
-        "sha": "cad7041a6f50a2a323b9e36366a19965b7febe92"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/62_T06_guard_client_B.sql",
-        "sha": "31794c4faca3272f32424303924e966a5cf7b125"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/63_T06_guard_release_A.sql",
-        "sha": "52dba6f71fc196363bf8a4e7bc243eddd352abd4"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/64_T06_guard_reacquire_B.sql",
-        "sha": "3c3f4c3998e7f68d2cd6f0c594978f1a36ab5d96"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/70_T07_rac.sql",
-        "sha": "0ca42a6ca52a9a3e3ce00fca7e5d91bb74a05667"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/80_T08_evidence.sql",
-        "sha": "e55bc8f2b1484dac58f6f7b1c3afb2b4b75f4afb"
-      },
-      {
-        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/90_cleanup.sql",
-        "sha": "2c1b4f4e6ec1b571e93d89022901f0ead294c780"
+        "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
+        "sha": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+        "exact": true
       }
     ],
-    "all_exact": true
+    "all_exact": true,
+    "scope": "seven code/doc files on exact code commit; final complete-head readback reported in Issue104 after audit publication"
   },
   "relay_validation": {
     "baseline": "FAIL: REGIE-LOGGER-READINESS-20261109 invalid change status ASSESSED",
+    "proposal": "FAIL: same single historical ASSESSED error as baseline",
     "schema": "NOT_EXECUTED: jsonschema unavailable",
     "historical_record": "UNCHANGED",
     "total_gate": "NOT_PASS"
-  }
+  },
+  "historical_evidence": "https://github.com/JPouwiel/TETOOLS/blob/613f294cba8242c8fa1ff288b5d86653e52f4830/modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+  "full_head_boundary": "This evidence ref is the exact code commit. Audit files exclude their own material hash; final audit head/tree/readback and repeated42check result are recorded separately in Issue104/PR102. No circular self-hash claim.",
+  "intermediate_verification": "An initial local import had CRLF/commit-metadata mismatch and an unavailable-ref checker run failed. Exact Git object bytes were then imported and the complete exact-codecommit run passed42/42. No failed attempt is claimed PASS."
 }

@@ -496,7 +496,7 @@
         "HIST-01",
         "HIST-02",
         "HIST-03",
-        "https://github.com/JPouwiel/TETOOLS/issues/45 — WAITING_RECEIPT"
+        "https://github.com/JPouwiel/TETOOLS/issues/45 \u2014 WAITING_RECEIPT"
       ],
       "artifact_refs": [
         "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
@@ -1432,7 +1432,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 2: Zes technische ontwikkelcategorieën",
+      "subject": "Besluit 2: Zes technische ontwikkelcategorie\u00ebn",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1445,7 +1445,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorieën verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
+      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorie\u00ebn verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1482,7 +1482,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 4: Acht testcategorieën",
+      "subject": "Besluit 4: Acht testcategorie\u00ebn",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1495,7 +1495,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Iedere beoordeling omvat expliciet acht categorieën: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
+      "decision": "Iedere beoordeling omvat expliciet acht categorie\u00ebn: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1507,7 +1507,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 5: ADMIN_LOGGER officiële pilot",
+      "subject": "Besluit 5: ADMIN_LOGGER offici\u00eble pilot",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1520,7 +1520,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "ADMIN_LOGGER is de officiële eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
+      "decision": "ADMIN_LOGGER is de offici\u00eble eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1532,7 +1532,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 6: Integrale herbeoordeling vóór refactoringontwerp",
+      "subject": "Besluit 6: Integrale herbeoordeling v\u00f3\u00f3r refactoringontwerp",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1620,7 +1620,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorieën, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
+      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorie\u00ebn, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1657,7 +1657,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 11: Functionele baseline vóór ontwerp",
+      "subject": "Besluit 11: Functionele baseline v\u00f3\u00f3r ontwerp",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1670,7 +1670,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Vóór het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
+      "decision": "V\u00f3\u00f3r het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1735,7 +1735,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 2: Zes technische ontwikkelcategorieën",
+      "subject": "Besluit 2: Zes technische ontwikkelcategorie\u00ebn",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1748,7 +1748,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-002",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorieën verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
+      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorie\u00ebn verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1791,7 +1791,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 4: Acht testcategorieën",
+      "subject": "Besluit 4: Acht testcategorie\u00ebn",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1804,7 +1804,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-004",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Iedere beoordeling omvat expliciet acht categorieën: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
+      "decision": "Iedere beoordeling omvat expliciet acht categorie\u00ebn: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1819,7 +1819,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 5: ADMIN_LOGGER officiële pilot",
+      "subject": "Besluit 5: ADMIN_LOGGER offici\u00eble pilot",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1832,7 +1832,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-005",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "ADMIN_LOGGER is de officiële eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
+      "decision": "ADMIN_LOGGER is de offici\u00eble eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1847,7 +1847,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 6: Integrale herbeoordeling vóór refactoringontwerp",
+      "subject": "Besluit 6: Integrale herbeoordeling v\u00f3\u00f3r refactoringontwerp",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1944,7 +1944,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-009",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorieën, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
+      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorie\u00ebn, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1987,7 +1987,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 11: Functionele baseline vóór ontwerp",
+      "subject": "Besluit 11: Functionele baseline v\u00f3\u00f3r ontwerp",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -2000,7 +2000,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-011",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Vóór het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
+      "decision": "V\u00f3\u00f3r het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -2879,6 +2879,28 @@
         "https://github.com/JPouwiel/TETOOLS/pull/102"
       ],
       "note": "Actual implementer is prior reviewer a9edd3a9-d49a-4cb8-a102-868f3808e7bf acting by explicit delegation; next independent review must be by another session. Six pins and source/frozen preservation verified. All DB NOT_EXECUTED; G09 NOT_GRANTED. Existing LOGGER-RAC-20261105-001 reused, no duplicate or disposition. Branch-only publication; main merge/readback pending. Historical review/evidence and ASSESSED baseline record unchanged; total relay gate not PASS."
+    },
+    {
+      "change_id": "LOGGER-STEP4-RR-CORRECTION-20261110-001",
+      "record_type": "REVIEW_CORRECTION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "RR01 typed parent-object metadata check; RR02 exact offline evidence classification; blocked dependency matrix",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6763336114",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "01a1c472-55b9-7281-882f-53425c5c8937",
+      "approval_actor": "User explicitly delegates TESTPACKAGE_CORRECTION_ONLY / STATIC_VERIFICATION_ONLY; no merge, source, Oracle or G09 approval",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "supersedes": null,
+      "artifact_refs": [
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+        "https://github.com/JPouwiel/TETOOLS/commit/d2f42960c259d5a4801511b7fd26b8c50dff6665"
+      ],
+      "note": "Correction self-verification, not independent acceptance; historical FAILs retained. LGR4-04/05/10/11 and C02-C06 BLOCKED; G01-G08 open, G09 NOT_GRANTED. Existing LOGGER-RAC signal/Issue55 retained; independent full-head review requested after final branch publication; no merge/main claim."
     }
   ]
 }

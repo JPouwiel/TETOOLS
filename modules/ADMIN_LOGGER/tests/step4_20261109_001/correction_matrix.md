@@ -1,3 +1,27 @@
+# Second-herreview correction - 10 November 2026
+
+Assignment: RELAY-HANDOFF-20261110-LOGGER-REREVIEW-001 / Issue104; central receipt6762869095, independent report6762681287 and PR108 `f6e1c9194ae4afe6799bb6470f93aa68e63d667b`. Actual executor: existing Codex thread `01a1c472-55b9-7281-882f-53425c5c8937`, explicitly delegated for existing `ADMIN_LOGGER-REGIE-20261104-01`. No new regie session ID. Own receipt6763336114; activity commit `884c0f9ce0ef746743554c839cdbe29f4a5c2575`. Original reviewed PR102 head `613f294cba8242c8fa1ff288b5d86653e52f4830`. No source/frozen or public API/datatype/grant changes. TESTPACKAGE_CORRECTION_ONLY / STATIC_VERIFICATION_ONLY; no merge or Oracle/client execution.
+
+## Current finding-to-commit-to-evidence matrix
+
+| Finding | Current status | Exact changed files (package-relative) | Exact code commit | Executed evidence / negative scenarios | Remaining limit |
+|---|---|---|---|---|---|
+| LGR4-RR-01 (P2), linked LGR4-03 | CORRECTED_PENDING_INDEPENDENT_REVIEW | scripts/00_post_install.sql; verify_static.py; test_post_install.py; README.md; STATIC_VERIFICATION.md | `d2f42960c259d5a4801511b7fd26b8c50dff6665` | Five TABLE and one SEQUENCE name/type pairs plus SUBOBJECT_NAME IS NULL; 42 static checks PASS and 8 offline metadata/source methods PASS. 3/50 partitions do not alter count6; missing/wrong-type/INVALID/other-owner parents yield5; legacy9 false rejection and5parents+1partition false acceptance6 reproduced; absent subobject guard/altered pair rejected | SQLite metadata model/source checks are not Oracle parser/compiler/runtime or real ALL_OBJECTS evidence. Independent full-head review pending; G09 NOT_GRANTED |
+| LGR4-RR-02 (P3) | CORRECTED_PENDING_INDEPENDENT_REVIEW | test_static_guards.py docstring; STATIC_VERIFICATION.md; README.md; this matrix and static_evidence.json (audit follow-up) | `d2f42960c259d5a4801511b7fd26b8c50dff6665` for source/docs; final audit commit identified in Issue104 | Original nine methods executed PASS and precisely classified: TWO positive source suites, SIX mutation rejections, ONE analytical prefixcheck; eight new post-install methods separately reported | No nine negative Oracle executions, no seven client-input experiments; client/error/SQL runtime NOT_EXECUTED |
+| LGR4-04/05/10/11 | BLOCKED | blocked_dependencies.md; this matrix; README.md | `d2f42960c259d5a4801511b7fd26b8c50dff6665` for full dependency matrix | Each dependency has responsible owner, required decision, required evidence, technical dependency and remaining blocker; no closure or waiver | Actual incident-PK fixture; full regression/maintenance/027/consumers; inject/watchdog/races/benchmark/recovery; actual principals/direct-public grants/PDB visibility/maintenance authorization all still require evidence |
+
+Full remaining owner/decision/evidence/technical/blocker matrix: [blocked_dependencies.md](blocked_dependencies.md). All four findings remain BLOCKED; C02-C06 BLOCKED. G01-G08 open and not signed off; G09 NOT_GRANTED. Existing LOGGER-RAC-20261105-001 / Issue55 and both historical independent FAILs are retained. Existing source/frozen and historical review documents are unchanged.
+
+## Current verification / publication boundary
+
+[static_evidence.json](static_evidence.json) records an actual exact-codecommit `d2f42960c259d5a4801511b7fd26b8c50dff6665` run:42/42 source checks PASS with require-material-match=true and41 non-audit package payloads matching Git blobs; all7 code/doc changes read back exactly via GitHub. Both unittest suites (9 methods and8 methods) executed offline PASS. Final complete head additionally includes audit/relay updates; exact full-head repeated verification/readback belongs in Issue104 and PR102 after publication, avoiding circular audit hashes. Implementer self-verification is not independent acceptance and does not lift FAIL/mergeblock.
+
+The stdlib relay validator's historical ASSESSED error is not repaired. JSON Schema NOT_EXECUTED if jsonschema is unavailable; no green total relay gate. Module regie remains ACTIVE/KEEP; bounded correction activity is removed in final audit. Handoff/independent receipt pending, no CLOSED. Branch publication only; no main registration/merge claim.
+
+## Original correction snapshot - 9 November 2026 (historical)
+
+The following table records the previous implementation and its statuses, before independent PR108 rejected LGR4-03. Its LGR4-03 status is superseded only by the current RR01 row above; no historical independent result is overwritten. RR02 test-count wording is clarified below while the original Git version remains available at the original reviewed head.
+
 # Finding-to-commit-to-evidence matrix — correction delivery
 
 Assignment: Issue #104 / LOGGER-STEP4-REVIEW-20261109-001. Existing module session ADMIN_LOGGER-REGIE-20261104-01; delegated actual implementer a9edd3a9-d49a-4cb8-a102-868f3808e7bf. No new session ID. Historical independent report/evidence unchanged. The former reviewer now implements corrections and is NOT independent for re-review.
@@ -22,7 +46,7 @@ Assignment: Issue #104 / LOGGER-STEP4-REVIEW-20261109-001. Existing module sessi
 
 ## Verification and limitations
 
-[static_evidence.json](static_evidence.json) contains41 source checks PASS on the exact published code head with require-material-match=true (39 payload files),6 source pins, source/frozen preservation and full diff/trace/IDs.9 source-invariant negative tests PASS; no SQL was executed. All39 code files were fetched via GitHub and matched exact text after publication. The complete final head is separately rechecked after audit metadata; audit files are excluded from their own hash comparison to avoid circularity, but included in the full Git tree/readback.
+[static_evidence.json](static_evidence.json) contains41 source checks PASS on the exact published code head with require-material-match=true (39 payload files),6 source pins, source/frozen preservation and full diff/trace/IDs.9 source-unittest methods PASS: 2 positive suites, 6 mutation rejections, 1 analytical prefixcheck; no Oracle/client negative execution took place (RR02 clarification). All39 code files were fetched via GitHub and matched exact text after publication. The complete final head is separately rechecked after audit metadata; audit files are excluded from their own hash comparison to avoid circularity, but included in the full Git tree/readback.
 
 Existing relay stdlib validator FAIL is reproduced on unchanged main and the proposed registry: REGIE-LOGGER-READINESS-20261109 has historical status ASSESSED, not in the allowed status vocabulary. That historical record is unchanged; no repair authorized. JSON Schema NOT_EXECUTED because jsonschema is unavailable. JSON parse/unique IDs/prefix preservation and only-authorized module-entry edits checked separately. No green total acceptance gate.
 

@@ -1,3 +1,13 @@
+# Centrale regieoverdracht — peildatum 10 november 2026
+
+Op expliciet gebruikersverzoek volgt Codex-sessie `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62` de volle TETOOLS__REGIE-chat `6ae9e9eb-6400-83eb-859c-580027d25466` op. [Gecontroleerde inventaris en overdracht](SESSIONS/REGIE/20261110_SUCCESSION.md), basis main `28adcf32d04f6f6e7d0e2551010abb30f1c974c5`. Voorganger en andere sessie-entries blijven ongewijzigd; geen afsluiting of succesvolle afronding daarvan geclaimd.
+
+Actueel: issues #104, #55 en #30 OPEN; PR102 OPEN op afb5330ac538cb913e7d5e3eb8d92c7daeddc123, PR107/108/109 OPEN/DRAFT. Nieuwe onafhankelijke volledige PR102-headreview: ontvangst/resultaat PENDING. Optie C door gebruiker gekozen, modulematrix PR109 aangeboden en centraal als documentatievoorstel ontvangen; formele centrale/modulebesluitregistratie op main PENDING. Bestaande mergebeperkingen blijven gelden. LGR4-04/05/10/11, elf dependencies en C02-C06 BLOCKED; G01-G08 OPEN, G09 NOT_GRANTED. Geen nieuwe opdrachten.
+
+Canonieke standaard rev002 en modulevolgorde van 9 november blijven leidend. Suite-RAC-signalen hebben bestaande INVESTIGATE-dispositions; moduleonderzoek en DBA-bewijs blijven open. Oracle NOT_EXECUTED; RAC NOT_DEMONSTRATED. Dit is een administratieve opvolging, geen inhoudelijke wijziging of technische vrijgave. Eigen centrale rol ACTIVE/KEEP; begrensde overdrachtsactiviteit afgerond, current_activity=null. Deze toevoeging wordt via eigen PR gepubliceerd; merge/main-readback-bewijs wordt pas na uitvoering in die PR vastgelegd.
+
+Onderstaande gedateerde passages blijven historische momentopnamen; hun oude wachtstatussen of PROPOSED-policytekst heropenen geen inmiddels genomen besluiten.
+
 ## Publicatiebewijs beleidskader 1-12 - 6 november 2026
 
 [PR #71](https://github.com/JPouwiel/TETOOLS/pull/71) gemerged: `90934cee542bbb61599fadf8012fb27685e0d860`. Vijf gewijzigde tekstbestanden en het zes pagina's tellende PDF-overzicht zijn exact vanaf main teruggelezen; 399 overige bestaande blobidentiteiten behouden. REGIE-POLICY-READBACK-20261106-001..012 zijn de formele APPROVED-opvolgregistraties; de twaalf oorspronkelijke publicatievoorstellen blijven ongewijzigd bewaard. Geen technische implementatievrijgave. Validator, beide schema's en append-only vergelijking PASS met jsonschema 4.26.0. Eigen afgebakende registratietaak COMPLETED/KEEP; overige technische en beleidsuitwerking blijft bij bestaande regies.

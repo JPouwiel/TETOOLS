@@ -1,5 +1,9 @@
 # COMMUNICATION_RELAY — gebruikscontract v1
 
+> Aanvullend uitvoerbaar voorstel: [REGIE_HANDOFF.md](REGIE_HANDOFF.md), Issue #111.
+> Capaciteit en overdrachtsgereedheid worden afzonderlijk onderbouwd in optionele
+> HANDOVER-gegevens; PROPOSED, geen wijziging van current_activity of bestaand mandaat.
+
 Project: PLSQL_TETOOLS. Scope: projectbreed; module-inhoud blijft bij de module. Canonieke actuele status: CURRENT_STATUS.md. Module-index: MODULE_REGISTRY.md. Sessieregister: SESSION_REGISTRY.json. Historie van afspraken/besluiten/open punten: module-DECISIONS.md, REQUIREMENTS.md en OPEN_POINTS.md, met CHANGE_REGISTER.json voor mutaties en Git PR/commits voor bewijs.
 
 ## Sessies

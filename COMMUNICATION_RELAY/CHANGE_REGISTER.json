@@ -2878,6 +2878,48 @@
         "COMMUNICATION_RELAY/CURRENT_STATUS.md"
       ],
       "note": "Administrative successor to predecessor 67c27cf6-aa30-4b97-b4e2-753c195f277c / actual chat 6ae9e9eb-6400-83eb-859c-580027d25466. Existing entries/history preserved. No duplicated tasks, module decisions, code or frozen changes. Proposed publication; actual merge/readback evidence belongs in PR after execution, not an advance IMPLEMENTED claim."
+    },
+    {
+      "change_id": "RELAY-HANDOFF-READINESS-20261110-001",
+      "record_type": "HANDOVER",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Uitvoerbaar ontwerpvoorstel tijdige regieoverdracht; geen feitelijke regieovername",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111",
+      "origin_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_at": "2026-11-10",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/REGIE_HANDOFF.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110.md"
+      ],
+      "handoff_assessment": {
+        "capacity": {
+          "meaning": "Geen onderbouwde capaciteitsuitspraak",
+          "rationale": "Geen relevante platformmelding of betrouwbare resterende-capaciteitsmeting beschikbaar",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "ONBEKEND",
+          "evidence_refs": [],
+          "state": "ONBEKEND"
+        },
+        "readiness": {
+          "meaning": "Ontwerp wordt voorbereid; geen feitelijke overdracht gereed verklaard",
+          "rationale": "Geen gepubliceerde/ontvangen regieoverdracht in deze uitvoeringsopdracht; ontwerp- en totaalvalidatiegates open",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "ONBEKEND",
+          "evidence_refs": [],
+          "state": "ONVOLLEDIG",
+          "package_ref": null,
+          "publication": null,
+          "receipt": null,
+          "transfer": null
+        }
+      }
     }
   ]
 }

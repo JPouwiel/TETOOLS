@@ -1,0 +1,81 @@
+{
+  "baseline_commit": "b7e035b00bfc115e815b52e8e388a002f0edfeae",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "jsonschema": "4.26.0",
+  "baseline": {
+    "SESSION_REGISTRY_schema": [],
+    "CHANGE_REGISTER_schema": [
+      {
+        "path": [
+          "records",
+          115,
+          "status"
+        ],
+        "message": "'ASSESSED' is not one of ['PROPOSED', 'APPROVED', 'REJECTED', 'SUPERSEDED', 'CLOSED', 'IMPLEMENTED']"
+      }
+    ],
+    "stdlib": {
+      "exit_code": 1,
+      "stdout": "FAIL\nREGIE-LOGGER-READINESS-20261109: invalid change status\n",
+      "stderr": ""
+    },
+    "tests": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_append_successor_preserves_original (test_acceptance.AppendOnlyTests.test_append_successor_preserves_original) ... ok\ntest_mutation_removal_and_reorder_fail (test_acceptance.AppendOnlyTests.test_mutation_removal_and_reorder_fail) ... ok\ntest_object_key_order_is_immaterial (test_acceptance.AppendOnlyTests.test_object_key_order_is_immaterial) ... ok\ntest_activity_cannot_be_eligible_for_deletion (test_current_activity.ActivityTests.test_activity_cannot_be_eligible_for_deletion) ... ok\ntest_actual_registry_cli_is_read_only_and_repeatable (test_current_activity.ActivityTests.test_actual_registry_cli_is_read_only_and_repeatable) ... ok\ntest_confirmation_and_recorder_required (test_current_activity.ActivityTests.test_confirmation_and_recorder_required) ... ok\ntest_invalid_and_extra_fields_rejected (test_current_activity.ActivityTests.test_invalid_and_extra_fields_rejected) ... ok\ntest_malformed_objects_rejected (test_current_activity.ActivityTests.test_malformed_objects_rejected) ... ok\ntest_old_entries_absent_or_null_remain_valid (test_current_activity.ActivityTests.test_old_entries_absent_or_null_remain_valid) ... ok\ntest_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger (test_current_activity.ActivityTests.test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger) ... FAIL\ntest_report_shows_activity_and_escapes_table_content (test_current_activity.ActivityTests.test_report_shows_activity_and_escapes_table_content) ... ok\ntest_stale_activity_is_not_deleted_or_inferred_inactive (test_current_activity.ActivityTests.test_stale_activity_is_not_deleted_or_inferred_inactive) ... ok\ntest_terminal_states_require_clear (test_current_activity.ActivityTests.test_terminal_states_require_clear) ... ok\ntest_work_wait_block_resume_clear_and_new_task (test_current_activity.ActivityTests.test_work_wait_block_resume_clear_and_new_task) ... ok\ntest_conservative_even_without_open_dependencies (test_session_retention_review.ReviewTests.test_conservative_even_without_open_dependencies) ... ok\ntest_duplicate_id_fails (test_session_retention_review.ReviewTests.test_duplicate_id_fails) ... ok\ntest_keep_never_overridden (test_session_retention_review.ReviewTests.test_keep_never_overridden) ... ok\ntest_old_confirmation_not_deletion (test_session_retention_review.ReviewTests.test_old_confirmation_not_deletion) ... ok\ntest_report_has_safety_steps (test_session_retention_review.ReviewTests.test_report_has_safety_steps) ... ok\n\n======================================================================\nFAIL: test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger (test_current_activity.ActivityTests.test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\jeroen\\AppData\\Local\\Temp\\handoff111-vkgbxxyu\\COMMUNICATION_RELAY\\tools\\test_current_activity.py\", line 134, in test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger\n    self.assertEqual(good.returncode, 0, good.stdout.decode())\nAssertionError: 1 != 0 : FAIL\n\nREGIE-LOGGER-READINESS-20261109: invalid change status\n\n\n\n----------------------------------------------------------------------\nRan 19 tests in 2.012s\n\nFAILED (failures=1)\n"
+    }
+  },
+  "proposal": {
+    "SESSION_REGISTRY_schema": [],
+    "CHANGE_REGISTER_schema": [
+      {
+        "path": [
+          "records",
+          115,
+          "status"
+        ],
+        "message": "'ASSESSED' is not one of ['PROPOSED', 'APPROVED', 'REJECTED', 'SUPERSEDED', 'CLOSED', 'IMPLEMENTED']"
+      }
+    ],
+    "stdlib": {
+      "exit_code": 1,
+      "stdout": "FAIL\nREGIE-LOGGER-READINESS-20261109: invalid change status\n",
+      "stderr": ""
+    },
+    "tests": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_append_successor_preserves_original (test_acceptance.AppendOnlyTests.test_append_successor_preserves_original) ... ok\ntest_mutation_removal_and_reorder_fail (test_acceptance.AppendOnlyTests.test_mutation_removal_and_reorder_fail) ... ok\ntest_object_key_order_is_immaterial (test_acceptance.AppendOnlyTests.test_object_key_order_is_immaterial) ... ok\ntest_activity_cannot_be_eligible_for_deletion (test_current_activity.ActivityTests.test_activity_cannot_be_eligible_for_deletion) ... ok\ntest_actual_registry_cli_is_read_only_and_repeatable (test_current_activity.ActivityTests.test_actual_registry_cli_is_read_only_and_repeatable) ... ok\ntest_confirmation_and_recorder_required (test_current_activity.ActivityTests.test_confirmation_and_recorder_required) ... ok\ntest_invalid_and_extra_fields_rejected (test_current_activity.ActivityTests.test_invalid_and_extra_fields_rejected) ... ok\ntest_malformed_objects_rejected (test_current_activity.ActivityTests.test_malformed_objects_rejected) ... ok\ntest_old_entries_absent_or_null_remain_valid (test_current_activity.ActivityTests.test_old_entries_absent_or_null_remain_valid) ... ok\ntest_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger (test_current_activity.ActivityTests.test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger) ... FAIL\ntest_report_shows_activity_and_escapes_table_content (test_current_activity.ActivityTests.test_report_shows_activity_and_escapes_table_content) ... ok\ntest_stale_activity_is_not_deleted_or_inferred_inactive (test_current_activity.ActivityTests.test_stale_activity_is_not_deleted_or_inferred_inactive) ... ok\ntest_terminal_states_require_clear (test_current_activity.ActivityTests.test_terminal_states_require_clear) ... ok\ntest_work_wait_block_resume_clear_and_new_task (test_current_activity.ActivityTests.test_work_wait_block_resume_clear_and_new_task) ... ok\ntest_emergency_requires_designation_and_independent_receipt (test_handoff_review.HandoffTests.test_emergency_requires_designation_and_independent_receipt) ... ok\ntest_missing_receipt_fails (test_handoff_review.HandoffTests.test_missing_receipt_fails) ... ok\ntest_no_limit_inferred_from_heuristic_or_measurement (test_handoff_review.HandoffTests.test_no_limit_inferred_from_heuristic_or_measurement) ... ok\ntest_old_entries_untouched (test_handoff_review.HandoffTests.test_old_entries_untouched) ... ok\ntest_planned_and_emergency_walkthrough_preserve_input (test_handoff_review.HandoffTests.test_planned_and_emergency_walkthrough_preserve_input) ... ok\ntest_preparation_does_not_require_capacity_warning (test_handoff_review.HandoffTests.test_preparation_does_not_require_capacity_warning) ... ok\ntest_prognosis_fields_are_rejected (test_handoff_review.HandoffTests.test_prognosis_fields_are_rejected) ... ok\ntest_publication_receipt_and_timezone_are_not_optional_at_takeover (test_handoff_review.HandoffTests.test_publication_receipt_and_timezone_are_not_optional_at_takeover) ... ok\ntest_published_without_main_proof_fails (test_handoff_review.HandoffTests.test_published_without_main_proof_fails) ... ok\ntest_real_registry_cli_is_read_only (test_handoff_review.HandoffTests.test_real_registry_cli_is_read_only) ... ok\ntest_receipt_after_assessment_is_not_valid_evidence (test_handoff_review.HandoffTests.test_receipt_after_assessment_is_not_valid_evidence) ... ok\ntest_receiver_cannot_be_predecessor (test_handoff_review.HandoffTests.test_receiver_cannot_be_predecessor) ... ok\ntest_schema_agrees_with_example_and_rejects_forecast (test_handoff_review.HandoffTests.test_schema_agrees_with_example_and_rejects_forecast) ... ok\ntest_unknown_capacity_is_valid (test_handoff_review.HandoffTests.test_unknown_capacity_is_valid) ... ok\ntest_unregistered_actor_bad_date_and_extra_fields_fail (test_handoff_review.HandoffTests.test_unregistered_actor_bad_date_and_extra_fields_fail) ... ok\ntest_user_report_keeps_source_classification (test_handoff_review.HandoffTests.test_user_report_keeps_source_classification) ... ok\ntest_warning_requires_attributable_source (test_handoff_review.HandoffTests.test_warning_requires_attributable_source) ... ok\ntest_conservative_even_without_open_dependencies (test_session_retention_review.ReviewTests.test_conservative_even_without_open_dependencies) ... ok\ntest_duplicate_id_fails (test_session_retention_review.ReviewTests.test_duplicate_id_fails) ... ok\ntest_keep_never_overridden (test_session_retention_review.ReviewTests.test_keep_never_overridden) ... ok\ntest_old_confirmation_not_deletion (test_session_retention_review.ReviewTests.test_old_confirmation_not_deletion) ... ok\ntest_report_has_safety_steps (test_session_retention_review.ReviewTests.test_report_has_safety_steps) ... ok\n\n======================================================================\nFAIL: test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger (test_current_activity.ActivityTests.test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\jeroen\\bdc803\\ADMIN\\__github\\TETOOLS\\COMMUNICATION_RELAY\\tools\\test_current_activity.py\", line 134, in test_real_validator_rejects_invalid_activity_and_accepts_legacy_ledger\n    self.assertEqual(good.returncode, 0, good.stdout.decode())\nAssertionError: 1 != 0 : FAIL\n\nREGIE-LOGGER-READINESS-20261109: invalid change status\n\n\n\n----------------------------------------------------------------------\nRan 36 tests in 2.846s\n\nFAILED (failures=1)\n"
+    }
+  },
+  "handoff_tests": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_emergency_requires_designation_and_independent_receipt (test_handoff_review.HandoffTests.test_emergency_requires_designation_and_independent_receipt) ... ok\ntest_missing_receipt_fails (test_handoff_review.HandoffTests.test_missing_receipt_fails) ... ok\ntest_no_limit_inferred_from_heuristic_or_measurement (test_handoff_review.HandoffTests.test_no_limit_inferred_from_heuristic_or_measurement) ... ok\ntest_old_entries_untouched (test_handoff_review.HandoffTests.test_old_entries_untouched) ... ok\ntest_planned_and_emergency_walkthrough_preserve_input (test_handoff_review.HandoffTests.test_planned_and_emergency_walkthrough_preserve_input) ... ok\ntest_preparation_does_not_require_capacity_warning (test_handoff_review.HandoffTests.test_preparation_does_not_require_capacity_warning) ... ok\ntest_prognosis_fields_are_rejected (test_handoff_review.HandoffTests.test_prognosis_fields_are_rejected) ... ok\ntest_publication_receipt_and_timezone_are_not_optional_at_takeover (test_handoff_review.HandoffTests.test_publication_receipt_and_timezone_are_not_optional_at_takeover) ... ok\ntest_published_without_main_proof_fails (test_handoff_review.HandoffTests.test_published_without_main_proof_fails) ... ok\ntest_real_registry_cli_is_read_only (test_handoff_review.HandoffTests.test_real_registry_cli_is_read_only) ... ok\ntest_receipt_after_assessment_is_not_valid_evidence (test_handoff_review.HandoffTests.test_receipt_after_assessment_is_not_valid_evidence) ... ok\ntest_receiver_cannot_be_predecessor (test_handoff_review.HandoffTests.test_receiver_cannot_be_predecessor) ... ok\ntest_schema_agrees_with_example_and_rejects_forecast (test_handoff_review.HandoffTests.test_schema_agrees_with_example_and_rejects_forecast) ... ok\ntest_unknown_capacity_is_valid (test_handoff_review.HandoffTests.test_unknown_capacity_is_valid) ... ok\ntest_unregistered_actor_bad_date_and_extra_fields_fail (test_handoff_review.HandoffTests.test_unregistered_actor_bad_date_and_extra_fields_fail) ... ok\ntest_user_report_keeps_source_classification (test_handoff_review.HandoffTests.test_user_report_keeps_source_classification) ... ok\ntest_warning_requires_attributable_source (test_handoff_review.HandoffTests.test_warning_requires_attributable_source) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 1.125s\n\nOK\n"
+  },
+  "handoff_cli": {
+    "exit_code": 0,
+    "stdout": "PASS: handoff assessments checked: 1\n",
+    "stderr": ""
+  },
+  "acceptance_gate": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\jeroen\\bdc803\\ADMIN\\__github\\TETOOLS\\COMMUNICATION_RELAY\\tools\\validate_acceptance.py\", line 45, in <module>\n    main()\n  File \"C:\\Users\\jeroen\\bdc803\\ADMIN\\__github\\TETOOLS\\COMMUNICATION_RELAY\\tools\\validate_acceptance.py\", line 35, in main\n    Draft202012Validator(schema).validate(data)\n  File \"C:\\Users\\jeroen\\.codex\\.chatgpt-projects\\g-p-6ac491c3d5b08191badd4dde2e4d6242\\handoff111-deps\\jsonschema\\validators.py\", line 450, in validate\n    raise error\njsonschema.exceptions.ValidationError: 'ASSESSED' is not one of ['PROPOSED', 'APPROVED', 'REJECTED', 'SUPERSEDED', 'CLOSED', 'IMPLEMENTED']\n\nFailed validating 'enum' in schema['properties']['records']['items']['properties']['status']:\n    {'enum': ['PROPOSED',\n              'APPROVED',\n              'REJECTED',\n              'SUPERSEDED',\n              'CLOSED',\n              'IMPLEMENTED']}\n\nOn instance['records'][115]['status']:\n    'ASSESSED'\n"
+  },
+  "preservation": {
+    "existing_sessions": 38,
+    "existing_change_records": 119,
+    "old_sessions_exact": true,
+    "old_change_prefix_exact": true,
+    "unique_ids": true,
+    "changes_only_within_relay": true,
+    "module_source_and_frozen_untouched": true
+  },
+  "merge_gate": "BLOCKED: inherited ASSESSED failure; central design/disposition pending",
+  "limitations": [
+    "No Oracle or live chat transfer executed",
+    "Sources/authority require human independent review",
+    "No main publication or central receipt claimed"
+  ]
+}

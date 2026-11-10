@@ -994,6 +994,32 @@
       ],
       "current_activity": null,
       "note": "Locally generated UUID, not a verified chat/thread ID. Independent static review COMPLETED with FAIL on 5c25e83604d8bb0eeb2680a372b3e1b808c320c5: 2 P1 and 9 P2. No Oracle connection/execution or test/source changes. KEEP pending acknowledged handover; no CLOSED claim."
+    },
+    {
+      "session_id": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "role": "REGIE",
+      "module": null,
+      "subject": "TETOOLS__REGIE centrale opvolging en geverifieerde inventarisatie; geen inhoudelijke wijzigingen",
+      "revision": "001",
+      "status": "ACTIVE",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-10",
+      "last_confirmed_at": "2026-11-10",
+      "closed_at": null,
+      "source_reference": "Codex thread 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62, user request continuing chatgpt-conversation://6af2eec5-677c-83ed-900e-089268703497; predecessor chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466",
+      "recorded_by": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "deliverables": [
+        "COMMUNICATION_RELAY/SESSIONS/REGIE/20261110_SUCCESSION.md"
+      ],
+      "open_dependencies": [
+        "Issue104: onafhankelijke herreview PR102 afb5330; ontvangst/resultaat PENDING",
+        "Optie C: formele centrale en modulebesluitregistratie op main PENDING; PR109 geen mergeautorisatie",
+        "Issue55: RAC-ARCH-01..03 INVESTIGATE; moduleonderzoek en DBA-bewijs open",
+        "Issue30: volledige lokale configuratieverificatie open",
+        "G01-G08 OPEN; G09 NOT_GRANTED; Oracle NOT_EXECUTED; RAC NOT_DEMONSTRATED"
+      ],
+      "current_activity": null,
+      "note": "Actual platform ID verified through list_threads (local host, matching current task/cwd). Central role succeeds predecessor; predecessor entry and every other session left unchanged, no closure or successful completion inferred. Bounded succession/inventory task prepared for publication; ongoing central governance ACTIVE/KEEP, no new execution assignments. Publication requires PR merge and exact main readback; evidence recorded in this PR after execution."
     }
   ]
 }

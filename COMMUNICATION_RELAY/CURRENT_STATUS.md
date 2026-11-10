@@ -1,3 +1,7 @@
+## Centrale ontvangst correcties - 10 november 2026
+
+Issue #104 [centrale ontvangst](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6762098186) geverifieerd. PR #102 OPEN/NOT_MERGED, head `613f294cba8242c8fa1ff288b5d86653e52f4830`: mergeblokkade gehandhaafd. Zeven CORRECTED_PENDING_REVIEW, vier BLOCKED (LGR4-04/05/10/11); G01-G08 open, G09 NOT_GRANTED. [Beoordeling en handoff](reviews/ADMIN_LOGGER_CENTRAL_RECEIPT_20261110.md). Bestaande onafhankelijke doelsessie geselecteerd; WAITING_RECEIPT, niet gestart. Dit statusvoorstel en sessieregistratie zijn niet gemerged; main-publicatie PENDING wegens expliciet mergeverbod. Historische regels hieronder behouden.
+
 ## Publicatiebewijs beleidskader 1-12 - 6 november 2026
 
 [PR #71](https://github.com/JPouwiel/TETOOLS/pull/71) gemerged: `90934cee542bbb61599fadf8012fb27685e0d860`. Vijf gewijzigde tekstbestanden en het zes pagina's tellende PDF-overzicht zijn exact vanaf main teruggelezen; 399 overige bestaande blobidentiteiten behouden. REGIE-POLICY-READBACK-20261106-001..012 zijn de formele APPROVED-opvolgregistraties; de twaalf oorspronkelijke publicatievoorstellen blijven ongewijzigd bewaard. Geen technische implementatievrijgave. Validator, beide schema's en append-only vergelijking PASS met jsonschema 4.26.0. Eigen afgebakende registratietaak COMPLETED/KEEP; overige technische en beleidsuitwerking blijft bij bestaande regies.

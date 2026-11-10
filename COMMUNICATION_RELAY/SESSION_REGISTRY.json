@@ -994,6 +994,32 @@
       ],
       "current_activity": null,
       "note": "Locally generated UUID, not a verified chat/thread ID. Independent static review COMPLETED with FAIL on 5c25e83604d8bb0eeb2680a372b3e1b808c320c5: 2 P1 and 9 P2. No Oracle connection/execution or test/source changes. KEEP pending acknowledged handover; no CLOSED claim."
+    },
+    {
+      "session_id": "01a1c472-55b9-7281-882f-53425c5c8937",
+      "role": "REGIE_CONTINUATION",
+      "module": "ADMIN_LOGGER",
+      "subject": "Central receipt Issue104, merge block and independent complete-head rereview handoff",
+      "revision": "PR102 613f294cba8242c8fa1ff288b5d86653e52f4830",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-10",
+      "last_confirmed_at": "2026-11-10",
+      "source_reference": "chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466",
+      "recorded_by": "01a1c472-55b9-7281-882f-53425c5c8937",
+      "deliverables": [
+        "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6762098186",
+        "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_CENTRAL_RECEIPT_20261110.md",
+        "COMMUNICATION_RELAY/reports/ADMIN_LOGGER_REGIE_CUMULATIEF_20261110.pdf"
+      ],
+      "open_dependencies": [
+        "Independent reviewer receipt/result in Issue104 pending",
+        "ADMIN_LOGGER-REGIE-20261104-01 + DBA: LGR4-04/05/10/11 and G01-G08",
+        "TETOOLS__REGIE mergegate remains blocked; G09 NOT_GRANTED",
+        "Documentation PR not merged: explicit user no-merge restriction; main registration pending"
+      ],
+      "current_activity": null,
+      "note": "Actual Codex thread ID verified by app listing. Bounded central receipt/dossier work completed; not a completed technical review or CLOSED claim. Existing sessions unchanged. Registration proposal only until merge/main readback."
     }
   ]
 }

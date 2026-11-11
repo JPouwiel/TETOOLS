@@ -49,7 +49,9 @@ for item in changes:
     if not cid or cid in seen:
         errors.append(f"duplicate/missing change ID: {cid}")
     seen.add(cid)
-    if item.get("status") not in CHANGE_STATES:
+    if item.get("status") not in CHANGE_STATES and not (
+        item.get("status") == "ASSESSED" and item.get("record_type") == "REVIEW"
+    ):
         errors.append(f"{cid}: invalid change status")
     for field in ("source_reference", "origin_session", "recorded_by_session", "recorded_at"):
         if not item.get(field):

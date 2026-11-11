@@ -89,7 +89,7 @@ If instructions conflict or the required source is missing, report the conflict 
 
 ## Completion and reuse default (2026-11-05)
 
-At task completion, publish missing relevant results, decisions, source versions, dates, tests and open dependencies in existing canonical GitHub module and relay records. Verify branch, PR, merge and main readback. Return remaining module work to the existing module REGIE with acknowledged handoff; escalate potential suite-wide impact to TETOOLS__REGIE. Update existing session/activity and evidence-based retention records. Prefer existing sessions; supply one filled copy-ready activation prompt. Start new Work/Codex sessions only when necessary. No extra infrastructure or fields. See RELAY_CONTRACT.md.
+At task completion, publish missing relevant results, decisions, source versions, dates, tests and open dependencies in existing canonical GitHub module and relay records. Verify branch, PR, merge and main readback. Return remaining module work to the existing module REGIE with acknowledged handoff; escalate potential suite-wide impact to TETOOLS__REGIE. Update existing session/activity and evidence-based retention records. Use at most one REGIE, one Work and one Codex session per active governance line. Reuse suitable sessions and link the GitHub task in a short message. Record feedback and completion on that task. Link work to the plan and milestone, agree success criteria, evidence and a stopping point before execution, and follow the risk-based checks in RELAY_CONTRACT.md and OPERATIONS.md.
 
 ## Canonical development standard
 

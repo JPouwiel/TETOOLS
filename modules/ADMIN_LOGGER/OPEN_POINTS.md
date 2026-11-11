@@ -46,6 +46,26 @@ Historical activity-review paragraph above records the 2026-11-04 state. It is s
 **Opvolger:** bestaande ADMIN_LOGGER-REGIE-20261104-01 bevestigt ontvangst in Issue #104 en verwerkt finding-to-commit-correcties op eigen PR102-branch; daarna onafhankelijke volledige-head-herreview. TETOOLS__REGIE beoordeelt mergegate. DBA/module G01–G08, G09 afzonderlijk NOT_GRANTED. Bestaand suitesignaal LOGGER-RAC-20261105-001 blijft de referentie; geen nieuw architectuurbesluit of duplicaatsignaal. Ontvangst/handover nog PENDING; Issue #104 open en sessie COMPLETED/KEEP, geen CLOSED-claim.
 
 
+## Stap-4-correctiepublicatie — 9 november 2026, review nog vereist
+
+Uitvoering namens bestaande ADMIN_LOGGER-REGIE-20261104-01 door expliciet gemachtigde Codex-sessie a9edd3a9-d49a-4cb8-a102-868f3808e7bf; geen nieuwe sessie-ID. Ontvangst: Issue #104 comment6752079844. De vroegere reviewer is nu implementer; de herreview moet door een andere onafhankelijke sessie gebeuren. Historische FAIL en review/evidence blijven ongewijzigd.
+
+Codecommit `61c476eb4e33ed2c7a1e1e1542e5f3954a2e2ff6`: [correctiematrix](tests/step4_20261109_001/correction_matrix.md) / [statisch bewijs](tests/step4_20261109_001/static_evidence.json). Zeven bevindingen CORRECTED_PENDING_REVIEW; LGR4-04/05/10/11 behouden BLOCKED restscope voor echte incident-PK-fixture, volledige regressie/onderhoud/027/functionele verduidelijking, veilige injectie/benchmark/herstel en feitelijke principals/grants/maintenance. Module/DBA/centrale eigenaren staan per punt in de matrix.41 broncontroles en9 negatieve broncontroles PASS op code-head; geen Oracle-parser of runtime. Alle39 payloadbestanden exact van GitHub teruggelezen. Alle database-uitvoeringen NOT_EXECUTED; G01-G08 open, G09 NOT_GRANTED. Gedeelde gate weigert uitvoering ongeacht private YES/achtergebleven waarden.
+
+Uitsluitend PR102-branch-publicatie: PR niet gemerged, main-teruglezing van correcties PENDING. Vraag volledige-head-herreview aan en laat TETOOLS__REGIE de mergegate beoordelen; geen eigen merge/Oracle/releasevrijgave. Bestaand LOGGER-RAC-20261105-001/Issue55 hergebruikt; geen nieuw architectuurbesluit. Relay-baseline ASSESSED-afwijking ongewijzigd; aanvullende JSON Schema NOT_EXECUTED bij ontbrekend jsonschema, geen groene totaalgate. De afgebakende codevoorbereiding is overgedragen; module-regiesessie blijft ACTIVE/KEEP met expliciete afhankelijkheden en current_activity null. Issue #104 blijft open.
+
+
+## Second-herreview correction - 10 November 2026
+
+Independent PR108 FAIL on `613f294cba8242c8fa1ff288b5d86653e52f4830` and central receipt6762869095 retained. Delegated existing Codex executor01a1c472-55b9-7281-882f-53425c5c8937 received in Issue104 comment6763336114; codecommit `d2f42960c259d5a4801511b7fd26b8c50dff6665` corrects RR01 (typed parent pairs + SUBOBJECT_NAME IS NULL) and RR02 (2positive suites/6mutation rejections/1analytical prefixcheck). CORRECTED_PENDING_INDEPENDENT_REVIEW, not accepted/CLOSED. 42 checker controls and9+8 offline unittest methods PASS at exact codecommit; no Oracle/client/runtime evidence.
+
+LGR4-04/05/10/11 remain BLOCKED. [Dependency matrix](tests/step4_20261109_001/blocked_dependencies.md) lists owners, required decisions/evidence, technical dependencies and blockers; [finding-to-commit matrix](tests/step4_20261109_001/correction_matrix.md) links current changes. Existing ADMIN_LOGGER-REGIE-20261104-01 + DBA/security retain technical work; central regie holds mergegate. C02-C06 BLOCKED, G01-G08 open, G09 NOT_GRANTED. New independent full-head review required. No PR102/108 merge or main-registration claim; Issue104 OPEN, KEEP. LOGGER-RAC-20261105-001 / Issue55 and historical reviews unchanged. Record LOGGER-STEP4-RR-CORRECTION-20261110-001.
+
+
 ## F2 werkpakket B — 10 november 2026 (voorstel, niet gemerged)
 
 [Technische besluitvoorbereiding](docs/reports/ADMIN_LOGGER_F2_PREPARATION_20261110.md), opdracht [Issue104 comment6765310902](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6765310902), ontvangst6769416919. Bestaande ADMIN_LOGGER-REGIE-20261104-01 behoudt module-eigenaarschap. Bron-vs-027/BACKUP-RESTORE, concrete bronconsumers, API/maintenance, fixture/injectie/concurrency en performance/RTO zijn als DESIGN_ONLY voorbereid. D01–D11 en C02–C06 blijven BLOCKED; G01–G08 OPEN; G09 NOT_GRANTED. Werkelijke DBA/security/recovery/consumer-personen en omgeving onbevestigd; één gezamenlijk informatieverzoek staat in het dossier. Centrale functionele/maintenance-/meet-/herstelbesluiten en ontvangst blijven open. A doet onafhankelijke review; C centrale registratie; geen overlap of nieuwe reviewuitgifte. Alleen branch/PR-readback, geen merge/main-acceptatie. Oracle/RAC/performance/herstel NOT_EXECUTED; historische FAILs en suitesignaal behouden.
+
+### Opvolging F2-B — 11 november 2026
+
+F1 is gepubliceerd via PR #102. Revisie 002 van het F2-dossier is centraal ontvangen als ontwerp- en bewijsdossier. De gebruiker heeft de coördinatie en de betrokken operationele rollen bevestigd. G01–G08 blijven open voor bewijs. G09 is niet verleend. Zie [centrale beoordeling](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6796817880) en [rolbevestiging](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6798085042).

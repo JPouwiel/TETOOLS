@@ -2,19 +2,21 @@
 Datum 6 november 2026. Uitwerking van bestaand contract binnen goedgekeurde acceptatieopdracht; geen nieuwe dienst of architectuur.
 Normatief blijft RELAY_CONTRACT.md. Eigenaar: TETOOLS__REGIE voor contract, acceptatie en afwijkingsdisposition; project-/GitHub-eigenaar JPouwiel voor toegangsbeheer en expliciete cleanupgoedkeuring. Module-regies behouden hun technische inhoud. Iedere schrijver valideert eigen wijzigingen; onafhankelijke ontvanger bevestigt alleen feitelijke ontvangst.
 
-## Bij iedere wijziging
-1. Lees actuele main en noteer SHA; lees open signalen inclusief opvolgende dispositions.
-2. Wijzig op branch; behoud andermans sessie-entry en bestaande change-records. Voeg correcties als opvolgrecord toe.
-3. Voer vanaf repositoryroot uit:
-   - python COMMUNICATION_RELAY/tools/validate_relay.py
-   - python -m unittest discover -s COMMUNICATION_RELAY/tools -p 'test_*.py' -v
-   - python COMMUNICATION_RELAY/tools/session_retention_review.py --as-of YYYY-MM-DD
-4. Aanvullende acceptatiecontrole: installeer tools/requirements-acceptance.txt in een afzonderlijke omgeving. Bewaar CHANGE_REGISTER.json van de gelezen main-SHA als baseline.json. Voer python COMMUNICATION_RELAY/tools/validate_acceptance.py --baseline-ledger baseline.json uit. Dit gebruikt JSON Schema 2020-12 en vergelijkt het volledige bestaande recordprefix, inclusief volgorde. De eigenlijke baseline moet onafhankelijk uit main komen: een vergelijking met zichzelf bewijst geen historiebehoud.
-5. Review diff en bronverwijzingen; controleer direct voor merge main en geraakte entries opnieuw. Integreer gelijktijdige wijzigingen vanaf actuele main; geen force-overwrite. Merge alleen gecontroleerd head; lees alle gewijzigde blobs terug en vergelijk verwacht bewijs.
-6. Werk activiteit bij op betekenisvolle overgang; bij afronding resultaat, afhankelijkheden en KEEP/cleanupreden vastleggen, activiteit wissen. CLOSED vereist echte overdracht en closed_at. Geen automatische chatsynchronisatie.
+## Controles per werkpakket
 
-De JSON-schema's beschrijven de bestaande v1-structuur, met projectovererving voor oude change-records. Ze wijzigen geen lifecyclebetekenis. De bestaande validator blijft zonder externe dependencies bruikbaar. Schema's bewijzen geen schrijversidentiteit, toestemming, bronvolledigheid of Oracle-correctheid.
-Validatie gebeurt bij start/hervatting, iedere PR, overdracht, afsluiting en na merge. Er is geen periodieke taak of automatisch CI ingesteld.
+Leg de controles vooraf vast op het taakissue. Kies de passende zwaarte en voeg verplichte controles uit beleid, repositoryregels of taakautorisatie toe.
+
+| Werk | Controles |
+|---|---|
+| Taakmelding of administratieve overdracht op een issue | Controleer taak, bronversie, status, bereikbare bewijslinks en eigenaar van restwerk. Lees de gepubliceerde melding terug. |
+| Documentatie of administratieve repositorywijziging | Controleer afgebakende diff, verwijzingen, behoud van historie en bronpaden. Bij gewijzigde registers: validator, relevante schema’s en vergelijking met onafhankelijk opgeslagen main. |
+| Functionele wijziging | Controleer de acceptatiecriteria met relevante tests en review. Gebruik de eerder gecontroleerde basis en lees de relevante verschillen. |
+| Hoog risico, bijvoorbeeld publieke interface, security, transacties of RAC | Leg onafhankelijke beoordeling en technische acceptatiecontroles vooraf vast. Voer Oracle-tests uit binnen de afzonderlijk verleende scope en beschikbare omgeving. Registreer ontbrekend bewijs expliciet. |
+| Wijziging van relaycontract, schema of validatiehulpmiddel | Voer de volledige relaytests, stdlib-validator, beide JSON-schema’s, append-only vergelijking en de toepasselijke overdrachts- en retentioncontrole uit. |
+
+Bij PR-publicatie: controleer actuele main, gewijzigde entries en de precieze versie van de PR. Verwerk gelijktijdige wijzigingen vanaf de actuele basis. Merge binnen de verleende bevoegdheid en lees de gewijzigde bestanden op main terug. Gebruik `validate_acceptance.py --baseline-ledger baseline.json` met de voorgeschreven dependencies en een baseline uit de gecontroleerde main-commit. Bundel resultaat, registratie en bewijs in één PR waar dat past.
+
+Een opvolger gebruikt de gereedmelding en controleert de eigen startvoorwaarden. Bij mijlpaalafsluiting beoordeelt de regie alle taakstatussen en bewijslinks samen en voert de geplande integratie- of acceptatiecontrole uit. Leg afwijkingen en eigenaarschap van restwerk vast. Een volledige hercontrole is passend bij een gewijzigde of ontbrekende basis, een mislukte controle of een afwijking met gevolgen voor acceptatie.
 
 ## Afwijking en herstel
 Stop de betreffende merge of acceptatieclaim bij FAIL. Bewaar foutuitvoer, basis-/head-SHA, pad en record-ID. Sessie blijft KEEP; leg blokkade en volgende eigenaar vast.

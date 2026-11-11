@@ -1132,23 +1132,23 @@
       "module": null,
       "subject": "Test Work-overdracht na herstart",
       "revision": "Afsluitregistratie 001",
-      "status": "BLOCKED",
+      "status": "CLOSED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-11",
       "last_confirmed_at": "2026-11-11",
-      "closed_at": null,
+      "closed_at": "2026-11-11",
       "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/118",
-      "recorded_by": "01a1acfe-f509-72d2-9b99-c96f3fe928eb",
+      "recorded_by": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
       "deliverables": [
         "SESSIONS/WORK_DOCUMENTATION/20261110_DIAG_01a1acfe/README.md",
-        "SESSIONS/WORK_DOCUMENTATION/20261110_DIAG_01a1acfe/CLOSURE_REQUEST.txt"
+        "SESSIONS/WORK_DOCUMENTATION/20261110_DIAG_01a1acfe/CLOSURE_REQUEST.txt",
+        "https://github.com/JPouwiel/TETOOLS/issues/118#issuecomment-6790032010",
+        "https://github.com/JPouwiel/TETOOLS/pull/129"
       ],
-      "open_dependencies": [
-        "https://github.com/JPouwiel/TETOOLS/issues/118 — TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62: gecontroleerde bundelmerge, main-teruglezing en onafhankelijke ontvangst; daarna afsluitregistratie publiceren."
-      ],
+      "open_dependencies": [],
       "current_activity": null,
       "note": "Eerste eigen registratie onder de geverifieerde platform-ID. KEEP zolang publicatie, ontvangst en sluiting niet zijn aangetoond. Geen technisch restwerk of herhaling van de diagnostiek.",
-      "result": "Geen Work-overdrachtsverzoek verstuurd; acceptatie niet vastgesteld en Work-uitvoering niet bevestigd. Uitleg in Codex geleverd. Administratief afrondpakket met bron en beperkingen; PR-head, controles en feitelijk publicatiebewijs via het taakissue."
+      "result": "Afrondpakket via PR #129 op main teruggelezen. Centrale regie heeft de diagnose en bronbeperking ontvangen. Ruw transcript blijft in de chat onder KEEP."
     }
   ]
 }

@@ -496,7 +496,7 @@
         "HIST-01",
         "HIST-02",
         "HIST-03",
-        "https://github.com/JPouwiel/TETOOLS/issues/45 \u2014 WAITING_RECEIPT"
+        "https://github.com/JPouwiel/TETOOLS/issues/45 — WAITING_RECEIPT"
       ],
       "artifact_refs": [
         "../modules/ADMIN_OBJECTS/context/session_offloads/01a19ff0-f2d2-7723-9520-d6f8b84ec55c/20261105/README.md",
@@ -1432,7 +1432,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 2: Zes technische ontwikkelcategorie\u00ebn",
+      "subject": "Besluit 2: Zes technische ontwikkelcategorieën",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1445,7 +1445,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorie\u00ebn verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
+      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorieën verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1482,7 +1482,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 4: Acht testcategorie\u00ebn",
+      "subject": "Besluit 4: Acht testcategorieën",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1495,7 +1495,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Iedere beoordeling omvat expliciet acht categorie\u00ebn: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
+      "decision": "Iedere beoordeling omvat expliciet acht categorieën: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1507,7 +1507,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 5: ADMIN_LOGGER offici\u00eble pilot",
+      "subject": "Besluit 5: ADMIN_LOGGER officiële pilot",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1520,7 +1520,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "ADMIN_LOGGER is de offici\u00eble eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
+      "decision": "ADMIN_LOGGER is de officiële eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1532,7 +1532,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 6: Integrale herbeoordeling v\u00f3\u00f3r refactoringontwerp",
+      "subject": "Besluit 6: Integrale herbeoordeling vóór refactoringontwerp",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1620,7 +1620,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorie\u00ebn, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
+      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorieën, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1657,7 +1657,7 @@
       "record_type": "SUITE_GOVERNANCE_DECISION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 11: Functionele baseline v\u00f3\u00f3r ontwerp",
+      "subject": "Besluit 11: Functionele baseline vóór ontwerp",
       "status": "PROPOSED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "PENDING_MERGE_READBACK",
@@ -1670,7 +1670,7 @@
       "revision": "001",
       "supersedes": null,
       "scope_of_supersession": null,
-      "decision": "V\u00f3\u00f3r het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
+      "decision": "Vóór het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1735,7 +1735,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 2: Zes technische ontwikkelcategorie\u00ebn",
+      "subject": "Besluit 2: Zes technische ontwikkelcategorieën",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1748,7 +1748,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-002",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorie\u00ebn verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
+      "decision": "Voor nieuwe en bestaande ADMIN_*-modules zijn zes technische ontwikkelcategorieën verplicht: (1) Codekwaliteit; (2) API-compatibiliteit; (3) Transactiemanagement; (4) Beveiliging; (5) Performance; (6) Testbaarheid. Dit is de oorspronkelijke technische basis; besluit 9 voegt een gelijkwaardige zevende categorie toe.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1791,7 +1791,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 4: Acht testcategorie\u00ebn",
+      "subject": "Besluit 4: Acht testcategorieën",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1804,7 +1804,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-004",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Iedere beoordeling omvat expliciet acht categorie\u00ebn: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
+      "decision": "Iedere beoordeling omvat expliciet acht categorieën: (1) Statische analyse; (2) Succesvolle installatie/compilatie, inclusief beoordeling van waarschuwingen; (3) Functionele tests; (4) Regressietests; (5) Beveiliging en transacties; (6) Performance en concurrency; (7) RAC-compatibiliteit, inclusief relevante multi-instance- en sessietests; (8) Herleidbaar test- en acceptatiebewijs. Niet van toepassing vereist onderbouwing. Ontbrekende verplichte tests blokkeren technische vrijgave. Conceptcode en documentatie mogen als NOT_EXECUTED worden gepubliceerd, zonder technische acceptatie.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1819,7 +1819,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 5: ADMIN_LOGGER offici\u00eble pilot",
+      "subject": "Besluit 5: ADMIN_LOGGER officiële pilot",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1832,7 +1832,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-005",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "ADMIN_LOGGER is de offici\u00eble eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
+      "decision": "ADMIN_LOGGER is de officiële eerste pilot voor toepassing en beoordeling van het ontwikkelkader. De aanwijzing is beleidsmatig; zij verklaart de huidige module niet conform of RAC-ready en verleent geen code- of deploymentopdracht.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1847,7 +1847,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 6: Integrale herbeoordeling v\u00f3\u00f3r refactoringontwerp",
+      "subject": "Besluit 6: Integrale herbeoordeling vóór refactoringontwerp",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -1944,7 +1944,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-009",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorie\u00ebn, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
+      "decision": "Mensgerichte bruikbaarheid en functionele consistentie zijn de zevende verplichte ontwikkelcategorie, gelijkwaardig aan de zes technische categorieën, voor nieuwe en bestaande ADMIN_*-modules. Behoud begrijpelijke publieke functies, naamgeving, parameters, configuratie en aanroepgedrag tenzij afzonderlijk goedgekeurd. Technische consolidatie kan achter een stabiele interface plaatsvinden; zij rechtvaardigt op zichzelf geen functieverlies.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -1987,7 +1987,7 @@
       "record_type": "POLICY_PUBLICATION_VERIFICATION",
       "project": "PLSQL_TETOOLS",
       "module": null,
-      "subject": "Besluit 11: Functionele baseline v\u00f3\u00f3r ontwerp",
+      "subject": "Besluit 11: Functionele baseline vóór ontwerp",
       "status": "APPROVED",
       "policy_approval": "APPROVED_BY_USER",
       "publication_status": "VERIFIED_MAIN_READBACK",
@@ -2000,7 +2000,7 @@
       "revision": "002",
       "supersedes": "REGIE-POLICY-20261106-011",
       "scope_of_supersession": "Formal publication status after actual merge/readback; policy content unchanged",
-      "decision": "V\u00f3\u00f3r het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
+      "decision": "Vóór het refactoringontwerp: inventariseer publieke routines/parameters/defaults, bestaand functioneel gedrag inclusief configuratie en foutafhandeling, de gebruiksdoelen en werkelijke consumers/afhankelijkheden. Classificeer onderbouwd met broncode, documentatie, gebruiksscenario's en beschikbare tests: BEHOUDEN = gewenst gedrag dat compatibel blijft; CORRIGEREN = aantoonbaar onjuist gedrag waarvoor een herstelvoorstel nodig is; HEROVERWEGEN = doel of wenselijkheid onvoldoende duidelijk. Bestaand gedrag wordt standaard behouden; defect of onveilig/RAC-incompatibel gedrag wordt niet automatisch correct verklaard. Functionele of publieke interfacewijzigingen vragen afzonderlijke goedkeuring.",
       "implementation_status": "NOT_AUTHORIZED",
       "artifact_refs": [
         "../TETOOLS_DEVELOPMENT_STANDARD.md"
@@ -2857,6 +2857,207 @@
         "https://github.com/JPouwiel/TETOOLS/pull/102"
       ],
       "note": "Reviewer observation/recommendation, not an approved architecture decision. Reviewed HEAD 5c25e83604d8bb0eeb2680a372b3e1b808c320c5; FAIL. LGR4-01 standalone safety bypass, LGR4-02 NULL gate bypass. Module regie owns corrections; central regie owns mergegate. Existing LOGGER-RAC-20261105-001 / Issue55 reused; no duplicate signal. Oracle NOT_EXECUTED; G09 NOT_GRANTED. Handover receipt pending."
+    },
+    {
+      "change_id": "REGIE-SUCCESSION-20261110-001",
+      "record_type": "HANDOVER",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Centrale TETOOLS__REGIE opvolging, broncontrole en open-opdrachteninventaris",
+      "status": "PROPOSED",
+      "source_reference": "Codex thread 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62: explicit user takeover/publication request, 2026-11-10; chatgpt-conversation://6af2eec5-677c-83ed-900e-089268703497",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "approval_actor": "user authorized administrative succession, PR/merge and readback only; no new architecture/technical approval",
+      "recorded_at": "2026-11-10",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/SESSIONS/REGIE/20261110_SUCCESSION.md",
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "COMMUNICATION_RELAY/CURRENT_STATUS.md"
+      ],
+      "note": "Administrative successor to predecessor 67c27cf6-aa30-4b97-b4e2-753c195f277c / actual chat 6ae9e9eb-6400-83eb-859c-580027d25466. Existing entries/history preserved. No duplicated tasks, module decisions, code or frozen changes. Proposed publication; actual merge/readback evidence belongs in PR after execution, not an advance IMPLEMENTED claim."
+    },
+    {
+      "change_id": "RELAY-HANDOFF-READINESS-20261110-001",
+      "record_type": "HANDOVER",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Uitvoerbaar ontwerpvoorstel tijdige regieoverdracht; geen feitelijke regieovername",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111",
+      "origin_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_at": "2026-11-10",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/REGIE_HANDOFF.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110.md"
+      ],
+      "handoff_assessment": {
+        "capacity": {
+          "meaning": "Geen onderbouwde capaciteitsuitspraak",
+          "rationale": "Geen relevante platformmelding of betrouwbare resterende-capaciteitsmeting beschikbaar",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "ONBEKEND",
+          "evidence_refs": [],
+          "state": "ONBEKEND"
+        },
+        "readiness": {
+          "meaning": "Ontwerp wordt voorbereid; geen feitelijke overdracht gereed verklaard",
+          "rationale": "Geen gepubliceerde/ontvangen regieoverdracht in deze uitvoeringsopdracht; ontwerp- en totaalvalidatiegates open",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "ONBEKEND",
+          "evidence_refs": [],
+          "state": "ONVOLLEDIG",
+          "package_ref": null,
+          "publication": null,
+          "receipt": null,
+          "transfer": null
+        }
+      }
+    },
+    {
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "approval_actor": "TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62; explicit user-authorized central disposition in comment6769485682",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "change_id": "REGIE-HANDOFF-DESIGN-20261110-001",
+      "record_type": "DECISION",
+      "subject": "Central conditional approval A of handoff design, limited corrections A1/A2/A3",
+      "supersedes": "RELAY-HANDOFF-READINESS-20261110-001",
+      "conditions": [
+        "A1: limit_kind GESPREK/ABONNEMENT/CONTEXT/ONBEKEND; quota/compaction alone not conversation succession",
+        "A2: effective_at calendar day in explicit timezone not after assessed_at for OVERGENOMEN",
+        "A3: preserve original PROPOSED record; traceable central successor decisions; normative only after verified publication"
+      ],
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/REGIE_HANDOFF.md",
+        "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002.md"
+      ],
+      "note": "Conditional content approval is actual central decision, not advance evidence of main publication; original proposal/FAIL evidence remains unchanged."
+    },
+    {
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "approval_actor": "TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62; explicit user-authorized central disposition in comment6769485682",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "change_id": "REGIE-HANDOFF-CONTRACT-20261110-001",
+      "record_type": "DECISION",
+      "subject": "Approved limited ASSESSED contract correction B: REVIEW only",
+      "supersedes": null,
+      "related_change_ids": [
+        "REGIE-LOGGER-READINESS-20261109"
+      ],
+      "rationale": "REVIEW/ASSESSED describes a recorded assessment, with implementation NOT_EXECUTED. Changing history to APPROVED/IMPLEMENTED would change meaning. Accept only REVIEW/ASSESSED in schema and stdlib, reject all other types and unknown statuses.",
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+        "COMMUNICATION_RELAY/schemas/CHANGE_REGISTER.schema.json",
+        "COMMUNICATION_RELAY/tools/validate_relay.py"
+      ],
+      "note": "No historical correction/reordering; no supersedes that invalidates original review. Not a generic FAIL bypass."
+    },
+    {
+      "change_id": "RELAY-HANDOFF-READINESS-20261110-002",
+      "record_type": "HANDOVER",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Revised handoff assessment: subscription interruption is attention only; implementation package prepared",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682",
+      "origin_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_by_session": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "supersedes": "RELAY-HANDOFF-READINESS-20261110-001",
+      "handoff_assessment": {
+        "capacity": {
+          "meaning": "Abonnementsgebruik onderbrak de uitvoering volgens gebruiker; geen uitspraak over volle chat",
+          "rationale": "Gebruiker meldt abonnementsgebruikslimiet; bron is gebruikersmelding, geen eigen platformmeting",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "GEBRUIKERSMELDING",
+          "evidence_refs": [
+            "Codex thread 01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3: user report Vanuit het abonnement liep deze sessie tegen het gebruikerslimiet; exact message permalink UNVERIFIED"
+          ],
+          "state": "AANDACHT",
+          "limit_kind": "ABONNEMENT"
+        },
+        "readiness": {
+          "meaning": "Implementation package prepared on PR112; no actual regie succession",
+          "rationale": "Central branch receipt and correction decision recorded; final head gates and main readback required",
+          "assessed_at": "2026-11-10",
+          "assessed_by": "01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3",
+          "evidence_kind": "GEBRUIKERSMELDING",
+          "evidence_refs": [
+            "https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769485682"
+          ],
+          "state": "VOORBEREID",
+          "package_ref": "COMMUNICATION_RELAY/reports/REGIE_HANDOFF_20261110_REV002.md",
+          "publication": null,
+          "receipt": null,
+          "transfer": null
+        }
+      },
+      "note": "This is not actual central role takeover. Original proposal remains byte/content-identical in prefix; actual publication proof will follow in PR112/Issue111."
+    },
+    {
+      "change_id": "REGIE-CONSOLIDATION-20261111-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Goedgekeurde uitgangspunten voor sessiebezetting, lichtere relay en suiteprojectplan",
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/119",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "approval_actor": "Gebruiker, expliciete keuze en vervolgopdracht in huidige centrale regiechat; bronvastlegging Issue #119",
+      "recorded_at": "2026-11-11",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787842748",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
+      ],
+      "note": "Gebruikersbesluit vastgelegd: per actieve regielijn maximaal één regie-, één Work- en één Codex-sessie; GitHub als bron voor opdracht, terugkoppeling, afmelding en overdracht; toetsbare succescriteria, mijlpalen en proportionele controles. Deel 1 is de inventarisatie en bezetting. Protocolimplementatie en projectplan volgen in delen 2 en 3. Hookonderzoek blijft een onderzoeksvraag."
+    },
+    {
+      "change_id": "REGIE-RELAY-WORKFLOW-20261111-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Vereenvoudigde GitHub-taakcyclus, mijlpaalcontrole en risicogestuurde relay",
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/119",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "approval_actor": "Gebruiker, expliciete goedkeuring van de werkwijze en opdracht tot afronding zonder tussentijdse bevestiging",
+      "recorded_at": "2026-11-11",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+        "COMMUNICATION_RELAY/MANUAL_HANDOFF.md",
+        "COMMUNICATION_RELAY/OPERATIONS.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787842748",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
+      ],
+      "note": "Uitwerking van REGIE-CONSOLIDATION-20261111-001. Vervangt uitsluitend de verplichte lange doorstuurprompt en de standaard volledige controlecyclus bij losse voortgangsmeldingen. Behoudt bestaande bevoegdheden, sessie-/retentioncontract en canonieke historie. Publicatiebewijs volgt in Issue #119. Concrete suiteplanning en hookonderzoek vallen buiten deze protocolwijziging."
     },
     {
       "change_id": "LOGGER-STEP4-CORRECTION-20261109-001",

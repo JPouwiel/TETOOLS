@@ -1,5 +1,9 @@
 # TETOOLS — startprotocol voor nieuwe sessies (2026-11-03)
 
+> Regieoverdracht revisie002: [REGIE_HANDOFF.md](REGIE_HANDOFF.md), Issue #111,
+> centraal besluit6769485682; normatief na geverifieerde PR112-merge/main-teruglezing
+> (feitelijk bewijs achteraf in PR/Issue). Geen automatische meting of sessieactivering.
+
 **Project:** PL/SQL TETOOLS, Oracle Database 19c Enterprise, beoogd 3-node RAC. **Centrale chat:** TETOOLS__REGIE. **Duurzame registratie:** COMMUNICATION_RELAY in deze repository.
 
 > **Nieuwe sessie:** lees dit protocol, registreer jezelf daadwerkelijk in GitHub en leg relevante afspraken, besluiten en open punten vast. Een chatprompt of Markdown-bestand registreert je niet automatisch. Claim geen succes zonder verificatie op main.
@@ -49,16 +53,15 @@ Meld gelezen main-commit, sessie-ID en rol, registratiebewijs (PR/commit), relev
 
 ## Overdracht tussen sessies (2026-11-04)
 
-Lees [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). Bij een verzoek aan een andere sessie: maak een GitHub Issue, controleer de URL en lever een volledig ingevuld kopieerbaar bericht. Als ontvanger: lees het Issue en de bronverwijzingen zelfstandig en registreer uitkomst en bewijs. De gebruiker is uitsluitend transporteur, geen impliciete goedkeurder. Zonder toegang: gebruik de expliciete fallback. Geen automatische sessieactivatie.
+Lees [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md) en het bestaande taakissue. Regie gebruikt een kort bericht met taaklink en gevraagde actie. Controleer bij hervatting de relevante wijzigingen vanaf de laatst geverifieerde bronversie, binnen de verplichte projectbronnen. Leg resultaat, bewijs, terugkoppeling en taakafmelding in GitHub vast. Gebruik per actieve regielijn maximaal één Regie-, één Work- en één Codex-sessie. Zie [Issue #119](https://github.com/JPouwiel/TETOOLS/issues/119).
 
 ## Actuele taak bijhouden (2026-11-05)
 
 Lees [CURRENT_ACTIVITY.md](CURRENT_ACTIVITY.md). Houd tijdens de opdracht zelf de ene
 `current_activity` bij in je eigen SESSION_REGISTRY-entry, inclusief bestaande bevestigingsdatum
 en schrijver. Verwijder de activiteit bij afronding samen met de resultaatregistratie.
-De gebruiker hoeft taakstatus niet handmatig over te typen; de uitvoerende sessie publiceert
-de update via de bestaande branch/PR/merge/readback-procedure. Geen automatische chatdetectie.
+Het taakissue toont de actuele voortgang. Bundel de optionele registerupdate met de resultaat-PR waar mogelijk.
 
 ## Standaard afronden en terug naar regie (2026-11-05)
 
-Elke uitvoerende sessie sluit een opdracht af door ontbrekende relevante context, versies, besluiten, resultaten, tests en open punten in de juiste bestaande GitHub-bronnen vast te leggen; branch/PR/merge en teruglezing op main zijn vereist voor een geverifieerde publicatie. Draag resterend modulewerk met bronverwijzing over aan de **bestaande module-regie** en laat ontvangst bevestigen. Alleen suitebrede gevolgen gaan naar TETOOLS__REGIE via SUITE_IMPACT_SIGNAL. Werk de eigen sessie-/taakstatus en onderbouwde bewaarbeoordeling bij. Bij blokkade: registreer open afhankelijkheden en claim geen afsluiting. Hergebruik bestaande sessies als standaard; de regie levert één ingevulde kopieerbare prompt voor hervatting, zonder onnodig nieuwe Work/Codex-sessies te starten. Zie [RELAY_CONTRACT.md](RELAY_CONTRACT.md).
+Elke uitvoerende sessie sluit een opdracht af door ontbrekende relevante context, versies, besluiten, resultaten, tests en open punten in de juiste bestaande GitHub-bronnen vast te leggen; branch/PR/merge en teruglezing op main zijn vereist voor een geverifieerde publicatie. Draag resterend modulewerk met bronverwijzing over aan de **bestaande module-regie** en laat ontvangst bevestigen. Alleen suitebrede gevolgen gaan naar TETOOLS__REGIE via SUITE_IMPACT_SIGNAL. Werk de eigen sessie-/taakstatus en onderbouwde bewaarbeoordeling bij. Bij blokkade: registreer open afhankelijkheden en claim geen afsluiting. Hergebruik bestaande sessies als standaard; de regie gebruikt een korte verwijzing naar het bestaande taakissue, zonder onnodig nieuwe Work/Codex-sessies te starten. Zie [RELAY_CONTRACT.md](RELAY_CONTRACT.md).

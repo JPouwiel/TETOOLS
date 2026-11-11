@@ -1,3 +1,76 @@
+# Issue #119, deel 2 — vereenvoudigd relayprotocol, 11 november 2026
+
+De taakcyclus, korte GitHub-berichten, mijlpaalovergangen en risicogestuurde controles staan in [RELAY_CONTRACT](RELAY_CONTRACT.md), [MANUAL_HANDOFF](MANUAL_HANDOFF.md) en [OPERATIONS](OPERATIONS.md). Besluitbron: [Issue #119](https://github.com/JPouwiel/TETOOLS/issues/119) en REGIE-CONSOLIDATION-20261111-001. Het suiteprojectplan met de concrete mijlpalen volgt in deel 3.
+
+Hercontrole afsluitmeldingen #115–#118 op basis `cfde9e92cb0f18ac227df3833760cc12090b6835`: de issues bevatten de meldingen, zonder gepubliceerd afrondpakket op main of bijbehorende open PR. De aangetroffen diagnostische afsluitbranches voor #117 en #118 staan nog op de basis van PR #112. Voor sessiesluiting blijft publicatie van de concrete pakketten, teruglezing en ontvangst nodig. De regie bewaart de open punten in [#119](https://github.com/JPouwiel/TETOOLS/issues/119).
+
+# Issue #119, deel 1 — sessieoverzicht en bezetting, 11 november 2026
+
+Centrale regie: `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62`. Bronnen: [hoofdopdracht](https://github.com/JPouwiel/TETOOLS/issues/119), GitHub op main `5a0488342517b6bdf132896224afff1fe806f66a`, beschikbare chatgeschiedenis en bestaande afrondmeldingen. De inventaris is een momentopname uit de twee TETOOLS-projectkoppelingen: 13 Codex-chats en 5 ChatGPT-chats in de niet-gearchiveerde geschiedenis. Daarnaast staan op main 39 relay-entries, waaronder historische rollen en lokale sleutels. Die aantallen beschrijven verschillende zaken. Chats zonder zichtbare projectkoppeling kunnen afzonderlijk via een taak of PR worden bevestigd.
+
+## Bezetting voor hervatting
+
+| Plek | Bestaande sessie | Afspraak |
+|---|---|---|
+| Centrale regie | TETOOLS__REGIE `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62` | Beheert #119 en beslist over overdrachten. |
+| Codex | Start werkomgeving in Codex `01a13ed0-0dc5-7d21-994f-7df526238513` | Reserve voor een afgebakende vervolgopdracht. Controleer bij eerste gebruik toegang en registreer indien nodig. |
+| Work | Vrij | Kies bij een concrete Work-opdracht één geschikte bestaande Work-sessie. De zichtbare diagnostische chats hebben een afsluitopdracht en leveren geen bevestigd Work-uitvoeringsbewijs. |
+
+ADMIN_LOGGER__REGIE en ADMIN_OBJECTS__REGIE blijven aanspreekpunt voor hun bestaande modulewerk. Deel 1 wijst geen extra uitvoerders aan die modulelijnen toe. De gebruiker heeft als uitgangspunt maximaal één Regie-, één Work- en één Codex-sessie per actieve regielijn gekozen. Het projectplan bepaalt wanneer een werkpakket start.
+
+## Gecontroleerde afrondingen
+
+| Taak | Resultaat en opvolging |
+|---|---|
+| [#111](https://github.com/JPouwiel/TETOOLS/issues/111) | PR #112 gemerged op `5a0488342517b6bdf132896224afff1fe806f66a`. Uitvoerder rapporteerde 17/17 main-teruglezingen en 44/44 tests in [publicatiebewijs](https://github.com/JPouwiel/TETOOLS/issues/111#issuecomment-6769793692). Eigen entry COMPLETED/KEEP. Centrale regie neemt de protocoluitkomst in beheer. Sessieafmelding vraagt eigen afsluitbewijs. |
+| [#115](https://github.com/JPouwiel/TETOOLS/issues/115) | Historische beleidsverificatie beschreven. Publicatielink van afrondpakket ontbreekt op het issue, eigen entry ontbreekt op gelezen main. |
+| [#116](https://github.com/JPouwiel/TETOOLS/issues/116) | Historische hoofdlijnen-PDF beschreven. Pakket en originele bijlage nog te verifiëren op gepubliceerde branch of main. |
+| [#117](https://github.com/JPouwiel/TETOOLS/issues/117) | Diagnostiek vastgelegd in issue. Verifieer eigen afrondpakket en identiteit. De extra Work-start blijft onbevestigd. |
+| [#118](https://github.com/JPouwiel/TETOOLS/issues/118) | Diagnostiek vastgelegd in issue. Publicatie van eigen registratie en afrondpakket nog onbevestigd. |
+
+Bundel voor #115–#118 de verificatie zodra de bronrefs bekend zijn. Centrale regie bevestigt ontvangst van de gepubliceerde pakketten. Daarna kunnen sessies met controleerbaar behoud en afgeronde overdracht in het register worden gesloten en in de app worden gearchiveerd. Verwerk alleen ontbrekende context, met behoud van gebruikersgoedkeuring en bronverwijzingen.
+
+## Zichtbare chats en eerstvolgende administratieve handeling
+
+| Chat | ID | Stand / vervolg |
+|---|---|---|
+| TETOOLS__REGIE | `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62` | Centrale regie, behouden voor #119. |
+| Test Work-overdracht na herstart | `01a1acfe-f509-72d2-9b99-c96f3fe928eb` | Afronding #118, publicatiebewijs nodig. |
+| Inventariseer TETOOLS RAC-readiness | `01a1b00b-dfcc-7eb0-9621-c727cb25f06c` | Suiteonderzoek [#55](https://github.com/JPouwiel/TETOOLS/issues/55). Afgebakende taak COMPLETED, centraal restwerk blijft open. |
+| Leg TETOOLS-beleidsbesluiten vast | `01a1b115-ba9d-7603-a9a0-ae3a52f121d3` | Beleidsregistratie [PR #71](https://github.com/JPouwiel/TETOOLS/pull/71). Relay COMPLETED. |
+| Reconcile ADMIN_LOGGER relay updates | `01a1b00c-1710-76b2-b11c-c80f174b8b96` | Historische LOGGER-communicatie. Koppel eindresultaat aan bestaande registerentry vóór afsluiting. |
+| Voer relay-eindacceptatie uit | `01a1b08d-e1f3-7360-ad4e-90354dd7e607` | Eindacceptatie [#62](https://github.com/JPouwiel/TETOOLS/issues/62). Controleer formele sessieafmelding. |
+| Start diagnostische Work-sessie | `01a1ad00-883a-76e3-8837-bc406b3c63fc` | Afronding #117, publicatiebewijs nodig. |
+| Maak PDF met TETOOLS-hoofdlijnen | `01a1b034-ec0b-77e0-bdd4-efb5d42d891c` | Afronding #116, publicatiebewijs nodig. |
+| Voer TETOOLS relay-ketentest uit | `01a1b054-46d2-7781-9d7d-a39a7d6beb4b` | Relay-ketentest, resultaat bij [#62](https://github.com/JPouwiel/TETOOLS/issues/62). Relay COMPLETED. |
+| Verifieer TETOOLS-regiebesluiten | `01a1b122-049f-72a2-92ce-e4eac4f133a9` | Afronding #115, publicatiebewijs nodig. |
+| Analyseer ADMIN_SESSIONS | `01a138df-aece-73c1-a082-32fa2d835303` | ADMIN_SESSIONS-import, relay COMPLETED. Module-openpunten blijven bij module-eigenaar. |
+| Analyseer ADMIN_OBJECTS | `01a138d4-ee43-7930-aea2-4ec084041013` | ADMIN_OBJECTS-import [PR #6](https://github.com/JPouwiel/TETOOLS/pull/6), relay COMPLETED. |
+| Start werkomgeving in Codex | `01a13ed0-0dc5-7d21-994f-7df526238513` | Codex-reserve. Historisch documentatieresultaat zichtbaar in chat, duurzame bron bij hervatting verifiëren. |
+| Regieoverdracht vastleggen | `6af2eec5-677c-83ed-900e-089268703497` | Administratieve regieoverdracht, rapporteert afsluitblokkade. Controleer eigen contextbehoud. |
+| ADMIN_LOGGER__REGIE | `6aeaf394-82a0-83ed-bef9-457342486257` | Bestaande module-regie LOGGER, technisch eigenaar [#104](https://github.com/JPouwiel/TETOOLS/issues/104). |
+| TETOOLS__REGIE_voorganger_20261110 | `6ae9e9eb-6400-83eb-859c-580027d25466` | Voorganger vervangen via [PR #110](https://github.com/JPouwiel/TETOOLS/pull/110). Oude relay-entry ACTIVE/KEEP, formele afmelding nog open. |
+| ADMIN_OBJECTS__REGIE | `6ae1c678-2a98-83ed-99b0-c8895440f708` | Bestaande module-regie OBJECTS, eigenaar PM-001 en module-openpunten. |
+| Analyse ADMIN_LOGGER | `6ac49be1-ed20-83ed-9641-3b609ff795f4` | Historische LOGGER-analyse. Koppel unieke context aan bestaande modulepublicaties vóór afsluiting. |
+
+De via ID gecontroleerde uitvoerder van #111, Codex TETOOLS 01 (`01a1a59b-e2cf-7d10-9a9f-29e6312a2ae3`), staat buiten de zichtbare projectlijst en heeft op main een COMPLETED/KEEP-entry. Controleer de afsluitregistratie via #111. De werkmap bevat lokale afrondwijzigingen die eerst met hun gepubliceerde bron moeten worden vergeleken.
+
+## Restwerk blijft bij bestaande taken
+
+- LOGGER [#104](https://github.com/JPouwiel/TETOOLS/issues/104): PR #102 open op `afb5330ac538cb913e7d5e3eb8d92c7daeddc123`. Open voorstellen #107, #108, #109, #113 en #114 blijven traceerbaar via dat issue. F2 mist DBA/security/recovery-bewijs. G09 NOT_GRANTED.
+- Suiteonderzoek blijft [#55](https://github.com/JPouwiel/TETOOLS/issues/55), configuratieverificatie [#30](https://github.com/JPouwiel/TETOOLS/issues/30). Bestaande suite-impactdispositions en module-openpunten blijven leidend.
+- Deel 2 van [#119](https://github.com/JPouwiel/TETOOLS/issues/119) bevat de protocolwijziging met GitHub-terugkoppeling en afmelding, succescriteria en passende controles. Deel 3 bevat het suiteprojectplan met mijlpalen en afhankelijkheden. Statussnapshot en gebruikersbesluit zijn voorbereid voor administratieve publicatie.
+
+# Centrale regieoverdracht — peildatum 10 november 2026
+
+Op expliciet gebruikersverzoek volgt Codex-sessie `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62` de volle TETOOLS__REGIE-chat `6ae9e9eb-6400-83eb-859c-580027d25466` op. [Gecontroleerde inventaris en overdracht](SESSIONS/REGIE/20261110_SUCCESSION.md), basis main `28adcf32d04f6f6e7d0e2551010abb30f1c974c5`. Voorganger en andere sessie-entries blijven ongewijzigd; geen afsluiting of succesvolle afronding daarvan geclaimd.
+
+Actueel: issues #104, #55 en #30 OPEN; PR102 OPEN op afb5330ac538cb913e7d5e3eb8d92c7daeddc123, PR107/108/109 OPEN/DRAFT. Nieuwe onafhankelijke volledige PR102-headreview: ontvangst/resultaat PENDING. Optie C door gebruiker gekozen, modulematrix PR109 aangeboden en centraal als documentatievoorstel ontvangen; formele centrale/modulebesluitregistratie op main PENDING. Bestaande mergebeperkingen blijven gelden. LGR4-04/05/10/11, elf dependencies en C02-C06 BLOCKED; G01-G08 OPEN, G09 NOT_GRANTED. Geen nieuwe opdrachten.
+
+Canonieke standaard rev002 en modulevolgorde van 9 november blijven leidend. Suite-RAC-signalen hebben bestaande INVESTIGATE-dispositions; moduleonderzoek en DBA-bewijs blijven open. Oracle NOT_EXECUTED; RAC NOT_DEMONSTRATED. Dit is een administratieve opvolging, geen inhoudelijke wijziging of technische vrijgave. Eigen centrale rol ACTIVE/KEEP; begrensde overdrachtsactiviteit afgerond, current_activity=null. Deze toevoeging wordt via eigen PR gepubliceerd; merge/main-readback-bewijs wordt pas na uitvoering in die PR vastgelegd.
+
+Onderstaande gedateerde passages blijven historische momentopnamen; hun oude wachtstatussen of PROPOSED-policytekst heropenen geen inmiddels genomen besluiten.
+
 ## Publicatiebewijs beleidskader 1-12 - 6 november 2026
 
 [PR #71](https://github.com/JPouwiel/TETOOLS/pull/71) gemerged: `90934cee542bbb61599fadf8012fb27685e0d860`. Vijf gewijzigde tekstbestanden en het zes pagina's tellende PDF-overzicht zijn exact vanaf main teruggelezen; 399 overige bestaande blobidentiteiten behouden. REGIE-POLICY-READBACK-20261106-001..012 zijn de formele APPROVED-opvolgregistraties; de twaalf oorspronkelijke publicatievoorstellen blijven ongewijzigd bewaard. Geen technische implementatievrijgave. Validator, beide schema's en append-only vergelijking PASS met jsonschema 4.26.0. Eigen afgebakende registratietaak COMPLETED/KEEP; overige technische en beleidsuitwerking blijft bij bestaande regies.

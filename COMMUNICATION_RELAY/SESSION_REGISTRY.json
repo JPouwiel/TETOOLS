@@ -1109,22 +1109,22 @@
       "module": null,
       "subject": "Diagnostische Work-sessietest na laptopherstart en administratieve afronding",
       "revision": "001",
-      "status": "BLOCKED",
+      "status": "CLOSED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-11",
       "last_confirmed_at": "2026-11-11",
-      "closed_at": null,
+      "closed_at": "2026-11-11",
       "source_reference": "SESSIONS/CODEX/20261110_CLOSE_01a1ad00.md",
-      "recorded_by": "01a1ad00-883a-76e3-8837-bc406b3c63fc",
+      "recorded_by": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
       "deliverables": [
         "SESSIONS/CODEX/20261110_CLOSE_01a1ad00.md",
-        "https://github.com/JPouwiel/TETOOLS/issues/117"
+        "https://github.com/JPouwiel/TETOOLS/issues/117",
+        "https://github.com/JPouwiel/TETOOLS/issues/117#issuecomment-6789916685",
+        "https://github.com/JPouwiel/TETOOLS/pull/127"
       ],
-      "open_dependencies": [
-        "https://github.com/JPouwiel/TETOOLS/issues/117 — TETOOLS__REGIE: gebundelde merge en main-teruglezing, gevolgd door aantoonbare ontvangst."
-      ],
+      "open_dependencies": [],
       "current_activity": null,
-      "result": "Huidige Codex-sessie actief bevestigd en theoretische uitleg geleverd. Extra ChatGPT Work-aanvraag technisch aanvaard met client-ID, daadwerkelijke start onbevestigd. Geen modulewerk. Bewaarstatus KEEP tot de administratieve overdracht is bevestigd."
+      "result": "Afrondpakket via PR #127 op main teruggelezen. Centrale regie heeft de diagnose en de onbevestigde extra Work-start ontvangen. Geen modulewerk overgedragen. Bewaaradvies KEEP."
     }
   ]
 }

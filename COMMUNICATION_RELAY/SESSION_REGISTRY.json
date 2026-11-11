@@ -260,10 +260,10 @@
       "status": "ACTIVE",
       "retention_status": "KEEP",
       "registered_at": "2026-11-04",
-      "last_confirmed_at": "2026-11-09",
+      "last_confirmed_at": "2026-11-10",
       "closed_at": null,
       "source_reference": "Current ADMIN_LOGGER__REGIE conversation 2026-11-04; exact thread ID unavailable",
-      "recorded_by": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by": "01a1c472-55b9-7281-882f-53425c5c8937 (explicit delegated executor for ADMIN_LOGGER-REGIE-20261104-01)",
       "deliverables": [
         "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
         "modules/ADMIN_LOGGER/docs/reports/20261105__PLSQL__TETOOLS_ADMIN_LOGGER__RAC_analyse_A_20261015_500_STE_033.html",
@@ -276,7 +276,10 @@
         "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PILOT_DECISION_20261109.md",
         "modules/ADMIN_LOGGER/src/20261109_501_DEV/REVISION_MANIFEST.md",
         "COMMUNICATION_RELAY/reviews/ADMIN_LOGGER_PR97_STATIC_REVIEW_20261109.md",
-        "https://github.com/JPouwiel/TETOOLS/pull/97"
+        "https://github.com/JPouwiel/TETOOLS/pull/97",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md"
       ],
       "open_dependencies": [
         "LOG-OPEN-01",
@@ -289,14 +292,17 @@
         "LOG-OPEN-02: Oracle runtime validation NOT_EXECUTED",
         "LDR-05: Oracle 19c RU/grants/three-node RAC environment UNVERIFIED",
         "Oracle test-phase authorization separate and NOT_GRANTED",
-        "PR97 merged; Oracle test phase authorization NOT_GRANTED; DBA/test environment UNVERIFIED; eight test categories NOT_EXECUTED"
+        "PR97 merged; Oracle test phase authorization NOT_GRANTED; DBA/test environment UNVERIFIED; eight test categories NOT_EXECUTED",
+        "PR102 correction: LGR4-04/05/10/11 residual fixtures/functional/DBA evidence BLOCKED; matrix records owners",
+        "PR102 new full-head independent review by DIFFERENT reviewer; former reviewer now implementer",
+        "PR102 not merged; branch-only publication/main readback pending central mergegate; G09 NOT_GRANTED",
+        "LGR4-RR-01/02 corrected by delegated executor; new independent complete-head review required, receipt pending in Issue104",
+        "LGR4-04/05/10/11 BLOCKED with owner/decision/evidence/technical matrix in blocked_dependencies.md",
+        "G01-G08 open; G09 NOT_GRANTED; C02-C06 BLOCKED",
+        "PR102 and PR108 not merged; correction publication only on PR102 branch; main registration pending"
       ],
-      "note": "2026-11-09: TETOOLS__REGIE LDR-01..06 analysis and pilot preparation delivered as four reports; two DDL blockers RAC-A-010/011 source-confirmed, proposed diff NOT_APPLIED. Code/DB/frozen releases unchanged; Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. At LDR publication, pilot code authorization was pending (historical state, superseded by decision REGIE-LOGGER-PILOT-20261109-001); DBA environment remains UNVERIFIED. Earlier report A handoff receipt Issue #47 remains confirmed. | 2026-11-09: decision REGIE-LOGGER-PILOT-20261109-001 received; PR93 merged 6e97b076fdcab0806ae72c740094040c7b25514d. CONDITIONAL_GO CODE_ONLY for new non-frozen DDL-only revision (RAC-A-010/011). Supersedes prior 'pilot code authorization pending' note only; original analysis and decision history preserved. Oracle DDL/runtime/RAC tests NOT_AUTHORIZED and NOT_EXECUTED; RAC NOT_DEMONSTRATED. | 2026-11-09: PR97 independent STATIC_REVIEW_PASS via PR98; historical reviewgate BLOCKED/UNVERIFIED later superseded by repository-owner confirmation of no branch protection/rulesets and GitHub clean mergeability. PR97 merged 81eadafaf575accadddd18e173d4f733359ea4b7; all 6 DEV file Git blob hashes verified on main, baseline TABLE blob unchanged. No Oracle DDL/runtime/RAC/release. Codepilot Git publication COMPLETE; separate Oracle-test authorization required.",
-      "current_activity": {
-        "task_reference": "REGIE-LOGGER-TESTPREP-20261109-001",
-        "summary": "Stap 4: version-pinned Oracle 19c ADMIN_LOGGER testpakket voorbereiden; PREPARATION_ONLY; Oracle NOT_EXECUTED",
-        "state": "WORKING"
-      }
+      "note": "2026-11-09: TETOOLS__REGIE LDR-01..06 analysis and pilot preparation delivered as four reports; two DDL blockers RAC-A-010/011 source-confirmed, proposed diff NOT_APPLIED. Code/DB/frozen releases unchanged; Oracle NOT_EXECUTED, RAC NOT_DEMONSTRATED. At LDR publication, pilot code authorization was pending (historical state, superseded by decision REGIE-LOGGER-PILOT-20261109-001); DBA environment remains UNVERIFIED. Earlier report A handoff receipt Issue #47 remains confirmed. | 2026-11-09: decision REGIE-LOGGER-PILOT-20261109-001 received; PR93 merged 6e97b076fdcab0806ae72c740094040c7b25514d. CONDITIONAL_GO CODE_ONLY for new non-frozen DDL-only revision (RAC-A-010/011). Supersedes prior 'pilot code authorization pending' note only; original analysis and decision history preserved. Oracle DDL/runtime/RAC tests NOT_AUTHORIZED and NOT_EXECUTED; RAC NOT_DEMONSTRATED. | 2026-11-09: PR97 independent STATIC_REVIEW_PASS via PR98; historical reviewgate BLOCKED/UNVERIFIED later superseded by repository-owner confirmation of no branch protection/rulesets and GitHub clean mergeability. PR97 merged 81eadafaf575accadddd18e173d4f733359ea4b7; all 6 DEV file Git blob hashes verified on main, baseline TABLE blob unchanged. No Oracle DDL/runtime/RAC/release. Codepilot Git publication COMPLETE; separate Oracle-test authorization required. | 2026-11-09: User-pasted ADMIN_LOGGER__REGIE execution instruction delegates testpackage correction to existing Codex session a9edd3a9-d49a-4cb8-a102-868f3808e7bf. Existing module registration reused by explicit instruction; actual writer recorded separately. Prior reviewer is now correction implementer and cannot provide independent re-review. Central receipt Issue104 comment6750423813. | Delegated correction source commit 61c476eb4e33ed2c7a1e1e1542e5f3954a2e2ff6 published/read back: 7 CORRECTED_PENDING_REVIEW, 4 BLOCKED. Bounded code preparation done; current_activity cleared, module REGIE lifecycle remains ACTIVE/KEEP. All Oracle NOT_EXECUTED. Different independent reviewer and central mergegate pending. Main publication not claimed. | 2026-11-10: explicit user correction assignment delegated to existing Codex thread01a1c472-55b9-7281-882f-53425c5c8937; receipt Issue104 comment6763336114. No new regie session ID. Existing module governance identity retained; not independent review. Main registration pending; no merge. | 2026-11-10 second-herreview correction code d2f42960c259d5a4801511b7fd26b8c50dff6665: RR01 typed parent/subobject predicate and8 offline regressions; RR02 exact2positive/6mutation/1prefix classification. 42 source checks and9+8 unittest methods PASS at codecommit. Self-verification only; final full-head verification/readback in Issue104 after publication. Bounded correction activity removed; governance ACTIVE/KEEP and remaining technical work retained. No independent PASS, CLOSED or merge/Oracle claim.",
+      "current_activity": null
     },
     {
       "session_id": "9b9d1f65-4737-4956-8ed1-100b8c2e53da",

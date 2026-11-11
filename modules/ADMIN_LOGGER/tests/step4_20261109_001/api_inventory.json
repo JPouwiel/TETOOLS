@@ -1,0 +1,358 @@
+{
+  "source_blob": "9331a2756b1c2196280cda3f10bf1643285f61ab",
+  "declarations": [
+    {
+      "kind": "FUNCTION",
+      "name": "get_invoking_sid",
+      "declaration": "FUNCTION get_invoking_sid RETURN NUMBER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "get_invoking_serial",
+      "declaration": "FUNCTION get_invoking_serial RETURN NUMBER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "get_logon_time",
+      "declaration": "FUNCTION get_logon_time ( p_sid IN NUMBER, p_serial IN NUMBER ) RETURN DATE;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "get_audsid",
+      "declaration": "FUNCTION get_audsid ( p_sid IN NUMBER, p_serial IN NUMBER ) RETURN NUMBER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "logging_is_on",
+      "declaration": "FUNCTION logging_is_on ( p_settings_id IN INTEGER DEFAULT NULL ) RETURN CHAR;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "debug_is_on",
+      "declaration": "FUNCTION debug_is_on ( p_settings_id IN INTEGER DEFAULT NULL ) RETURN CHAR;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_RUNTIME",
+      "declaration": "FUNCTION LOG_RUNTIME (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_INFO",
+      "declaration": "FUNCTION LOG_INFO (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_WARNING",
+      "declaration": "FUNCTION LOG_WARNING (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_ERROR",
+      "declaration": "FUNCTION LOG_ERROR (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_DEBUG",
+      "declaration": "FUNCTION LOG_DEBUG (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_RUNTIME_FORCE",
+      "declaration": "FUNCTION LOG_RUNTIME_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_INFO_FORCE",
+      "declaration": "FUNCTION LOG_INFO_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_WARNING_FORCE",
+      "declaration": "FUNCTION LOG_WARNING_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "LOG_ERROR_FORCE",
+      "declaration": "FUNCTION LOG_ERROR_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2) RETURN PLS_INTEGER ;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "bool2vc",
+      "declaration": "FUNCTION bool2vc ( bool IN BOOLEAN ) RETURN VARCHAR2;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "bool2c",
+      "declaration": "FUNCTION bool2c ( bool IN BOOLEAN ) RETURN CHAR;"
+    },
+    {
+      "kind": "FUNCTION",
+      "name": "gen_token",
+      "declaration": "FUNCTION gen_token RETURN VARCHAR2;"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "who_called",
+      "declaration": "PROCEDURE who_called ( p_level IN NUMBER, p_trm_result OUT VARCHAR2 );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "session_details",
+      "declaration": "PROCEDURE session_details;"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "session_details_revert",
+      "declaration": "PROCEDURE session_details_revert(modus IN VARCHAR2, config_key IN VARCHAR2 DEFAULT NULL);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "show_config",
+      "declaration": "PROCEDURE show_config ( modus IN VARCHAR DEFAULT NULL );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "help",
+      "declaration": "PROCEDURE help( verbose IN VARCHAR2 DEFAULT 'N');"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "banner",
+      "declaration": "PROCEDURE banner;"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "version",
+      "declaration": "PROCEDURE version;"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "clear_session_entries",
+      "declaration": "PROCEDURE clear_session_entries ( before_in IN VARCHAR2 DEFAULT NULL );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "clear_log_entries",
+      "declaration": "PROCEDURE clear_log_entries ( before_in IN VARCHAR2 DEFAULT NULL );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "toggle_logging",
+      "declaration": "PROCEDURE toggle_logging ( modus IN VARCHAR2 DEFAULT c_on, send_log_to_in IN VARCHAR2 DEFAULT g_logging_target);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "toggle_debug",
+      "declaration": "PROCEDURE toggle_debug ( modus IN VARCHAR2 DEFAULT c_off, set_debug_target IN CHAR DEFAULT g_debug_target );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "toggle_batch",
+      "declaration": "PROCEDURE toggle_batch ( modus IN VARCHAR2 DEFAULT c_off, batch IN VARCHAR2 DEFAULT c_single );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME",
+      "declaration": "PROCEDURE LOG_RUNTIME (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME",
+      "declaration": "PROCEDURE LOG_RUNTIME (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME",
+      "declaration": "PROCEDURE LOG_RUNTIME (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME",
+      "declaration": "PROCEDURE LOG_RUNTIME (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO",
+      "declaration": "PROCEDURE LOG_INFO (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO",
+      "declaration": "PROCEDURE LOG_INFO (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO",
+      "declaration": "PROCEDURE LOG_INFO (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO",
+      "declaration": "PROCEDURE LOG_INFO (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING",
+      "declaration": "PROCEDURE LOG_WARNING (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING",
+      "declaration": "PROCEDURE LOG_WARNING (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING",
+      "declaration": "PROCEDURE LOG_WARNING (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING",
+      "declaration": "PROCEDURE LOG_WARNING (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR",
+      "declaration": "PROCEDURE LOG_ERROR (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR",
+      "declaration": "PROCEDURE LOG_ERROR (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR",
+      "declaration": "PROCEDURE LOG_ERROR (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR",
+      "declaration": "PROCEDURE LOG_ERROR (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_DEBUG",
+      "declaration": "PROCEDURE LOG_DEBUG (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_DEBUG",
+      "declaration": "PROCEDURE LOG_DEBUG (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_DEBUG",
+      "declaration": "PROCEDURE LOG_DEBUG (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_DEBUG",
+      "declaration": "PROCEDURE LOG_DEBUG (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME_FORCE",
+      "declaration": "PROCEDURE LOG_RUNTIME_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME_FORCE",
+      "declaration": "PROCEDURE LOG_RUNTIME_FORCE (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME_FORCE",
+      "declaration": "PROCEDURE LOG_RUNTIME_FORCE (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_RUNTIME_FORCE",
+      "declaration": "PROCEDURE LOG_RUNTIME_FORCE (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO_FORCE",
+      "declaration": "PROCEDURE LOG_INFO_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO_FORCE",
+      "declaration": "PROCEDURE LOG_INFO_FORCE (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO_FORCE",
+      "declaration": "PROCEDURE LOG_INFO_FORCE (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_INFO_FORCE",
+      "declaration": "PROCEDURE LOG_INFO_FORCE (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING_FORCE",
+      "declaration": "PROCEDURE LOG_WARNING_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING_FORCE",
+      "declaration": "PROCEDURE LOG_WARNING_FORCE (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING_FORCE",
+      "declaration": "PROCEDURE LOG_WARNING_FORCE (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_WARNING_FORCE",
+      "declaration": "PROCEDURE LOG_WARNING_FORCE (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR_FORCE",
+      "declaration": "PROCEDURE LOG_ERROR_FORCE (context_in IN VARCHAR2, data_in IN VARCHAR2);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR_FORCE",
+      "declaration": "PROCEDURE LOG_ERROR_FORCE (context_in IN VARCHAR2, data_in IN CLOB );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR_FORCE",
+      "declaration": "PROCEDURE LOG_ERROR_FORCE (context_in IN VARCHAR2, data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "LOG_ERROR_FORCE",
+      "declaration": "PROCEDURE LOG_ERROR_FORCE (context_in IN VARCHAR2, data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask);"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "put_line",
+      "declaration": "PROCEDURE put_line ( data_in IN VARCHAR2 );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "put_line",
+      "declaration": "PROCEDURE put_line ( data_in IN BOOLEAN );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "put_line",
+      "declaration": "PROCEDURE put_line ( data_in IN DATE, format_in IN VARCHAR2 DEFAULT c_date_mask );"
+    },
+    {
+      "kind": "PROCEDURE",
+      "name": "put_line",
+      "declaration": "PROCEDURE put_line ( clob_in IN CLOB );"
+    }
+  ],
+  "normal_logging_variants": 45,
+  "runtime": "NOT_EXECUTED",
+  "consumer_inventory": "UNVERIFIED"
+}

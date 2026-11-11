@@ -3058,6 +3058,50 @@
         "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
       ],
       "note": "Uitwerking van REGIE-CONSOLIDATION-20261111-001. Vervangt uitsluitend de verplichte lange doorstuurprompt en de standaard volledige controlecyclus bij losse voortgangsmeldingen. Behoudt bestaande bevoegdheden, sessie-/retentioncontract en canonieke historie. Publicatiebewijs volgt in Issue #119. Concrete suiteplanning en hookonderzoek vallen buiten deze protocolwijziging."
+    },
+    {
+      "change_id": "LOGGER-STEP4-CORRECTION-20261109-001",
+      "record_type": "REVIEW",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "Delegated PR102 testpackage correction: seven corrected pending different independent review, four residual blocks",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6750423813 ; user-pasted ADMIN_LOGGER__REGIE TESTPACKAGE_CORRECTION_ONLY instruction 2026-11-09, exact chat URL UNVERIFIED; receipt comment6752079844",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "a9edd3a9-d49a-4cb8-a102-868f3808e7bf",
+      "approval_actor": "Central correction-only authority via Issue104 comment6750423813 and explicit user-pasted module execution instruction; no Oracle GO, architecture decision, merge or release authority",
+      "recorded_at": "2026-11-09",
+      "revision": "correction1",
+      "supersedes": null,
+      "artifact_refs": [
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "https://github.com/JPouwiel/TETOOLS/commit/61c476eb4e33ed2c7a1e1e1542e5f3954a2e2ff6",
+        "https://github.com/JPouwiel/TETOOLS/pull/102"
+      ],
+      "note": "Actual implementer is prior reviewer a9edd3a9-d49a-4cb8-a102-868f3808e7bf acting by explicit delegation; next independent review must be by another session. Six pins and source/frozen preservation verified. All DB NOT_EXECUTED; G09 NOT_GRANTED. Existing LOGGER-RAC-20261105-001 reused, no duplicate or disposition. Branch-only publication; main merge/readback pending. Historical review/evidence and ASSESSED baseline record unchanged; total relay gate not PASS."
+    },
+    {
+      "change_id": "LOGGER-STEP4-RR-CORRECTION-20261110-001",
+      "record_type": "REVIEW_CORRECTION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "RR01 typed parent-object metadata check; RR02 exact offline evidence classification; blocked dependency matrix",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6763336114",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "01a1c472-55b9-7281-882f-53425c5c8937",
+      "approval_actor": "User explicitly delegates TESTPACKAGE_CORRECTION_ONLY / STATIC_VERIFICATION_ONLY; no merge, source, Oracle or G09 approval",
+      "recorded_at": "2026-11-10",
+      "revision": "002",
+      "supersedes": null,
+      "artifact_refs": [
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+        "https://github.com/JPouwiel/TETOOLS/commit/d2f42960c259d5a4801511b7fd26b8c50dff6665"
+      ],
+      "note": "Correction self-verification, not independent acceptance; historical FAILs retained. LGR4-04/05/10/11 and C02-C06 BLOCKED; G01-G08 open, G09 NOT_GRANTED. Existing LOGGER-RAC signal/Issue55 retained; independent full-head review requested after final branch publication; no merge/main claim."
     }
   ]
 }

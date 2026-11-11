@@ -1,0 +1,19 @@
+-- PREPARATION ONLY. G09 NOT_GRANTED. Never bypass 00_safety_gate.sql.
+WHENEVER OSERROR EXIT FAILURE ROLLBACK
+WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
+DEFINE STEP4_CASE_IDS = 'T02-01'
+DEFINE STEP4_OPERATION = 'INSTALL'
+@@00_safety_gate.sql
+SET SERVEROUTPUT ON SIZE UNLIMITED
+SET ECHO ON
+SET FEEDBACK ON
+SET VERIFY OFF
+-- Fresh-install inventory only. General and post-install gates are separate.
+DECLARE l_count NUMBER;
+BEGIN
+  IF USER <> 'TETOOLS' THEN RAISE_APPLICATION_ERROR(-20002,'Install owner must be TETOOLS'); END IF;
+  SELECT COUNT(*) INTO l_count FROM USER_OBJECTS;
+  IF l_count <> 0 THEN RAISE_APPLICATION_ERROR(-20006,'Fresh install requires entirely empty owner; objects='||l_count); END IF;
+END;
+/
+SELECT object_name,object_type,status FROM USER_OBJECTS ORDER BY 1,2;

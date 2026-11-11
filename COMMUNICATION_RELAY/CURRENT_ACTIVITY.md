@@ -6,7 +6,7 @@ SESSION_REGISTRY. Gebruiker hoeft geen extra voortgangsbestand of dashboard bij 
 
 ## Gebruik
 
-Voeg bij taakstart aan je eigen sessie-entry toe:
+Gebruik het taakissue voor actuele voortgang en afmelding. Als je een actuele taak in je eigen sessie-entry vastlegt, gebruik je deze structuur:
 
 ```json
 "current_activity": {
@@ -23,7 +23,7 @@ bewaar resultaat en bewijs in deliverables/Issue en registreer resterende open_d
 Een volgende opdracht mag een nieuwe taak verklaren. Geen aparte taak-ID, taakstartdatum,
 heartbeat, actorveld of duplicaat van bestaande sessietijdstempels nodig.
 
-Publiceer elke relevante wijziging via de bestaande branch/PR/merge/readback. Alleen eigen
+Bundel de registerwijziging waar mogelijk met de resultaat-PR en publiceer via branch/PR/merge/readback. Alleen eigen
 sessie of aantoonbaar gemachtigde reviewer; controleer actuele main voor merge en voeg
 gelijktijdige updates opnieuw samen. Niet iedere tussenstap hoeft een aparte statusupdate.
 

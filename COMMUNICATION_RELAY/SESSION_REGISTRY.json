@@ -1074,6 +1074,34 @@
       "base_commit": "ee374050e96e00b531f90863235981cf73ba6dc6",
       "current_activity": null,
       "closed_at": "2026-11-11"
+    },
+    {
+      "session_id": "01a1b034-ec0b-77e0-bdd4-efb5d42d891c",
+      "session_id_origin": "VERIFIED_CODEX_THREAD_ID",
+      "role": "WORK_DOCUMENTATION",
+      "module": null,
+      "subject": "Maak PDF met TETOOLS-hoofdlijnen; administratieve afronding in Issue #116",
+      "revision": "PDF 2026-11-06 / afrondpakket 2026-11-11",
+      "status": "BLOCKED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-11",
+      "last_confirmed_at": "2026-11-11",
+      "closed_at": null,
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/116",
+      "recorded_by": "01a1b034-ec0b-77e0-bdd4-efb5d42d891c",
+      "deliverables": [
+        "SESSIONS/WORK_DOCUMENTATION/20261110_PDF_01a1b034/README.md",
+        "SESSIONS/WORK_DOCUMENTATION/20261110_PDF_01a1b034/TETOOLS_ontwikkelprioriteiten_20261106.pdf",
+        "SESSIONS/WORK_DOCUMENTATION/20261110_PDF_01a1b034/AFRONDOPDRACHT.txt",
+        "https://github.com/JPouwiel/TETOOLS/issues/116"
+      ],
+      "open_dependencies": [
+        "Issue #116: TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62 bundelt merge en main-teruglezing en bevestigt eigen ontvangst/eigenaarschap van het afrondpakket."
+      ],
+      "base_commit": "bf001de3f77c611df9d149c50dbd4f4c826d3b24",
+      "current_activity": null,
+      "result": "Nederlandstalige eenpagina-PDF op 2026-11-06 geleverd en visueel gecontroleerd; originele bytes en taakcontext veiliggesteld in dit afrondpakket. Geen inhoudelijk restwerk uit deze opdracht. Publicatie- en ontvangstbewijs volgen in Issue #116.",
+      "note": "Eigen eerste relay-entry op geverifieerd Codex-platform-ID. KEEP tot geverifieerde publicatie, ontvangst en afzonderlijke sluiting. Geen app-archivering. Oracle NOT_EXECUTED; RAC NOT_DEMONSTRATED. Historische PDF is advies; canonieke standaard rev002 is leidend."
     }
   ]
 }

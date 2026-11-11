@@ -3014,6 +3014,27 @@
         }
       },
       "note": "This is not actual central role takeover. Original proposal remains byte/content-identical in prefix; actual publication proof will follow in PR112/Issue111."
+    },
+    {
+      "change_id": "REGIE-CONSOLIDATION-20261111-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Goedgekeurde uitgangspunten voor sessiebezetting, lichtere relay en suiteprojectplan",
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/119",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "approval_actor": "Gebruiker, expliciete keuze en vervolgopdracht in huidige centrale regiechat; bronvastlegging Issue #119",
+      "recorded_at": "2026-11-11",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/CURRENT_STATUS.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787842748",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
+      ],
+      "note": "Gebruikersbesluit vastgelegd: per actieve regielijn maximaal één regie-, één Work- en één Codex-sessie; GitHub als bron voor opdracht, terugkoppeling, afmelding en overdracht; toetsbare succescriteria, mijlpalen en proportionele controles. Deel 1 is de inventarisatie en bezetting. Protocolimplementatie en projectplan volgen in delen 2 en 3. Hookonderzoek blijft een onderzoeksvraag."
     }
   ]
 }

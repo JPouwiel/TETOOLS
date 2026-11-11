@@ -1057,22 +1057,23 @@
       "module": null,
       "subject": "Verifieer TETOOLS-regiebesluiten — administratieve afronding Issue #115",
       "revision": "20261111-001",
-      "status": "BLOCKED",
+      "status": "CLOSED",
       "retention_status": "KEEP",
       "registered_at": "2026-11-11",
       "last_confirmed_at": "2026-11-11",
       "source_reference": "codex://threads/01a1b122-049f-72a2-92ce-e4eac4f133a9; oorspronkelijke read-only gebruikersopdracht 2026-11-06 vanuit chatgpt-conversation://6ae9e9eb-6400-83eb-859c-580027d25466; https://github.com/JPouwiel/TETOOLS/issues/115",
-      "recorded_by": "01a1b122-049f-72a2-92ce-e4eac4f133a9",
+      "recorded_by": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
       "deliverables": [
         "SESSIONS/CODEX/20261111_CLOSE_01a1b122.md",
-        "https://github.com/JPouwiel/TETOOLS/issues/115"
+        "https://github.com/JPouwiel/TETOOLS/issues/115",
+        "https://github.com/JPouwiel/TETOOLS/issues/115#issuecomment-6789614066",
+        "https://github.com/JPouwiel/TETOOLS/pull/122"
       ],
-      "open_dependencies": [
-        "TETOOLS__REGIE 01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62: gebundelde merge/main-teruglezing en zelfstandige ontvangst van het afrondverslag in https://github.com/JPouwiel/TETOOLS/issues/115."
-      ],
-      "result": "Historische GitHub-verificatie op c9d1308880e217ffb94885509c1650a938490ea7 afgerond. Beperkte oorspronkelijke chatbron beschreven. Administratief afrondvoorstel; publicatiebewijs en ontvangst volgen via Issue #115.",
+      "open_dependencies": [],
+      "result": "Afrondpakket op main geverifieerd via PR #122. Centrale regie heeft de historische verificatie en bronbeperking aanvaard en beheert eventueel restwerk. Bewaaradvies KEEP.",
       "base_commit": "ee374050e96e00b531f90863235981cf73ba6dc6",
-      "current_activity": null
+      "current_activity": null,
+      "closed_at": "2026-11-11"
     }
   ]
 }

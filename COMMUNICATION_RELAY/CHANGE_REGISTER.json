@@ -3035,6 +3035,29 @@
         "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
       ],
       "note": "Gebruikersbesluit vastgelegd: per actieve regielijn maximaal één regie-, één Work- en één Codex-sessie; GitHub als bron voor opdracht, terugkoppeling, afmelding en overdracht; toetsbare succescriteria, mijlpalen en proportionele controles. Deel 1 is de inventarisatie en bezetting. Protocolimplementatie en projectplan volgen in delen 2 en 3. Hookonderzoek blijft een onderzoeksvraag."
+    },
+    {
+      "change_id": "REGIE-RELAY-WORKFLOW-20261111-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": null,
+      "subject": "Vereenvoudigde GitHub-taakcyclus, mijlpaalcontrole en risicogestuurde relay",
+      "status": "APPROVED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/119",
+      "origin_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "recorded_by_session": "01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62",
+      "approval_actor": "Gebruiker, expliciete goedkeuring van de werkwijze en opdracht tot afronding zonder tussentijdse bevestiging",
+      "recorded_at": "2026-11-11",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "COMMUNICATION_RELAY/RELAY_CONTRACT.md",
+        "COMMUNICATION_RELAY/MANUAL_HANDOFF.md",
+        "COMMUNICATION_RELAY/OPERATIONS.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787842748",
+        "https://github.com/JPouwiel/TETOOLS/issues/119#issuecomment-6787925191"
+      ],
+      "note": "Uitwerking van REGIE-CONSOLIDATION-20261111-001. Vervangt uitsluitend de verplichte lange doorstuurprompt en de standaard volledige controlecyclus bij losse voortgangsmeldingen. Behoudt bestaande bevoegdheden, sessie-/retentioncontract en canonieke historie. Publicatiebewijs volgt in Issue #119. Concrete suiteplanning en hookonderzoek vallen buiten deze protocolwijziging."
     }
   ]
 }

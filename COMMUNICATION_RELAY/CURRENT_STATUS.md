@@ -1,3 +1,9 @@
+# Issue #119, deel 2 — vereenvoudigd relayprotocol, 11 november 2026
+
+De taakcyclus, korte GitHub-berichten, mijlpaalovergangen en risicogestuurde controles staan in [RELAY_CONTRACT](RELAY_CONTRACT.md), [MANUAL_HANDOFF](MANUAL_HANDOFF.md) en [OPERATIONS](OPERATIONS.md). Besluitbron: [Issue #119](https://github.com/JPouwiel/TETOOLS/issues/119) en REGIE-CONSOLIDATION-20261111-001. Het suiteprojectplan met de concrete mijlpalen volgt in deel 3.
+
+Hercontrole afsluitmeldingen #115–#118 op basis `cfde9e92cb0f18ac227df3833760cc12090b6835`: de issues bevatten de meldingen, zonder gepubliceerd afrondpakket op main of bijbehorende open PR. De aangetroffen diagnostische afsluitbranches voor #117 en #118 staan nog op de basis van PR #112. Voor sessiesluiting blijft publicatie van de concrete pakketten, teruglezing en ontvangst nodig. De regie bewaart de open punten in [#119](https://github.com/JPouwiel/TETOOLS/issues/119).
+
 # Issue #119, deel 1 — sessieoverzicht en bezetting, 11 november 2026
 
 Centrale regie: `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62`. Bronnen: [hoofdopdracht](https://github.com/JPouwiel/TETOOLS/issues/119), GitHub op main `5a0488342517b6bdf132896224afff1fe806f66a`, beschikbare chatgeschiedenis en bestaande afrondmeldingen. De inventaris is een momentopname uit de twee TETOOLS-projectkoppelingen: 13 Codex-chats en 5 ChatGPT-chats in de niet-gearchiveerde geschiedenis. Daarnaast staan op main 39 relay-entries, waaronder historische rollen en lokale sleutels. Die aantallen beschrijven verschillende zaken. Chats zonder zichtbare projectkoppeling kunnen afzonderlijk via een taak of PR worden bevestigd.

@@ -125,7 +125,7 @@ Platform-ID blijft identiteit; titel is alleen herkenningslabel. App-hernoemen/a
 relay-lifecycle en retention blijven afzonderlijk en worden hier niet uitgevoerd. Overname
 bewijst geen volledige historische archivering. Een opvolger mag eigen ontbrekende kennis
 niet als afgehandeld besluit vastleggen. Geen automatische notificatie, chatsynchronisatie,
-achtergrondmonitor of activering; gebruiker transporteert één volledig ingevuld bericht.
+achtergrondmonitor of automatische activering. Regie verwijst met een kort bericht naar het taakissue. Ontvangst en afmelding worden daar vastgelegd volgens [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md).
 
 ## Uitvoering en toetsing
 

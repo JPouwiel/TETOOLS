@@ -7,6 +7,16 @@
 
 Project: PLSQL_TETOOLS. Scope: projectbreed; module-inhoud blijft bij de module. Canonieke actuele status: CURRENT_STATUS.md. Module-index: MODULE_REGISTRY.md. Sessieregister: SESSION_REGISTRY.json. Historie van afspraken/besluiten/open punten: module-DECISIONS.md, REQUIREMENTS.md en OPEN_POINTS.md, met CHANGE_REGISTER.json voor mutaties en Git PR/commits voor bewijs.
 
+## Taakcyclus en mijlpalen — Issue #119
+
+Per actieve regielijn is er maximaal één Regie-, één Work- en één Codex-sessie. Hergebruik een geschikte bestaande sessie. Een lege plek mag leeg blijven. Regie kiest één inhoudelijk werkpakket tegelijk per regielijn en legt nieuwe bevindingen vast voor prioritering. Parallel werk kan binnen een mijlpaal als de afhankelijkheden en beschikbare bezetting dat toelaten. De auteur beoordeelt eigen werk niet als onafhankelijke reviewer.
+
+Het bestaande taakissue bevat de planreferentie, mijlpaal, eigenaar, bevoegdheid, verwacht resultaat, toetsbare succescriteria, bewijs, afhankelijkheden, afgesproken controles en stoppunt. Gebruik vóór vaststelling van het suiteprojectplan Issue #119 als planreferentie voor de goedgekeurde invoeringsdelen. Standaard volgt op één uitvoeringsronde hoogstens één gerichte correctieronde. Daarna stelt de uitvoerder het resultaat veilig en legt hij het resterende beslispunt op het issue vast. Een expliciet overeengekomen opdracht kan een ander stoppunt hebben.
+
+Ontvangst, voortgang bij betekenisvolle wijzigingen, resultaat en taakafmelding staan op hetzelfde issue. De uitvoerder meldt per criterium de uitkomst, versie en bewijslink. Bij een volledige gereedmelding gelden de vooraf afgesproken controles als voldoende voor voortgang. Verplichte review, mergevoorwaarden, bronverificatie en uitvoeringsautorisatie blijven van toepassing. De opvolger controleert alleen de eigen startvoorwaarden: gereedmelding, benodigde versie en relevante afhankelijkheden. Een eindtaak heeft geen opvolger.
+
+De regie legt per mijlpaal het doel, de parallelle en opeenvolgende taken, het einde van elke reeks en de afsluitcriteria vast. Bij afsluiting beoordeelt de regie alle taakstatussen en bewijslinks, uitzonderingen en overgedragen restwerk. Voer de afgesproken integratie- of acceptatiecontrole uit. Hergebruik geldig bewijs uit de taakissues. Leg de afsluiting en eventueel overgedragen restwerk vast in GitHub. Zie [beheerprocedure](OPERATIONS.md) en [overdrachtsberichten](MANUAL_HANDOFF.md).
+
 ## Sessies
 
 Bij eerste gebruik registreert een sessie een uniek session_id, role, module, subject, revision, status, retention_status, source_reference en recorded_by. Gebruik echte thread-ID waar beschikbaar; verzin er geen. Statuswaarden: REGISTERED, ACTIVE, BLOCKED, COMPLETED, CLOSED, ARCHIVED. Alleen de sessie zelf of een aantoonbaar gemachtigde reviewer mag ACTIVE claimen. COMPLETED is een werkstatus, geen bewijs dat de chat is beëindigd. CLOSED vereist vastgelegde opleveringen, bronverwijzingen en overdracht van open afhankelijkheden. ARCHIVED is een registratie, niet het wissen van de chat.
@@ -55,7 +65,7 @@ Signalering is **geen automatische notificatie of chatsynchronisatie**. TETOOLS_
 
 ## Handmatige overdracht tussen sessies (2026-11-04)
 
-De goedgekeurde procedure staat in [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). De verzender registreert een uitvoerbaar verzoek in een GitHub Issue en levert een volledig ingevuld kopieerbaar bericht. De ontvanger leest het Issue en de bronnen zelfstandig, verwerkt binnen de bevoegdheden en legt resultaat en bewijs vast. Het doorgeven door de gebruiker is geen goedkeuring. Issues vervangen geen formele besluitenregisters. Geen hooks of automatische activering.
+Gebruik [MANUAL_HANDOFF.md](MANUAL_HANDOFF.md). Hergebruik het taakissue en stuur een kort bericht met de link, gevraagde handeling en rol. Regie kan het bericht rechtstreeks sturen aan de bestaande sessie als daarvoor autorisatie en toegang bestaan. Anders kan de gebruiker hetzelfde bericht doorgeven. Ontvangst en resultaat worden in het issue vastgelegd. Het issue verwijst naar formele besluitregistraties. Automatische activering valt buiten deze procedure.
 
 ## Sessiebeoordeling en opruimadvies — optie A (goedgekeurd 2026-11-04)
 
@@ -68,8 +78,7 @@ Een sessie mag optioneel precies een `current_activity` object vastleggen met ui
 en `state` (`WORKING`, `WAITING`, `BLOCKED`). Afwezig of null betekent geen verklaarde taak;
 het bewijst geen inactiviteit of einde van een chat. Schema_version blijft 1: bestaande entries blijven geldig.
 
-De uitvoerende sessie werkt dit handmatig bij bij taakstart, betekenisvolle taak-/statuswijziging
-en hervatting. Zij bevestigt tegelijk de bestaande `last_confirmed_at` en `recorded_by`.
+Het taakissue toont de actuele voortgang. Bij taakstart en betekenisvolle overgangen kan de uitvoerder de optionele sessieverklaring bijwerken. Bundel de registerwijziging waar mogelijk met de resultaat-PR. Bevestig bij iedere registerwijziging de bestaande `last_confirmed_at` en `recorded_by`.
 Dit zijn de datum van de laatste handmatige sessiebevestiging en de schrijver, geen heartbeat
 of afzonderlijke taakstartdatum. Git/PR levert de wijzigingshistorie. Een andere sessie wijzigt
 dit alleen met aantoonbare machtiging en bronverwijzing in de PR. Geen automatische updates.
@@ -103,4 +112,4 @@ Bij afronding van **iedere** uitvoeringsopdracht (Work, Codex, import of module-
 
 Na geverifieerde publicatie draagt de uitvoerende sessie het **eigenaarschap van resterend modulewerk terug aan de bestaande module-regie**. De module-regie bevestigt ontvangst via de bestaande GitHub Issue of modulebron; bij niet-bevestigde ontvangst blijft de overdracht open. Alleen mogelijke moduleoverstijgende impact gaat via het bestaande SUITE_IMPACT_SIGNAL naar TETOOLS__REGIE. Een open technisch ontwikkelpunt kan bij de opvolgende regie blijven zonder de oude uitvoeringschat als eigenaar aan te houden, mits overdracht en contextbehoud zijn geverifieerd.
 
-Werk sessieregistratie en eventuele current_activity bij volgens het bestaande lifecycle-contract; beoordeel retention apart op basis van bewijs. Geen automatische vrijgave bij taakafronding. **Herbruik eerst een geschikte bestaande sessie**; de regie levert voor een overdracht één volledig ingevulde kopieerbare activeringsprompt. Start een nieuwe Work/Codex-sessie uitsluitend als geen bruikbare bestaande sessie beschikbaar is of de bestaande sessie technisch ontoereikend is; leg de reden kort vast in de bestaande taakbron. Deze regels vereisen geen nieuwe velden, diensten, dashboards of aparte beheerprocedure.
+Werk sessieregistratie en eventuele current_activity bij volgens het bestaande lifecycle-contract; beoordeel retention apart op basis van bewijs. Geen automatische vrijgave bij taakafronding. **Herbruik eerst een geschikte bestaande sessie**; de regie gebruikt een kort bericht met de link naar het bestaande taakissue. Start een nieuwe Work/Codex-sessie uitsluitend als geen bruikbare bestaande sessie beschikbaar is of de bestaande sessie technisch ontoereikend is; leg de reden kort vast in de bestaande taakbron. Deze regels vereisen geen nieuwe velden, diensten, dashboards of aparte beheerprocedure.

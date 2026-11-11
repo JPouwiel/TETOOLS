@@ -1,0 +1,125 @@
+# TETOOLS — gecontroleerd afronden, vastleggen en sessie sluiten
+
+**Project:** PLSQL_TETOOLS  
+**Repository:** JPouwiel/TETOOLS  
+**Centrale ontvanger:** TETOOLS__REGIE, sessie `01a1c4f4-e7eb-7f51-ab89-2fe51f09bc62`
+
+## Opdracht en doel
+
+De gebruiker wil de wildgroei aan projectsessies beëindigen en overzicht herstellen. Rond daarom deze sessie gecontroleerd af op basis van het werk dat op ontvangst van deze prompt daadwerkelijk beschikbaar is.
+
+**Het beoogde eindresultaat is een gesloten sessie met behouden informatie en aantoonbaar overgedragen restwerk.** Dit is geen opdracht om alle inhoudelijke projectproblemen eerst op te lossen.
+
+Deze opdracht gaat voor op eerder geplande vervolgactiviteiten binnen deze sessie. Behoud bestaande inhoudelijke besluiten en veiligheidsbeperkingen.
+
+## 1. Stop uitbreiding van het werk
+
+- Begin geen nieuwe inhoudelijke activiteit, reviewronde, onderzoek of correctiecyclus.
+- Voer nog wachtende overdrachts- of vervolgprompts niet inhoudelijk uit. Registreer ze als over te dragen verzoeken.
+- Start of activeer geen andere sessies en geef geen nieuwe opdrachten uit.
+- Rond een reeds lopende handeling alleen af tot een veilig, controleerbaar stoppunt.
+- Los uitsluitend problemen op die noodzakelijk zijn om het bestaande resultaat veilig te stellen en over te dragen.
+
+Geen Oracle-uitvoering, productieacties, frozen-releasewijzigingen of nieuwe functionele/architectuurwijzigingen.
+
+## 2. Controleer bronnen en eigen identiteit
+
+Lees de actuele repository-instructies en het relaycontract. Controleer actuele main en de eigen branches, issues en PR’s.
+
+Identificeer deze sessie met haar bestaande relay-ID en echte platform-ID indien beschikbaar. Verzin geen ID en neem geen identiteit van een andere sessie over.
+
+Een titel of oude status is geen bewijs van identiteit of actuele uitvoering.
+
+## 3. Stel beschikbare informatie duurzaam veilig
+
+Gebruik bestaande canonieke module- en relaybestanden. Bewaar minimaal:
+
+- De oorspronkelijke opdracht, scope en bevoegdheden.
+- Het werkelijk uitgevoerde werk en de beschikbare resultaten.
+- Relevante bronversies, besluiten, goedkeuringen en beperkingen.
+- Branches, commits, issues, PR’s en resultaatlocaties.
+- Uitgevoerde controles en hun uitkomsten; niet-uitgevoerde controles met reden.
+- Onvoltooide onderdelen, blokkades en nog niet verwerkte berichten.
+- Essentiële bijlagen die anders uitsluitend via deze chat bereikbaar blijven.
+
+Behoud historische versies en besluitstatussen. Maak van een voorstel geen goedgekeurd resultaat. Beschrijf ontbrekende of niet veiliggestelde context expliciet.
+
+Een bruikbaar tussenresultaat mag als **onvoltooid voorstel** worden bewaard. Maak het niet eerst inhoudelijk af om deze sessie te kunnen sluiten.
+
+## 4. Registreer het overzicht op één bestaande plek
+
+Werk de **eigen entry in `COMMUNICATION_RELAY/SESSION_REGISTRY.json`** bij. Dit register is de centrale inventaris voor deze afrondactie; maak geen apart dashboard of concurrerend sessieregister.
+
+Zorg dat vanuit de entry controleerbaar zijn:
+
+- Identiteit en rol.
+- Laatste opdracht en resultaatstatus.
+- Verwijzingen naar resultaten en een duurzaam afrond-/overdrachtsverslag.
+- Alle resterende afhankelijkheden met verantwoordelijke rol.
+- Publicatie- en verificatiebewijs.
+- Lifecycle en onderbouwde bewaarbeoordeling.
+
+Gebruik bestaande velden en bestaande relayconventies. Voeg geen nieuw schema of nieuwe infrastructuur toe.
+
+Als een afrondverslag nodig is, plaats het onder het bestaande passende sessiepad in COMMUNICATION_RELAY en verwijs ernaar vanuit `deliverables`.
+
+Wijzig geen andere sessie-entry zonder aantoonbare machtiging.
+
+## 5. Draag restwerk over zonder het opnieuw uit te zetten
+
+Draag technisch modulewerk terug aan de bestaande module-regie. Draag centrale besluiten, onduidelijk eigenaarschap en het overzicht van deze afrondactie over aan TETOOLS__REGIE.
+
+Leg per restpunt vast:
+
+- Wat ontbreekt.
+- Waar het bestaande materiaal staat.
+- Welke rol verantwoordelijk is.
+- Welke beslissing of activiteit later nodig is.
+
+**Dit is een overdracht van informatie en verantwoordelijkheid, geen nieuwe uitvoeringsopdracht.** Activeer de ontvanger niet en vraag de gebruiker niet eerst de wachtende prompts rond te sturen.
+
+Gebruik een bestaand passend taakissue voor de terugmelding. Maak alleen wanneer dat noodzakelijk is één administratief overdrachtsissue; geen reeks nieuwe technische taken.
+
+Ontvangst moet aantoonbaar bevestigd worden voordat een overdracht als voltooid wordt geregistreerd. Claim geen ontvangst namens de ontvanger.
+
+## 6. Publiceer en verifieer
+
+Volg branch/PR/merge/main-teruglezing volgens het actuele relaycontract.
+
+Deze opdracht autoriseert een **afgebakende administratieve afrondpublicatie**. Een bestaande inhoudelijke PR mag open blijven; bewaar daarvan de exacte head en status.
+
+Bestaande mergeverboden, vereiste reviews en controles blijven gelden. Deze prompt autoriseert geen onbeoordeelde inhoudelijke merge of bypass.
+
+Controleer gelijktijdige wijzigingen en behoud andermans entries en historische records. Rapporteer bestaande validatiefouten afzonderlijk; begin geen nieuwe herstelcyclus buiten de afrondscope.
+
+Bij een publicatieblokkade: bewaar het concrete afrondpakket op een controleerbare branch/PR, registreer de blokkade en benoem precies welke beperkte centrale handeling nog nodig is.
+
+## 7. Sluit de sessie zodra het overdrachtspunt is bereikt
+
+Zodra resultaten duurzaam zijn vastgelegd, publicatie is geverifieerd en ontvangst/eigenaarschap van restwerk aantoonbaar is bevestigd:
+
+- Registreer de sessie als **CLOSED**, met `closed_at`, overdrachtsverwijzingen en resultaat.
+- Wis `current_activity`.
+- Houd `retention_status` op **KEEP**, tenzij een afzonderlijke onderbouwde bewaarbeoordeling iets anders rechtvaardigt.
+- Publiceer en lees de afsluitregistratie terug volgens het contract.
+- Beëindig verdere uitvoering in deze sessie.
+
+Open technisch restwerk verhindert sluiting niet wanneer het controleerbaar is overgedragen.
+
+Als uitsluitend ontvangst of een administratieve publicatiestap ontbreekt, registreer dan **BLOCKED**, benoem die ene sluitingsblokkade en stop eveneens met inhoudelijk vervolgwerk. Hervat alleen om die sluitingsstap af te handelen.
+
+Verwijder deze chat niet. Daadwerkelijke app-archivering volgt na de geverifieerde afsluiting; claim die niet als zij niet is uitgevoerd.
+
+## 8. Lever één korte eindterugmelding
+
+Lever maximaal één compacte terugmelding met:
+
+1. Sessietitel, relay-ID en platform-ID.
+2. **CLOSED** of **BLOCKED**, met eventuele exacte sluitingsblokkade.
+3. Link naar de eigen registratie en het afrondverslag.
+4. PR/commit en werkelijk publicatie-/terugleesbewijs.
+5. Overgedragen restwerk en ontvangende eigenaar.
+6. Of informatie nog uitsluitend in deze chat aanwezig is.
+7. Of de chat gereed is voor archivering.
+
+Stel geen nieuwe inhoudelijke vervolgvraag en genereer geen nieuwe werkprompt. Het doel van deze opdracht is afronding en sluiting, zodat de gebruiker vanuit één centrale inventaris opnieuw overzicht krijgt.

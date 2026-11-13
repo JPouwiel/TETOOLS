@@ -418,9 +418,9 @@
       "subject": "Independent PM-001 revision 003 completeness review and session offload",
       "revision": "review 20261103 / offload 20261105",
       "status": "COMPLETED",
-      "retention_status": "ELIGIBLE_FOR_DELETION",
+      "retention_status": "KEEP",
       "registered_at": "2026-11-05",
-      "last_confirmed_at": "2026-11-05",
+      "last_confirmed_at": "2026-11-11",
       "closed_at": null,
       "source_reference": "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md",
       "recorded_by": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
@@ -430,13 +430,19 @@
         "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/SESSION_HANDOFF.md",
         "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/PRESERVATION_MANIFEST.json",
         "../modules/ADMIN_OBJECTS/context/offloads/20261105_review003/VERIFICATION_20261105.json",
-        "https://github.com/JPouwiel/TETOOLS/pull/42"
+        "https://github.com/JPouwiel/TETOOLS/pull/42",
+        "https://github.com/JPouwiel/TETOOLS/pull/108",
+        "../modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_M2_LOGGER_A_20261111_afb5330.md",
+        "../modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_M2_LOGGER_A_20261111_afb5330_EVIDENCE.json"
       ],
-      "open_dependencies": [],
-      "note": "Local relay UUID, not ChatGPT-thread-ID. Own Work review identified by original report outputs, not external regie or revision004 authorship. Manual evidence-based eligibility for this chat only; no other session status changed, no actual deletion or full upstream regie-history claim.",
+      "open_dependencies": [
+        "Issue #104: centrale ontvangst en F1-mergebeoordeling van M2-LOGGER-A. Module/DBA houden G01–G08 en de elf afhankelijkheden."
+      ],
+      "note": "Local relay UUID, not ChatGPT-thread-ID. Own Work review identified by original report outputs, not external regie or revision004 authorship. Manual evidence-based eligibility for this chat only; no other session status changed, no actual deletion or full upstream regie-history claim. M2-LOGGER-A: bestaand reviewerprofiel gekoppeld aan thread 01a19fe0-7428-7763-8c6c-bb8b9c26abc3 via Issue #104, ontvangst 6765342751. Statische beoordeling voltooid, CONDITIONAL_PASS voor F1 op afb5330ac538cb913e7d5e3eb8d92c7daeddc123. Historische PM-001-offload en PR108 blijven afzonderlijk bewaard.",
       "pull_request": "https://github.com/JPouwiel/TETOOLS/pull/42",
       "merge_commit": "868a4594847732e1af4822d654ba499b70a9b9d2",
-      "result": "Complete offload of relevant available review003-session context; 8/8 changed files read back on main; original report Markdown/PDF and ZIP blob identities matched; 165 frozen and 374 unrelated existing blobs unchanged. Module open points transferred; no chat-exclusive dependency."
+      "result": "Complete offload of relevant available review003-session context; 8/8 changed files read back on main; original report Markdown/PDF and ZIP blob identities matched; 165 frozen and 374 unrelated existing blobs unchanged. Module open points transferred; no chat-exclusive dependency.",
+      "current_activity": null
     },
     {
       "session_id": "e6848875-0061-4364-97f5-302b27bc6b48",

@@ -1,0 +1,2764 @@
+{
+  "review_id": "LOGGER-REREVIEW-20261110-001",
+  "reviewed_head": "afb5330ac538cb913e7d5e3eb8d92c7daeddc123",
+  "main_base": "28adcf32d04f6f6e7d0e2551010abb30f1c974c5",
+  "reviewer_relay": "d58c7999-a8ba-4534-ab08-1c8c87181b64",
+  "reviewer_thread": "01a19fe0-7428-7763-8c6c-bb8b9c26abc3",
+  "authority": "STATIC_REVIEW_ONLY / DOCUMENTATION_PUBLICATION_ONLY",
+  "verdict": "CONDITIONAL_PASS",
+  "merge_advice": "WAIT_FOR_CENTRAL_F1_DECISION_AND_REGISTER_INTEGRATION; REVIEW_RESULTING_HEAD",
+  "oracle_connection": "NOT_USED",
+  "oracle_execution": "NOT_EXECUTED",
+  "client_execution": "NOT_EXECUTED",
+  "g09": "NOT_GRANTED",
+  "checks": [
+    {
+      "check": "46_downloaded_files_match_full_head",
+      "status": "PASS",
+      "detail": [
+        {
+          "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+          "bytes": 165730,
+          "lines": 2906,
+          "git_blob": "2e6142a5cb65b089b16b7114e50ffe021c253cfb",
+          "expected_head_blob": "2e6142a5cb65b089b16b7114e50ffe021c253cfb",
+          "sha256": "4a074860c08170254ce69e62c0ebdcc95f00107b2a384414036e1e754bf9fd25",
+          "exact": true
+        },
+        {
+          "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+          "bytes": 55894,
+          "lines": 1005,
+          "git_blob": "3346a326668666c99423c6b4646186dda597299d",
+          "expected_head_blob": "3346a326668666c99423c6b4646186dda597299d",
+          "sha256": "91b97bbe4a27d05a56704ca9aa167e1c5023fed80d9c86cc01a82c231d603202",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+          "bytes": 8377,
+          "lines": 62,
+          "git_blob": "2f9b28b743847ecd8166bc6f034956dde7b3f646",
+          "expected_head_blob": "2f9b28b743847ecd8166bc6f034956dde7b3f646",
+          "sha256": "e4941827d98d7f7a8f31efcf7c9f80c66571ab304ef1052fea5d1f458cf87f57",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
+          "bytes": 6800,
+          "lines": 41,
+          "git_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+          "expected_head_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+          "sha256": "18a6714a55d6343fae1d0e4b58f2b34c83b119647cfd5dde57b8714fd1f4dde1",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
+          "bytes": 5139,
+          "lines": 23,
+          "git_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+          "expected_head_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+          "sha256": "b64a176756d61e858877b7e5597f0f8560d90f0c3e9d3bf96df074000d252d83",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/api_inventory.json",
+          "bytes": 11870,
+          "lines": 358,
+          "git_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
+          "expected_head_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
+          "sha256": "2a5cb4d2b4ce83624062f66cf9410c72e7b1e875e35db4649d31dba8c58446f8",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+          "bytes": 7133,
+          "lines": 21,
+          "git_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+          "expected_head_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+          "sha256": "324971e6b9eb07293f96d95ae29b0847520a3cab9e2474aedd135ab98e930b4a",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/casebook.md",
+          "bytes": 4363,
+          "lines": 40,
+          "git_blob": "82620dfe51a5993186f77725736a5ea9601fbd9c",
+          "expected_head_blob": "82620dfe51a5993186f77725736a5ea9601fbd9c",
+          "sha256": "9fbba6077a7702d3917ea8f3ee34c5b055c626f261fbe4da6b02782cd6ccb9dd",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/cases.json",
+          "bytes": 39081,
+          "lines": 572,
+          "git_blob": "8be96a9988b3964f5686ea435653e30f924fded4",
+          "expected_head_blob": "8be96a9988b3964f5686ea435653e30f924fded4",
+          "sha256": "14091ccffe94f2be1ab336a3343da18827ac5b1900fed6d8cfa2eb3186f395c8",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+          "bytes": 13634,
+          "lines": 53,
+          "git_blob": "47ead7a7b0673e36a4302ebce1fe4384df69c871",
+          "expected_head_blob": "47ead7a7b0673e36a4302ebce1fe4384df69c871",
+          "sha256": "05c2e8d41792802eeed8b23a08c13a4cfcd4eeb785c66b71d08b8ef1fbc5f1e0",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/dependencies.json",
+          "bytes": 2181,
+          "lines": 176,
+          "git_blob": "2e3c1b47725d09f3868cf1a0b2244c2cda461062",
+          "expected_head_blob": "2e3c1b47725d09f3868cf1a0b2244c2cda461062",
+          "sha256": "519301cb13f81a6b1ab06da98f983e58eb30ef5f878d46510a0f4550ba601e65",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/env.template.sql",
+          "bytes": 776,
+          "lines": 16,
+          "git_blob": "fa3365833bf0e88c36a8113a617d2dc8eb07d789",
+          "expected_head_blob": "fa3365833bf0e88c36a8113a617d2dc8eb07d789",
+          "sha256": "331fd576f06f1080fbd5a8082e4b9accb531dad976f05c1dac636a65af0e66f8",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/environment.template.md",
+          "bytes": 2148,
+          "lines": 17,
+          "git_blob": "9b3650aa0c992f8fec6ce9b7f09c716c7cc9377d",
+          "expected_head_blob": "9b3650aa0c992f8fec6ce9b7f09c716c7cc9377d",
+          "sha256": "767192ef56ef8314d568b471ea7754b86ad9afd7c4931490986d729833dc7f05",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/fixtures.md",
+          "bytes": 4631,
+          "lines": 27,
+          "git_blob": "cb2f4a9f0be2f3f70dcc5f76bee620d886c7ab2e",
+          "expected_head_blob": "cb2f4a9f0be2f3f70dcc5f76bee620d886c7ab2e",
+          "sha256": "b90096387f69f1ab25b6b0ee649ca5e1a0c5a91aafc1fe435bdabb17fe64ae20",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/manifest.md",
+          "bytes": 1865,
+          "lines": 18,
+          "git_blob": "1df8b3334d4aca22923d86b0fbcb31c791eb8b99",
+          "expected_head_blob": "1df8b3334d4aca22923d86b0fbcb31c791eb8b99",
+          "sha256": "66fe53a81f7e56c8e9ae8b48f2db67b908f5a4978b6ed9ec34980c7ac46ebadb",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/privileges.md",
+          "bytes": 3695,
+          "lines": 30,
+          "git_blob": "82d08e4e86ddad5019ef912f2708b2c563ba030a",
+          "expected_head_blob": "82d08e4e86ddad5019ef912f2708b2c563ba030a",
+          "sha256": "3bf9029e244b2750d22f800dc07253a563e5df7d9e77bcd4344591d910d552b0",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/procedures.md",
+          "bytes": 18064,
+          "lines": 87,
+          "git_blob": "cdc1d7a2c3b0aa10b972ea8ebac26244bc80af83",
+          "expected_head_blob": "cdc1d7a2c3b0aa10b972ea8ebac26244bc80af83",
+          "sha256": "93af47b4f771ee7a54e2ea02a801d44af7683cc4855c0904f269510fade35dbb",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/results_template.csv",
+          "bytes": 7635,
+          "lines": 29,
+          "git_blob": "47479e8b4d031efecad0f905482690d16c2f71df",
+          "expected_head_blob": "47479e8b4d031efecad0f905482690d16c2f71df",
+          "sha256": "92ace16d520a39615868a0bc92a3eacd797ba2966b6aadc286b675853bb57bd1",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "bytes": 1195,
+          "lines": 24,
+          "git_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+          "expected_head_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+          "sha256": "cad8192ea261b695f66031d3bff2ffbf10a5b17046bd43a7dd1e823019e05222",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_preflight.sql",
+          "bytes": 786,
+          "lines": 19,
+          "git_blob": "03b62bad7511fca9cc421000431b1555b31a7e8a",
+          "expected_head_blob": "03b62bad7511fca9cc421000431b1555b31a7e8a",
+          "sha256": "16f585df7d28da416fff16a48b290c030d3a0a1c68a8825a7eccae301ce57928",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "bytes": 4431,
+          "lines": 85,
+          "git_blob": "4fcc0f9ccb8d612f0794dde6a625e046676acc03",
+          "expected_head_blob": "4fcc0f9ccb8d612f0794dde6a625e046676acc03",
+          "sha256": "c2fd6a45deda737e7ff2b339e1e75cf026da4f91b064d81b6c590fb1d42efa54",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/10_install.sql",
+          "bytes": 962,
+          "lines": 21,
+          "git_blob": "11579aebb24ed58dba66ca2dc3a5b74e3e7db901",
+          "expected_head_blob": "11579aebb24ed58dba66ca2dc3a5b74e3e7db901",
+          "sha256": "057781c41432a9afb54ed6688d3d92d97df3b838930cc2d0f3d3a5afc0393bb6",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/20_T02_compile.sql",
+          "bytes": 1560,
+          "lines": 30,
+          "git_blob": "c8dd19ba709a3a00248747a93031cedf9b6ed575",
+          "expected_head_blob": "c8dd19ba709a3a00248747a93031cedf9b6ed575",
+          "sha256": "3d4b08d975786e1feba5186cc1859abc100882352e8a147654376bc9eacbc2c2",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/30_T03_functional.sql",
+          "bytes": 3007,
+          "lines": 53,
+          "git_blob": "63afdaf0d9b83e8bb286b9bc0ddf8b6c59758b09",
+          "expected_head_blob": "63afdaf0d9b83e8bb286b9bc0ddf8b6c59758b09",
+          "sha256": "4f8bf2a7521cc3c6241362bcfcbf5ee20f9334262f9136bf4311e0b855d2e19a",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/31_T03_incident.sql",
+          "bytes": 1375,
+          "lines": 27,
+          "git_blob": "f4fa661f27c5c7d6309322434057352ce77241db",
+          "expected_head_blob": "f4fa661f27c5c7d6309322434057352ce77241db",
+          "sha256": "deeefb184f1773fbe35f89f8e19d75650dd23d193c2d4c73087a5b7944e8b941",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/40_T04_regression.sql",
+          "bytes": 695,
+          "lines": 20,
+          "git_blob": "ef57f557947d2ffb19de01d96acb5d07bae5cb71",
+          "expected_head_blob": "ef57f557947d2ffb19de01d96acb5d07bae5cb71",
+          "sha256": "808acf04c1a77d3b2d687f7d6d39c7412989a2d6decefb5c825ffb1f14d36fa1",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/41_T04_overloads.sql",
+          "bytes": 8748,
+          "lines": 142,
+          "git_blob": "7716a5a39529bf011860eef939c4157953e8ef74",
+          "expected_head_blob": "7716a5a39529bf011860eef939c4157953e8ef74",
+          "sha256": "42c3302d079c0878b1bf90eee12fbed3f4e27274a502664ce5eb868f2b21c4ff",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/42_T04_configuration.sql",
+          "bytes": 2493,
+          "lines": 49,
+          "git_blob": "1efb7c6159ff8ceab74b8baa344a1051d80ddf5d",
+          "expected_head_blob": "1efb7c6159ff8ceab74b8baa344a1051d80ddf5d",
+          "sha256": "70afe2881064de50da0cd0c8c08cf102cbd47676f2108e18b2ebe823595b6ba5",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/50_T05_security.sql",
+          "bytes": 1007,
+          "lines": 23,
+          "git_blob": "13d4cc128b93e5ee15dabe21cf25771ce57b7082",
+          "expected_head_blob": "13d4cc128b93e5ee15dabe21cf25771ce57b7082",
+          "sha256": "378f3fb76b5bde2cfa1e82c092d28d30443791629b8cf0b4c2ad9f04fa79e6c5",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/51_C01_caller_rollback.sql",
+          "bytes": 2684,
+          "lines": 50,
+          "git_blob": "7d737c84e664acbb85129e2ccc743093c2aa5f28",
+          "expected_head_blob": "7d737c84e664acbb85129e2ccc743093c2aa5f28",
+          "sha256": "99f6e4d3dad4edd45a68b62f33c5acc02a1077081812b74ae72a383ceee3301e",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/52_C01_fixture.sql",
+          "bytes": 852,
+          "lines": 22,
+          "git_blob": "0396452fba96aed167549c365bd3e99ae10c8f72",
+          "expected_head_blob": "0396452fba96aed167549c365bd3e99ae10c8f72",
+          "sha256": "b3c340278464f041208cc8925bce5cf6a7809da8b3e055da502dd848f048ee01",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/53_T05_positive_consumer.sql",
+          "bytes": 858,
+          "lines": 17,
+          "git_blob": "b38f62fa375c2d5b54d7e972b377204b2417e8aa",
+          "expected_head_blob": "b38f62fa375c2d5b54d7e972b377204b2417e8aa",
+          "sha256": "df566a1ccdb219623625376545c34ad7ab6ac1897c91763bd42d916bf977e7ba",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/54_T05_negative_consumer.sql",
+          "bytes": 1488,
+          "lines": 31,
+          "git_blob": "840cbcde499be8461845dd8b3e5f7dcb1832ef3c",
+          "expected_head_blob": "840cbcde499be8461845dd8b3e5f7dcb1832ef3c",
+          "sha256": "9b27146642b0caff9fd8ab825683881ef48444c420e5b704dfe2fa5c7e260874",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/60_T06_concurrency.sql",
+          "bytes": 747,
+          "lines": 15,
+          "git_blob": "7b0e1838e0b38933b53aceea58f8d36db2792047",
+          "expected_head_blob": "7b0e1838e0b38933b53aceea58f8d36db2792047",
+          "sha256": "dc023d4f134c027623c865bb2c922d44d166460b8c40da938b119340aaf1e4f8",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/61_T06_guard_client_A.sql",
+          "bytes": 669,
+          "lines": 16,
+          "git_blob": "cad7041a6f50a2a323b9e36366a19965b7febe92",
+          "expected_head_blob": "cad7041a6f50a2a323b9e36366a19965b7febe92",
+          "sha256": "f9fd8fb8392654ba3ccf683e7295102c48005fd5eb1b019c43dded98c55a1206",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/62_T06_guard_client_B.sql",
+          "bytes": 1666,
+          "lines": 38,
+          "git_blob": "31794c4faca3272f32424303924e966a5cf7b125",
+          "expected_head_blob": "31794c4faca3272f32424303924e966a5cf7b125",
+          "sha256": "f2647f2858e9f2b32941a20ebdb27882802276d80e5b4f7346c8e6d47e484c28",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/63_T06_guard_release_A.sql",
+          "bytes": 516,
+          "lines": 13,
+          "git_blob": "52dba6f71fc196363bf8a4e7bc243eddd352abd4",
+          "expected_head_blob": "52dba6f71fc196363bf8a4e7bc243eddd352abd4",
+          "sha256": "dd78ff4f30c4d387c15330d451aaa122609a21aad57b2e26a972021b23f9c054",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/64_T06_guard_reacquire_B.sql",
+          "bytes": 760,
+          "lines": 21,
+          "git_blob": "3c3f4c3998e7f68d2cd6f0c594978f1a36ab5d96",
+          "expected_head_blob": "3c3f4c3998e7f68d2cd6f0c594978f1a36ab5d96",
+          "sha256": "76eac09f96dbf291005f4ff2e11b3409a5e3cbe29744f3dee5fba575eb388686",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/70_T07_rac.sql",
+          "bytes": 1047,
+          "lines": 19,
+          "git_blob": "0ca42a6ca52a9a3e3ce00fca7e5d91bb74a05667",
+          "expected_head_blob": "0ca42a6ca52a9a3e3ce00fca7e5d91bb74a05667",
+          "sha256": "02f2ce1472025c7ea59bcb2dd8d361ee4772432edf3a2f25cc2a83789e7ce3c2",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/80_T08_evidence.sql",
+          "bytes": 1157,
+          "lines": 21,
+          "git_blob": "e55bc8f2b1484dac58f6f7b1c3afb2b4b75f4afb",
+          "expected_head_blob": "e55bc8f2b1484dac58f6f7b1c3afb2b4b75f4afb",
+          "sha256": "b273532832c381b40dbb4d93696ed632bad6bc3a456c038579b188e892d90b78",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/90_cleanup.sql",
+          "bytes": 514,
+          "lines": 13,
+          "git_blob": "2c1b4f4e6ec1b571e93d89022901f0ead294c780",
+          "expected_head_blob": "2c1b4f4e6ec1b571e93d89022901f0ead294c780",
+          "sha256": "8eea719a6c2e8e347e9b3a74b2b856259979b6e7805ecba7df1b96f65c90fc5b",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+          "bytes": 32329,
+          "lines": 857,
+          "git_blob": "9929a542f2f373daff84a551fd57b2cc0ab0dc35",
+          "expected_head_blob": "9929a542f2f373daff84a551fd57b2cc0ab0dc35",
+          "sha256": "ba8676a982a2d5d63b1937799de66e1e4e757f3f310c56af5a2c54c860725cb6",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
+          "bytes": 3928,
+          "lines": 63,
+          "git_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+          "expected_head_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+          "sha256": "24883faf4892c1045f9b237434696cd31e82cb5e278e82f3a61f17b28cf07317",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
+          "bytes": 2599,
+          "lines": 40,
+          "git_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+          "expected_head_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+          "sha256": "a1a2e709b0d021f835132d6e080d43826e94a8d258dcc578b2ea7744b5db1419",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/traceability.md",
+          "bytes": 3442,
+          "lines": 25,
+          "git_blob": "0cbfc4c3c15de2ba1b135d8f63cee2db688b4503",
+          "expected_head_blob": "0cbfc4c3c15de2ba1b135d8f63cee2db688b4503",
+          "sha256": "52c53857cf496569f0cb3fcc021d484ed7a7bb9f85140903295b1f861c9d6666",
+          "exact": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py",
+          "bytes": 12675,
+          "lines": 189,
+          "git_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
+          "expected_head_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
+          "sha256": "93ee0886dcbd3e3a8544c74309b905096ff5dffcceb74cb2e7c546a7747b228f",
+          "exact": true
+        }
+      ]
+    },
+    {
+      "check": "net_diff_all46_not_only_corrected_code",
+      "status": "PASS",
+      "detail": [
+        "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+        "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+        "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/api_inventory.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/casebook.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/cases.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/dependencies.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/env.template.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/environment.template.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/fixtures.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/manifest.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/privileges.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/procedures.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/results_template.csv",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_preflight.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/10_install.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/20_T02_compile.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/30_T03_functional.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/31_T03_incident.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/40_T04_regression.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/41_T04_overloads.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/42_T04_configuration.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/50_T05_security.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/51_C01_caller_rollback.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/52_C01_fixture.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/53_T05_positive_consumer.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/54_T05_negative_consumer.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/60_T06_concurrency.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/61_T06_guard_client_A.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/62_T06_guard_client_B.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/63_T06_guard_release_A.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/64_T06_guard_reacquire_B.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/70_T07_rac.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/80_T08_evidence.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/90_cleanup.sql",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/traceability.md",
+        "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py"
+      ]
+    },
+    {
+      "check": "43_package_plus3_relay_module",
+      "status": "PASS",
+      "detail": {
+        "package": 43,
+        "other": 3
+      }
+    },
+    {
+      "check": "all_existing_source_and_frozen_blobs_preserved",
+      "status": "PASS",
+      "detail": {
+        "paths": 207
+      }
+    },
+    {
+      "check": "six_pins_main_head_download_manifest",
+      "status": "PASS",
+      "detail": [
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
+          "main": "febb57c5aebe3ce5d23799f60c6c38f793681d00",
+          "head": "febb57c5aebe3ce5d23799f60c6c38f793681d00",
+          "download": "febb57c5aebe3ce5d23799f60c6c38f793681d00",
+          "declared_in_manifest": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks",
+          "main": "9331a2756b1c2196280cda3f10bf1643285f61ab",
+          "head": "9331a2756b1c2196280cda3f10bf1643285f61ab",
+          "download": "9331a2756b1c2196280cda3f10bf1643285f61ab",
+          "declared_in_manifest": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/PROCEDURES/20260527__ADMIN_LOGGER__001.prc",
+          "main": "5a5e4e3181816aa520f5067f2b8c0abd3fef63f1",
+          "head": "5a5e4e3181816aa520f5067f2b8c0abd3fef63f1",
+          "download": "5a5e4e3181816aa520f5067f2b8c0abd3fef63f1",
+          "declared_in_manifest": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/REVISION_MANIFEST.md",
+          "main": "d6319dfa969770a2c9ece7be3e753febee86f5db",
+          "head": "d6319dfa969770a2c9ece7be3e753febee86f5db",
+          "download": "d6319dfa969770a2c9ece7be3e753febee86f5db",
+          "declared_in_manifest": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql",
+          "main": "47416ff9583c32bc14cbe49007cd277f2449682b",
+          "head": "47416ff9583c32bc14cbe49007cd277f2449682b",
+          "download": "47416ff9583c32bc14cbe49007cd277f2449682b",
+          "declared_in_manifest": true
+        },
+        {
+          "path": "modules/ADMIN_LOGGER/src/20261109_501_DEV/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql",
+          "main": "0c112a15643c62bcf4c2d4ac37fd54e2b656a04a",
+          "head": "0c112a15643c62bcf4c2d4ac37fd54e2b656a04a",
+          "download": "0c112a15643c62bcf4c2d4ac37fd54e2b656a04a",
+          "declared_in_manifest": true
+        }
+      ]
+    },
+    {
+      "check": "28_unique_cases_not_executed",
+      "status": "PASS",
+      "detail": [
+        "T01-01",
+        "T01-02",
+        "T02-01",
+        "T02-02",
+        "T03-01",
+        "T03-02",
+        "T03-03",
+        "T03-04",
+        "T04-01",
+        "T04-02",
+        "T04-03",
+        "T05-01",
+        "T05-02",
+        "T05-03",
+        "T05-04",
+        "T05-05",
+        "T05-06",
+        "T05-07",
+        "T06-01",
+        "T06-02",
+        "T06-03",
+        "T07-01",
+        "T07-02",
+        "T07-03",
+        "T07-04",
+        "T08-01",
+        "T08-02",
+        "T08-03"
+      ]
+    },
+    {
+      "check": "28_results_match_cases_not_executed",
+      "status": "PASS",
+      "detail": 28
+    },
+    {
+      "check": "six_contracts_one_to_one_and_c02_c06_blocked",
+      "status": "PASS",
+      "detail": [
+        {
+          "contract": "C01",
+          "cases": [
+            "T05-02"
+          ],
+          "preparation": [
+            "CORRECTED_PENDING_REVIEW"
+          ],
+          "execution": "NOT_EXECUTED"
+        },
+        {
+          "contract": "C02",
+          "cases": [
+            "T05-03"
+          ],
+          "preparation": [
+            "BLOCKED"
+          ],
+          "execution": "NOT_EXECUTED"
+        },
+        {
+          "contract": "C03",
+          "cases": [
+            "T05-04"
+          ],
+          "preparation": [
+            "BLOCKED"
+          ],
+          "execution": "NOT_EXECUTED"
+        },
+        {
+          "contract": "C04",
+          "cases": [
+            "T05-05"
+          ],
+          "preparation": [
+            "BLOCKED"
+          ],
+          "execution": "NOT_EXECUTED"
+        },
+        {
+          "contract": "C05",
+          "cases": [
+            "T05-06"
+          ],
+          "preparation": [
+            "BLOCKED"
+          ],
+          "execution": "NOT_EXECUTED"
+        },
+        {
+          "contract": "C06",
+          "cases": [
+            "T05-07"
+          ],
+          "preparation": [
+            "BLOCKED"
+          ],
+          "execution": "NOT_EXECUTED"
+        }
+      ]
+    },
+    {
+      "check": "17_canonical_risk_meanings_and_links",
+      "status": "PASS",
+      "detail": [
+        {
+          "id": "RAC-A-001",
+          "canonical_meaning": "Local V$SESSION purge may delete live remote sessions",
+          "exact_meaning": true,
+          "cases": [
+            "T07-02",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-002",
+          "canonical_meaning": "INST_ID/CON_ID provenance absent",
+          "exact_meaning": true,
+          "cases": [
+            "T07-01",
+            "T07-03",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-003",
+          "canonical_meaning": "Grants/container visibility unknown",
+          "exact_meaning": true,
+          "cases": [
+            "T02-02",
+            "T05-01",
+            "T07-01",
+            "T07-02",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-004",
+          "canonical_meaning": "Single guard serializes writers",
+          "exact_meaning": true,
+          "cases": [
+            "T06-01",
+            "T06-02",
+            "T06-03",
+            "T07-04",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-005",
+          "canonical_meaning": "Autonomous transactions vs caller locks",
+          "exact_meaning": true,
+          "cases": [
+            "T05-03",
+            "T05-04",
+            "T06-01",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-006",
+          "canonical_meaning": "Metadata reload/per-line commits",
+          "exact_meaning": true,
+          "cases": [
+            "T06-03",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-007",
+          "canonical_meaning": "ORDER sequence potentially serializes RAC",
+          "exact_meaning": true,
+          "cases": [
+            "T06-03",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-008",
+          "canonical_meaning": "Reconnect/replay/backup semantics unknown",
+          "exact_meaning": true,
+          "cases": [
+            "T04-03",
+            "T07-03",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-009",
+          "canonical_meaning": "Node clock and retention policy unknown",
+          "exact_meaning": true,
+          "cases": [
+            "T04-03",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-010",
+          "canonical_meaning": "Position index before log table",
+          "exact_meaning": true,
+          "cases": [
+            "T01-01",
+            "T02-01",
+            "T03-01",
+            "T06-02",
+            "T07-04",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-011",
+          "canonical_meaning": "Missing comma before incident PK",
+          "exact_meaning": true,
+          "cases": [
+            "T01-01",
+            "T02-01",
+            "T03-02",
+            "T07-04",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "RAC-A-012",
+          "canonical_meaning": "Public EXECUTE also grants maintenance access",
+          "exact_meaning": true,
+          "cases": [
+            "T05-01",
+            "T07-02",
+            "T08-03"
+          ]
+        },
+        {
+          "id": "LOG-OPEN-01",
+          "canonical_meaning": "Broader bug/dead-code/performance review",
+          "exact_meaning": true,
+          "cases": [
+            "T02-02"
+          ]
+        },
+        {
+          "id": "LOG-OPEN-02",
+          "canonical_meaning": "Oracle 19c runtime/privileges",
+          "exact_meaning": true,
+          "cases": [
+            "T02-02",
+            "T03-03",
+            "T03-04",
+            "T05-01",
+            "T08-01",
+            "T08-02"
+          ]
+        },
+        {
+          "id": "LOG-OPEN-03",
+          "canonical_meaning": "Installer 003 defect review",
+          "exact_meaning": true,
+          "cases": [
+            "T02-01"
+          ]
+        },
+        {
+          "id": "LOG-OPEN-04",
+          "canonical_meaning": "Backup/restore API comparison",
+          "exact_meaning": true,
+          "cases": [
+            "T04-03"
+          ]
+        },
+        {
+          "id": "LOG-OPEN-05",
+          "canonical_meaning": "Consumers, versions, install order",
+          "exact_meaning": true,
+          "cases": [
+            "T01-02",
+            "T04-01",
+            "T04-02",
+            "T04-03",
+            "T08-01"
+          ]
+        }
+      ]
+    },
+    {
+      "check": "70_public_declarations_defaults_exact",
+      "status": "PASS",
+      "detail": {
+        "declarations": 70
+      }
+    },
+    {
+      "check": "45_log_calls_and_output_assertions_9_returns",
+      "status": "PASS",
+      "detail": {
+        "calls": 45,
+        "row_assertions": 45,
+        "return_assertions": 9
+      }
+    },
+    {
+      "check": "22_entries_before_actions_gate_source",
+      "status": "PASS",
+      "detail": [
+        {
+          "file": "00_post_install.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "00_preflight.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "10_install.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "20_T02_compile.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "30_T03_functional.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "31_T03_incident.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "40_T04_regression.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "41_T04_overloads.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "42_T04_configuration.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "50_T05_security.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "51_C01_caller_rollback.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "52_C01_fixture.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "53_T05_positive_consumer.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "54_T05_negative_consumer.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "60_T06_concurrency.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "61_T06_guard_client_A.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "62_T06_guard_client_B.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "63_T06_guard_release_A.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "64_T06_guard_reacquire_B.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "70_T07_rac.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "80_T08_evidence.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        },
+        {
+          "file": "90_cleanup.sql",
+          "has_gate": true,
+          "sqlerror_before": true,
+          "oserror_before": true,
+          "no_substitution_before": true
+        }
+      ]
+    },
+    {
+      "check": "include_graph_full_head",
+      "status": "PASS",
+      "detail": [
+        {
+          "file": "00_post_install.sql",
+          "line": 4,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "00_preflight.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_preflight.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 14,
+          "target": "modules/ADMIN_LOGGER/src/20261109_501_DEV/TABLE/TAB_TETOOLS_ADMIN_LOGGER__20261015_202.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 15,
+          "target": "modules/ADMIN_LOGGER/src/20261109_501_DEV/SEQUENCE/SEQ_20261007__ADMIN_LOGGER__001.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 16,
+          "target": "modules/ADMIN_LOGGER/src/20261109_501_DEV/PACKAGE_SPEC/PACKAGE_TETOOLS_ADMIN_LOGGER__20261015_500.pks",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 18,
+          "target": "modules/ADMIN_LOGGER/src/20261109_501_DEV/PACKAGE_BODY/PACKAGE-BODY_TETOOLS_ADMIN_LOGGER__20261015_500.pkb",
+          "exists_on_head": true
+        },
+        {
+          "file": "10_install.sql",
+          "line": 20,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/20_T02_compile.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "20_T02_compile.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "20_T02_compile.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "30_T03_functional.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "30_T03_functional.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "31_T03_incident.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "31_T03_incident.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "40_T04_regression.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "40_T04_regression.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "41_T04_overloads.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "41_T04_overloads.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "42_T04_configuration.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "42_T04_configuration.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "50_T05_security.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "50_T05_security.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "51_C01_caller_rollback.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "51_C01_caller_rollback.sql",
+          "line": 11,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "52_C01_fixture.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "53_T05_positive_consumer.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "54_T05_negative_consumer.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "60_T06_concurrency.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "61_T06_guard_client_A.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "62_T06_guard_client_B.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "63_T06_guard_release_A.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "64_T06_guard_reacquire_B.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "70_T07_rac.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "80_T08_evidence.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        },
+        {
+          "file": "90_cleanup.sql",
+          "line": 6,
+          "target": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+          "exists_on_head": true
+        }
+      ]
+    },
+    {
+      "check": "unconditional_source_pinned_denial",
+      "status": "PASS",
+      "detail": "PL/SQL source reasoning only; not SQLPlus/SQLcl execution"
+    },
+    {
+      "check": "append_only_change_history",
+      "status": "PASS",
+      "detail": {
+        "old": 118,
+        "head": 120,
+        "appended": [
+          "LOGGER-STEP4-CORRECTION-20261109-001",
+          "LOGGER-STEP4-RR-CORRECTION-20261110-001"
+        ]
+      }
+    },
+    {
+      "check": "only_authorized_logger_entry_changed",
+      "status": "PASS",
+      "detail": [
+        "ADMIN_LOGGER-REGIE-20261104-01"
+      ]
+    },
+    {
+      "check": "historical_fail_report_and_evidence_preserved",
+      "status": "PASS",
+      "detail": [
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_STEP4_INDEPENDENT_REVIEW_20261109.md",
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_STEP4_REVIEW_20261109_EVIDENCE.json"
+      ]
+    },
+    {
+      "check": "existing_suite_signal_preserved",
+      "status": "PASS",
+      "detail": "Issue55 remains existing signal route; no duplicate created by reviewer"
+    },
+    {
+      "check": "41_non_audit_payloads_match_supplied_material_and_full_head",
+      "status": "PASS",
+      "detail": {
+        "supplied_code_commit": "d2f42960c259d5a4801511b7fd26b8c50dff6665",
+        "reviewed_full_head": "afb5330ac538cb913e7d5e3eb8d92c7daeddc123",
+        "payloads": 41,
+        "excluded_from_supplier_material": [
+          "correction_matrix.md",
+          "static_evidence.json"
+        ],
+        "both_exclusions_in_our46_inventory": true
+      }
+    },
+    {
+      "check": "supplier42_claims_not_oracle_results",
+      "status": "PASS",
+      "detail": {
+        "count": 42,
+        "attributed_to": "implementer, not independent reviewer",
+        "full_git_backed_checker_reexecution": "NOT_EXECUTED; independent metadata/content checks above instead"
+      }
+    },
+    {
+      "check": "post_install_top_level_object_validation",
+      "status": "PASS",
+      "detail": {
+        "finding": "LGR4-RR-01",
+        "source_lines": "scripts/00_post_install.sql:7-10",
+        "static_counterexample_count": 9,
+        "expected_parent_count": 6,
+        "model": [
+          {
+            "object_name": "ADMIN_LOGGER_SESSIONS",
+            "object_type": "TABLE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_CONFIG",
+            "object_type": "TABLE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_LOG",
+            "object_type": "TABLE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_INCIDENT",
+            "object_type": "TABLE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_GUARD",
+            "object_type": "TABLE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_LOGBATCH_SEQ",
+            "object_type": "SEQUENCE",
+            "subobject_name": null,
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_SESSIONS",
+            "object_type": "TABLE PARTITION",
+            "subobject_name": "P2026",
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_CONFIG",
+            "object_type": "TABLE PARTITION",
+            "subobject_name": "P2026",
+            "status": "VALID"
+          },
+          {
+            "object_name": "ADMIN_LOGGER_LOG",
+            "object_type": "TABLE PARTITION",
+            "subobject_name": "P202605",
+            "status": "VALID"
+          }
+        ],
+        "oracle_execution": "NOT_EXECUTED",
+        "reason": "Exact name/type pairs plus NULL subobject filter exclude partitions"
+      }
+    },
+    {
+      "check": "supplied_source_invariant_unittests_rerun",
+      "status": "PASS",
+      "detail": {
+        "tests_run": 17,
+        "failures": 0,
+        "errors": 0,
+        "log": "test_exact_six_parents (test_post_install.PostInstallParentTests) ... ok\ntest_extra_partitions_do_not_reject_valid_parents (test_post_install.PostInstallParentTests) ... ok\ntest_invalid_or_other_owner_parent_not_accepted (test_post_install.PostInstallParentTests) ... ok\ntest_name_only_legacy_predicate_is_rejected (test_post_install.PostInstallParentTests) ... ok\ntest_null_subobject_filter_required_even_with_parent_type (test_post_install.PostInstallParentTests) ... ok\ntest_partitions_cannot_replace_missing_parent (test_post_install.PostInstallParentTests) ... ok\ntest_same_name_wrong_type_cannot_replace_parent (test_post_install.PostInstallParentTests) ... ok\ntest_wrong_expected_pair_is_rejected (test_post_install.PostInstallParentTests) ... ok\ntest_dml_before_gate_rejected (test_static_guards.SourceGateTests) ... ok\ntest_every_entry (test_static_guards.SourceGateTests) ... ok\ntest_missing_gate_rejected (test_static_guards.SourceGateTests) ... ok\ntest_missing_os_policy_rejected (test_static_guards.SourceGateTests) ... ok\ntest_null_unsafe_denial_rejected (test_static_guards.SourceGateTests) ... ok\ntest_prompt_before_denial_rejected (test_static_guards.SourceGateTests) ... ok\ntest_shared_denial (test_static_guards.SourceGateTests) ... ok\ntest_stale_approval_not_read_before_denial (test_static_guards.SourceGateTests) ... ok\ntest_unapproved_enable_rejected (test_static_guards.SourceGateTests) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.023s\n\nOK\n",
+        "classification": "9 source guard methods and 8 SQLite/source metadata methods; no Oracle execution"
+      }
+    }
+  ],
+  "file_inventory": [
+    {
+      "path": "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+      "bytes": 165730,
+      "lines": 2906,
+      "git_blob": "2e6142a5cb65b089b16b7114e50ffe021c253cfb",
+      "expected_head_blob": "2e6142a5cb65b089b16b7114e50ffe021c253cfb",
+      "sha256": "4a074860c08170254ce69e62c0ebdcc95f00107b2a384414036e1e754bf9fd25",
+      "exact": true,
+      "review_note": "Volledig geparsed;oude prefix exact bewaard,alleen nieuwe correctierecords.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+      "bytes": 55894,
+      "lines": 1005,
+      "git_blob": "3346a326668666c99423c6b4646186dda597299d",
+      "expected_head_blob": "3346a326668666c99423c6b4646186dda597299d",
+      "sha256": "91b97bbe4a27d05a56704ca9aa167e1c5023fed80d9c86cc01a82c231d603202",
+      "exact": true,
+      "review_note": "Volledig geparsed;uitsluitend de gemachtigde LOGGER-module-entry verschilt.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+      "bytes": 8377,
+      "lines": 62,
+      "git_blob": "2f9b28b743847ecd8166bc6f034956dde7b3f646",
+      "expected_head_blob": "2f9b28b743847ecd8166bc6f034956dde7b3f646",
+      "sha256": "e4941827d98d7f7a8f31efcf7c9f80c66571ab304ef1052fea5d1f458cf87f57",
+      "exact": true,
+      "review_note": "Historische FAIL en tweede correctie behouden. Oudere paragraaf gebruikt nog de onnauwkeurige telling “9 negatieve broncontroles”.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
+      "bytes": 6800,
+      "lines": 41,
+      "git_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+      "expected_head_blob": "c2806ce9f0cda94d9d00564f224d6a8149553c8e",
+      "sha256": "18a6714a55d6343fae1d0e4b58f2b34c83b119647cfd5dde57b8714fd1f4dde1",
+      "exact": true,
+      "review_note": "Scope, correctiehistorie, G09-weigering en bewijsgrenzen gecontroleerd.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
+      "bytes": 5139,
+      "lines": 23,
+      "git_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+      "expected_head_blob": "8bcdf8cc7591eadf7b5fe197d7c4a3a34fd29a9a",
+      "sha256": "b64a176756d61e858877b7e5597f0f8560d90f0c3e9d3bf96df074000d252d83",
+      "exact": true,
+      "review_note": "42 leverancierscontroles en 9+8 offline testmethoden worden afzonderlijk beschreven.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/api_inventory.json",
+      "bytes": 11870,
+      "lines": 358,
+      "git_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
+      "expected_head_blob": "4ef196c18498a050021c2b24ed9f8b24d6b623a6",
+      "sha256": "2a5cb4d2b4ce83624062f66cf9410c72e7b1e875e35db4649d31dba8c58446f8",
+      "exact": true,
+      "review_note": "70 declaraties/defaults exact met SPEC vergeleken; geen volledige gedragstest.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+      "bytes": 7133,
+      "lines": 21,
+      "git_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+      "expected_head_blob": "c0eff3b1eed8a78751a67c950b3cad2cfe84c364",
+      "sha256": "324971e6b9eb07293f96d95ae29b0847520a3cab9e2474aedd135ab98e930b4a",
+      "exact": true,
+      "review_note": "Elf BLOCKED-afhankelijkheden met rol, beslissing, bewijs en vervolg.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/casebook.md",
+      "bytes": 4363,
+      "lines": 40,
+      "git_blob": "82620dfe51a5993186f77725736a5ea9601fbd9c",
+      "expected_head_blob": "82620dfe51a5993186f77725736a5ea9601fbd9c",
+      "sha256": "9fbba6077a7702d3917ea8f3ee34c5b055c626f261fbe4da6b02782cd6ccb9dd",
+      "exact": true,
+      "review_note": "28 IDs en onderscheid voorbereiding/uitvoering gecontroleerd.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/cases.json",
+      "bytes": 39081,
+      "lines": 572,
+      "git_blob": "8be96a9988b3964f5686ea435653e30f924fded4",
+      "expected_head_blob": "8be96a9988b3964f5686ea435653e30f924fded4",
+      "sha256": "14091ccffe94f2be1ab336a3343da18827ac5b1900fed6d8cfa2eb3186f395c8",
+      "exact": true,
+      "review_note": "Alle 28 records inhoudelijk beoordeeld; zie afzonderlijke caseanalyse.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+      "bytes": 13634,
+      "lines": 53,
+      "git_blob": "47ead7a7b0673e36a4302ebce1fe4384df69c871",
+      "expected_head_blob": "47ead7a7b0673e36a4302ebce1fe4384df69c871",
+      "sha256": "05c2e8d41792802eeed8b23a08c13a4cfcd4eeb785c66b71d08b8ef1fbc5f1e0",
+      "exact": true,
+      "review_note": "RR01/RR02, vier blokkades, historische rijen en codecommit gecontroleerd.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/dependencies.json",
+      "bytes": 2181,
+      "lines": 176,
+      "git_blob": "2e3c1b47725d09f3868cf1a0b2244c2cda461062",
+      "expected_head_blob": "2e3c1b47725d09f3868cf1a0b2244c2cda461062",
+      "sha256": "519301cb13f81a6b1ab06da98f983e58eb30ef5f878d46510a0f4550ba601e65",
+      "exact": true,
+      "review_note": "Inventaris naast BODY gelezen; echte grants blijven G03.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/env.template.sql",
+      "bytes": 776,
+      "lines": 16,
+      "git_blob": "fa3365833bf0e88c36a8113a617d2dc8eb07d789",
+      "expected_head_blob": "fa3365833bf0e88c36a8113a617d2dc8eb07d789",
+      "sha256": "331fd576f06f1080fbd5a8082e4b9accb531dad976f05c1dac636a65af0e66f8",
+      "exact": true,
+      "review_note": "Aanvraagwaarden NO/UNVERIFIED verlenen geen G09.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/environment.template.md",
+      "bytes": 2148,
+      "lines": 17,
+      "git_blob": "9b3650aa0c992f8fec6ce9b7f09c716c7cc9377d",
+      "expected_head_blob": "9b3650aa0c992f8fec6ce9b7f09c716c7cc9377d",
+      "sha256": "767192ef56ef8314d568b471ea7754b86ad9afd7c4931490986d729833dc7f05",
+      "exact": true,
+      "review_note": "G01-G09 met eigenaren; echte aftekeningen ontbreken.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/fixtures.md",
+      "bytes": 4631,
+      "lines": 27,
+      "git_blob": "cb2f4a9f0be2f3f70dcc5f76bee620d886c7ab2e",
+      "expected_head_blob": "cb2f4a9f0be2f3f70dcc5f76bee620d886c7ab2e",
+      "sha256": "b90096387f69f1ab25b6b0ee649ca5e1a0c5a91aafc1fe435bdabb17fe64ae20",
+      "exact": true,
+      "review_note": "Business- en echte incidentfixtures onderscheiden van clone; injectie en herstel geblokkeerd.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/manifest.md",
+      "bytes": 1865,
+      "lines": 18,
+      "git_blob": "1df8b3334d4aca22923d86b0fbcb31c791eb8b99",
+      "expected_head_blob": "1df8b3334d4aca22923d86b0fbcb31c791eb8b99",
+      "sha256": "66fe53a81f7e56c8e9ae8b48f2db67b908f5a4978b6ed9ec34980c7ac46ebadb",
+      "exact": true,
+      "review_note": "Zes pins en grenzen van de bron-DDL gecontroleerd.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/privileges.md",
+      "bytes": 3695,
+      "lines": 30,
+      "git_blob": "82d08e4e86ddad5019ef912f2708b2c563ba030a",
+      "expected_head_blob": "82d08e4e86ddad5019ef912f2708b2c563ba030a",
+      "sha256": "3bf9029e244b2750d22f800dc07253a563e5df7d9e77bcd4344591d910d552b0",
+      "exact": true,
+      "review_note": "Directe/public grants, rollen en vijf principals; maintenancebewijs ontbreekt.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/procedures.md",
+      "bytes": 18064,
+      "lines": 87,
+      "git_blob": "cdc1d7a2c3b0aa10b972ea8ebac26244bc80af83",
+      "expected_head_blob": "cdc1d7a2c3b0aa10b972ea8ebac26244bc80af83",
+      "sha256": "93af47b4f771ee7a54e2ea02a801d44af7683cc4855c0904f269510fade35dbb",
+      "exact": true,
+      "review_note": "Alle handmatige protocollen gelezen; uitvoerbare ontbrekende delen blijven BLOCKED.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/results_template.csv",
+      "bytes": 7635,
+      "lines": 29,
+      "git_blob": "47479e8b4d031efecad0f905482690d16c2f71df",
+      "expected_head_blob": "47479e8b4d031efecad0f905482690d16c2f71df",
+      "sha256": "92ace16d520a39615868a0bc92a3eacd797ba2966b6aadc286b675853bb57bd1",
+      "exact": true,
+      "review_note": "28 unieke resultaatregels; uitvoering en cleanup NOT_EXECUTED.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+      "bytes": 1195,
+      "lines": 24,
+      "git_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+      "expected_head_blob": "1c35a1e46547745f5ff47c54988e160bd15e63d6",
+      "sha256": "cad8192ea261b695f66031d3bff2ffbf10a5b17046bd43a7dd1e823019e05222",
+      "exact": true,
+      "review_note": "Regels 7–16 selecteren de exacte zes hoofdobjecten en sluiten partities uit.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_preflight.sql",
+      "bytes": 786,
+      "lines": 19,
+      "git_blob": "03b62bad7511fca9cc421000431b1555b31a7e8a",
+      "expected_head_blob": "03b62bad7511fca9cc421000431b1555b31a7e8a",
+      "sha256": "16f585df7d28da416fff16a48b290c030d3a0a1c68a8825a7eccae301ce57928",
+      "exact": true,
+      "review_note": "Volledige USER_OBJECTS-leegtecheck na G09; alleen installfase.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_safety_gate.sql",
+      "bytes": 4431,
+      "lines": 85,
+      "git_blob": "4fcc0f9ccb8d612f0794dde6a625e046676acc03",
+      "expected_head_blob": "4fcc0f9ccb8d612f0794dde6a625e046676acc03",
+      "sha256": "c2fd6a45deda737e7ff2b339e1e75cf026da4f91b064d81b6c590fb1d42efa54",
+      "exact": true,
+      "review_note": "Vaste bronweigering vóór substitutie of packagegebruik.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/10_install.sql",
+      "bytes": 962,
+      "lines": 21,
+      "git_blob": "11579aebb24ed58dba66ca2dc3a5b74e3e7db901",
+      "expected_head_blob": "11579aebb24ed58dba66ca2dc3a5b74e3e7db901",
+      "sha256": "057781c41432a9afb54ed6688d3d92d97df3b838930cc2d0f3d3a5afc0393bb6",
+      "exact": true,
+      "review_note": "Includevolgorde en SHOW ERRORS gelezen",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/20_T02_compile.sql",
+      "bytes": 1560,
+      "lines": 30,
+      "git_blob": "c8dd19ba709a3a00248747a93031cedf9b6ed575",
+      "expected_head_blob": "c8dd19ba709a3a00248747a93031cedf9b6ed575",
+      "sha256": "3d4b08d975786e1feba5186cc1859abc100882352e8a147654376bc9eacbc2c2",
+      "exact": true,
+      "review_note": "Errors, indexen en PKs geassert",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/30_T03_functional.sql",
+      "bytes": 3007,
+      "lines": 53,
+      "git_blob": "63afdaf0d9b83e8bb286b9bc0ddf8b6c59758b09",
+      "expected_head_blob": "63afdaf0d9b83e8bb286b9bc0ddf8b6c59758b09",
+      "sha256": "4f8bf2a7521cc3c6241362bcfcbf5ee20f9334262f9136bf4311e0b855d2e19a",
+      "exact": true,
+      "review_note": "Exacte duplicate-exception, rijtellingen en rollback",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/31_T03_incident.sql",
+      "bytes": 1375,
+      "lines": 27,
+      "git_blob": "f4fa661f27c5c7d6309322434057352ce77241db",
+      "expected_head_blob": "f4fa661f27c5c7d6309322434057352ce77241db",
+      "sha256": "deeefb184f1773fbe35f89f8e19d75650dd23d193c2d4c73087a5b7944e8b941",
+      "exact": true,
+      "review_note": "Alleen PK-/identitymetadata; werkelijk conflictbewijs BLOCKED.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/40_T04_regression.sql",
+      "bytes": 695,
+      "lines": 20,
+      "git_blob": "ef57f557947d2ffb19de01d96acb5d07bae5cb71",
+      "expected_head_blob": "ef57f557947d2ffb19de01d96acb5d07bae5cb71",
+      "sha256": "808acf04c1a77d3b2d687f7d6d39c7412989a2d6decefb5c825ffb1f14d36fa1",
+      "exact": true,
+      "review_note": "Version/help-capture vereist handmatige vergelijking",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/41_T04_overloads.sql",
+      "bytes": 8748,
+      "lines": 142,
+      "git_blob": "7716a5a39529bf011860eef939c4157953e8ef74",
+      "expected_head_blob": "7716a5a39529bf011860eef939c4157953e8ef74",
+      "sha256": "42c3302d079c0878b1bf90eee12fbed3f4e27274a502664ce5eb868f2b21c4ff",
+      "exact": true,
+      "review_note": "45 rijchecks en 9 returns; normale weg, geen C05-failurematrix.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/42_T04_configuration.sql",
+      "bytes": 2493,
+      "lines": 49,
+      "git_blob": "1efb7c6159ff8ceab74b8baa344a1051d80ddf5d",
+      "expected_head_blob": "1efb7c6159ff8ceab74b8baa344a1051d80ddf5d",
+      "sha256": "70afe2881064de50da0cd0c8c08cf102cbd47676f2108e18b2ebe823595b6ba5",
+      "exact": true,
+      "review_note": "OFF/TABLE/SCREEN-deelchecks en restore; volledige regressie ontbreekt.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/50_T05_security.sql",
+      "bytes": 1007,
+      "lines": 23,
+      "git_blob": "13d4cc128b93e5ee15dabe21cf25771ce57b7082",
+      "expected_head_blob": "13d4cc128b93e5ee15dabe21cf25771ce57b7082",
+      "sha256": "378f3fb76b5bde2cfa1e82c092d28d30443791629b8cf0b4c2ad9f04fa79e6c5",
+      "exact": true,
+      "review_note": "Eigenaarmetadata; geen zelfstandig consumerbewijs.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/51_C01_caller_rollback.sql",
+      "bytes": 2684,
+      "lines": 50,
+      "git_blob": "7d737c84e664acbb85129e2ccc743093c2aa5f28",
+      "expected_head_blob": "7d737c84e664acbb85129e2ccc743093c2aa5f28",
+      "sha256": "99f6e4d3dad4edd45a68b62f33c5acc02a1077081812b74ae72a383ceee3301e",
+      "exact": true,
+      "review_note": "Business 0 en exacte log 1 na rollback; observer nog nodig.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/52_C01_fixture.sql",
+      "bytes": 852,
+      "lines": 22,
+      "git_blob": "0396452fba96aed167549c365bd3e99ae10c8f72",
+      "expected_head_blob": "0396452fba96aed167549c365bd3e99ae10c8f72",
+      "sha256": "b3c340278464f041208cc8925bce5cf6a7809da8b3e055da502dd848f048ee01",
+      "exact": true,
+      "review_note": "Gated CREATE na afwezigheidscontrole; aparte fixture-GO nodig.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/53_T05_positive_consumer.sql",
+      "bytes": 858,
+      "lines": 17,
+      "git_blob": "b38f62fa375c2d5b54d7e972b377204b2417e8aa",
+      "expected_head_blob": "b38f62fa375c2d5b54d7e972b377204b2417e8aa",
+      "sha256": "df566a1ccdb219623625376545c34ad7ab6ac1897c91763bd42d916bf977e7ba",
+      "exact": true,
+      "review_note": "Andere principal en return 1; observer/grantsbewijs nog nodig.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/54_T05_negative_consumer.sql",
+      "bytes": 1488,
+      "lines": 31,
+      "git_blob": "840cbcde499be8461845dd8b3e5f7dcb1832ef3c",
+      "expected_head_blob": "840cbcde499be8461845dd8b3e5f7dcb1832ef3c",
+      "sha256": "9b27146642b0caff9fd8ab825683881ef48444c420e5b704dfe2fa5c7e260874",
+      "exact": true,
+      "review_note": "Specifieke dynamische denialklassen; object/grantsinventaris verplicht.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/60_T06_concurrency.sql",
+      "bytes": 747,
+      "lines": 15,
+      "git_blob": "7b0e1838e0b38933b53aceea58f8d36db2792047",
+      "expected_head_blob": "7b0e1838e0b38933b53aceea58f8d36db2792047",
+      "sha256": "dc023d4f134c027623c865bb2c922d44d166460b8c40da938b119340aaf1e4f8",
+      "exact": true,
+      "review_note": "Alleen contextcapture; race en benchmark handmatig geblokkeerd.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/61_T06_guard_client_A.sql",
+      "bytes": 669,
+      "lines": 16,
+      "git_blob": "cad7041a6f50a2a323b9e36366a19965b7febe92",
+      "expected_head_blob": "cad7041a6f50a2a323b9e36366a19965b7febe92",
+      "sha256": "f9fd8fb8392654ba3ccf683e7295102c48005fd5eb1b019c43dded98c55a1206",
+      "exact": true,
+      "review_note": "FOR UPDATE WAIT5; A blijft open; observer nodig.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/62_T06_guard_client_B.sql",
+      "bytes": 1666,
+      "lines": 38,
+      "git_blob": "31794c4faca3272f32424303924e966a5cf7b125",
+      "expected_head_blob": "31794c4faca3272f32424303924e966a5cf7b125",
+      "sha256": "f2647f2858e9f2b32941a20ebdb27882802276d80e5b4f7346c8e6d47e484c28",
+      "exact": true,
+      "review_note": "Exact ORA-30006 en tijdvenster; NULL-bovengrens weigert.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/63_T06_guard_release_A.sql",
+      "bytes": 516,
+      "lines": 13,
+      "git_blob": "52dba6f71fc196363bf8a4e7bc243eddd352abd4",
+      "expected_head_blob": "52dba6f71fc196363bf8a4e7bc243eddd352abd4",
+      "sha256": "dd78ff4f30c4d387c15330d451aaa122609a21aad57b2e26a972021b23f9c054",
+      "exact": true,
+      "review_note": "Rollback in oorspronkelijke A; identiteit door observer bewijzen.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/64_T06_guard_reacquire_B.sql",
+      "bytes": 760,
+      "lines": 21,
+      "git_blob": "3c3f4c3998e7f68d2cd6f0c594978f1a36ab5d96",
+      "expected_head_blob": "3c3f4c3998e7f68d2cd6f0c594978f1a36ab5d96",
+      "sha256": "76eac09f96dbf291005f4ff2e11b3409a5e3cbe29744f3dee5fba575eb388686",
+      "exact": true,
+      "review_note": "Heracquisitie en rollback; alleen volledige sequentie kan slagen.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/70_T07_rac.sql",
+      "bytes": 1047,
+      "lines": 19,
+      "git_blob": "0ca42a6ca52a9a3e3ce00fca7e5d91bb74a05667",
+      "expected_head_blob": "0ca42a6ca52a9a3e3ce00fca7e5d91bb74a05667",
+      "sha256": "02f2ce1472025c7ea59bcb2dd8d361ee4772432edf3a2f25cc2a83789e7ce3c2",
+      "exact": true,
+      "review_note": "Lokale identiteit; correlatie van drie nodes blijft extern.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/80_T08_evidence.sql",
+      "bytes": 1157,
+      "lines": 21,
+      "git_blob": "e55bc8f2b1484dac58f6f7b1c3afb2b4b75f4afb",
+      "expected_head_blob": "e55bc8f2b1484dac58f6f7b1c3afb2b4b75f4afb",
+      "sha256": "b273532832c381b40dbb4d93696ed632bad6bc3a456c038579b188e892d90b78",
+      "exact": true,
+      "review_note": "Exportsnapshot; geen volledige collector of acceptatiebewijs.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/90_cleanup.sql",
+      "bytes": 514,
+      "lines": 13,
+      "git_blob": "2c1b4f4e6ec1b571e93d89022901f0ead294c780",
+      "expected_head_blob": "2c1b4f4e6ec1b571e93d89022901f0ead294c780",
+      "sha256": "8eea719a6c2e8e347e9b3a74b2b856259979b6e7805ecba7df1b96f65c90fc5b",
+      "exact": true,
+      "review_note": "Expliciete weigering; geen destructieve SQL, geen herstelbewijs.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+      "bytes": 32329,
+      "lines": 857,
+      "git_blob": "9929a542f2f373daff84a551fd57b2cc0ab0dc35",
+      "expected_head_blob": "9929a542f2f373daff84a551fd57b2cc0ab0dc35",
+      "sha256": "ba8676a982a2d5d63b1937799de66e1e4e757f3f310c56af5a2c54c860725cb6",
+      "exact": true,
+      "review_note": "Codecommit en 41 payloadhashes vergeleken met de finale head. Beide auditbestanden vallen binnen onafhankelijke inventaris.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
+      "bytes": 3928,
+      "lines": 63,
+      "git_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+      "expected_head_blob": "129b1844cedf2f9d50ccc7381a024c852db5371d",
+      "sha256": "24883faf4892c1045f9b237434696cd31e82cb5e278e82f3a61f17b28cf07317",
+      "exact": true,
+      "review_note": "Acht offline bron-/SQLite-methoden gelezen en uitgevoerd.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
+      "bytes": 2599,
+      "lines": 40,
+      "git_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+      "expected_head_blob": "e0169be7809ec85e435026044a7fe3bd782ce54c",
+      "sha256": "a1a2e709b0d021f835132d6e080d43826e94a8d258dcc578b2ea7744b5db1419",
+      "exact": true,
+      "review_note": "Negen offline bronmethoden gelezen en uitgevoerd: twee positieve suites, zes mutatieafwijzingen, één analytische prefixcontrole.",
+      "same_blob_as_prior_review": false
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/traceability.md",
+      "bytes": 3442,
+      "lines": 25,
+      "git_blob": "0cbfc4c3c15de2ba1b135d8f63cee2db688b4503",
+      "expected_head_blob": "0cbfc4c3c15de2ba1b135d8f63cee2db688b4503",
+      "sha256": "52c53857cf496569f0cb3fcc021d484ed7a7bb9f85140903295b1f861c9d6666",
+      "exact": true,
+      "review_note": "17 betekenissen en contractkoppelingen gecontroleerd; geen riskclosure.",
+      "same_blob_as_prior_review": true
+    },
+    {
+      "path": "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py",
+      "bytes": 12675,
+      "lines": 189,
+      "git_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
+      "expected_head_blob": "c378957737503b3a63c3995e7b08c080b0e32024",
+      "sha256": "93ee0886dcbd3e3a8544c74309b905096ff5dffcceb74cb2e7c546a7747b228f",
+      "exact": true,
+      "review_note": "Bron inclusief nieuwe extractie en CLI gelezen. Volledige leverancier-CLI niet opnieuw uitgevoerd.",
+      "same_blob_as_prior_review": false
+    }
+  ],
+  "contracts": [
+    {
+      "contract": "C01",
+      "cases": [
+        "T05-02"
+      ],
+      "preparation": [
+        "CORRECTED_PENDING_REVIEW"
+      ],
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "contract": "C02",
+      "cases": [
+        "T05-03"
+      ],
+      "preparation": [
+        "BLOCKED"
+      ],
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "contract": "C03",
+      "cases": [
+        "T05-04"
+      ],
+      "preparation": [
+        "BLOCKED"
+      ],
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "contract": "C04",
+      "cases": [
+        "T05-05"
+      ],
+      "preparation": [
+        "BLOCKED"
+      ],
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "contract": "C05",
+      "cases": [
+        "T05-06"
+      ],
+      "preparation": [
+        "BLOCKED"
+      ],
+      "execution": "NOT_EXECUTED"
+    },
+    {
+      "contract": "C06",
+      "cases": [
+        "T05-07"
+      ],
+      "preparation": [
+        "BLOCKED"
+      ],
+      "execution": "NOT_EXECUTED"
+    }
+  ],
+  "risks": [
+    {
+      "id": "RAC-A-001",
+      "canonical_meaning": "Local V$SESSION purge may delete live remote sessions",
+      "exact_meaning": true,
+      "cases": [
+        "T07-02",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-002",
+      "canonical_meaning": "INST_ID/CON_ID provenance absent",
+      "exact_meaning": true,
+      "cases": [
+        "T07-01",
+        "T07-03",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-003",
+      "canonical_meaning": "Grants/container visibility unknown",
+      "exact_meaning": true,
+      "cases": [
+        "T02-02",
+        "T05-01",
+        "T07-01",
+        "T07-02",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-004",
+      "canonical_meaning": "Single guard serializes writers",
+      "exact_meaning": true,
+      "cases": [
+        "T06-01",
+        "T06-02",
+        "T06-03",
+        "T07-04",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-005",
+      "canonical_meaning": "Autonomous transactions vs caller locks",
+      "exact_meaning": true,
+      "cases": [
+        "T05-03",
+        "T05-04",
+        "T06-01",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-006",
+      "canonical_meaning": "Metadata reload/per-line commits",
+      "exact_meaning": true,
+      "cases": [
+        "T06-03",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-007",
+      "canonical_meaning": "ORDER sequence potentially serializes RAC",
+      "exact_meaning": true,
+      "cases": [
+        "T06-03",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-008",
+      "canonical_meaning": "Reconnect/replay/backup semantics unknown",
+      "exact_meaning": true,
+      "cases": [
+        "T04-03",
+        "T07-03",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-009",
+      "canonical_meaning": "Node clock and retention policy unknown",
+      "exact_meaning": true,
+      "cases": [
+        "T04-03",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-010",
+      "canonical_meaning": "Position index before log table",
+      "exact_meaning": true,
+      "cases": [
+        "T01-01",
+        "T02-01",
+        "T03-01",
+        "T06-02",
+        "T07-04",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-011",
+      "canonical_meaning": "Missing comma before incident PK",
+      "exact_meaning": true,
+      "cases": [
+        "T01-01",
+        "T02-01",
+        "T03-02",
+        "T07-04",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "RAC-A-012",
+      "canonical_meaning": "Public EXECUTE also grants maintenance access",
+      "exact_meaning": true,
+      "cases": [
+        "T05-01",
+        "T07-02",
+        "T08-03"
+      ]
+    },
+    {
+      "id": "LOG-OPEN-01",
+      "canonical_meaning": "Broader bug/dead-code/performance review",
+      "exact_meaning": true,
+      "cases": [
+        "T02-02"
+      ]
+    },
+    {
+      "id": "LOG-OPEN-02",
+      "canonical_meaning": "Oracle 19c runtime/privileges",
+      "exact_meaning": true,
+      "cases": [
+        "T02-02",
+        "T03-03",
+        "T03-04",
+        "T05-01",
+        "T08-01",
+        "T08-02"
+      ]
+    },
+    {
+      "id": "LOG-OPEN-03",
+      "canonical_meaning": "Installer 003 defect review",
+      "exact_meaning": true,
+      "cases": [
+        "T02-01"
+      ]
+    },
+    {
+      "id": "LOG-OPEN-04",
+      "canonical_meaning": "Backup/restore API comparison",
+      "exact_meaning": true,
+      "cases": [
+        "T04-03"
+      ]
+    },
+    {
+      "id": "LOG-OPEN-05",
+      "canonical_meaning": "Consumers, versions, install order",
+      "exact_meaning": true,
+      "cases": [
+        "T01-02",
+        "T04-01",
+        "T04-02",
+        "T04-03",
+        "T08-01"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "test_id": "T01-01",
+      "category": "T01",
+      "mode": "OFF",
+      "requirements": [
+        "RAC-A-010",
+        "RAC-A-011"
+      ],
+      "procedure": "verify_static.py",
+      "preparation_status": "STATIC_PREPARED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Git read access only; no DB; reviewed full head",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Six exact DEV blobs; baseline/frozen trees preserved; exactly moved identical index plus comma",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; git object comparison and static_report.json; stop on any hash/tree/diff mismatch",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; git object comparison and static_report.json; stop on any hash/tree/diff mismatch",
+      "cleanup": "No DB cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T01-02",
+      "category": "T01",
+      "mode": "OFF",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "api_inventory.json",
+      "preparation_status": "STATIC_PREPARED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Pinned source; consumer inventory still UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Public SPEC/BODY preserved; all declarations/defaults enumerated and 45 LOG variants linked",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Compare API inventory against SPEC; stop on signature/default drift",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Compare API inventory against SPEC; stop on signature/default drift",
+      "cleanup": "No DB cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T02-01",
+      "category": "T02",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-010",
+        "RAC-A-011",
+        "LOG-OPEN-03"
+      ],
+      "procedure": "scripts/10_install.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "G01-G09, empty disposable TETOOLS, snapshot; INSTALL and READ cases separately permitted",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Empty owner; no unexpected SQL/SP2 errors; package VALID; expected unique indexes and enabled/validated PKs",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 00 fresh inventory; source includes; 20 assertions; per-run CREATE spool; stop any error/old object",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 00 fresh inventory; source includes; 20 assertions; per-run CREATE spool; stop any error/old object",
+      "cleanup": "DBA restore after any DDL failure, never ROLLBACK-only recovery",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T02-02",
+      "category": "T02",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-01",
+        "LOG-OPEN-02",
+        "RAC-A-003"
+      ],
+      "procedure": "scripts/20_T02_compile.sql; procedures.md#compile-warnings",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "DBA direct grants; compiler settings and optional recompile GO still UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "No unresolved dependencies; every warning classified/approved; installed source matches approved exports",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; USER_ERRORS ATTRIBUTE and USER_DEPENDENCIES exports; compare warning allowlist, currently empty; no silent warning PASS",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; USER_ERRORS ATTRIBUTE and USER_DEPENDENCIES exports; compare warning allowlist, currently empty; no silent warning PASS",
+      "cleanup": "No recompile without separate DDL authorization",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-01",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-010"
+      ],
+      "procedure": "scripts/30_T03_functional.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Installed source, fresh marker, sequence; dedicated clean client",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "One positive tuple stored, duplicate rejected; two NULL-batch single rows allowed; caller DML rolled back",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Counts and DUP_VAL_ON_INDEX exact handler; fail accepted duplicate/missing singles",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Counts and DUP_VAL_ON_INDEX exact handler; fail accepted duplicate/missing singles",
+      "cleanup": "ROLLBACK own inserts; autonomous registration/sequence consumption persist; DBA reconciliation",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-02",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-011"
+      ],
+      "procedure": "scripts/31_T03_incident.sql; fixtures.md#incident",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "ALWAYS identity; no explicit identity override or source ALTER permitted",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Actual incident PK metadata correct; valid actual insert and NOT NULL failures; real duplicate-PK demonstration requires separate approved method",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 31 proves metadata only; fixture design includes real identity omission and typed clone as separate evidence; stop unsupported/unsafe method",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 31 proves metadata only; fixture design includes real identity omission and typed clone as separate evidence; stop unsupported/unsafe method",
+      "cleanup": "ROLLBACK ordinary incident fixtures; no identity/source changes; DBA clone teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-03",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/30_T03_functional.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Current true SID/SERIAL#/AUDSID/logon_time; no fake session metadata",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Guard row=1 and exactly one current physical-session/config pair",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 30 current-session/config assertion; config toggles also in42; fail 0/multiple pairs",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 30 current-session/config assertion; config toggles also in42; fail 0/multiple pairs",
+      "cleanup": "Retain autonomous session/config until approved teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T03-04",
+      "category": "T03",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/42_T04_configuration.sql; procedures.md#configuration",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Fixture/config owner; full filter/batch expected cases still need sign-off",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "TABLE writes once; SCREEN token visible and no TABLE write; OFF suppresses; context/callstack filters and batch positions match source",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 42 core assertions + per-run spool; manual filter/batch matrix exact in procedures; stop unexpected target",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 42 core assertions + per-run spool; manual filter/batch matrix exact in procedures; stop unexpected target",
+      "cleanup": "BACKUP/RESTORE five-character key; assert configuration; DBA log cleanup",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-01",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/40_T04_regression.sql; scripts/41_T04_overloads.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Configured TABLE+debug ON; baseline source/API inventory",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Version/help source tokens reviewed; each ordinary VARCHAR2 procedure/function has correct row/return",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 40 smoke is explicitly not PASS alone;41 individual output/return assertions; help spool comparison",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 40 smoke is explicitly not PASS alone;41 individual output/return assertions; help spool comparison",
+      "cleanup": "Restore original config; retain autonomous proof",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-02",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/41_T04_overloads.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "SOURCE API only; no LOG_DEBUG_FORCE; clean run prefix; TABLE+debug ON",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "36 typed procedures+9 functions each exact category/text/single metadata; every function return=1; DATE default exact",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 45 per-overload row assertions and 9 immediate return assertions; negative missing/duplicate/wrong output stops",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 45 per-overload row assertions and 9 immediate return assertions; negative missing/duplicate/wrong output stops",
+      "cleanup": "RESTORE on success/failure; preserve original error if restore fails; DBA reconcile",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T04-03",
+      "category": "T04",
+      "mode": "SI",
+      "requirements": [
+        "LOG-OPEN-04",
+        "LOG-OPEN-05",
+        "RAC-A-008",
+        "RAC-A-009"
+      ],
+      "procedure": "scripts/42_T04_configuration.sql; procedures.md#configuration",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Five-character keys; separate purge authorization; historical proposal027 not production source",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Backup/restore state preserved, nesting/wrong key denied; clear scope/retention and proposal027 comparison explicit",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 42 core restore; remaining manual negative/config/clear/027 protocol; no blanket clear or accepted incompatibility",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 42 core restore; remaining manual negative/config/clear/027 protocol; no blanket clear or accepted incompatibility",
+      "cleanup": "Restore config; DBA recovery for authorized destructive scope probe",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-01",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-003",
+        "RAC-A-012",
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/50_T05_security.sql; scripts/53_T05_positive_consumer.sql; scripts/54_T05_negative_consumer.sql; procedures.md#security",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "OWNER, POSITIVE, NEGATIVE, OBSERVER, RECOVERY identities separately pinned; no ANY grants",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Direct grants/DEFINER proven; positive consumer works; negative principal denied; maintenance authority separately evaluated",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 50 owner assertions; separate-client dynamic SQL denial test and owner-filtered observer exports per protocol; no owner-as-negative; 53 positive return and 54 dynamic exact denial probes supplied; maintenance-scope and actual grant roles remain BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 50 owner assertions; separate-client dynamic SQL denial test and owner-filtered observer exports per protocol; no owner-as-negative",
+      "cleanup": "DBA restores test-only grants only under separate GO",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-02",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C01"
+      ],
+      "procedure": "scripts/52_C01_fixture.sql; scripts/51_C01_caller_rollback.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Separate fixture-DDL approval; clean dedicated client; unique marker; setup before business INSERT",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Business tag absent after rollback AND one correct autonomous log row survives for exact session/tag",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 51 asserts both halves, category/text/session and config restore; independent observer confirms persistence",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 51 asserts both halves, category/text/session and config restore; independent observer confirms persistence",
+      "cleanup": "ROLLBACK business; retain log row until evidence signed; DBA fixture teardown",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-03",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C02",
+        "RAC-A-005"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Exact non-source-edit fault mechanism, observer and recovery not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Atomic session/config management despite approved intermediate failure; guard free after rollback",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Snapshot both tables+guard; exact injection point; independent committed-state and lock probe; no fixture => BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Snapshot both tables+guard; exact injection point; independent committed-state and lock probe; no fixture => BLOCKED",
+      "cleanup": "Disable fault, release locks, approved config restoration then DBA reconcile",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-04",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C03",
+        "RAC-A-005"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Fault mechanism/diagnostic expected ID and fallback observer not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Diagnostic incident/backtrace persists after management rollback; diagnostic failure bounded",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Distinct management rollback and diagnostic failure phases, independent commits and backtrace; no fault approval => BLOCKED",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Distinct management rollback and diagnostic failure phases, independent commits and backtrace; no fault approval => BLOCKED",
+      "cleanup": "Remove fault; reconcile incident/log/config with snapshot",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-05",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C04"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Three reversible fixtures and exact expected SQLCODE/message contracts not approved",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Incidental registration, session-wide and fallback failures have distinct expected classification/feedback",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Separate scenario IDs, SQLCODE/backtrace/stdout/table evidence; no classification by generic ORA presence",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Separate scenario IDs, SQLCODE/backtrace/stdout/table evidence; no classification by generic ORA presence",
+      "cleanup": "Restore each fixture before next class; stop leaked fault",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-06",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C05"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved failure-class x API matrix; normal-callability41 does not satisfy this contract",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Runtime incidental best effort; INFO/WARNING internal handling; ERROR/DEBUG/FORCE user+application feedback; proc+func",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; One outcome assertion for each API/function and fault class; caller may handle error but record it",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; One outcome assertion for each API/function and fault class; caller may handle error but record it",
+      "cleanup": "No source patch to simulate acceptance; restore fixture after each cell",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T05-07",
+      "category": "T05",
+      "mode": "SI",
+      "requirements": [
+        "C06"
+      ],
+      "procedure": "procedures.md#c02-c06",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "External watchdog, cancellation principal, resource/time thresholds and recovery approved beforehand",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Logger+diagnostic failure bounded without recursion/resource exhaustion",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Observe stack/error and process resources outside tested logger; watchdog timeout is FAIL",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Observe stack/error and process resources outside tested logger; watchdog timeout is FAIL",
+      "cleanup": "Stop injected fault first; cancel only approved test session; DBA recover",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-01",
+      "category": "T06",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-005"
+      ],
+      "procedure": "scripts/61_T06_guard_client_A.sql; scripts/62_T06_guard_client_B.sql; scripts/63_T06_guard_release_A.sql; scripts/64_T06_guard_reacquire_B.sql",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Two real clients; observer; DBA upper time bound/watchdog and maximum hold window still required",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "A holds; B exact ORA-30006 after WAIT5; no other error; A rollback; B reacquires; all sessions/timing correlated",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; A_HOLD barrier, B exact local handler/timestamps, A_RELEASED, B reacquire; deadlock/unexpected acquire fail",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; A_HOLD barrier, B exact local handler/timestamps, A_RELEASED, B reacquire; deadlock/unexpected acquire fail",
+      "cleanup": "Rollback both original sessions; observer confirms no guard lock",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-02",
+      "category": "T06",
+      "mode": "SI",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-010"
+      ],
+      "procedure": "procedures.md#uniqueness",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved common tuple allocated once, coordinator timing and marker-cleanup fixture required",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Ten isolated two-client same-positive-key trials: one commit, one ORA-00001; no duplicates",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; First writer inserts/holds; second blocks; first commit; second exact duplicate; swap roles and repeat",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; First writer inserts/holds; second blocks; first commit; second exact duplicate; swap roles and repeat",
+      "cleanup": "One winner commit persists; loser rollback; DBA deletes only approved captured test IDs after evidence",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T06-03",
+      "category": "T06",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-006",
+        "RAC-A-007"
+      ],
+      "procedure": "procedures.md#performance",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Matched load/clock, baseline, row counts, metric rights/licensing and numeric thresholds UNVERIFIED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "p50/p95,throughput,metadata lookups,commits,redo/waits and ORDER-sequence cost within approved baseline thresholds",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 30+ matched trials, normal/force,batch/single,1/2/3 clients; report outliers and transaction costs",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 30+ matched trials, normal/force,batch/single,1/2/3 clients; report outliers and transaction costs",
+      "cleanup": "Stop at approved cap; retain logs; no unapproved performance claim",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-01",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-002",
+        "RAC-A-003"
+      ],
+      "procedure": "scripts/70_T07_rac.sql; procedures.md#rac",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Three service clients, GV$ observer grants, database clock capture",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Three distinct real INST_ID; same approved DB/PDB/CON_ID; service map and complete physical-session keys",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 70 each node + observer GV$SESSION serial/logon/instance map; fewer than3/missing visibility fails",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 70 each node + observer GV$SESSION serial/logon/instance map; fewer than3/missing visibility fails",
+      "cleanup": "Disconnect only after downstream liveness/failover evidence retained",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-02",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-001",
+        "RAC-A-003",
+        "RAC-A-012"
+      ],
+      "procedure": "procedures.md#remote-purge",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Disposable RAC3; approved future before_in cutoff; identity collision excluded; separate purge/negative principal GO",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Nonzero true live remote rows are age-eligible candidates before purge and survive; visibility-denial fails safe",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Exact pre-candidate age predicate and GV$ liveness; count>0 per remote node; explicit cutoff+snapshot; no action without DBA GO",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Exact pre-candidate age predicate and GV$ liveness; count>0 per remote node; explicit cutoff+snapshot; no action without DBA GO",
+      "cleanup": "Stop on any live-row loss; no rerun; DBA restore/reconcile autonomous deletes",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-03",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-002",
+        "RAC-A-008"
+      ],
+      "procedure": "procedures.md#failover",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved service/driver/replay plan and DBA action; no restart commands supplied",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Before/after SID,SERIAL#,AUDSID,INST_ID,CON_ID,logon/service and logical ID traced; restored config/replay behavior explicit",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Separate disconnect,reconnect,failover,replay scenarios; source has no persisted INST_ID; mismatch => FAIL or separate change proposal",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Separate disconnect,reconnect,failover,replay scenarios; source has no persisted INST_ID; mismatch => FAIL or separate change proposal",
+      "cleanup": "DBA returns services and clients; no silent session remapping",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T07-04",
+      "category": "T07",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-004",
+        "RAC-A-010",
+        "RAC-A-011"
+      ],
+      "procedure": "procedures.md#uniqueness",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Shared tuple,three pinned nodes,serialized winner protocol; actual incident duplicate remains BLOCKED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Three-node same tuple: one committed winner and two exact duplicates; incident evidence separately qualified",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; Reuse uniqueness protocol with3 clients; capture each outcome and committed count; clone not actual PK proof",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; Reuse uniqueness protocol with3 clients; capture each outcome and committed count; clone not actual PK proof",
+      "cleanup": "Rollback losers,DBA cleanup winner; reconcile all3 nodes",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-01",
+      "category": "T08",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "LOG-OPEN-02",
+        "LOG-OPEN-05"
+      ],
+      "procedure": "scripts/80_T08_evidence.sql; procedures.md#evidence",
+      "preparation_status": "CORRECTED_PENDING_REVIEW",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Approved evidence directory/run IDs; no existing spool overwrite; reviewer signs",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "28 cases uniquely recorded; all runtime fields actual; artifacts/source/script hashes verified; no unexpected SP2/ORA/PLS",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 80 exports plus results_template.csv and SHA256 bundle; every partial/blocked case remains explicit",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 80 exports plus results_template.csv and SHA256 bundle; every partial/blocked case remains explicit",
+      "cleanup": "Evidence immutable; no secrets/credentials in Git",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-02",
+      "category": "T08",
+      "mode": "SI/RAC3",
+      "requirements": [
+        "LOG-OPEN-02"
+      ],
+      "procedure": "scripts/90_cleanup.sql; procedures.md#recovery",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "DBA recovery owner/RTO/snapshot and destructive action approval missing",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "Approved restore or disposable teardown rehearsed; objects,data,grants,locks reconciled with before inventory",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; 90 refuses execution; DBA external runbook with independent observer proves restoration",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; 90 refuses execution; DBA external runbook with independent observer proves restoration",
+      "cleanup": "DDL implicit commits/autonomous data cannot be recovered by caller ROLLBACK",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    },
+    {
+      "test_id": "T08-03",
+      "category": "T08",
+      "mode": "RAC3",
+      "requirements": [
+        "RAC-A-001",
+        "RAC-A-002",
+        "RAC-A-003",
+        "RAC-A-004",
+        "RAC-A-005",
+        "RAC-A-006",
+        "RAC-A-007",
+        "RAC-A-008",
+        "RAC-A-009",
+        "RAC-A-010",
+        "RAC-A-011",
+        "RAC-A-012"
+      ],
+      "procedure": "procedures.md#acceptance",
+      "preparation_status": "BLOCKED",
+      "execution_status": "NOT_EXECUTED",
+      "prerequisites": "Different independent reviewer; DBA G01-G08; G09 currently NOT_GRANTED",
+      "privileges": "See privileges.md; no new grants authorized; G01-G09 required for DB",
+      "fixtures": "See fixtures.md and procedure; fresh run/client marker; no shared/production data",
+      "expected": "All8 categories+6 contracts have reviewed actual evidence; P1 resolved; independent review and central release decisions",
+      "negative_and_stop": "Fail on mismatch, unexpected ORA/PLS/SP2, unintended commit, wrong identity, lost remote row or missing proof; No full PASS/RAC_READY from static correction or manual design; exact reviewed head is mandatory",
+      "evidence": "RUN_CLIENT_TEST_STAGE.log (CREATE), results row, environment/source/script pins, observer evidence; No full PASS/RAC_READY from static correction or manual design; exact reviewed head is mandatory",
+      "cleanup": "Handover open dependencies; no merge by implementer",
+      "approval": "G09 NOT_GRANTED; separate environment/case/operation GO required"
+    }
+  ],
+  "limits": [
+    "Full supplier Git-backed CLI NOT_EXECUTED; independent checks and unit tests rerun",
+    "JSON Schema NOT_EXECUTED; stdlib validator version from actual main",
+    "Oracle SQL/PLSQL, clients, RAC, performance and recovery NOT_EXECUTED"
+  ],
+  "review": "M2-LOGGER-A",
+  "pr_base": "28adcf32d04f6f6e7d0e2551010abb30f1c974c5",
+  "actual_main": "68be6896a0859023c9d6f1de22b2cad43b79ab73",
+  "supplier_code_commit": "d2f42960c259d5a4801511b7fd26b8c50dff6665",
+  "code_to_final_changed_paths": [
+    "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+    "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+    "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json"
+  ],
+  "pr_files_match_tree": true,
+  "changed_since_historical": [
+    "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+    "COMMUNICATION_RELAY/SESSION_REGISTRY.json",
+    "modules/ADMIN_LOGGER/OPEN_POINTS.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/README.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/STATIC_VERIFICATION.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/blocked_dependencies.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/correction_matrix.md",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/scripts/00_post_install.sql",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/static_evidence.json",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_post_install.py",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/test_static_guards.py",
+    "modules/ADMIN_LOGGER/tests/step4_20261109_001/verify_static.py"
+  ],
+  "pins_current_main_match": true,
+  "current_main_relay_validator": [
+    "PASS: 44 sessions; 125 changes; required files present",
+    "PASS: 37 sessions; 120 changes; required files present"
+  ],
+  "json_schema": "NOT_EXECUTED — pinned jsonschema 4.26.0 unavailable",
+  "mergeable_state": "dirty",
+  "concurrent_registers": [
+    "COMMUNICATION_RELAY/CHANGE_REGISTER.json",
+    "COMMUNICATION_RELAY/SESSION_REGISTRY.json"
+  ],
+  "historical": {
+    "head": "613f294cba8242c8fa1ff288b5d86653e52f4830",
+    "verdict": "FAIL",
+    "pr": 108
+  },
+  "findings": {
+    "LGR4-01": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-02": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-03": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-04": "BLOCKED",
+    "LGR4-05": "BLOCKED",
+    "LGR4-06": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-07": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-08": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-09": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-10": "BLOCKED",
+    "LGR4-11": "BLOCKED",
+    "LGR4-RR-01": "CORRECTION_SUPPORTED_STATIC_ONLY",
+    "LGR4-RR-02": "SUPPORTED_CURRENT_AUDIT_HISTORICAL_WORDING_REMAINS"
+  },
+  "gates": [
+    "G01 UNVERIFIED",
+    "G02 UNVERIFIED",
+    "G03 UNVERIFIED",
+    "G04 PARTIAL_SOURCE_EVIDENCE_ONLY",
+    "G05 BLOCKED",
+    "G06 UNVERIFIED",
+    "G07 UNVERIFIED",
+    "G08 UNVERIFIED",
+    "G09 NOT_GRANTED"
+  ],
+  "review_scope": "F1 STATIC_TEST_PREPARATION ONLY",
+  "dependency_status": "11 BLOCKED"
+}

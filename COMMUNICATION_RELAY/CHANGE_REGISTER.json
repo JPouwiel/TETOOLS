@@ -3102,6 +3102,27 @@
         "https://github.com/JPouwiel/TETOOLS/commit/d2f42960c259d5a4801511b7fd26b8c50dff6665"
       ],
       "note": "Correction self-verification, not independent acceptance; historical FAILs retained. LGR4-04/05/10/11 and C02-C06 BLOCKED; G01-G08 open, G09 NOT_GRANTED. Existing LOGGER-RAC signal/Issue55 retained; independent full-head review requested after final branch publication; no merge/main claim."
+    },
+    {
+      "change_id": "LOGGER-M2-B-D02-D03-20261113-001",
+      "record_type": "DECISION",
+      "project": "PLSQL_TETOOLS",
+      "module": "ADMIN_LOGGER",
+      "subject": "M2-LOGGER-B — voorstel D02 functionele compatibiliteit en D03 BACKUP/RESTORE-identiteit",
+      "status": "PROPOSED",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6796817880",
+      "origin_session": "ADMIN_LOGGER-REGIE-20261104-01",
+      "recorded_by_session": "01a1d4b4-f24c-7fd3-b9fe-d0585d3fa900",
+      "approval_actor": "TETOOLS__REGIE — besluit open",
+      "recorded_at": "2026-11-13",
+      "revision": "001",
+      "supersedes": null,
+      "artifact_refs": [
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_M2_LOGGER_B_20261113.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851787812",
+        "COMMUNICATION_RELAY/SUITE_PROJECT_PLAN.md"
+      ],
+      "note": "Ontwerp en regressiecriteria. D02/D03 wachten op besluit. D04/D11 alleen voor raakvlakken. Suite-RAC-onderzoek via bestaande LOGGER-RAC-20261105-001. Oracle NOT_EXECUTED; G09 NOT_GRANTED."
     }
   ]
 }

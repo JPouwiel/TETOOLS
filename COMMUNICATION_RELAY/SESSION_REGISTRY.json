@@ -1194,6 +1194,31 @@
       "open_dependencies": [],
       "current_activity": null,
       "note": "Afmelding 2026-11-11 door TETOOLS__REGIE. Actuele ontvangst, resultaat en eigenaarschap in SESSIONS/REGIE/20261111_SESSION_CLOSURE_BATCH.md."
+    },
+    {
+      "session_id": "01a1d4b4-f24c-7fd3-b9fe-d0585d3fa900",
+      "role": "CODEX",
+      "module": "ADMIN_LOGGER",
+      "subject": "M2-LOGGER-B — ontwerp D02 en D03 onder bestaande ADMIN_LOGGER__REGIE",
+      "revision": "001",
+      "status": "COMPLETED",
+      "retention_status": "KEEP",
+      "registered_at": "2026-11-13",
+      "last_confirmed_at": "2026-11-13",
+      "source_reference": "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851787812",
+      "recorded_by": "01a1d4b4-f24c-7fd3-b9fe-d0585d3fa900",
+      "deliverables": [
+        "modules/ADMIN_LOGGER/docs/reports/ADMIN_LOGGER_M2_LOGGER_B_20261113.md",
+        "https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851787812"
+      ],
+      "open_dependencies": [
+        "Centrale besluitvorming D02 en D03 en ontvangst door bestaande ADMIN_LOGGER__REGIE via Issue #104",
+        "Versiegebonden D04-consumerbewijs en D11-maintenanceautorisatie voor de geraakte scenario's",
+        "Gerichte G01–G08-bewijsvoorbereiding per testcase; G09 NOT_GRANTED",
+        "PR-review, eventuele latere merge en main-readback"
+      ],
+      "current_activity": null,
+      "note": "Afgebakende ontwerpopdracht voltooid op de PR-branch; centrale beoordeling en moduleontvangst staan open. Regie blijft bij ADMIN_LOGGER-REGIE-20261104-01. Oracle NOT_EXECUTED."
     }
   ]
 }

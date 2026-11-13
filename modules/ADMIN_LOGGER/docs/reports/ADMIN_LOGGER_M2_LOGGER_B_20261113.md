@@ -66,3 +66,91 @@ De private snapshot maakt geen duurzame instance/containerherkomst voor bestaand
 - **Gerichte voorbereiding:** de gebruiker vervult volgens Issue #104 de coördinatie- en beheerrollen. DBA levert gevalideerde identiteit/zichtbaarheid, isolatie, seed- en racefixture; security levert proxy-/poolvoorwaarden, effectieve rechten en minimale leestoegang. Een aparte observer registreert alleen doelconfig-, sessie-, log- en incidentrijen vóór/na met run-ID en exacte identiteit via begrensde leestoegang. Cachegedrag volgt uit gecontroleerde aanroepoutput en volgende logregel in dezelfde client. Herstelbeheer levert per fixture prestate, opruim-/herstelhandeling, verantwoordelijke en verificatie van herstel en guard-vrijgave. Bij mislukte verificatie blijft de fixture uit gebruik. Consumer-eigenaren leveren versiegebonden named calls en pool/driver/replaygedrag. ADMIN_LOGGER__REGIE koppelt het bewijs aan T03-04, T04-01/02/03, T05-01 en C01–C06; TETOOLS__REGIE beslist over de geselecteerde PoC en later G09. [Rolverdeling](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6798085042) · [Observatie en herstel](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6850795109) · [PoC-werklijst](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851219873) · [F1 casebook](../../tests/step4_20261109_001/casebook.md).
 
 Eerste wijzigingsvoorstel na goedkeuring: private D03-lookup/snapshot, guarded saver en gerichte backupinvalidatie, plus de smalle D02-foutclassificatie in beide interne LOG-paden zodra de concrete oorzaken en feedbackcriteria beslisbaar zijn. Behoud D02-routing, batch- en retentiegrenzen. D04/D11 en RAC-clear blijven gekoppelde voorwaarden voor de betreffende acceptatie. Statische bronlezing en GitHub-publicatiecontrole horen bij deze oplevering. Oracle-compilatie, functionele/regressie-, security/transactie-, performance/concurrency-, RAC- en hersteltests zijn NOT_EXECUTED. G09 NOT_GRANTED. Onafhankelijke beoordeling en ontvangst door bestaande regie staan open.
+
+---
+
+## Revisie 002 — 13 november 2026: opvolging centrale review 6851989119
+
+**Herkomst en status.** De centrale beoordeling [Issue #104, comment 6851989119](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851989119) accepteert D02-compatibiliteitsbaseline en D03-ontwerprichting, maar vereist onderstaande gerichte verduidelijkingen. Revisie 001 blijft hierboven intact. **PROPOSED / DESIGN_ONLY; geen implementatie-, merge- of G09-vrijgave.** Eerste ontwerpdoel is single-instance 19c EE; RAC-validatie is afzonderlijk.
+
+### A. D02: geldige compatibiliteit en precieze F03-uitkomsten
+
+**Behoud.** Publieke SPEC, overloads/defaults/named notation, filter en debugoverride, FORCE-routing, batchaliassen/posities, retentiegrenzen en persistente actieve-batchuitzondering blijven regressiebaseline. Succesvolle functie-return 1 betekent *normale voltooiing*, ook wanneer filtering de logging onderdrukt of een **expliciet toegestane** incidentele fout best-effort is afgehandeld; geen garantie van duurzame primaire opslag. Clear-RAC-liveness en onderhoudsautorisatie zijn niet opgenomen in de eerste BODY-wijziging; D11 en #55 blijven open.
+
+**Fasegerichte classificatie — voorstel voor een gesloten allowlist.**
+
+| Fase | Klasse en vereist bewijs | Contract |
+|---|---|---|
+| P0: initialisatie/validatie | Sessie, registratie, config, guard/eigenaarschap, routing, target, datatype/conversie en batchinvariant | Elke fout is *hard*: oorspronkelijke exception behouden. |
+| P1: primaire rij-insert | Alleen na geldige sessie/config en uitsluitend een door D05 specifiek per object, oorzaak, fase en SQLCODE bewezen **lokale** registratieverstoring | *INCIDENTAL* alleen indien exact vooraf geautoriseerd. Eenzelfde foutcode in een andere fase is niet incidenteel. |
+| P2: diagnostische fallback | Hoogstens één onafhankelijke, niet-recursieve poging; geen LOG_* of interne LOGGER-paden opnieuw aanroepen | Bewijs RUN-context, uitkomst en afwezigheid recursie; nooit onbeperkt herhalen. |
+| P3: applicatie-/gebruikersfeedback | SQL-exception, functie-uitkomst en daadwerkelijke user-delivery apart vastleggen | DBMS_OUTPUT alleen is geen bewijs dat de gebruiker een bericht heeft ontvangen. |
+
+**Veilige voorlopige beperking:** Er zijn nog geen gevalideerde, toegestane SQLCODE+oorzaak+fasecombinaties. De incidentele **allowlist is voorlopig leeg**. ORA-00001/ORA-01400/ORA-01653 e.d. mogen niet zonder fixturebewijs als onschuldige rijverstoring worden aangemerkt. Een feitelijke incidentele klasse kan pas na D05-fixturebeoordeling apart besloten worden; een blanket WHEN OTHERS => return 1 is uitgesloten.
+
+| Oorzaak / feedback | RUNTIME-functie | INFO/WARNING | ERROR/DEBUG/alle FORCE | Regressiebewijs |
+|---|---|---|---|---|
+| Geen fout of gefilterd | Return 1, ongeacht primaire rij | Normale afhandeling | Bestaande filter-/FORCE-routing; geen ongegronde foutmelding | T04-01/02: flag/target/rij/return onafhankelijk toetsen |
+| Hard P0, onbekend of sessiebreed | Oorspronkelijke exception | Oorspronkelijke exception | Oorspronkelijke exception **plus** begrijpelijke gebruikersmelding | C04/C05, beide interne schrijfvarianten; SQLCODE/backtrace en user-delivery |
+| Bewezen incidentele P1, P2 geslaagd | Normale afronding, return 1; primaire rij mogelijk ontbreekt | Normale afronding | Oorspronkelijke exception plus gebruikersfeedback; fallbackbewijs apart | C03–C05: exact één fallback, geen primary retry, observeer diagnose |
+| Bewezen incidentele P1, P2 faalt | Oorspronkelijke P1-exception, geen return 1 | Oorspronkelijke P1-exception | Oorspronkelijke P1-exception plus beste poging tot gebruikersmelding | C03/C05/C06: P1-oorzaak niet door fallback- of feedbackfout vervangen |
+| P2 slaagt maar user-feedback P3 faalt | Als geen userfeedback vereist is: best-effort volgens klasse | Idem | Originele P1-exception blijft; end-to-end gebruikersfeedback **FAIL/BLOCKED** | Negatieve client zonder DBMS_OUTPUT; notifier/adapter afwezig of defect |
+
+**Aanroepersverantwoordelijkheid.** Voor elk werkelijk gebruikt ERROR/DEBUG/FORCE-pad moet de consumereigenaar documenteren: module/versie/methode; direct interactieve gebruiker, job of service; exception-handler; welke presentatieadapter de exception vertaalt en **door gebruiker waarneembare** melding levert; DBMS_OUTPUT aan/uit; assertie van ontvangende gebruikersinterface of overeengekomen operationele meldbestemming. Een client die DBMS_OUTPUT niet leest is een verplichte negatieve proef. Als een toepassing alleen de exception ziet en de gebruiker niets, is de gebruikersfeedbackeis niet gehaald, ongeacht de databasecall. Faalde melding mag nooit de primaire exception vervangen. D04 raakt alleen deze werkelijk gebruikte calls; de consumercorrectie zelf valt buiten M2-LOGGER-B.
+
+**Minimale latere D02-code-ingreep:** Binnen de twee bestaande interne LOG-schrijfvarianten dezelfde private classificatieregel en één fallbackpad toepassen; publieke PKS en routing blijven intact. Hergebruik bestaande structuren waar mogelijk en voeg uitsluitend noodzakelijke kleine private hulpstructuur toe. Definitieve allowlist en signaaladapter zijn afzonderlijke beslis-/bewijsvoorwaarden.
+
+### B. D03 BACKUP: één consistente persistente identiteit en configuratie
+
+**Voorgesteld BACKUP-contract.** Eerst niet-mutatieve validatie van vijftekenssleutel, modus, bestaande backup/nesting en fysieke sessietuple; geen implicit session_details-reparatie. Lees daarna **persistente LOGSESSION_ID/CONFIG_ID én alle te bewaren configvelden** met een enkele statement-consistente SELECT over de eenduidige koppeling (exact één passende configrij); leg daarnaast de beschikbare fysieke identiteit vast en verifieer identiteit/eigendom binnen dezelfde gecontroleerde leesperiode. Waar andere coöperatieve writers de rij kunnen wijzigen is de ontwerpvoorkeur een bestaande guard voor de hele snapshot: guard nemen, één SELECT inclusief persistente tuple/config, valideren, guardvrijgave, lokale volledig opgebouwde backup pas na bevestigde succesvolle afsluiting naar package-state publiceren. Beoordeel de lockvolgorde om herentrant deadlocks te voorkomen. Zonder guard is statement-consistentie **geen** bescherming tegen een volgende mutatie vóór RESTORE; dan vereist het ontwerp expliciet aangetoond immutable version-/hercontrolebewijs.
+
+**Cacheconflict.** Vergelijk gelezen logsession/config-ID's, actuele targets, flags, batch-ID en relevante positie-invarianten met de huidige package-cache. De persistente rij is de bron voor de BACKUP-inhoud; cacheafwijking mag niet automatisch worden overschreven of verborgen. Bij niet verklaarbare mismatch: **-20002**, zonder cache-mutatie, persistent DML of backupverbruik. Een eventueel reeds bestaande geldige backup blijft intact. Leg vast dat MAX(log_lines)+1 op een later tijdstip legaal verandert: vergelijk alleen de correcte batchinvariant, niet blind de positie alsof deze immutable is.
+
+**Nog te besluiten:** guard versus bewijsbaar equivalent single-statement-/versiecontract, exacte batchinvariant en wijze waarop bestaande session_details/load_session_details tot non-mutating lookup kunnen worden beperkt. Een eerdere autonome initializer kan reeds effecten hebben; de mutatievrije garantie start na package-initialisatie.
+
+### C. D03 RESTORE: geordende validatie en post-commit-onzekerheid
+
+**Identiteit.** Bij BACKUP en RESTORE moeten alle verplichte, getypeerde componenten niet-NULL en exact overeenkomen: DB_UNIQUE_NAME, CON_ID, INST_ID, SID, SERIAL#, AUDSID, LOGON_TIME, SESSION_USER, LOGSESSION_ID en CONFIG_ID. Alleen optionele PROXY_USER mag aan beide kanten NULL zijn; asymmetrische NULL of ongelijke aanwezige waarde weigert. CURRENT_USER/CURRENT_SCHEMA zijn niet automatisch deel van deze fysieke identiteit; security moet gekozen principalbinding en proxygevallen beoordelen. Bij zichtbare mismatch of ongeldige sleutel/nesting: **contractweigering -20002**. Een technische SELECT-, guard-, DML- of commitfout behoudt eigen oorzaak en mag niet worden omgezet naar -20002.
+
+| Stap | Vóór/na commit, concrete handeling | Gewenst effect |
+|---|---|---|
+| R0 | Vóór DML: mode, key, backup, ID's, fysieke identiteit en persistente registratie **zonder repair** vergelijken | Mismatch: -20002; globale cache en volledige backup vanaf routine-entry ongewijzigd |
+| R1 | Bestaande guard **eenmaal** in autonome saver nemen; dezelfde identity/configrelatie opnieuw checken | Race of contractmismatch: -20002; technische lock/leesfout: originele exception |
+| R2 | Onder guard alle doelvelden en batch MAX+1 in lokale records opbouwen; alle mogelijk falende SQL/validaties vóór commit | Fout: rollback, geen globals wijzigen, backup behouden |
+| R3 | Eén UPDATE met **beide** registratie-ID's, SQL%ROWCOUNT exact 1; ongewenste cardinaliteit weigeren | Contractmismatch: -20002; constraint/technische fout: originele exception; geen halve restore |
+| R4 | Autonome COMMIT onder guard; alleen bevestigd succes betekent persistent herstel | Cache- en backuppublicatie **nooit** vóór bevestigd COMMIT |
+| R5 | Ná succesvol COMMIT uitsluitend eenvoudige, reeds gevalideerde assignments van complete cache en backupclear | Geen extra SQL/logging/UI-actie in dit venster; een onverwachte interrupt laat **UNKNOWN** toestand mogelijk |
+
+**Niet te garanderen:** PL/SQL package-state kan niet atomair met DB-commit worden bijgewerkt. Ook als alle falende berekening vóór COMMIT gebeurt, kan een sessie/verbinding direct daarna wegvallen. Daarom is R5 geen bewijs van één totale transactie. Bij onbekend COMMIT-antwoord of post-commit-fout: geen automatische retry/replay, fysieke verbinding buiten gebruik, een **onafhankelijke** leescontrole van huidige identiteit en exact één persistente configrij; veilige herinitialisatie pas na uitkomstvaststelling. Als de uitkomst niet verifieerbaar is blijft RECOVERY_BLOCKED. Het herstelpad vraagt aangewezen DBA/recoveryowner en een toegestaan readback/runbook.
+
+**Refusal versus invalidatie.** Bij voorspelbare weigering of technische fout vóór bevestigd commit blijven settings/cache, persistente toestand (afgezien van vooraf bestaande fixture-effecten) en *volledige* oude backup gelijk aan de toestand bij routine-entry na initializer. Dat is belangrijk voor herstel na bijvoorbeeld een verkeerde sleutel. Bij bewezen identiteits-/registratiewissel is die oude backup niet meer bruikbaar, maar **RESTORE wist hem bij weigering niet**. Een afzonderlijk succesvol initialisatie-/herinitialisatiepad, dat de nieuwe identiteit en config bewezen valide laadt, invalideert daarna de volledige oude backup (sleutel, targets, flags, batch). Bij mislukte reinitialisatie geen succesvolle invalidatie of schone sessie claimen. De reeds bestaande initializergrens blijft open; zonder aanvullende opdracht geen package-initializerrefactor.
+
+### D. Poolhergebruik: schone persistente baseline en echt herstel
+
+Binnen één exclusieve checkout geldt BACKUP → tijdelijke config → RESTORE → onafhankelijk bevestigde **persistente baseline** → pas daarna poolcheckin. Een identieke fysieke SID en package-state betekenen **niet** dat een nieuwe logische consumer veilig is. Bij open/mislukte backup, fout, feedback-onzekerheid of onbekende COMMIT-uitkomst: markeer de fysieke verbinding als ongeldig en **retire/quarantine** die vóór de volgende checkout. Geen automatische RESTORE-replay.
+
+**Aparte persistente toestand:** een verbinding uitfaseren of package-state resetten bewijst niet dat door autonome LOGGER-transacties gecommitte tijdelijke targets/flags verdwenen zijn. De aangewezen recovery-/DBA-eigenaar bepaalt in een afzonderlijk, expliciet toegestaan herstelpad welk (LOGSESSION_ID,CONFIG_ID) bij de gestopte checkout hoort, wat de goedgekeurde oorspronkelijke persistente waarden zijn en welke guard, rowcount, herstel-/observer-readback en rollback-/rebuildstrategie gebruikt worden. Is die baseline onbekend of het resultaat ambigu, dan blijft **RECOVERY_BLOCKED**, zonder schemawide clear, delete of aannames over caller-ROLLBACK. De oude fysieke verbinding komt niet terug in de pool zonder gecontroleerde schoonverklaring.
+
+**Gerichte D04-driverproeven:** bevestig bij de werkelijk gebruikte pool/driver de exclusieve checkout, transaction boundaries, connect-/session reset, logische principal/context, OCI/JDBC/ODP.NET versie voor zover van toepassing, callback/labeling, DBMS_OUTPUT-aanwezigheid en failover/replaybeleid. Test A→B op dezelfde fysieke sessie na schoon einde, A→B met vergeten RESTORE (B mag A-config niet zien) en een daadwerkelijke reconnect (oude packagebackup niet migreerbaar). RAC-instancemigratie blijft apart.
+
+### E. Centrale reviewpunten, ontwerpuitkomst en blokkade
+
+| Centrale eis uit 6851989119 | Ontwerpuitkomst in revisie 002 | Openstaand bewijs / wie aan zet |
+|---|---|---|
+| D02 publieke compatibiliteit, return 1 | Baseline behouden, return 1 gedefinieerd zonder durable-writeclaim | Module T04/T05; runtime G09 NOT_GRANTED |
+| D02 fasegerelateerde incidentele fout | P0–P3, lege allowlist tot specifieke D05-fixture, één niet-recursieve fallback, originele exception behouden | Module/DBA D05 SQLCODE/fase/target, BLOCKED |
+| D02 app- én gebruikersfeedback | Alle klassen en fallbackfailurematrix, client zonder DBMS_OUTPUT, notifier-ontvangst moet bewezen worden | Echte D04-consumereigenaren/UI-adapters ontbreken |
+| D03 BACKUP atomische snapshot | Eén consistente tuple+settings SELECT, guarded ontwerpvoorkeur, cachemismatch -20002 zonder repair | Module bron-diff en DBA lock-/batchbewijs |
+| D03 RESTORE grenzen | R0–R5, exact één ID-gebonden UPDATE, commit vóór cachepublicatie, UNKNOWN bij interrupt | DBA/recovery observer/runbook, G09 NOT_GRANTED |
+| D03 refusal/initialisatie | -20002 met behoud vanaf entry; oude backup invalidatie uitsluitend na succesvolle aparte herinit | Initializergrens en negatieve tests open |
+| Pool/reconnect en persistente restconfig | Exclusieve checkout, persistente readback, uitfasering en afzonderlijk herstelplan | Consumer/DBA/recovery owner + daadwerkelijke driverproeven open |
+| D04/D11 raakvlakken | Geen bredere maintenance/consumeropdracht; alleen betrokken calls, feedback, pool/rechten | Deployment/actorbewijs ontbreekt; D04/D11 open |
+
+**Concrete beslisvragen voor TETOOLS__REGIE:**
+1. Akkoord met D02 P0–P3 en lege incidentele allowlist totdat D05 bewijs de kleinste veilig toegestane oorzaak/fase oplevert? Welke echte consumeradapter is verantwoordelijk voor ERROR/DEBUG/FORCE-gebruikersfeedback?
+2. Akkoord met guarded BACKUP-snapshot met statement-consistente tuple/config en fail-closed bij cacheafwijking, inclusief bewijsplicht batchinvariant en lockvolgorde?
+3. Akkoord met R0–R5, oorspronkelijke exceptions, -20002 als contractweigering en UNKNOWN als expliciet recoverygeval zonder retry? Wie wordt verifier/herstelowner?
+4. Akkoord met de poolregel: één exclusieve checkout, persistente baseline-readback, retire bij onzekerheid en afzonderlijke scopegebonden herstelcontrole; welke poolversies nemen deel aan single-instance-PoC?
+5. Bevestig dat RAC-clear, D11-maintenance, echte codewijziging en Oracle-uitvoering buiten deze ontwerpopvolging blijven en implementatie pas na apart goedgekeurd ontwerp start.
+
+**Stoppunt:** voorstel en niet meer. Oracle-/RAC-/recovery-/foutinjectietests NOT_EXECUTED; G09 NOT_GRANTED; PR blijft OPEN/DRAFT. Bronrevisie 001 en historische alternatieven blijven behouden.

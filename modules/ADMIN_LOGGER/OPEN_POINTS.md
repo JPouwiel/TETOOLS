@@ -69,3 +69,7 @@ LGR4-04/05/10/11 remain BLOCKED. [Dependency matrix](tests/step4_20261109_001/bl
 ### Opvolging F2-B — 11 november 2026
 
 F1 is gepubliceerd via PR #102. Revisie 002 van het F2-dossier is centraal ontvangen als ontwerp- en bewijsdossier. De gebruiker heeft de coördinatie en de betrokken operationele rollen bevestigd. G01–G08 blijven open voor bewijs. G09 is niet verleend. Zie [centrale beoordeling](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6796817880) en [rolbevestiging](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6798085042).
+
+### M2-LOGGER-B — 13 november 2026
+
+[Ontwerp D02/D03, revisie 001](docs/reports/ADMIN_LOGGER_M2_LOGGER_B_20261113.md), `LOGGER-M2-B-D02-D03-20261113-001` PROPOSED. D02/D03 wachten op TETOOLS__REGIE; ADMIN_LOGGER__REGIE houdt het modulewerk. Gerichte D04/D11-bewijsafhankelijkheden en RAC-clear blijven open. [Ontvangst en beoordeling via #104](https://github.com/JPouwiel/TETOOLS/issues/104#issuecomment-6851787812). Oracle NOT_EXECUTED; G09 NOT_GRANTED.

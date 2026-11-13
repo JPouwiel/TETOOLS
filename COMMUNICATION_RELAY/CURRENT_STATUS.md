@@ -1,6 +1,6 @@
 # Issue #119, deel 2 — vereenvoudigd relayprotocol, 11 november 2026
 
-De taakcyclus, korte GitHub-berichten, mijlpaalovergangen en risicogestuurde controles staan in [RELAY_CONTRACT](RELAY_CONTRACT.md), [MANUAL_HANDOFF](MANUAL_HANDOFF.md) en [OPERATIONS](OPERATIONS.md). Besluitbron: [Issue #119](https://github.com/JPouwiel/TETOOLS/issues/119) en REGIE-CONSOLIDATION-20261111-001. Het suiteprojectplan met de concrete mijlpalen volgt in deel 3.
+De taakcyclus, korte GitHub-berichten, mijlpaalovergangen en risicogestuurde controles staan in [RELAY_CONTRACT](RELAY_CONTRACT.md), [MANUAL_HANDOFF](MANUAL_HANDOFF.md) en [OPERATIONS](OPERATIONS.md). Besluitbron: [Issue #119](https://github.com/JPouwiel/TETOOLS/issues/119) en REGIE-CONSOLIDATION-20261111-001. Het [suiteprojectplan](SUITE_PROJECT_PLAN.md) bevat de mijlpalen en eerste uitvoeringsvolgorde. Het eerstvolgende inhoudelijke werk is het besluitrijpe LOGGER-ontwerp voor D02 en D03.
 
 Hercontrole afsluitmeldingen #115–#118 op basis `cfde9e92cb0f18ac227df3833760cc12090b6835`: de issues bevatten de meldingen, zonder gepubliceerd afrondpakket op main of bijbehorende open PR. De aangetroffen diagnostische afsluitbranches voor #117 en #118 staan nog op de basis van PR #112. Voor sessiesluiting blijft publicatie van de concrete pakketten, teruglezing en ontvangst nodig. De regie bewaart de open punten in [#119](https://github.com/JPouwiel/TETOOLS/issues/119).
 
